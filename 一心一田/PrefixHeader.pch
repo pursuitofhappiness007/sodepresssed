@@ -1,0 +1,39 @@
+//
+//  PrefixHeader.pch
+//  一心一田
+//
+//  Created by xipin on 16/3/7.
+//  Copyright © 2016年 xipin. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import "AFNetworking.h"
+#import "HttpTool.h"
+#import "DataBaseTool.h"
+#import "Fountain+log.m"
+#import "NSDictionary+SafeAccess.h"
+#import "UIView+Extension.h"
+#import "DownLoadImageTool.h"
+#import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
+#import "UIBarButtonItem+Extension.h"
+#import "SaveFileAndWriteFileToSandBox.h"
+#import "DictionaryToJsonStr.h"
+#import "UIView+xibcong.h"
+#import "refreshshoppingcarbadgenum.h"
+
+#define MAIN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define MAIN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define StatusBarH 20
+#define NaviBarH 44
+
+//#define HOST @"http://192.168.199.50:8840/api/"
+
+#define HOST @"http://114.119.39.116:8850/api/"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultsViewController">
+            <connections>
+                <outlet property="amountpriorityBtn" destination="V62-Qc-hOO" id="Wkk-dK-pdP"/>
+                <outlet property="pricelab" destination="etb-FC-meM" id="uST-DU-Ws2"/>
+                <outlet property="titileview" destination="jXN-tu-N0i" id="9FW-1l-1lG"/>
+                <outlet property="tubiaoBtn" destination="tGB-BX-0BH" id="1Dn-R2-7n1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zongheBtn" destination="XOl-Yq-mj9" id="hhp-mT-hxb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXN-tu-N0i" userLabel="uivi">
+                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V62-Qc-hOO">
+                            <rect key="frame" x="95" y="7" width="60" height="30"/>
+                            <state key="normal" title="销量优先">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="amountpirorityBtnClicked:" destination="-1" eventType="touchUpInside" id="t8w-7E-B8y"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etb-FC-meM">
+                            <rect key="frame" x="170" y="13.5" width="30" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCE-1S-WEp">
+                            <rect key="frame" x="170" y="8" width="30" height="30"/>
+                            <state key="normal">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="priceBtnClicked:" destination="-1" eventType="touchUpInside" id="zm0-Ak-hNx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGB-BX-0BH">
+                            <rect key="frame" x="330" y="14" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="IvB-a2-UnR"/>
+                                <constraint firstAttribute="height" constant="15" id="dvr-nJ-kV1"/>
+                            </constraints>
+                            <state key="normal" image="tubiao"/>
+                            <state key="selected" image="liebiao"/>
+                            <connections>
+                                <action selector="tubiaoClicked:" destination="-1" eventType="touchUpInside" id="YWA-iU-hFd"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPy-xw-Y5n" userLabel="topline">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="fLz-9O-4bu"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBF-bi-Okq" userLabel="bottomline">
+                            <rect key="frame" x="0.0" y="43" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="02B-Vf-jdC"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOl-Yq-mj9">
+                            <rect key="frame" x="15" y="7" width="60" height="30"/>
+                            <state key="normal" title="综合排序">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="zongheBtnClicked:" destination="-1" eventType="touchUpInside" id="hSA-Vr-1xn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="oCE-1S-WEp" firstAttribute="leading" secondItem="etb-FC-meM" secondAttribute="leading" id="6Mf-7k-n1h"/>
+                        <constraint firstItem="UBF-bi-Okq" firstAttribute="leading" secondItem="jXN-tu-N0i" secondAttribute="leading" id="6gh-rr-Nzk"/>
+                        <constraint firstAttribute="bottom" secondItem="UBF-bi-Okq" secondAttribute="bottom" id="A0U-gv-6lb"/>
+                        <constraint firstAttribute="trailing" secondItem="BPy-xw-Y5n" secondAttribute="trailing" id="CDP-5W-iU8"/>
+                        <constraint firstItem="XOl-Yq-mj9" firstAttribute="leading" secondItem="jXN-tu-N0i" secondAttribute="leading" constant="15" id="G8x-3V-8D4"/>
+                        <constraint firstItem="V62-Qc-hOO" firstAttribute="top" secondItem="XOl-Yq-mj9" secondAttribute="top" id="J33-Zg-Xj2"/>
+                        <constraint firstItem="BPy-xw-Y5n" firstAttribute="top" secondItem="jXN-tu-N0i" secondAttribute="top" id="MJo-gU-TrW"/>
+                        <constraint firstAttribute="height" constant="44" id="NhA-0W-DAM"/>
+                        <constraint firstAttribute="trailing" secondItem="UBF-bi-Okq" secondAttribute="trailing" id="Q5z-yq-jHe"/>
+                        <constraint firstItem="tGB-BX-0BH" firstAttribute="baseline" secondItem="etb-FC-meM" secondAttribute="baseline" id="Qc6-gO-XCy"/>
+                        <constraint firstAttribute="trailing" secondItem="tGB-BX-0BH" secondAttribute="trailing" constant="30" id="Wcj-5A-gHW"/>
+                        <constraint firstItem="oCE-1S-WEp" firstAttribute="trailing" secondItem="etb-FC-meM" secondAttribute="trailing" id="ZYP-vf-3p1"/>
+                        <constraint firstItem="tGB-BX-0BH" firstAttribute="centerY" secondItem="V62-Qc-hOO" secondAttribute="centerY" id="aaL-Oc-l76"/>
+                        <constraint firstItem="etb-FC-meM" firstAttribute="centerY" secondItem="V62-Qc-hOO" secondAttribute="centerY" id="eu4-mr-C2M"/>
+                        <constraint firstItem="oCE-1S-WEp" firstAttribute="centerY" secondItem="etb-FC-meM" secondAttribute="centerY" id="fuM-al-rae"/>
+                        <constraint firstItem="etb-FC-meM" firstAttribute="leading" secondItem="V62-Qc-hOO" secondAttribute="trailing" constant="15" id="fzR-nh-CVr"/>
+                        <constraint firstItem="XOl-Yq-mj9" firstAttribute="centerY" secondItem="jXN-tu-N0i" secondAttribute="centerY" id="mEx-3p-bF6"/>
+                        <constraint firstItem="BPy-xw-Y5n" firstAttribute="leading" secondItem="jXN-tu-N0i" secondAttribute="leading" id="rtu-vs-ch1"/>
+                        <constraint firstItem="V62-Qc-hOO" firstAttribute="leading" secondItem="XOl-Yq-mj9" secondAttribute="trailing" constant="20" id="wbq-gT-BOT"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Qc6-gO-XCy"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jXN-tu-N0i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="9cd-VI-KB8"/>
+                <constraint firstAttribute="trailing" secondItem="jXN-tu-N0i" secondAttribute="trailing" id="oPU-9N-I3a"/>
+                <constraint firstItem="jXN-tu-N0i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zQI-O5-2Y8"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="139.5" y="160.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="liebiao" width="15" height="15"/>
+        <image name="tubiao" width="15" height="14"/>
+    </resources>
+</document>
