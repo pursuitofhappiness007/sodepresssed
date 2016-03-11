@@ -7,7 +7,7 @@
 //
 
 #import "SearchResultsViewController.h"
-#import "HomeTableViewCell.h"
+#import "GoodLIstTableViewCell.h"
 #import "GoodsDetailViewController.h"
 
 @interface SearchResultsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>{
@@ -33,12 +33,10 @@
 
 - (IBAction)backBtnClicked:(id)sender;
 - (IBAction)filterBtnClicked:(id)sender;
-
-- (IBAction)tubiaoClicked:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *tubiaoBtn;
 - (IBAction)resetBtnClicked:(id)sender;
 - (IBAction)priceareasureBtnClicked:(id)sender;
 
+- (IBAction)lastestBtnClicked:(id)sender;
 
 - (IBAction)priceBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *pricelab;
@@ -93,7 +91,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeTableViewCell *cell=[HomeTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+    GoodLIstTableViewCell *cell=[GoodLIstTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
 }
@@ -265,6 +263,9 @@
     maxprice=_maxpricetf.text;
         [goodslist removeAllObjects];
         [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
+}
+
+- (IBAction)lastestBtnClicked:(id)sender {
 }
 
 - (IBAction)priceBtnClicked:(id)sender {

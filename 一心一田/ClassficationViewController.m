@@ -7,7 +7,7 @@
 //
 
 #import "ClassficationViewController.h"
-#import "HomeTableViewCell.h"
+#import "GoodLIstTableViewCell.h"
 #import "GoodsDetailViewController.h"
 #import "LoginViewController.h"
 #import "SearchViewController.h"
@@ -21,13 +21,16 @@
     int previouscount;
     UITableViewCell *basedcell;
     int totalpage;
+    UIView *redline;
 }
 
 
+- (IBAction)backBtnClicked:(id)sender;
+- (IBAction)searchIconClicked:(id)sender;
+- (IBAction)showMenuBtnClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *menuArrow;
 @property (weak, nonatomic) IBOutlet UITableView *titletableview;
 @property (weak, nonatomic) IBOutlet UITableView *fenleitableview;
-
-@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
 @end
 
@@ -40,20 +43,18 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-  self.navigationController.navigationBarHidden=NO;
+  self.navigationController.navigationBarHidden=YES;
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor grayColor]];
-    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setLeftView:[[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"searchIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]]];
-    _searchbar.placeholder=@"搜索您喜欢的商品、品牌";
-    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshfenleivc) name:@"refreshfenleivc" object:nil];
+    UIView *v=[[[NSBundle mainBundle]loadNibNamed:@"NavBar" owner:self options:nil]firstObject];
+    v.frame=CGRectMake(0, 0, MAIN_WIDTH, 64);
+    [self.view addSubview:v];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshfenleivc) name:@"refreshfenleivc" object:nil];
     
     
-    self.navigationItem.title=@"分类";
-        [self initparas];
+    [self initparas];
     [self getdatafromweb:1 pids:nil];
     
     
@@ -69,6 +70,8 @@
     goodstitles=[NSMutableArray array];
     pagenum=1;
     pids=nil;
+    redline=[[UIView alloc]initWithFrame:CGRectMake(0, 64, 2, MAIN_HEIGHT*0.07)];
+    [self.view addSubview:redline];
     
 }
 
@@ -165,8 +168,6 @@
             cell.textLabel.textColor=[UIColor redColor];
             basedcell=cell;
         }
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        
         cell.textLabel.text=[goodstitles[indexPath.row] stringForKey:@"name"];
        cell.textLabel.textAlignment=NSTextAlignmentCenter;
         cell.textLabel.font=[UIFont systemFontOfSize:12.0];
@@ -184,7 +185,7 @@
     }
     
     else{
-        HomeTableViewCell *cell=[HomeTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+        GoodLIstTableViewCell *cell=[GoodLIstTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
         
@@ -192,7 +193,33 @@
     
     
 }
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Add your Colour.
+    if(tableView.tag==11){
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor whiteColor] ForCell:cell];
+        //highlight colour
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(tableView.tag==11){
+    // Reset Colour.
+    UITableViewCell *cell =[tableView cellForRowAtIndexPath:indexPath];
+    [self setCellColor:[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0] ForCell:cell];
+        //normal color
+    }
+    
+}
+
+- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
+    cell.contentView.backgroundColor = color;
+    cell.backgroundColor = color;
+}
 -(void)showgoodsdetail:(UIButton *)sender{
     GoodsDetailViewController *vc=[[GoodsDetailViewController alloc]init];
     vc.goodsid=[goodslist[sender.tag] stringForKey:@"id"];
@@ -267,8 +294,10 @@
     }
 
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView.tag==11){
+        redline.y=64+indexPath.row*MAIN_HEIGHT*0.07;
         [goodslist removeAllObjects];
         pagenum=1;
         basedcell.textLabel.textColor=[UIColor blackColor];
@@ -317,10 +346,7 @@
         return MAIN_HEIGHT*0.07;
     else
     {
-        if(MAIN_HEIGHT==480)
-            return MAIN_HEIGHT*0.22;
-        else
-      return MAIN_HEIGHT*0.16;
+        return MAIN_HEIGHT*0.24;
     }
     
   
@@ -332,4 +358,12 @@
 }
 
 
+- (IBAction)backBtnClicked:(id)sender {
+}
+
+- (IBAction)searchIconClicked:(id)sender {
+}
+
+- (IBAction)showMenuBtnClicked:(id)sender {
+}
 @end

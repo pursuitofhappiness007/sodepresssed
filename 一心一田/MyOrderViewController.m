@@ -31,15 +31,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *orderstatuslab;
 @property (weak, nonatomic) IBOutlet UILabel *summarycountlab;
 - (IBAction)showAllOrders:(id)sender;
-- (IBAction)showdfkorders:(UIButton *)sender;
-- (IBAction)showpaidorders:(UIButton *)sender;
-- (IBAction)showyfhorders:(UIButton *)sender;
-- (IBAction)showyshorders:(UIButton *)sender;
-- (IBAction)showyqxorders:(UIButton *)sender;
+- (IBAction)underDealBtnClicked:(id)sender;
+- (IBAction)dealBtnClicked:(id)sender;
+
 
 
 @property (weak, nonatomic) IBOutlet UIView *blueline;
-@property (weak, nonatomic) IBOutlet UIButton *daifkBtn;
+
 @property (weak, nonatomic) IBOutlet UIButton *allBtn;
 @property (weak, nonatomic) IBOutlet UILabel *acctuallypaidlab;
 - (IBAction)seeorderBtnClicked:(id)sender;
@@ -249,6 +247,12 @@
     jsondict=[NSDictionary dictionary];
     
     
+}
+
+- (IBAction)underDealBtnClicked:(id)sender {
+}
+
+- (IBAction)dealBtnClicked:(id)sender {
 }
 //待付款
 - (IBAction)showdfkorders:(UIButton *)sender {

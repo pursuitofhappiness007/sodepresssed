@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultsViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="r5G-Uw-Ztp">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="搜索您喜欢的商品、品牌" translatesAutoresizingMaskIntoConstraints="NO" id="rRE-gu-dFM">
+                    <rect key="frame" x="46" y="0.0" width="280" height="44"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="exM-uh-kEQ"/>
+                    </connections>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThJ-OP-pTH">
+                    <rect key="frame" x="15" y="13" width="10" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="HVr-1v-mzy"/>
+                        <constraint firstAttribute="width" constant="10" id="fec-JC-oAY"/>
+                        <constraint firstAttribute="height" constant="18" id="v6o-Fj-zxS"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="back"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="HVr-1v-mzy"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="FR3-vi-ky3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-86-F5h">
+                    <rect key="frame" x="319" y="8" width="46" height="30"/>
+                    <state key="normal" title="筛选">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="filterBtnClicked:" destination="-1" eventType="touchUpInside" id="1aj-tm-kHx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ThJ-OP-pTH" firstAttribute="centerY" secondItem="r5G-Uw-Ztp" secondAttribute="centerY" id="HCq-zK-tMl"/>
+                <constraint firstItem="rRE-gu-dFM" firstAttribute="width" secondItem="r5G-Uw-Ztp" secondAttribute="width" multiplier="0.75" id="JuM-Ut-EJX"/>
+                <constraint firstItem="rRE-gu-dFM" firstAttribute="centerY" secondItem="r5G-Uw-Ztp" secondAttribute="centerY" id="Rrp-ND-hPD"/>
+                <constraint firstItem="ThJ-OP-pTH" firstAttribute="leading" secondItem="r5G-Uw-Ztp" secondAttribute="leading" constant="15" id="pB9-Ej-wgi"/>
+                <constraint firstItem="rRE-gu-dFM" firstAttribute="centerX" secondItem="r5G-Uw-Ztp" secondAttribute="centerX" id="y1C-Pm-2Zh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="50.5" y="-159"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="7" height="12"/>
+    </resources>
+</document>
