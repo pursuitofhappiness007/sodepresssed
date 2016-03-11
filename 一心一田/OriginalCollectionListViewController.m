@@ -1,178 +1,98 @@
 //
 //  OriginalCollectionListViewController.m
-//  一心一田餐饮
+//  一心一田
 //
-//  Created by xipin on 15/10/30.
-//  Copyright © 2015年 yose. All rights reserved.
+//  Created by user on 16/3/11.
+//  Copyright © 2016年 xipin. All rights reserved.
 //
 
 #import "OriginalCollectionListViewController.h"
 #import "CollectionListTableViewCell.h"
-#import "SingleGoodOrderConfirmnationViewController.h"
-#import "GoodsDetailViewController.h"
-
-@interface OriginalCollectionListViewController ()<UITableViewDelegate,UITableViewDataSource>
-{
-    NSMutableArray *ids;
-    AFHTTPRequestOperationManager *mgr;
-    int page;
-}
-@property (weak, nonatomic) IBOutlet UITableView *table;
-
+@interface OriginalCollectionListViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIButton *firstbt;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelLeadingConstrains;
+@property (nonatomic,strong)UIButton *selectedButton;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @end
 
 @implementation OriginalCollectionListViewController
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.selectedButton = self.firstbt;
+    self.selectedButton.selected = YES;
+    self.coverView.hidden = YES;
+    self.bottomView.hidden = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(function) name:@"ButtonClicked" object:nil];
     // Do any additional setup after loading the view from its nib.
-    mgr=[AFHTTPRequestOperationManager manager];
-    ids=[NSMutableArray array];
-    self.table.delegate=self;
-    self.table.dataSource=self;
-    self.table.showsVerticalScrollIndicator=NO;
-    page=1;
-     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.navigationItem.title=@"收藏";
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor blackColor]}];
-        self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:nil target:self action:@selector(backBtnClicked)];
-    [self refreshcollectionviewlist:1];
-    
-    
 }
-
--(void)refreshcollectionviewlist:(int)page{
-    NSMutableDictionary *para=[NSMutableDictionary dictionary];
-    para[@"token"]=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"][@"token"];
-    para[@"page_no"]=[NSString stringWithFormat:@"%d",page];
-    para[@"app_source"]=@"6";
-    [mgr POST:[NSString stringWithFormat:@"%@get_favour_list",HOST] parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"count＝%lu responseobj=%@ ids.count=%d",[[[responseObject dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour_list"] count],responseObject,ids.count);
-        if([[[responseObject dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour_list"] count]==0)
-            return ;
-       
-            [ids addObjectsFromArray:[[responseObject dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour_list"]];
-            
-        [_table reloadData];
-        
-       
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
+- (void)function{
+    self.coverView.hidden = NO;
+    self.bottomView.hidden = NO;
+   // self.bottomView.layer.zPosition = 1000;
+  
 }
-
--(void)backBtnClicked{
-    [self.navigationController popViewControllerAnimated:YES];
-
-}
-
+#pragma mark - UITableViewataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    //    return tablelist.count;
+    return 5;
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return ids.count;
-
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CollectionListTableViewCell    *cell=[CollectionListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+    return cell;
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return (260.0/1334)*MAIN_HEIGHT;
-
+    return MAIN_HEIGHT*0.25;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return (25.0/1334)*MAIN_HEIGHT;
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+       [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-
-
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier=@"collectionlistcell";
-    CollectionListTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
-    if(!cell){
-       
-        
-        [_table registerNib:[UINib nibWithNibName:@"CollectionListTableViewCell" bundle:nil] forCellReuseIdentifier:identifier];
-        cell=[_table dequeueReusableCellWithIdentifier:identifier];
-        
-        
-    }
-    
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    [[DownLoadImageTool singletonInstance]imageWithImage:ids[indexPath.section][@"goodsThumbnailImg"] scaledToWidth:cell.goodspic.width imageview:cell.goodspic];
-    cell.goodsname.text=ids[indexPath.section][@"goodsName"];
-    cell.price.text=[ids[indexPath.section][@"goodsSalePrice"] stringValue];
-    cell.price.textColor=[UIColor redColor];
-   
-    
-
-    cell.buySoon.tag=indexPath.section;
-    [cell.buySoon addTarget:self action:@selector(buySoonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    cell.heart.tag=indexPath.section;
-    [cell.heart addTarget:self action:@selector(cancelCollection:) forControlEvents:UIControlEventTouchUpInside];
-    cell.goodsDetailBtn.tag=indexPath.section;
-    [cell.goodsDetailBtn addTarget:self action:@selector(goodsDetailBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    return cell;
-    
-    
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    page++;
-    NSLog(@"page=%d",page);
-     if((indexPath.section==ids.count-1)&&(ids.count>20))
-        [self refreshcollectionviewlist:page];
+- (IBAction)buttonClicked:(UIButton *)sender {
+    self.selectedButton.selected = NO;
+    self.selectedButton = sender;
+    self.selectedButton.selected = YES;
+    self.labelLeadingConstrains.constant =  5+self.firstbt.frame.size.width*sender.tag;
+    [self updateViewConstraints];
+    [self.tableview reloadData];
 
 }
-
--(void)goodsDetailBtnClicked:(UIButton *)sender{
-    GoodsDetailViewController *vc=[[GoodsDetailViewController alloc]init];
-    [self setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:vc animated:YES];
-
+- (IBAction)cancel:(id)sender {
+    NSLog(@"取消");
 }
-
--(void)buySoonClicked:(UIButton *)sender{
+- (IBAction)addToShoppingCar:(id)sender {
+    NSLog(@"加入购物车");
 }
-
--(void)cancelCollection:(UIButton *)sender{
+- (IBAction)cancelCollection:(id)sender {
     NSLog(@"取消收藏");
-    AFHTTPRequestOperationManager *mgr=[AFHTTPRequestOperationManager manager];
-    NSMutableDictionary *para=[NSMutableDictionary dictionary];
-   NSString *token=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"][@"token"];
-    NSArray *idsarray=@[ids[sender.tag][@"goodsId"]];
-    para[@"favour_id_list"]=@[ids[sender.tag][@"goodsId"]];
-    para[@"app_source"]=@"6";
-    
-    [mgr POST:[NSString stringWithFormat:@"%@batch_delete_favour?app_source=6&token=%@&favour_id_list=[%@]",HOST,token,ids[sender.tag][@"id"]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"取消收藏成功 %@",responseObject);
-        [ids removeObjectAtIndex:sender.tag];
-        [self.table reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"取消收藏失败 %@",error);
-    }];
-    
-
 }
-
-
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
