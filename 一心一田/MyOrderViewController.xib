@@ -36,8 +36,9 @@
                                 <constraint firstAttribute="height" constant="1" id="039-BP-dNA"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWw-Xn-JkN">
-                            <rect key="frame" x="22.5" y="7" width="30" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWw-Xn-JkN">
+                            <rect key="frame" x="47" y="7" width="30" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="全部">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,134 +50,81 @@
                                 <action selector="showAllOrders:" destination="-1" eventType="touchUpInside" id="N1I-nD-zeI"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHL-dG-ocR">
-                            <rect key="frame" x="75" y="7" width="45" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-U4-tfM">
+                            <rect key="frame" x="165" y="7" width="45" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="待付款">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="disabled">
-                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="showdfkorders:" destination="-1" eventType="touchUpInside" id="wky-D6-KPM"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AD-o4-K6P">
-                            <rect key="frame" x="255" y="7" width="45" height="30"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="已收货">
+                            <state key="normal" title="处理中">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected">
                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="showyshorders:" destination="-1" eventType="touchUpInside" id="xfh-zv-ypY"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xy2-gQ-IaK">
-                            <rect key="frame" x="315" y="7" width="45" height="30"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="已取消">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="showyqxorders:" destination="-1" eventType="touchUpInside" id="72d-Ft-OGY"/>
+                                <action selector="showAllOrders:" destination="-1" eventType="touchUpInside" id="SaO-mW-eq2"/>
+                                <action selector="underDealBtnClicked:" destination="-1" eventType="touchUpInside" id="0fB-f7-qbj"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2w-jr-XGY">
-                            <rect key="frame" x="14.5" y="42" width="45" height="2"/>
+                            <rect key="frame" x="0.0" y="42" width="124" height="2"/>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="S3W-Zb-3W8"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-X9-Jms">
-                            <rect key="frame" x="193" y="7" width="45" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiO-5a-3bX">
+                            <rect key="frame" x="290.5" y="7" width="45" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="已发货">
+                            <state key="normal" title="已处理">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected">
                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="showyfhorders:" destination="-1" eventType="touchUpInside" id="bDL-wO-azG"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6J-od-ypF">
-                            <rect key="frame" x="133" y="7" width="45" height="30"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="已付款">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="disabled">
-                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="showpaidorders:" destination="-1" eventType="touchUpInside" id="Rec-3T-mJ5"/>
+                                <action selector="dealBtnClicked:" destination="-1" eventType="touchUpInside" id="s74-8N-sha"/>
+                                <action selector="showAllOrders:" destination="-1" eventType="touchUpInside" id="9WQ-ku-BCd"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="0DN-k8-CEZ"/>
+                        <constraint firstItem="a2w-jr-XGY" firstAttribute="leading" secondItem="nAm-Rp-p2b" secondAttribute="leading" id="86o-VU-TeP"/>
                         <constraint firstAttribute="bottom" secondItem="QSZ-dU-QNa" secondAttribute="bottom" id="9hB-IK-zek"/>
-                        <constraint firstItem="pHL-dG-ocR" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="9tJ-3e-Ico"/>
+                        <constraint firstItem="WiO-5a-3bX" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="CBY-nb-zDH"/>
                         <constraint firstItem="cwG-dq-B1g" firstAttribute="top" secondItem="nAm-Rp-p2b" secondAttribute="top" id="CCV-UJ-MPN"/>
+                        <constraint firstItem="a2w-jr-XGY" firstAttribute="width" secondItem="nAm-Rp-p2b" secondAttribute="width" multiplier="0.33" id="Fan-TG-uDy"/>
+                        <constraint firstItem="WiO-5a-3bX" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="1.67" id="I4D-bQ-9aR"/>
                         <constraint firstAttribute="bottom" secondItem="a2w-jr-XGY" secondAttribute="bottom" id="IRr-Ru-Iof"/>
-                        <constraint firstItem="Xy2-gQ-IaK" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="1.8" id="NKq-9z-82z"/>
-                        <constraint firstItem="c6J-od-ypF" firstAttribute="top" secondItem="pHL-dG-ocR" secondAttribute="top" id="PhI-SR-yRs"/>
-                        <constraint firstItem="zu5-X9-Jms" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="Uk2-LK-N7X"/>
+                        <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="Jeo-pY-A9I"/>
+                        <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" id="NMF-S0-B7n"/>
                         <constraint firstAttribute="trailing" secondItem="QSZ-dU-QNa" secondAttribute="trailing" id="WBT-fS-P2L"/>
                         <constraint firstAttribute="height" constant="44" id="gyK-OS-PYN"/>
-                        <constraint firstItem="Xy2-gQ-IaK" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="hzj-Uc-cqH"/>
                         <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="0.2" id="iCf-ma-o9O"/>
                         <constraint firstItem="a2w-jr-XGY" firstAttribute="centerX" secondItem="UWw-Xn-JkN" secondAttribute="centerX" id="ish-Kb-1o0"/>
                         <constraint firstItem="QSZ-dU-QNa" firstAttribute="leading" secondItem="nAm-Rp-p2b" secondAttribute="leading" id="jHv-Zk-eeP"/>
-                        <constraint firstItem="zu5-X9-Jms" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" id="nJc-9P-qtG"/>
-                        <constraint firstItem="1AD-o4-K6P" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="1.4" id="pQY-Ss-OCW"/>
                         <constraint firstItem="cwG-dq-B1g" firstAttribute="leading" secondItem="UWw-Xn-JkN" secondAttribute="trailing" id="pUf-rY-PfW"/>
-                        <constraint firstItem="Xy2-gQ-IaK" firstAttribute="leading" secondItem="cwG-dq-B1g" secondAttribute="trailing" id="sS8-y8-gN8"/>
                         <constraint firstItem="cwG-dq-B1g" firstAttribute="leading" secondItem="nAm-Rp-p2b" secondAttribute="leading" id="slt-dV-OIS"/>
-                        <constraint firstItem="1AD-o4-K6P" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="tCS-Gh-dTM"/>
-                        <constraint firstItem="pHL-dG-ocR" firstAttribute="width" secondItem="a2w-jr-XGY" secondAttribute="width" id="teg-qY-6J9"/>
                         <constraint firstAttribute="trailing" secondItem="cwG-dq-B1g" secondAttribute="trailing" id="v4f-DU-J4K"/>
-                        <constraint firstItem="pHL-dG-ocR" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="0.6" id="vnB-Ug-ei9"/>
                         <constraint firstItem="a2w-jr-XGY" firstAttribute="top" secondItem="QSZ-dU-QNa" secondAttribute="bottom" id="zPI-oB-Wsw"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="pUf-rY-PfW"/>
-                            <exclude reference="iCf-ma-o9O"/>
+                            <exclude reference="ish-Kb-1o0"/>
                             <exclude reference="zPI-oB-Wsw"/>
-                            <exclude reference="vnB-Ug-ei9"/>
-                            <exclude reference="nJc-9P-qtG"/>
-                            <exclude reference="pQY-Ss-OCW"/>
-                            <exclude reference="NKq-9z-82z"/>
-                            <exclude reference="sS8-y8-gN8"/>
+                            <exclude reference="iCf-ma-o9O"/>
                         </mask>
                     </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-4O-9J2">
+                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="lm5-UA-5nJ"/>
+                    </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="oHu-oA-R93">
                     <rect key="frame" x="0.0" y="119" width="375" height="499"/>
@@ -194,31 +142,19 @@
                         <outlet property="delegate" destination="-1" id="Djk-Ya-YSG"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-4O-9J2">
-                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="49" id="lm5-UA-5nJ"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="oHu-oA-R93" secondAttribute="trailing" id="0vk-Rn-O2T"/>
-                <constraint firstItem="c6J-od-ypF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.83" id="9pM-Gw-Rbk"/>
                 <constraint firstItem="oHu-oA-R93" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hdy-im-59z"/>
                 <constraint firstAttribute="trailing" secondItem="nAm-Rp-p2b" secondAttribute="trailing" id="Olz-sh-4G9"/>
                 <constraint firstAttribute="bottom" secondItem="oHu-oA-R93" secondAttribute="bottom" constant="49" id="URn-Bh-lju"/>
-                <constraint firstItem="zu5-X9-Jms" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.15" id="UWp-Rd-wiT"/>
                 <constraint firstAttribute="bottom" secondItem="uAo-4O-9J2" secondAttribute="bottom" id="VW6-Yd-Flc"/>
                 <constraint firstItem="oHu-oA-R93" firstAttribute="top" secondItem="nAm-Rp-p2b" secondAttribute="bottom" constant="5" id="bNg-2K-xCV"/>
-                <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.2" id="bwr-W8-OZ6"/>
+                <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.33" id="bwr-W8-OZ6"/>
                 <constraint firstItem="nAm-Rp-p2b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="cML-c1-c3k"/>
-                <constraint firstItem="pHL-dG-ocR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.52" id="cxd-UZ-gTd"/>
-                <constraint firstItem="1AD-o4-K6P" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.48" id="fU2-Jk-mSM"/>
                 <constraint firstItem="uAo-4O-9J2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iT2-ZR-EJF"/>
                 <constraint firstAttribute="trailing" secondItem="uAo-4O-9J2" secondAttribute="trailing" id="ne6-im-Ofq"/>
-                <constraint firstItem="Xy2-gQ-IaK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.8" id="sP4-s0-ScR"/>
                 <constraint firstItem="nAm-Rp-p2b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tQT-hh-aKE"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

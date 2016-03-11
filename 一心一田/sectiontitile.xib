@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyOrderViewController">
+            <connections>
+                <outlet property="dealtimelab" destination="HQV-JJ-wG2" id="4lc-tf-J0g"/>
+                <outlet property="orderstatuslab" destination="0XU-KA-ybK" id="ZNk-ee-jjR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="v3M-GX-1gV">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="22" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单状态" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-KA-ybK">
+                    <rect key="frame" x="299" y="7" width="56" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下单时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQV-JJ-wG2">
+                    <rect key="frame" x="15" y="6" width="56" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9k-w0-vdz">
+                    <rect key="frame" x="0.0" y="29" width="375" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="wto-qq-viw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="j9k-w0-vdz" firstAttribute="leading" secondItem="v3M-GX-1gV" secondAttribute="leading" id="11B-TE-ErQ"/>
+                <constraint firstItem="HQV-JJ-wG2" firstAttribute="centerY" secondItem="v3M-GX-1gV" secondAttribute="centerY" id="5In-Tx-4mR"/>
+                <constraint firstAttribute="bottom" secondItem="j9k-w0-vdz" secondAttribute="bottom" id="KBa-EL-Moo"/>
+                <constraint firstItem="HQV-JJ-wG2" firstAttribute="leading" secondItem="v3M-GX-1gV" secondAttribute="leading" constant="15" id="TFP-7l-DuA"/>
+                <constraint firstItem="0XU-KA-ybK" firstAttribute="centerY" secondItem="v3M-GX-1gV" secondAttribute="centerY" id="U5o-4C-Wyz"/>
+                <constraint firstAttribute="trailing" secondItem="j9k-w0-vdz" secondAttribute="trailing" id="fpD-78-ENc"/>
+                <constraint firstAttribute="trailing" secondItem="0XU-KA-ybK" secondAttribute="trailing" constant="20" id="zgH-OM-j7q"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="92.5" y="59"/>
+        </view>
+    </objects>
+</document>

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultsViewController">
@@ -10,7 +11,6 @@
                 <outlet property="amountpriorityBtn" destination="V62-Qc-hOO" id="Wkk-dK-pdP"/>
                 <outlet property="pricelab" destination="etb-FC-meM" id="uST-DU-Ws2"/>
                 <outlet property="titileview" destination="jXN-tu-N0i" id="9FW-1l-1lG"/>
-                <outlet property="tubiaoBtn" destination="tGB-BX-0BH" id="1Dn-R2-7n1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="zongheBtn" destination="XOl-Yq-mj9" id="hhp-mT-hxb"/>
             </connections>
@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V62-Qc-hOO">
-                            <rect key="frame" x="95" y="7" width="60" height="30"/>
+                            <rect key="frame" x="110" y="7" width="60" height="30"/>
                             <state key="normal" title="销量优先">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -36,13 +36,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etb-FC-meM">
-                            <rect key="frame" x="170" y="13.5" width="30" height="18"/>
+                            <rect key="frame" x="311" y="13" width="30" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCE-1S-WEp">
-                            <rect key="frame" x="170" y="8" width="30" height="30"/>
+                            <rect key="frame" x="311" y="7" width="30" height="30"/>
                             <state key="normal">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -53,28 +53,16 @@
                                 <action selector="priceBtnClicked:" destination="-1" eventType="touchUpInside" id="zm0-Ak-hNx"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGB-BX-0BH">
-                            <rect key="frame" x="330" y="14" width="15" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="15" id="IvB-a2-UnR"/>
-                                <constraint firstAttribute="height" constant="15" id="dvr-nJ-kV1"/>
-                            </constraints>
-                            <state key="normal" image="tubiao"/>
-                            <state key="selected" image="liebiao"/>
-                            <connections>
-                                <action selector="tubiaoClicked:" destination="-1" eventType="touchUpInside" id="YWA-iU-hFd"/>
-                            </connections>
-                        </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPy-xw-Y5n" userLabel="topline">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="fLz-9O-4bu"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBF-bi-Okq" userLabel="bottomline">
                             <rect key="frame" x="0.0" y="43" width="375" height="1"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="02B-Vf-jdC"/>
                             </constraints>
@@ -91,22 +79,37 @@
                                 <action selector="zongheBtnClicked:" destination="-1" eventType="touchUpInside" id="hSA-Vr-1xn"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFv-eg-Quy">
+                            <rect key="frame" x="215.5" y="7" width="30" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="最新">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="amountpirorityBtnClicked:" destination="-1" eventType="touchUpInside" id="zGM-LX-a5U"/>
+                                <action selector="lastestBtnClicked:" destination="-1" eventType="touchUpInside" id="JAa-SB-gU7"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="pFv-eg-Quy" firstAttribute="centerY" secondItem="jXN-tu-N0i" secondAttribute="centerY" id="3BG-eA-ck2"/>
                         <constraint firstItem="oCE-1S-WEp" firstAttribute="leading" secondItem="etb-FC-meM" secondAttribute="leading" id="6Mf-7k-n1h"/>
                         <constraint firstItem="UBF-bi-Okq" firstAttribute="leading" secondItem="jXN-tu-N0i" secondAttribute="leading" id="6gh-rr-Nzk"/>
                         <constraint firstAttribute="bottom" secondItem="UBF-bi-Okq" secondAttribute="bottom" id="A0U-gv-6lb"/>
                         <constraint firstAttribute="trailing" secondItem="BPy-xw-Y5n" secondAttribute="trailing" id="CDP-5W-iU8"/>
                         <constraint firstItem="XOl-Yq-mj9" firstAttribute="leading" secondItem="jXN-tu-N0i" secondAttribute="leading" constant="15" id="G8x-3V-8D4"/>
                         <constraint firstItem="V62-Qc-hOO" firstAttribute="top" secondItem="XOl-Yq-mj9" secondAttribute="top" id="J33-Zg-Xj2"/>
+                        <constraint firstItem="pFv-eg-Quy" firstAttribute="centerX" secondItem="jXN-tu-N0i" secondAttribute="centerX" multiplier="1.23" id="MGs-lR-JAB"/>
                         <constraint firstItem="BPy-xw-Y5n" firstAttribute="top" secondItem="jXN-tu-N0i" secondAttribute="top" id="MJo-gU-TrW"/>
                         <constraint firstAttribute="height" constant="44" id="NhA-0W-DAM"/>
+                        <constraint firstItem="etb-FC-meM" firstAttribute="centerX" secondItem="jXN-tu-N0i" secondAttribute="centerX" multiplier="1.74" id="Q13-vJ-bDw"/>
                         <constraint firstAttribute="trailing" secondItem="UBF-bi-Okq" secondAttribute="trailing" id="Q5z-yq-jHe"/>
-                        <constraint firstItem="tGB-BX-0BH" firstAttribute="baseline" secondItem="etb-FC-meM" secondAttribute="baseline" id="Qc6-gO-XCy"/>
-                        <constraint firstAttribute="trailing" secondItem="tGB-BX-0BH" secondAttribute="trailing" constant="30" id="Wcj-5A-gHW"/>
+                        <constraint firstItem="V62-Qc-hOO" firstAttribute="centerX" secondItem="jXN-tu-N0i" secondAttribute="centerX" multiplier="0.75" id="Xi7-uU-SWq"/>
                         <constraint firstItem="oCE-1S-WEp" firstAttribute="trailing" secondItem="etb-FC-meM" secondAttribute="trailing" id="ZYP-vf-3p1"/>
-                        <constraint firstItem="tGB-BX-0BH" firstAttribute="centerY" secondItem="V62-Qc-hOO" secondAttribute="centerY" id="aaL-Oc-l76"/>
                         <constraint firstItem="etb-FC-meM" firstAttribute="centerY" secondItem="V62-Qc-hOO" secondAttribute="centerY" id="eu4-mr-C2M"/>
                         <constraint firstItem="oCE-1S-WEp" firstAttribute="centerY" secondItem="etb-FC-meM" secondAttribute="centerY" id="fuM-al-rae"/>
                         <constraint firstItem="etb-FC-meM" firstAttribute="leading" secondItem="V62-Qc-hOO" secondAttribute="trailing" constant="15" id="fzR-nh-CVr"/>
@@ -116,7 +119,8 @@
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="Qc6-gO-XCy"/>
+                            <exclude reference="wbq-gT-BOT"/>
+                            <exclude reference="fzR-nh-CVr"/>
                         </mask>
                     </variation>
                 </view>
@@ -131,8 +135,4 @@
             <point key="canvasLocation" x="139.5" y="160.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="liebiao" width="15" height="15"/>
-        <image name="tubiao" width="15" height="14"/>
-    </resources>
 </document>

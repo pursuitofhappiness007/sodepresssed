@@ -101,6 +101,16 @@
 		FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
+		FEB20D971C92666D0018A11C /* GoodLIstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */; };
+		FEB20D981C92666D0018A11C /* GoodLIstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D961C92666D0018A11C /* GoodLIstTableViewCell.xib */; };
+		FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D991C926E2C0018A11C /* NavBar.xib */; };
+		FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9B1C929A830018A11C /* titileaftersearch.xib */; };
+		FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9D1C929C860018A11C /* filterwindow.xib */; };
+		FEB20DA01C929CFD0018A11C /* pricechooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9F1C929CFD0018A11C /* pricechooser.xib */; };
+		FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA11C929F670018A11C /* footerforsection.xib */; };
+		FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA21C929F670018A11C /* onebtninfooter.xib */; };
+		FEB20DA61C929F670018A11C /* threebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA31C929F670018A11C /* threebtninfooter.xib */; };
+		FEB20DA81C92A1EF0018A11C /* sectiontitile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */; };
 		FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */; };
 		FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */; };
 		FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */; };
@@ -299,6 +309,17 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FEB20D941C92666D0018A11C /* GoodLIstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLIstTableViewCell.h; sourceTree = "<group>"; };
+		FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLIstTableViewCell.m; sourceTree = "<group>"; };
+		FEB20D961C92666D0018A11C /* GoodLIstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodLIstTableViewCell.xib; sourceTree = "<group>"; };
+		FEB20D991C926E2C0018A11C /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
+		FEB20D9B1C929A830018A11C /* titileaftersearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = titileaftersearch.xib; sourceTree = "<group>"; };
+		FEB20D9D1C929C860018A11C /* filterwindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filterwindow.xib; sourceTree = "<group>"; };
+		FEB20D9F1C929CFD0018A11C /* pricechooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pricechooser.xib; sourceTree = "<group>"; };
+		FEB20DA11C929F670018A11C /* footerforsection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = footerforsection.xib; sourceTree = "<group>"; };
+		FEB20DA21C929F670018A11C /* onebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onebtninfooter.xib; sourceTree = "<group>"; };
+		FEB20DA31C929F670018A11C /* threebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = threebtninfooter.xib; sourceTree = "<group>"; };
+		FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitile.xib; sourceTree = "<group>"; };
 		FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutipleGoodsViewController.h; sourceTree = "<group>"; };
 		FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutipleGoodsViewController.m; sourceTree = "<group>"; };
 		FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MutipleGoodsViewController.xib; sourceTree = "<group>"; };
@@ -775,9 +796,13 @@
 		FEDFA0C51C9126240010E5E3 /* 商品列表 */ = {
 			isa = PBXGroup;
 			children = (
+				FEB20D941C92666D0018A11C /* GoodLIstTableViewCell.h */,
+				FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */,
+				FEB20D961C92666D0018A11C /* GoodLIstTableViewCell.xib */,
 				FEDFA0C61C91266E0010E5E3 /* ClassficationViewController.h */,
 				FEDFA0C71C91266E0010E5E3 /* ClassficationViewController.m */,
 				FEDFA0C81C91266E0010E5E3 /* ClassficationViewController.xib */,
+				FEB20D991C926E2C0018A11C /* NavBar.xib */,
 			);
 			name = "商品列表";
 			sourceTree = "<group>";
@@ -801,6 +826,9 @@
 				FEDFA0E21C9129640010E5E3 /* SearchResultsViewController.h */,
 				FEDFA0E31C9129640010E5E3 /* SearchResultsViewController.m */,
 				FEDFA0E41C9129640010E5E3 /* SearchResultsViewController.xib */,
+				FEB20D9B1C929A830018A11C /* titileaftersearch.xib */,
+				FEB20D9D1C929C860018A11C /* filterwindow.xib */,
+				FEB20D9F1C929CFD0018A11C /* pricechooser.xib */,
 			);
 			name = "搜索";
 			sourceTree = "<group>";
@@ -853,6 +881,10 @@
 				FEDFA1011C914C600010E5E3 /* MyOrderViewController.h */,
 				FEDFA1021C914C600010E5E3 /* MyOrderViewController.m */,
 				FEDFA1031C914C600010E5E3 /* MyOrderViewController.xib */,
+				FEB20DA11C929F670018A11C /* footerforsection.xib */,
+				FEB20DA21C929F670018A11C /* onebtninfooter.xib */,
+				FEB20DA31C929F670018A11C /* threebtninfooter.xib */,
+				FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */,
 			);
 			name = "我的订单";
 			sourceTree = "<group>";
@@ -925,6 +957,7 @@
 				CEADD16E1C9170E800E13421 /* AccountRecharge.xib in Resources */,
 				FE3716051C8E698500D84185 /* NavBarSearchForHome.xib in Resources */,
 				FE3F317D1C8E824800A7026D /* tableviewheader.xib in Resources */,
+				FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */,
 				FE6DC0531C8D5C1200E93578 /* NewFuturesViewController.xib in Resources */,
 				FE3716031C8E668700D84185 /* NavBarForHome.xib in Resources */,
 				FE545B091C8FCDFC0081DB28 /* MessageCenterViewController.xib in Resources */,
@@ -936,6 +969,7 @@
 				FEDFA0F11C9149C70010E5E3 /* NewAddressViewController.xib in Resources */,
 				CEADD1791C91712800E13421 /* AccountDetailViewController.xib in Resources */,
 				FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */,
+				FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */,
 				FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */,
 				CE658A751C92D59F002C84B3 /* OriginalCollectionListViewController.xib in Resources */,
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
@@ -945,7 +979,9 @@
 				CE658A761C92D59F002C84B3 /* CollectionListTableViewCell.xib in Resources */,
 				FEDFA0C41C9124C70010E5E3 /* deleteview.xib in Resources */,
 				FE545B0E1C8FCE7E0081DB28 /* MessageTableViewCell.xib in Resources */,
+				FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */,
 				FEDFA0EB1C912A500010E5E3 /* AddInOrderTableViewCell.xib in Resources */,
+				FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */,
 				CEADD17D1C91712800E13421 /* RechargeCell.xib in Resources */,
 				FEDFA0C21C91242C0010E5E3 /* ShoppingCarTableViewCell.xib in Resources */,
 				FEDFA0C01C91242C0010E5E3 /* ShopcarViewController.xib in Resources */,
@@ -957,6 +993,7 @@
 				FE6DC0381C8D597200E93578 /* Assets.xcassets in Resources */,
 				FE3F31821C8EB0D700A7026D /* HomeTableViewCell.xib in Resources */,
 				FE6DC0591C8D5F2D00E93578 /* HomeViewController.xib in Resources */,
+				FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1041,6 +1078,7 @@
 				FE7DBF4F1C8D6899003536BC /* SDWebImagePrefetcher.m in Sources */,
 				FE7DBF471C8D6899003536BC /* MKAnnotationView+WebCache.m in Sources */,
 				FE7DBF511C8D6899003536BC /* UIImage+GIF.m in Sources */,
+				FEB20D971C92666D0018A11C /* GoodLIstTableViewCell.m in Sources */,
 				CEADD17C1C91712800E13421 /* RechargeCell.m in Sources */,
 				CEADD17A1C91712800E13421 /* AcountDetailTableViewCell.m in Sources */,
 				FE7DBF711C8D6983003536BC /* LoginViewController.m in Sources */,

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassficationViewController">
+            <connections>
+                <outlet property="menuArrow" destination="TDk-DU-VV5" id="byg-2c-Qjp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="CFM-0d-gi5">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-7L-DTg">
+                    <rect key="frame" x="15" y="31" width="61" height="22"/>
+                    <state key="normal" title="Button" image="back"/>
+                    <connections>
+                        <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="4H6-Se-OVc"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蔬菜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqy-vF-stc">
+                    <rect key="frame" x="163" y="31.5" width="34" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TDk-DU-VV5">
+                    <rect key="frame" x="198" y="33.5" width="17" height="17"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="17" id="A0J-70-b5C"/>
+                        <constraint firstAttribute="height" constant="17" id="N1I-hT-urH"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-C6-xGn">
+                    <rect key="frame" x="163" y="20" width="52" height="44"/>
+                    <connections>
+                        <action selector="showMenuBtnClicked:" destination="-1" eventType="touchUpInside" id="tvi-dE-Zuz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tB4-Zv-yz5">
+                    <rect key="frame" x="344" y="31" width="16" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="TnC-q8-4fa"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="search-拷贝"/>
+                    <connections>
+                        <action selector="searchIconClicked:" destination="-1" eventType="touchUpInside" id="b69-EY-KCy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tB4-Zv-yz5" secondAttribute="trailing" constant="15" id="4hC-D9-mMP"/>
+                <constraint firstAttribute="bottom" secondItem="gcF-C6-xGn" secondAttribute="bottom" id="BTI-iF-7wf"/>
+                <constraint firstItem="TDk-DU-VV5" firstAttribute="centerX" secondItem="CFM-0d-gi5" secondAttribute="centerX" multiplier="1.1" id="D5e-TA-do0"/>
+                <constraint firstItem="GuC-7L-DTg" firstAttribute="leading" secondItem="CFM-0d-gi5" secondAttribute="leading" constant="15" id="OfM-pA-3By"/>
+                <constraint firstItem="TDk-DU-VV5" firstAttribute="trailing" secondItem="gcF-C6-xGn" secondAttribute="trailing" id="QGl-bl-ukC"/>
+                <constraint firstItem="GuC-7L-DTg" firstAttribute="centerY" secondItem="CFM-0d-gi5" secondAttribute="centerY" multiplier="1.31" id="VY1-50-NrK"/>
+                <constraint firstItem="gcF-C6-xGn" firstAttribute="leading" secondItem="cqy-vF-stc" secondAttribute="leading" id="WWk-H0-HzG"/>
+                <constraint firstItem="tB4-Zv-yz5" firstAttribute="centerY" secondItem="CFM-0d-gi5" secondAttribute="centerY" multiplier="1.31" id="c9t-kN-Asq"/>
+                <constraint firstItem="gcF-C6-xGn" firstAttribute="top" secondItem="CFM-0d-gi5" secondAttribute="top" constant="20" id="crv-Rs-eKt"/>
+                <constraint firstItem="cqy-vF-stc" firstAttribute="centerY" secondItem="CFM-0d-gi5" secondAttribute="centerY" multiplier="1.31" id="dbW-Rd-4JJ"/>
+                <constraint firstItem="TDk-DU-VV5" firstAttribute="centerY" secondItem="CFM-0d-gi5" secondAttribute="centerY" multiplier="1.31" id="fRu-H0-gCI"/>
+                <constraint firstItem="cqy-vF-stc" firstAttribute="centerX" secondItem="CFM-0d-gi5" secondAttribute="centerX" multiplier="0.96" id="qK5-aZ-cQA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="290.5" y="175"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="7" height="12"/>
+        <image name="search-拷贝" width="14" height="14"/>
+    </resources>
+</document>
