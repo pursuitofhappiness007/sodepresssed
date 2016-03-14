@@ -73,6 +73,28 @@
     [self addChildViewController:nav];
 }
 
+#pragma mark - didLogined
+- (void)loginbindvc{
+    ShopcarViewController *vc1=[[ShopcarViewController alloc]init];
+    PersonalCenterViewController *vc2=[[PersonalCenterViewController alloc]init];
+    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc1];
+    UINavigationController *nav2=[[UINavigationController alloc]initWithRootViewController:vc2];
+    
+    
+    NSMutableArray *array=[NSMutableArray arrayWithArray:self.viewControllers];
+    [array replaceObjectAtIndex:1 withObject:nav];
+    [array replaceObjectAtIndex:2 withObject:nav2];
+    [self setViewControllers:array animated:NO];
+    UITabBarItem *item1=[self.tabBar.items objectAtIndex:1];
+    UITabBarItem *item2=[self.tabBar.items objectAtIndex:2];
+    item1.title=@"购物车";
+    item1.image=[UIImage imageNamed:@"carnotsel"];
+    item1.selectedImage=[UIImage imageNamed:@"car"];
+    item2.title=@"我的";
+    item2.image=[UIImage imageNamed:@"minenotsel"];
+    item2.selectedImage=[UIImage imageNamed:@"mine"];
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
