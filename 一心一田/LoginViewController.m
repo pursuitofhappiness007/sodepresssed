@@ -136,7 +136,7 @@
             [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:userandpassword filepath:@"userpassword.txt"];
             [refreshshoppingcarbadgenum refresh:self.tabBarController];
             [[NSNotificationCenter defaultCenter]postNotificationName:@"login" object:nil];
-            if([_source isEqualToString:@"xinpin"]){
+            if([_source isEqualToString:@"back"]){
                 
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
@@ -149,10 +149,7 @@
                 
             }
             
-                   PersonalCenterViewController *vc=[[PersonalCenterViewController alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
-            
-        }
+}
         else{
             
             

@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 #import "HomeTableViewCell.h"
+#import "ClassficationViewController.h"
+#import "LoginViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *tablelist;
@@ -16,6 +18,10 @@
 - (IBAction)phoneBtnClicked:(id)sender;
 - (IBAction)searchBtnClicked:(id)sender;
 - (IBAction)cancelBtnClicked:(id)sender;
+- (IBAction)shucaishuiguoBtnClicked:(id)sender;
+- (IBAction)shoucangBtnClicked:(id)sender;
+- (IBAction)xinpinClicked:(id)sender;
+- (IBAction)changgouBtnClicked:(id)sender;
 
 @end
 
@@ -34,6 +40,7 @@
     [self customernavbar];
     [self setNeedsStatusBarAppearanceUpdate];
     [self initdata];
+    [self getdatafromserver];
 }
 -(void)customernavbar{
     
@@ -48,6 +55,17 @@
 
 -(void)initdata{
     tablelist=[NSMutableArray array];
+}
+
+-(void)getdatafromserver{
+    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+ [HttpTool post:@"index" params:paras success:^(id responseObj) {
+     if([responseObj int32ForKey:@"result"]==0){
+     
+     }
+ } failure:^(NSError *error) {
+     NSLog(@"请求首页数据失败%@",error);
+ }];
 }
 
 //数据源方法
@@ -120,5 +138,25 @@
     } completion:^(BOOL finished) {
         [searchview removeFromSuperview];
     }];
+}
+
+- (IBAction)shucaishuiguoBtnClicked:(id)sender {
+    if(![[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]){
+        LoginViewController *vc=[[LoginViewController alloc]init];
+        vc.source=@"back";
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    ClassficationViewController *vc=[[ClassficationViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)shoucangBtnClicked:(id)sender {
+}
+
+- (IBAction)xinpinClicked:(id)sender {
+}
+
+- (IBAction)changgouBtnClicked:(id)sender {
 }
 @end

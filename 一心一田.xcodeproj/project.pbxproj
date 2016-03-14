@@ -102,15 +102,11 @@
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
 		FEB20D971C92666D0018A11C /* GoodLIstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */; };
-		FEB20D981C92666D0018A11C /* GoodLIstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D961C92666D0018A11C /* GoodLIstTableViewCell.xib */; };
 		FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D991C926E2C0018A11C /* NavBar.xib */; };
 		FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9B1C929A830018A11C /* titileaftersearch.xib */; };
 		FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9D1C929C860018A11C /* filterwindow.xib */; };
-		FEB20DA01C929CFD0018A11C /* pricechooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9F1C929CFD0018A11C /* pricechooser.xib */; };
 		FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA11C929F670018A11C /* footerforsection.xib */; };
 		FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA21C929F670018A11C /* onebtninfooter.xib */; };
-		FEB20DA61C929F670018A11C /* threebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA31C929F670018A11C /* threebtninfooter.xib */; };
-		FEB20DA81C92A1EF0018A11C /* sectiontitile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */; };
 		FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */; };
 		FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */; };
 		FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */; };
@@ -320,6 +316,7 @@
 		FEB20DA21C929F670018A11C /* onebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onebtninfooter.xib; sourceTree = "<group>"; };
 		FEB20DA31C929F670018A11C /* threebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = threebtninfooter.xib; sourceTree = "<group>"; };
 		FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitile.xib; sourceTree = "<group>"; };
+		FEDC9FB51C966E040002FB2F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutipleGoodsViewController.h; sourceTree = "<group>"; };
 		FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutipleGoodsViewController.m; sourceTree = "<group>"; };
 		FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MutipleGoodsViewController.xib; sourceTree = "<group>"; };
@@ -454,6 +451,7 @@
 		FE6DC01F1C8D597200E93578 = {
 			isa = PBXGroup;
 			children = (
+				FEDC9FB51C966E040002FB2F /* Header.h */,
 				FE3F31871C8EC48000A7026D /* libz.1.2.5.tbd */,
 				FE3F31851C8EC47300A7026D /* Security.framework */,
 				FE3F31831C8EC43400A7026D /* CoreTelephony.framework */,

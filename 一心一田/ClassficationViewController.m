@@ -17,7 +17,11 @@
     NSMutableArray *goodslist;
     NSMutableArray *goodstitles;
     int pagenum;
-    NSString *pids;
+    NSString *mainpids;
+    NSString *subpids;
+    NSString *goodsname;
+    NSString *sorttype;
+    NSString *sortfield;
     int previouscount;
     UITableViewCell *basedcell;
     int totalpage;
@@ -44,6 +48,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
+    self.tabBarController.tabBar.hidden=YES;
     
 }
 - (void)viewDidLoad {
@@ -55,13 +60,13 @@
     
     
     [self initparas];
-    [self getdatafromweb:1 pids:nil];
+    [self getdatafromweb:1 mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
     
     
 }
 
 -(void)refreshfenleivc{
-   [self getdatafromweb:1 pids:nil];
+   [self getdatafromweb:1 mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
 
 }
 
@@ -69,22 +74,27 @@
     goodslist=[NSMutableArray array];
     goodstitles=[NSMutableArray array];
     pagenum=1;
-    pids=nil;
+    mainpids=nil;
+    subpids=nil;
+    sorttype=nil;
+    sortfield=nil;
     redline=[[UIView alloc]initWithFrame:CGRectMake(0, 64, 2, MAIN_HEIGHT*0.07)];
     [self.view addSubview:redline];
     
 }
 
--(void)getdatafromweb:(int)page_no pids:(NSString *)goodstype{
-    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+-(void)getdatafromweb:(int)page_no mainpids:(NSString *)goodstype subpids:(NSString *)goodstype2 goodsname:(NSString *)goodsname sorttype:(NSString *)sorttype sortfield:(NSString *)sortfield{
     
-    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
+    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"page_size"]=@6;
+    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",page_no];
-    if(goodstype.length>0)
-        paras[@"goodsTypeIds"]=goodstype;
-    [HttpTool post:@"get_classification" params:paras success:^(id responseObj) {
-        NSLog(@"第%d页面 获得的分类数据为%@",page_no,responseObj);
+    paras[@"goodsTypeLv1Id"]=goodstype;
+    paras[@"goodsTypeLv2Id"]=goodstype2;
+    paras[@"sortType"]=sorttype;
+    paras[@"sortField"]=sortfield;
+    [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
+        NSLog(@"第%d页面 获得的分类数据为%@ 参数=%@",page_no,responseObj,paras);
                 if(goodslist.count>0){
             previouscount=goodslist.count;
             if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count]>0)
@@ -105,7 +115,7 @@
             if([[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] count]>0){
                 _fenleitableview.hidden=NO;
             goodslist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] mutableCopy];
-            totalpage=[[responseObj dictionaryForKey:@"data"] int32ForKey:@"total"];
+            totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
                 NSLog(@"总页数%d",totalpage);
 
                 [_fenleitableview reloadData];
@@ -121,9 +131,9 @@
        
         if(goodstitles.count==0){
         
-        [goodstitles addObject:@{@"name":@"全部分类"}];
-            [goodstitles addObjectsFromArray: [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_categories"]];
-            [_titletableview reloadData];
+//        [goodstitles addObject:@{@"name":@"全部分类"}];
+//            [goodstitles addObjectsFromArray: [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_categories"]];
+//            [_titletableview reloadData];
         }
         
         
@@ -186,12 +196,45 @@
     
     else{
         GoodLIstTableViewCell *cell=[GoodLIstTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+        NSDictionary *dict=goodslist[indexPath.row];
+        cell.goodimg=[dict stringForKey:@"thumbnailImg"];
+        cell.goodname=[dict stringForKey:@"name"];
+        cell.specific=[dict stringForKey:@"specifications"];
+        NSArray *array=[dict arrayForKey:@"goodsRangePrice"];
+        cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+        cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+        cell.range3=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
+        cell.range4=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
+        cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+        cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+        cell.price3=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
+        cell.price4=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
+        cell.count=@"1";
+        cell.minusBtn.tag=indexPath.row;
+        cell.addBtn.tag=indexPath.row;
+        [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
         
     }
-    
-    
+}
+
+-(void)minusBtnClicked:(UIButton *)sender{
+    GoodLIstTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    int i=[cell.count intValue];
+    if(i>1){
+        if(i==2)
+    [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
+        cell.count=[NSString stringWithFormat:@"%d",i-1];
+}
+}
+
+-(void)addBtnClicked:(UIButton *)sender{
+    GoodLIstTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    int i=[cell.count intValue];
+    cell.count=[NSString stringWithFormat:@"%d",i+1];
+
 }
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
@@ -288,7 +331,7 @@
         if(pagenum<totalpage){
         pagenum++;
         NSLog(@"huadongdi %d",pagenum);
-        [self getdatafromweb:pagenum pids:pids];
+            [self getdatafromweb:pagenum mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
         }
       
     }
@@ -306,13 +349,14 @@
         basedcell=cell;
 
         if(indexPath.row==0){
-            pids=nil;
-            [self getdatafromweb:pagenum pids:pids];
+            mainpids=nil;
+            subpids=nil;
+            [self getdatafromweb:pagenum mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
         
         }
         else{
-            pids=[goodstitles[indexPath.row] stringForKey:@"pids"];
-            [self getdatafromweb:pagenum pids:pids];
+            mainpids=[goodstitles[indexPath.row] stringForKey:@"pids"];
+           [self getdatafromweb:pagenum mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
         }
    }
         
