@@ -7,7 +7,7 @@
 //
 
 #import "PersonalCenterViewController.h"
-
+#import "AccountRecharge.h"
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -74,10 +74,10 @@
 
 //充值
 - (IBAction)chongzhiBtnClicked:(id)sender {
+    
 }
 //我的订单
 - (IBAction)myOrderclicked:(id)sender {
-    
 }
 //我的账单
 - (IBAction)myBillsBtnClicked:(id)sender {
