@@ -1,9 +1,9 @@
 //
 //  OriginalCollectionListViewController.h
-//  一心一田餐饮
+//  一心一田
 //
-//  Created by xipin on 15/10/30.
-//  Copyright © 2015年 yose. All rights reserved.
+//  Created by user on 16/3/11.
+//  Copyright © 2016年 xipin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
