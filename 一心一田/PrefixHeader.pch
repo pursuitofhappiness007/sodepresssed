@@ -30,9 +30,9 @@
 #define StatusBarH 20
 #define NaviBarH 44
 
-//#define HOST @"http://192.168.199.50:8840/api/"
+#define HOST @"http://192.168.199.50:8870/api/"
 
-#define HOST @"http://114.119.39.116:8850/api/"
+//#define HOST @"http://114.119.39.116:8850/api/"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
