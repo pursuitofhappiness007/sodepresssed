@@ -38,28 +38,23 @@
 -(void)inittabbar{
     HomeViewController *home=[[HomeViewController alloc]init];
     [self addOneChlildVc:home title:@"首页" imageName:@"首页" selectedImageName:@""];
-    ShopcarViewController *shopcar=[[ShopcarViewController alloc]init];
-    [self addOneChlildVc:shopcar title:@"购物车" imageName:@"购物车" selectedImageName:@""];
-    PersonalCenterViewController *personinfo=[[PersonalCenterViewController alloc]init];
-    [self addOneChlildVc:personinfo title:@"我的" imageName:@"我的" selectedImageName:@""];
-    [refreshshoppingcarbadgenum refresh:self];
-//    //登录过
-//    if([[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]){
-//        ShopCarViewController *shopcar=[[ShopCarViewController alloc]init];
-//        [self addOneChlildVc:shopcar title:@"购物车" imageName:@"购物车" selectedImageName:@""];
-//        PersonalCenterViewController *personinfo=[[PersonalCenterViewController alloc]init];
-//        [self addOneChlildVc:personinfo title:@"我的" imageName:@"我的" selectedImageName:@""];
-//        [refreshshoppingcarbadgenum refresh:self];
-//        
-//    }
-//    //没有登录
-//    else{
-//        LoginViewController *login1=[[LoginViewController alloc]init];
-//        LoginViewController *login2=[[LoginViewController alloc]init];
-//        [self addOneChlildVc:login1 title:@"购物车" imageName:@"购物车" selectedImageName:@""];
-//        [self addOneChlildVc:login2 title:@"我的" imageName:@"我的" selectedImageName:@""];
-//        
-//    }
+    //登录过
+    if([[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]){
+        ShopcarViewController *shopcar=[[ShopcarViewController alloc]init];
+        [self addOneChlildVc:shopcar title:@"购物车" imageName:@"购物车" selectedImageName:@""];
+        PersonalCenterViewController *personinfo=[[PersonalCenterViewController alloc]init];
+        [self addOneChlildVc:personinfo title:@"我的" imageName:@"我的" selectedImageName:@""];
+        [refreshshoppingcarbadgenum refresh:self];
+        
+    }
+    //没有登录
+    else{
+        LoginViewController *login1=[[LoginViewController alloc]init];
+        LoginViewController *login2=[[LoginViewController alloc]init];
+        [self addOneChlildVc:login1 title:@"购物车" imageName:@"购物车" selectedImageName:@""];
+        [self addOneChlildVc:login2 title:@"我的" imageName:@"我的" selectedImageName:@""];
+        
+    }
     
     
 }
