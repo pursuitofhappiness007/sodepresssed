@@ -108,6 +108,8 @@
 		FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA21C929F670018A11C /* onebtninfooter.xib */; };
 		FEDC9FC41C97B0DC0002FB2F /* EditNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */; };
 		FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */; };
+		FEDC9FC91C97C4710002FB2F /* GoodListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC71C97C4710002FB2F /* GoodListTableViewCell.m */; };
+		FEDC9FCA1C97C4710002FB2F /* GoodListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC9FC81C97C4710002FB2F /* GoodListTableViewCell.xib */; };
 		FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */; };
 		FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */; };
 		FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */; };
@@ -318,6 +320,9 @@
 		FEDC9FC11C97B0DC0002FB2F /* EditNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNickNameViewController.h; sourceTree = "<group>"; };
 		FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNickNameViewController.m; sourceTree = "<group>"; };
 		FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNickNameViewController.xib; sourceTree = "<group>"; };
+		FEDC9FC61C97C4710002FB2F /* GoodListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodListTableViewCell.h; sourceTree = "<group>"; };
+		FEDC9FC71C97C4710002FB2F /* GoodListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodListTableViewCell.m; sourceTree = "<group>"; };
+		FEDC9FC81C97C4710002FB2F /* GoodListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodListTableViewCell.xib; sourceTree = "<group>"; };
 		FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutipleGoodsViewController.h; sourceTree = "<group>"; };
 		FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutipleGoodsViewController.m; sourceTree = "<group>"; };
 		FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MutipleGoodsViewController.xib; sourceTree = "<group>"; };
@@ -810,6 +815,9 @@
 				FEDFA0C71C91266E0010E5E3 /* ClassficationViewController.m */,
 				FEDFA0C81C91266E0010E5E3 /* ClassficationViewController.xib */,
 				FEB20D991C926E2C0018A11C /* NavBar.xib */,
+				FEDC9FC61C97C4710002FB2F /* GoodListTableViewCell.h */,
+				FEDC9FC71C97C4710002FB2F /* GoodListTableViewCell.m */,
+				FEDC9FC81C97C4710002FB2F /* GoodListTableViewCell.xib */,
 			);
 			name = "商品列表";
 			sourceTree = "<group>";
@@ -972,6 +980,7 @@
 				FE3716031C8E668700D84185 /* NavBarForHome.xib in Resources */,
 				FE545B091C8FCDFC0081DB28 /* MessageCenterViewController.xib in Resources */,
 				FEDFA0D01C9127180010E5E3 /* GoodsDetailViewController.xib in Resources */,
+				FEDC9FCA1C97C4710002FB2F /* GoodListTableViewCell.xib in Resources */,
 				FEDFA0B71C9122B00010E5E3 /* OrderllistTableViewCell.xib in Resources */,
 				FE545B131C8FD5C70081DB28 /* PersonalCenterViewController.xib in Resources */,
 				FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */,
@@ -1083,6 +1092,7 @@
 				FEDFA0BF1C91242C0010E5E3 /* ShopcarViewController.m in Sources */,
 				FEDFA0DB1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.m in Sources */,
 				FE7DBF1D1C8D6873003536BC /* AFHTTPRequestOperationManager.m in Sources */,
+				FEDC9FC91C97C4710002FB2F /* GoodListTableViewCell.m in Sources */,
 				FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */,
 				FE6DC07C1C8D612B00E93578 /* HttpTool.m in Sources */,
 				FEDFA1041C914C600010E5E3 /* MyOrderTableViewCell.m in Sources */,
