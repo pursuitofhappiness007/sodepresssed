@@ -29,6 +29,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(personinfochangedupdate) name:@"personinfochanged" object:nil];
     if([[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"]){
     _accounttextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"user"];
     _pwdtextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"password"];
@@ -88,6 +89,11 @@
     
 }
 
+-(void)personinfochangedupdate{
+    [self loginBtnClicked:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"tokenfilechanged" object:nil];
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if([string isEqualToString:@"\n"]) {
@@ -142,20 +148,11 @@
                 return ;
             
             }
-            if([_source isEqualToString:@"buysoon"]){
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                return ;
-                
-            }
-            
+                        
 }
         else{
             
-            
-            
-            
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeText;
             hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
             hud.margin = 10.f;

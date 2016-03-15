@@ -91,7 +91,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GoodLIstTableViewCell *cell=[GoodLIstTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+    GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
 }

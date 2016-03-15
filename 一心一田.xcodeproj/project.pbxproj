@@ -101,12 +101,13 @@
 		FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
-		FEB20D971C92666D0018A11C /* GoodLIstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */; };
 		FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D991C926E2C0018A11C /* NavBar.xib */; };
 		FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9B1C929A830018A11C /* titileaftersearch.xib */; };
 		FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9D1C929C860018A11C /* filterwindow.xib */; };
 		FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA11C929F670018A11C /* footerforsection.xib */; };
 		FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA21C929F670018A11C /* onebtninfooter.xib */; };
+		FEDC9FC41C97B0DC0002FB2F /* EditNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */; };
+		FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */; };
 		FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */; };
 		FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */; };
 		FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */; };
@@ -305,9 +306,6 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		FEB20D941C92666D0018A11C /* GoodLIstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodLIstTableViewCell.h; sourceTree = "<group>"; };
-		FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodLIstTableViewCell.m; sourceTree = "<group>"; };
-		FEB20D961C92666D0018A11C /* GoodLIstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodLIstTableViewCell.xib; sourceTree = "<group>"; };
 		FEB20D991C926E2C0018A11C /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
 		FEB20D9B1C929A830018A11C /* titileaftersearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = titileaftersearch.xib; sourceTree = "<group>"; };
 		FEB20D9D1C929C860018A11C /* filterwindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filterwindow.xib; sourceTree = "<group>"; };
@@ -317,6 +315,9 @@
 		FEB20DA31C929F670018A11C /* threebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = threebtninfooter.xib; sourceTree = "<group>"; };
 		FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitile.xib; sourceTree = "<group>"; };
 		FEDC9FB51C966E040002FB2F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FEDC9FC11C97B0DC0002FB2F /* EditNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNickNameViewController.h; sourceTree = "<group>"; };
+		FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNickNameViewController.m; sourceTree = "<group>"; };
+		FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNickNameViewController.xib; sourceTree = "<group>"; };
 		FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutipleGoodsViewController.h; sourceTree = "<group>"; };
 		FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutipleGoodsViewController.m; sourceTree = "<group>"; };
 		FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MutipleGoodsViewController.xib; sourceTree = "<group>"; };
@@ -499,6 +500,7 @@
 		FE6DC0421C8D5B0900E93578 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FEDC9FBB1C97AEE40002FB2F /* 修改昵称和电话 */,
 				CEADD1691C9170A100E13421 /* 账单详情 */,
 				CEADD1681C91706F00E13421 /* 账户充值 */,
 				FEDFA0FD1C914C320010E5E3 /* 我的订单 */,
@@ -778,6 +780,16 @@
 			name = TabBar;
 			sourceTree = "<group>";
 		};
+		FEDC9FBB1C97AEE40002FB2F /* 修改昵称和电话 */ = {
+			isa = PBXGroup;
+			children = (
+				FEDC9FC11C97B0DC0002FB2F /* EditNickNameViewController.h */,
+				FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */,
+				FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */,
+			);
+			name = "修改昵称和电话";
+			sourceTree = "<group>";
+		};
 		FEDFA0AD1C911C1F0010E5E3 /* 订单详情 */ = {
 			isa = PBXGroup;
 			children = (
@@ -794,9 +806,6 @@
 		FEDFA0C51C9126240010E5E3 /* 商品列表 */ = {
 			isa = PBXGroup;
 			children = (
-				FEB20D941C92666D0018A11C /* GoodLIstTableViewCell.h */,
-				FEB20D951C92666D0018A11C /* GoodLIstTableViewCell.m */,
-				FEB20D961C92666D0018A11C /* GoodLIstTableViewCell.xib */,
 				FEDFA0C61C91266E0010E5E3 /* ClassficationViewController.h */,
 				FEDFA0C71C91266E0010E5E3 /* ClassficationViewController.m */,
 				FEDFA0C81C91266E0010E5E3 /* ClassficationViewController.xib */,
@@ -966,6 +975,7 @@
 				FEDFA0B71C9122B00010E5E3 /* OrderllistTableViewCell.xib in Resources */,
 				FE545B131C8FD5C70081DB28 /* PersonalCenterViewController.xib in Resources */,
 				FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */,
+				FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */,
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
 				FEDFA0F11C9149C70010E5E3 /* NewAddressViewController.xib in Resources */,
 				CEADD1791C91712800E13421 /* AccountDetailViewController.xib in Resources */,
@@ -1026,6 +1036,7 @@
 				FE7DBF1F1C8D6873003536BC /* AFNetworkReachabilityManager.m in Sources */,
 				CEADD1781C91712800E13421 /* AccountDetailViewController.m in Sources */,
 				FEDFA0C11C91242C0010E5E3 /* ShoppingCarTableViewCell.m in Sources */,
+				FEDC9FC41C97B0DC0002FB2F /* EditNickNameViewController.m in Sources */,
 				FE7DBF8C1C8D6B51003536BC /* RegisterVC.m in Sources */,
 				FE545B081C8FCDFC0081DB28 /* MessageCenterViewController.m in Sources */,
 				FEDFA0E51C9129640010E5E3 /* SearchResultsViewController.m in Sources */,
@@ -1079,7 +1090,6 @@
 				FE7DBF4F1C8D6899003536BC /* SDWebImagePrefetcher.m in Sources */,
 				FE7DBF471C8D6899003536BC /* MKAnnotationView+WebCache.m in Sources */,
 				FE7DBF511C8D6899003536BC /* UIImage+GIF.m in Sources */,
-				FEB20D971C92666D0018A11C /* GoodLIstTableViewCell.m in Sources */,
 				CEADD17C1C91712800E13421 /* RechargeCell.m in Sources */,
 				CEADD17A1C91712800E13421 /* AcountDetailTableViewCell.m in Sources */,
 				FE7DBF711C8D6983003536BC /* LoginViewController.m in Sources */,

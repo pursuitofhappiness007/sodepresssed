@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -34,6 +34,16 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcU-qD-OEt">
+                    <rect key="frame" x="115" y="95" width="88" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" title="点击查看个人信息">
+                        <color key="titleColor" red="0.8784313725490196" green="0.90196078431372551" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="seePersonInfoClicked:" destination="-1" eventType="touchUpInside" id="As8-29-4eI"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiankuohao" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-E3-XXI">
                     <rect key="frame" x="338" y="101" width="7" height="12"/>
                     <constraints>
@@ -839,6 +849,7 @@
                 <constraint firstItem="wtv-GC-PNC" firstAttribute="leading" secondItem="X0V-Xn-kZR" secondAttribute="leading" id="cdp-tj-Rvi"/>
                 <constraint firstItem="Nsj-vw-xBw" firstAttribute="top" secondItem="wtv-GC-PNC" secondAttribute="bottom" id="dZq-UR-XJu"/>
                 <constraint firstItem="qM4-mb-hZW" firstAttribute="trailing" secondItem="Qfi-Dy-K6E" secondAttribute="trailing" id="doh-X0-3Jp"/>
+                <constraint firstItem="tcU-qD-OEt" firstAttribute="top" secondItem="kss-eK-6fo" secondAttribute="bottom" constant="4" id="e0F-oD-GO4"/>
                 <constraint firstItem="RAy-FY-GAY" firstAttribute="leading" secondItem="eLn-01-iQN" secondAttribute="leading" id="eTc-Kc-rYW"/>
                 <constraint firstItem="vOG-Qq-HdY" firstAttribute="leading" secondItem="prK-F0-8hh" secondAttribute="leading" id="esV-6N-4Kj"/>
                 <constraint firstItem="fdr-7G-Jhs" firstAttribute="height" secondItem="Nsj-vw-xBw" secondAttribute="height" id="f9R-LK-fPs"/>
@@ -867,6 +878,7 @@
                 <constraint firstItem="H6C-Lb-vdT" firstAttribute="top" secondItem="Nsj-vw-xBw" secondAttribute="bottom" id="qHV-Tl-q5e"/>
                 <constraint firstItem="qM0-ix-6f5" firstAttribute="height" secondItem="lyL-7R-63n" secondAttribute="height" id="qTj-4O-1hr"/>
                 <constraint firstItem="lyL-7R-63n" firstAttribute="leading" secondItem="prK-F0-8hh" secondAttribute="leading" id="t2V-NX-jFF"/>
+                <constraint firstItem="tcU-qD-OEt" firstAttribute="leading" secondItem="kss-eK-6fo" secondAttribute="leading" id="tgq-33-fUU"/>
                 <constraint firstItem="X0V-Xn-kZR" firstAttribute="top" secondItem="prK-F0-8hh" secondAttribute="top" id="tps-0o-aI4"/>
                 <constraint firstItem="xcO-Qk-eLg" firstAttribute="height" secondItem="Nsj-vw-xBw" secondAttribute="height" id="uAT-36-NQi"/>
                 <constraint firstItem="RAy-FY-GAY" firstAttribute="height" secondItem="fdr-7G-Jhs" secondAttribute="height" id="uqs-mJ-X1M"/>

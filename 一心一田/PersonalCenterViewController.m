@@ -8,6 +8,7 @@
 
 #import "PersonalCenterViewController.h"
 #import "AccountRecharge.h"
+#import "PersonalInfomationViewController.h"
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -20,6 +21,7 @@
 - (IBAction)changePwdBtnClicked:(id)sender;
 - (IBAction)aboutusBtnClicked:(id)sender;
 - (IBAction)currentVersionBtnClicked:(id)sender;
+- (IBAction)seePersonInfoClicked:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
@@ -41,9 +43,15 @@
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(namechangedrefresh) name:@"namechanged" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshbadgenum) name:@"refreshbadgenum" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateicon) name:@"iconchanged" object:nil];
+    
     
     [self setpersoninfo];
     
+}
+
+-(void)updateicon{
+    [self setpersoninfo];
 }
 
 -(void)setpersoninfo{
@@ -98,6 +106,11 @@
 - (IBAction)currentVersionBtnClicked:(id)sender {
 }
 
+- (IBAction)seePersonInfoClicked:(id)sender {
+    PersonalInfomationViewController *vc=[[PersonalInfomationViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (IBAction)changeIconClicked:(id)sender {
     UIActionSheet *sheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
     
@@ -130,12 +143,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     usericonimg=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
-    NSString *stringUrl =@"http://img.gdsalt.com/gdsalt/uploaded.html";
+    NSString *stringUrl =@"http://static.exinetian.com/upload.html?fileProject=3&fileItem=2&fileType=1";
     NSData *imgdata=UIImageJPEGRepresentation(usericonimg, 0.5);
     NSMutableDictionary *para=[NSMutableDictionary dictionary];
-    para=@{@"type":@"2"};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:stringUrl parameters:para constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:stringUrl parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         [formData appendPartWithFileData:imgdata name:@"image" fileName:@"avator.jpeg" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -151,12 +163,12 @@
         
         
         NSDictionary *tokenfile=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"];
-        tokenfile[@"member_info"][@"headPath"]=[NSString stringWithFormat:@"http://img.gdsalt.com/gdsalt/%@",responseObject[@"url"]];
+        tokenfile[@"member_info"][@"headPath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:tokenfile filepath:@"tokenfile.txt"];
         
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
         paras[@"token"]=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"][@"token"];
-        paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"headPath":[NSString stringWithFormat:@"http://img.gdsalt.com/gdsalt/%@",responseObject[@"url"]]}];
+        paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"headPath":[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]]}];
         paras[@"app_source"]=@6;
         
       [HttpTool post:@"modify_personal_property" params:paras success:^(id responseObj) {

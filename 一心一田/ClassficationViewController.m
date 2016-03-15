@@ -7,7 +7,7 @@
 //
 
 #import "ClassficationViewController.h"
-#import "GoodLIstTableViewCell.h"
+#import "GoodListTableViewCell.h"
 #import "GoodsDetailViewController.h"
 #import "LoginViewController.h"
 #import "SearchViewController.h"
@@ -195,7 +195,7 @@
     }
     
     else{
-        GoodLIstTableViewCell *cell=[GoodLIstTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+        GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         NSDictionary *dict=goodslist[indexPath.row];
         cell.goodimg=[dict stringForKey:@"thumbnailImg"];
         cell.goodname=[dict stringForKey:@"name"];
@@ -221,7 +221,7 @@
 }
 
 -(void)minusBtnClicked:(UIButton *)sender{
-    GoodLIstTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
     int i=[cell.count intValue];
     if(i>1){
         if(i==2)
@@ -231,7 +231,7 @@
 }
 
 -(void)addBtnClicked:(UIButton *)sender{
-    GoodLIstTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
     int i=[cell.count intValue];
     cell.count=[NSString stringWithFormat:@"%d",i+1];
 
