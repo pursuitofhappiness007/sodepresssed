@@ -9,6 +9,7 @@
 #import "PersonalCenterViewController.h"
 #import "AccountRecharge.h"
 #import "PersonalInfomationViewController.h"
+#import "OriginalCollectionListViewController.h"
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -82,7 +83,9 @@
 
 //充值
 - (IBAction)chongzhiBtnClicked:(id)sender {
-    
+    AccountRecharge *rechargeVc = [[AccountRecharge alloc]init];
+    UINavigationController *reVc = [[UINavigationController alloc]initWithRootViewController:rechargeVc];
+    [self presentViewController:reVc animated:YES completion:nil];
 }
 //我的订单
 - (IBAction)myOrderclicked:(id)sender {
@@ -92,6 +95,10 @@
 }
 //商品收藏
 - (IBAction)goodsCollectionBtnClicked:(id)sender {
+    OriginalCollectionListViewController *collectionVc = [[OriginalCollectionListViewController alloc]init];
+    UINavigationController *coVc = [[UINavigationController alloc]initWithRootViewController:collectionVc];
+    [self presentViewController:coVc animated:YES completion:nil];
+
 }
 //消息中心
 - (IBAction)msgCenterBtnClicked:(id)sender {
