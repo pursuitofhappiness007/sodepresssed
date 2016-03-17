@@ -28,14 +28,6 @@
 		CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1FE1C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib */; };
 		CEECE2061C9AD1AD009D11D8 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */; };
 		CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */; };
-		CEECE21A1C9AD21D009D11D8 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE20A1C9AD21D009D11D8 /* NSData+SDDataCache.m */; };
-		CEECE21B1C9AD21D009D11D8 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE20D1C9AD21D009D11D8 /* TAAbstractDotView.m */; };
-		CEECE21C1C9AD21D009D11D8 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE20F1C9AD21D009D11D8 /* TAAnimatedDotView.m */; };
-		CEECE21D1C9AD21D009D11D8 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2111C9AD21D009D11D8 /* TADotView.m */; };
-		CEECE21E1C9AD21D009D11D8 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2131C9AD21D009D11D8 /* TAPageControl.m */; };
-		CEECE21F1C9AD21D009D11D8 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2151C9AD21D009D11D8 /* SDCollectionViewCell.m */; };
-		CEECE2201C9AD21D009D11D8 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2171C9AD21D009D11D8 /* SDCycleScrollView.m */; };
-		CEECE2211C9AD21D009D11D8 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2191C9AD21D009D11D8 /* UIView+SDExtension.m */; };
 		FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */; };
 		FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E110E1C9A924000916CAD /* popaddresschooser.xib */; };
 		FE3F31841C8EC43400A7026D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31831C8EC43400A7026D /* CoreTelephony.framework */; };
@@ -183,22 +175,6 @@
 		CEECE1FF1C9AD1AD009D11D8 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
 		CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
 		CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
-		CEECE2091C9AD21D009D11D8 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
-		CEECE20A1C9AD21D009D11D8 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
-		CEECE20C1C9AD21D009D11D8 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
-		CEECE20D1C9AD21D009D11D8 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
-		CEECE20E1C9AD21D009D11D8 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
-		CEECE20F1C9AD21D009D11D8 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
-		CEECE2101C9AD21D009D11D8 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
-		CEECE2111C9AD21D009D11D8 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
-		CEECE2121C9AD21D009D11D8 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
-		CEECE2131C9AD21D009D11D8 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
-		CEECE2141C9AD21D009D11D8 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
-		CEECE2151C9AD21D009D11D8 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
-		CEECE2161C9AD21D009D11D8 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
-		CEECE2171C9AD21D009D11D8 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
-		CEECE2181C9AD21D009D11D8 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
-		CEECE2191C9AD21D009D11D8 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		FE2E110B1C9A59D000916CAD /* LocalAndOnlineFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAndOnlineFileTool.h; sourceTree = "<group>"; };
 		FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAndOnlineFileTool.m; sourceTree = "<group>"; };
 		FE2E110E1C9A924000916CAD /* popaddresschooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = popaddresschooser.xib; sourceTree = "<group>"; };
@@ -442,37 +418,6 @@
 			name = "账单详情";
 			sourceTree = "<group>";
 		};
-		CEECE2081C9AD21D009D11D8 /* SDCycleScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				CEECE2091C9AD21D009D11D8 /* NSData+SDDataCache.h */,
-				CEECE20A1C9AD21D009D11D8 /* NSData+SDDataCache.m */,
-				CEECE20B1C9AD21D009D11D8 /* PageControl */,
-				CEECE2141C9AD21D009D11D8 /* SDCollectionViewCell.h */,
-				CEECE2151C9AD21D009D11D8 /* SDCollectionViewCell.m */,
-				CEECE2161C9AD21D009D11D8 /* SDCycleScrollView.h */,
-				CEECE2171C9AD21D009D11D8 /* SDCycleScrollView.m */,
-				CEECE2181C9AD21D009D11D8 /* UIView+SDExtension.h */,
-				CEECE2191C9AD21D009D11D8 /* UIView+SDExtension.m */,
-			);
-			path = SDCycleScrollView;
-			sourceTree = "<group>";
-		};
-		CEECE20B1C9AD21D009D11D8 /* PageControl */ = {
-			isa = PBXGroup;
-			children = (
-				CEECE20C1C9AD21D009D11D8 /* TAAbstractDotView.h */,
-				CEECE20D1C9AD21D009D11D8 /* TAAbstractDotView.m */,
-				CEECE20E1C9AD21D009D11D8 /* TAAnimatedDotView.h */,
-				CEECE20F1C9AD21D009D11D8 /* TAAnimatedDotView.m */,
-				CEECE2101C9AD21D009D11D8 /* TADotView.h */,
-				CEECE2111C9AD21D009D11D8 /* TADotView.m */,
-				CEECE2121C9AD21D009D11D8 /* TAPageControl.h */,
-				CEECE2131C9AD21D009D11D8 /* TAPageControl.m */,
-			);
-			path = PageControl;
-			sourceTree = "<group>";
-		};
 		FE545AFD1C8FC2400081DB28 /* 个人资料 */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,7 +557,6 @@
 		FE6DC0461C8D5B7A00E93578 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				CEECE2081C9AD21D009D11D8 /* SDCycleScrollView */,
 				FE545B141C9015610081DB28 /* LibBPush */,
 				FE7734AD1C8D8B1A00397142 /* wechatsdk */,
 				FE7DBF751C8D6AB4003536BC /* FMDB */,
@@ -1092,21 +1036,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEECE21B1C9AD21D009D11D8 /* TAAbstractDotView.m in Sources */,
 				FE6DC07A1C8D612B00E93578 /* DictionaryToJsonStr.m in Sources */,
 				FE7DBF501C8D6899003536BC /* UIButton+WebCache.m in Sources */,
 				FE7DBF631C8D68D5003536BC /* UIView+Extension.m in Sources */,
 				FE7DBF4E1C8D6899003536BC /* SDWebImageManager.m in Sources */,
 				FEDFA0CF1C9127180010E5E3 /* GoodsDetailViewController.m in Sources */,
 				FE6DC0521C8D5C1200E93578 /* NewFuturesViewController.m in Sources */,
-				CEECE2201C9AD21D009D11D8 /* SDCycleScrollView.m in Sources */,
 				FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */,
-				CEECE21C1C9AD21D009D11D8 /* TAAnimatedDotView.m in Sources */,
 				FE6DC04C1C8D5BD700E93578 /* ExinEtianTabbarcontroller.m in Sources */,
 				FE7DBF1E1C8D6873003536BC /* AFHTTPSessionManager.m in Sources */,
 				FE7DBF621C8D68D5003536BC /* UIBarButtonItem+Extension.m in Sources */,
 				FE7DBF4C1C8D6899003536BC /* SDWebImageDownloader.m in Sources */,
-				CEECE21E1C9AD21D009D11D8 /* TAPageControl.m in Sources */,
 				FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */,
 				FE6DC0301C8D597200E93578 /* AppDelegate.m in Sources */,
 				CEECE2021C9AD1AD009D11D8 /* AccountDetailViewController.m in Sources */,
@@ -1140,15 +1080,12 @@
 				FE7DBF531C8D6899003536BC /* UIImage+WebP.m in Sources */,
 				FE7DBF491C8D6899003536BC /* SDImageCache.m in Sources */,
 				CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */,
-				CEECE2211C9AD21D009D11D8 /* UIView+SDExtension.m in Sources */,
 				FE7DBF521C8D6899003536BC /* UIImage+MultiFormat.m in Sources */,
 				FE7DBF4D1C8D6899003536BC /* SDWebImageDownloaderOperation.m in Sources */,
 				FE6DC0791C8D612B00E93578 /* DataBaseTool.m in Sources */,
-				CEECE21D1C9AD21D009D11D8 /* TADotView.m in Sources */,
 				FE7DBF641C8D68D5003536BC /* UIView+xibcong.m in Sources */,
 				FE7DBF541C8D6899003536BC /* UIImageView+HighlightedWebCache.m in Sources */,
 				FE7DBF821C8D6AC2003536BC /* FMDatabaseAdditions.m in Sources */,
-				CEECE21A1C9AD21D009D11D8 /* NSData+SDDataCache.m in Sources */,
 				FE6DC0781C8D612B00E93578 /* ClearCacheTool.m in Sources */,
 				CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */,
 				FE6DC02D1C8D597200E93578 /* main.m in Sources */,
@@ -1177,7 +1114,6 @@
 				FE7DBF471C8D6899003536BC /* MKAnnotationView+WebCache.m in Sources */,
 				CEECE1F01C9AD18F009D11D8 /* CollectionListTableViewCell.m in Sources */,
 				FE7DBF511C8D6899003536BC /* UIImage+GIF.m in Sources */,
-				CEECE21F1C9AD21D009D11D8 /* SDCollectionViewCell.m in Sources */,
 				FE7DBF711C8D6983003536BC /* LoginViewController.m in Sources */,
 				FEDFA0E01C9129180010E5E3 /* OrderConformationViewController.m in Sources */,
 				FE7DBF231C8D6873003536BC /* AFURLResponseSerialization.m in Sources */,
