@@ -25,6 +25,7 @@
     NSDictionary *orderinfo;
     MBProgressHUD *hud1;
      UIView *dimview;
+    NSString *paymode;
 }
 @property (weak, nonatomic) IBOutlet UITableView *goodslisttableview;
 @property (weak, nonatomic) IBOutlet UILabel *allmoneytopay;
@@ -33,7 +34,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *receiverlab;
 @property (weak, nonatomic) IBOutlet UILabel *phonelab;
 @property (weak, nonatomic) IBOutlet UILabel *addresslab;
-- (IBAction)changedeliveryaddressBtnClicked:(id)sender;
+- (IBAction)payModeBtnClicked:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *yueimg;
+@property (weak, nonatomic) IBOutlet UIImageView *wechatimg;
+
 @property (weak, nonatomic) IBOutlet UITableView *deliverylisttableview;
 - (IBAction)dismissview:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *addressnoticelab;
@@ -43,16 +47,10 @@
 @implementation OrderConformationViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-    if([WXApi isWXAppInstalled]){
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
-    }
+    self.navigationController.navigationBarHidden=NO;
     [super viewWillAppear:animated];
 }
 
-//- (void)viewWillDisappear:(BOOL)animated{
-//    [[NSNotificationCenter defaultCenter]removeObserver:self];
-//}
 -(instancetype)init{
    if(self=[super init])
        self.automaticallyAdjustsScrollViewInsets=NO;
@@ -68,8 +66,9 @@
     
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self initparas];
-    [self settotalmoney];
+    [self setbottombar];
     [self setdeliveryaddress];
+    
 }
 
 -(void)addaddressrefresh{
@@ -78,31 +77,24 @@
 
 -(void)initparas{
     addlistarray=[NSMutableArray array];
- letters=@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     deliveryaddindex=0;
     orderinfo=[NSDictionary dictionary];
+    paymode=@"BA";
 
 }
 
 -(void)setdeliveryaddress{
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    [HttpTool post:@"get_delivery_list" params:paras success:^(id responseObj) {
+    [HttpTool post:@"get_address" params:paras success:^(id responseObj) {
         NSLog(@"获取的收获地址列表 参数=%@ res= %@",paras,responseObj);
         if([responseObj int32ForKey:@"result"]==0){
-            addlistarray=[[responseObj mutableArrayValueForKey:@"data"]mutableCopy];
-            //还没有添加收货地址
-            if(addlistarray.count<2){
-            _addressnoticelab.text=@"新增收货地址";
-            }
-            else{
-            _addressnoticelab.text=@"修改收货地址";
-            }
-            NSDictionary *dict=[addlistarray firstObject];
-            _receiverlab.text=[dict stringForKey:@"receiver"];
-            _phonelab.text=[dict stringForKey:@"cellPhone"];
-            _addresslab.text=[dict stringForKey:@"deliveryAddress"];
-            deliveryId=[dict stringForKey:@"id"];
+            NSDictionary *dict=[responseObj dictionaryForKey:@"data"];
+            
+            _receiverlab.text=[NSString stringWithFormat:@"收货人:%@",[dict stringForKey:@"marketplaceName"]];
+            _phonelab.text=[dict arrayForKey:@"phones"][0];
+            _addresslab.text=[NSString stringWithFormat:@"%@%@%@",[dict stringForKey:@"provinceName"],[dict stringForKey:@"cityName"],[dict stringForKey:@"districtName"]];
+           
         }
     } failure:^(NSError *error) {
         NSLog(@"获取收货地址失败 %@",error);
@@ -117,21 +109,10 @@
     else
         return NO;
 }
--(void)settotalmoney{
-    totaltopay=0;
-    quantity=0;
+-(void)setbottombar{
     
-    
-    for (NSInteger j=0; j<_tabledata.count;++j)
-    {
-        OrderllistTableViewCell *cell=[_goodslisttableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
-        
-        totaltopay+=[_tabledata[j] int32ForKey:@"quantity"]*[_tabledata[j] doubleForKey:@"salePrice"];
-        quantity+=[_tabledata[j] int32ForKey:@"quantity"];
-        
-    }
-    _allmoneytopay.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
+    _allmoneytopay.text=[NSString stringWithFormat:@"¥%.2f",[LocalAndOnlineFileTool calculatesummoneyinshopcar]];
+    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",[LocalAndOnlineFileTool refreshcoungnum]] forState:UIControlStateNormal];
  
 }
 
@@ -159,14 +140,15 @@
     else{
     OrderllistTableViewCell *cell=[OrderllistTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    cell.image=[_tabledata[indexPath.row] stringForKey:@"thumbnailImg"];
-    cell.name=[_tabledata[indexPath.row] stringForKey:@"goodsName"];
+        NSDictionary *dict=_tabledata[indexPath.row];
+    cell.image=[dict stringForKey:@"thumbnailImg"];
+    cell.name=[dict stringForKey:@"name"];
    
-    cell.price=[NSString stringWithFormat:@"¥%@",[_tabledata[indexPath.row] stringForKey:@"salePrice"]];
-   
-    cell.count=[NSString stringWithFormat:@"X%@",[_tabledata[indexPath.row] stringForKey:@"quantity"]];
+    cell.price=[NSString stringWithFormat:@"¥%@",[dict stringForKey:@"price"]];
+    int kcount=[LocalAndOnlineFileTool singlegoodcount:[dict stringForKey:@"goodsId"]];
+    cell.count=[NSString stringWithFormat:@"X%d",kcount];
     
-    cell.toatalmoney=[NSString stringWithFormat:@"商品总价:¥%.2f",[_tabledata[indexPath.row] doubleForKey:@"salePrice"]*[_tabledata[indexPath.row] int32ForKey:@"quantity"]];
+    cell.toatalmoney=[NSString stringWithFormat:@"总价:¥%.2f",[dict doubleForKey:@"price"]*kcount];
     cell.goodspicBtn.tag=indexPath.row;
     [cell.goodspicBtn addTarget:self action:@selector(goodspicBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
       return cell;
@@ -194,7 +176,7 @@
     
     }
     else
-    return  MAIN_HEIGHT*0.1;
+    return  MAIN_HEIGHT*0.16;
 }
 
 -(void)goodspicBtnClicked:(UIButton *)sender{
@@ -231,50 +213,51 @@
     return randomString;
 }
 - (IBAction)payBtn:(id)sender {
-    if([addlistarray count]==0)
-    {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        
-        // Configure for text only and offset down
-        hud.mode = MBProgressHUDModeText;
-        
-        hud.labelText =@"您还未添加收货地址";
-        hud.labelFont=[UIFont systemFontOfSize:14.0];
-        hud.margin = 10.f;
-        hud.removeFromSuperViewOnHide = YES;
-        
-        [hud hide:YES afterDelay:2.0];
-        return;
-        
-    }
+//    if([addlistarray count]==0)
+//    {
+//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//        
+//        // Configure for text only and offset down
+//        hud.mode = MBProgressHUDModeText;
+//        
+//        hud.labelText =@"您还未添加收货地址";
+//        hud.labelFont=[UIFont systemFontOfSize:14.0];
+//        hud.margin = 10.f;
+//        hud.removeFromSuperViewOnHide = YES;
+//        
+//        [hud hide:YES afterDelay:2.0];
+//        return;
+//        
+//    }
 
-    NSMutableArray *cartids=[NSMutableArray array];
+//       if(![WXApi isWXAppInstalled]){
+//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//        
+//        // Configure for text only and offset down
+//        hud.mode = MBProgressHUDModeText;
+//        
+//        hud.labelText =@"您未安装微信!";
+//        hud.margin = 10.f;
+//        hud.removeFromSuperViewOnHide = YES;
+//        
+//        [hud hide:YES afterDelay:1.2];
+//        return;
+//    }
+    
+    NSMutableArray *deliverlist=[NSMutableArray array];
+    NSMutableArray *willberesetids=[NSMutableArray array];
     for (NSDictionary *dict in _tabledata) {
-        [cartids addObject:[dict stringForKey:@"id"]];
+        int kcount=[LocalAndOnlineFileTool singlegoodcount:[dict stringForKey:@"goodsId"]];
+        
+        [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount],@"weight":@"2",@"calculation":[dict stringForKey:@"billUnit"]}]];
+        [willberesetids addObject:[dict stringForKey:@"goodsId"]];
     }
-    if(![WXApi isWXAppInstalled]){
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        
-        // Configure for text only and offset down
-        hud.mode = MBProgressHUDModeText;
-        
-        hud.labelText =@"您未安装微信!";
-        hud.margin = 10.f;
-        hud.removeFromSuperViewOnHide = YES;
-        
-        [hud hide:YES afterDelay:1.2];
-        return;
-    }
-    
-    
-
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    paras[@"cart_ids"]=[NSString stringWithFormat:@"%@",cartids];
-    paras[@"deliveryId"]=deliveryId;
-    
+    paras[@"goods_list"]=[NSString stringWithFormat:@"%@",deliverlist];
+    paras[@"order_info"]=[DictionaryToJsonStr dictToJsonStr:@{@"buyerRemark":@"1",@"payMode":paymode}];
    
-    [HttpTool post:@"add_order_by_cart" params:paras success:^(id responseObj) {
+    [HttpTool post:@"add_order_by_goods" params:paras success:^(id responseObj) {
         NSLog(@"提交订单后%@ 参数=%@",responseObj,paras);
         if([responseObj int32ForKey:@"result"]==-1){
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -291,28 +274,32 @@
         }
         //订单提交成功
         else {
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"piliangtijiao" object:nil];
-            [refreshshoppingcarbadgenum refresh:self.tabBarController];
-            dimview=[[UIView alloc]initWithFrame:self.view.bounds];
-            dimview.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:0.6];
-            [self.view addSubview:dimview];
             
-            hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
             
-            hud1.labelText = NSLocalizedString(@"正在支付...", @"HUD loading title");
-            [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:responseObj filepath:@"detailbasedinfo.txt"];
-            //获得支付请求参数
-            NSDictionary *tempdict=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"wechat_param"];
-            NSLog(@"fuch tepdic=%@",tempdict);
-            NSString *prepayId=[tempdict stringForKey:@"prepayid"];
-            NSString *noncestr=[tempdict stringForKey:@"noncestr"];
-            int timestamp=[tempdict int64ForKey:@"timestamp"];
-            NSString *sign=[tempdict stringForKey:@"sign"];
-            if(tempdict==nil){
-                [self paysucceedoption];
-            }
-            else{
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
+            //如果是微信支付
+            if ([paymode isEqualToString:@"WC"]) {
+                dimview=[[UIView alloc]initWithFrame:self.view.bounds];
+                dimview.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:0.6];
+                [self.view addSubview:dimview];
                 
+                hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                
+                hud1.labelText = NSLocalizedString(@"正在支付...", @"HUD loading title");
+                [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:responseObj filepath:@"detailbasedinfo.txt"];
+                //获得支付请求参数
+                NSDictionary *tempdict=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"wechat_param"];
+                NSLog(@"fuch tepdic=%@",tempdict);
+                NSString *prepayId=[tempdict stringForKey:@"prepayid"];
+                NSString *noncestr=[tempdict stringForKey:@"noncestr"];
+                int timestamp=[tempdict int64ForKey:@"timestamp"];
+                NSString *sign=[tempdict stringForKey:@"sign"];
+                if(tempdict==nil){
+                    [self paysucceedoption];
+                }
+                else{
+                    
                     PayReq *request=[[PayReq alloc]init];
                     
                     request.partnerId=@"1300204001";
@@ -326,10 +313,16 @@
                         [hud1 removeFromSuperview];
                         [dimview removeFromSuperview];
                     }
-             
-                
+                    
+                    
+                }
+
             }
-           
+            //余额支付
+            else {
+              
+            }
+            
             
         }
     } failure:^(NSError *error) {
@@ -417,5 +410,26 @@
 }
 - (IBAction)dismissview:(id)sender {
     [v removeFromSuperview];
+}
+- (IBAction)payModeBtnClicked:(UIButton *)sender {
+    switch (sender.tag) {
+        case 1:
+        {
+         paymode=@"BA";
+            _yueimg.image=[UIImage imageNamed:@"check"];
+            _wechatimg.image=[UIImage imageNamed:@""];
+        
+        }
+            break;
+        case 2:
+        {
+            paymode=@"WC";
+            _yueimg.image=[UIImage imageNamed:@""];
+            _wechatimg.image=[UIImage imageNamed:@"check"];
+        }
+            break;
+        default:
+            break;
+    }
 }
 @end

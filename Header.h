@@ -1,0 +1,15 @@
+提交订单后{
+    result=0,
+    data={
+        order_info={
+            is_wechat=0,
+            marketName=东莞大岭山农批,
+            id=317,
+            paymentAmount=18,
+            orderCode=OD20160317180433
+        },
+        wechat_param={
+            a=b
+        }
+    }
+}

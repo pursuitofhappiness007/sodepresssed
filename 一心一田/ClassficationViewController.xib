@@ -9,6 +9,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassficationViewController">
             <connections>
                 <outlet property="fenleitableview" destination="CkX-iO-Fqg" id="zLL-Eh-etW"/>
+                <outlet property="numofgoodskindlab" destination="Fil-lX-w4I" id="EDw-nZ-wY6"/>
+                <outlet property="payBtn" destination="VTg-hv-QaZ" id="2Qm-QP-UBL"/>
+                <outlet property="summoneylab" destination="0Kf-7y-QP6" id="3ok-Oz-LQg"/>
                 <outlet property="titletableview" destination="jV7-dL-EX6" id="24T-mI-nC7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,11 +21,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" tag="11" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jV7-dL-EX6">
+                <tableView clipsSubviews="YES" tag="11" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jV7-dL-EX6">
                     <rect key="frame" x="0.0" y="64" width="94" height="554"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="VHT-hj-rz1"/>
                         <outlet property="delegate" destination="-1" id="yCY-sO-RYF"/>
@@ -83,6 +86,9 @@
                                     <real key="value" value="4"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="PayBtnClicked:" destination="-1" eventType="touchUpInside" id="cS9-eh-O0Z"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（不含运费）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ2-Ir-S3S">
                             <rect key="frame" x="196" y="23" width="72" height="14.5"/>

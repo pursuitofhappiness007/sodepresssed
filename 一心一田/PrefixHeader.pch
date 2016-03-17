@@ -23,7 +23,7 @@
 #import "SaveFileAndWriteFileToSandBox.h"
 #import "DictionaryToJsonStr.h"
 #import "UIView+xibcong.h"
-#import "refreshshoppingcarbadgenum.h"
+#import "LocalAndOnlineFileTool.h"
 
 #define MAIN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define MAIN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -31,6 +31,8 @@
 #define NaviBarH 44
 
 #define HOST @"http://192.168.199.50:8870/api/"
+//博文
+//#define HOST @"http://192.168.199.134/php_b2v/public/api/"
 
 //#define HOST @"http://114.119.39.116:8850/api/"
 // Include any system framework and library headers here that should be included in all compilation units.

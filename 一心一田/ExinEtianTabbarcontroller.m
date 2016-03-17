@@ -44,7 +44,7 @@
         [self addOneChlildVc:shopcar title:@"购物车" imageName:@"购物车" selectedImageName:@""];
         PersonalCenterViewController *personinfo=[[PersonalCenterViewController alloc]init];
         [self addOneChlildVc:personinfo title:@"我的" imageName:@"我的" selectedImageName:@""];
-        [refreshshoppingcarbadgenum refresh:self];
+        [LocalAndOnlineFileTool refreshkindnum:self];
         
     }
     //没有登录

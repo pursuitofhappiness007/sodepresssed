@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
+            <connections>
+                <outlet property="searchBar" destination="CWh-vi-Hpm" id="MfC-t8-Wm6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="YYo-wM-iTE">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiz-5o-nGd">
+                    <rect key="frame" x="324.5" y="7" width="30" height="30"/>
+                    <state key="normal" title="搜索">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchBtnClicked:" destination="-1" eventType="touchUpInside" id="X9U-IQ-ZjU"/>
+                    </connections>
+                </button>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="搜索您喜欢的商品、品牌" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-vi-Hpm">
+                    <rect key="frame" x="46" y="0.0" width="280" height="44"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="jnb-nr-2wJ"/>
+                    </connections>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-14-4Gc">
+                    <rect key="frame" x="15" y="13" width="10" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="SWH-Qh-qQF"/>
+                        <constraint firstAttribute="width" constant="10" id="bfB-oI-eAf"/>
+                        <constraint firstAttribute="height" constant="18" id="f1Y-k3-aLQ"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="back"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="SWH-Qh-qQF"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="qq8-u6-8CQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="PvP-14-4Gc" firstAttribute="leading" secondItem="YYo-wM-iTE" secondAttribute="leading" constant="15" id="5jF-A8-SIz"/>
+                <constraint firstItem="CWh-vi-Hpm" firstAttribute="centerY" secondItem="YYo-wM-iTE" secondAttribute="centerY" id="9rP-FN-sGz"/>
+                <constraint firstItem="CWh-vi-Hpm" firstAttribute="width" secondItem="YYo-wM-iTE" secondAttribute="width" multiplier="0.75" id="AFS-HD-RD1"/>
+                <constraint firstItem="CWh-vi-Hpm" firstAttribute="centerX" secondItem="YYo-wM-iTE" secondAttribute="centerX" id="DI8-Ot-7mi"/>
+                <constraint firstItem="PvP-14-4Gc" firstAttribute="centerY" secondItem="YYo-wM-iTE" secondAttribute="centerY" id="Djs-7t-fuJ"/>
+                <constraint firstItem="iiz-5o-nGd" firstAttribute="centerY" secondItem="CWh-vi-Hpm" secondAttribute="centerY" id="Jq6-pV-tgD"/>
+                <constraint firstItem="iiz-5o-nGd" firstAttribute="centerX" secondItem="YYo-wM-iTE" secondAttribute="centerX" multiplier="1.82" id="bPx-YJ-X1b"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="50.5" y="-159"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="7" height="12"/>
+    </resources>
+</document>

@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassficationViewController">
             <connections>
+                <outlet property="maintitilelab" destination="cqy-vF-stc" id="lan-ll-jgj"/>
                 <outlet property="menuArrow" destination="TDk-DU-VV5" id="byg-2c-Qjp"/>
             </connections>
         </placeholder>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-7L-DTg">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-7L-DTg">
                     <rect key="frame" x="15" y="31" width="61" height="22"/>
                     <state key="normal" title="Button" image="back"/>
                     <connections>

@@ -33,6 +33,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
+    self.tabBarController.tabBar.hidden=NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

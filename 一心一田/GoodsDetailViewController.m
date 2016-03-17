@@ -175,7 +175,6 @@
         paras[@"quantity"]=@"1";
         [HttpTool post:@"add_to_cart" params:paras success:^(id responseObj) {
             if([responseObj int32ForKey:@"result"]==0){
-                [refreshshoppingcarbadgenum refresh:self.tabBarController];
                 [[NSNotificationCenter defaultCenter]postNotificationName:@"addedtocar" object:nil];
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 

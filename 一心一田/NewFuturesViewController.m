@@ -7,7 +7,7 @@
 //
 
 #import "NewFuturesViewController.h"
-
+#import "ExinEtianTabbarcontroller.h"
 @interface NewFuturesViewController ()
 
 @end
@@ -17,6 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+   ExinEtianTabbarcontroller *vc = [[ExinEtianTabbarcontroller alloc] init];
+    
+    // 切换控制器
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.rootViewController = vc;
+
 }
 
 - (void)didReceiveMemoryWarning {

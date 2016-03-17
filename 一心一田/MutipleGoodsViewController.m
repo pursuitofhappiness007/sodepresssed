@@ -80,7 +80,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else{
-        [refreshshoppingcarbadgenum refresh:self.tabBarController];
+        [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-4] animated:YES];
     }
     

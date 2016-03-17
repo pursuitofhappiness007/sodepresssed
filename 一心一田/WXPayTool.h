@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 @interface WXPayTool : NSObject
 +(WXPayTool *)singletonInstance;
--(BOOL)wxpaywithpartnerId:(NSString *)partnerId prepayId:(NSString *)prepayId noncestr:(NSString *)noncestr timestamp:(int64_t)timestamp sign:(NSString *)sign;
+-(BOOL)wxpaywithdict:(NSDictionary *)dict;
 @end

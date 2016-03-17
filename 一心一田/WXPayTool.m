@@ -34,15 +34,15 @@ static WXPayTool *_sigletonInstance=nil;
     return nil;
 }
 
--(BOOL)wxpaywithpartnerId:(NSString *)partnerId prepayId:(NSString *)prepayId noncestr:(NSString *)noncestr timestamp:(int64_t)timestamp sign:(NSString *)sign{
+-(BOOL)wxpaywithdict:(NSDictionary *)dict{
     PayReq *request=[[PayReq alloc]init];
     
-    request.partnerId=partnerId;
+    request.partnerId=[dict stringForKey:@"prepayId"];
     request.package =@"Sign=WXPay";
-    request.prepayId=prepayId;
-    request.nonceStr=noncestr;
-    request.timeStamp=timestamp;
-    request.sign=sign;
+    request.prepayId=[dict stringForKey:@"prepayid"];
+    request.nonceStr=[dict stringForKey:@"noncestr"];
+    request.timeStamp=[dict int64ForKey:@"timestamp"];
+    request.sign=[dict stringForKey:@"sign"];
     
     if([WXApi sendReq:request])
         return YES;

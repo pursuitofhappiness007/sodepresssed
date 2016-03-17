@@ -8,6 +8,7 @@
 
 #import "PersonalInfomationViewController.h"
 #import "EditNickNameViewController.h"
+#import "BPush.h"
 @interface PersonalInfomationViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -79,15 +80,23 @@
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     [HttpTool post:@"logout" params:paras success:^(id responseObj) {
         NSLog(@"退出帐号%@",responseObj);
-        if([responseObj int32ForKey:@"reselt"]==0)
+        if([responseObj int32ForKey:@"result"]==0)
         {
             [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"tokenfile.txt"];
-            
+            //注销消息推送
+            NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+            paras[@"baidu_user_id"]=[BPush getUserId];
+            paras[@"baidu_channel_id"]=[BPush getChannelId];
+            paras[@"baidu_app_id"]=[BPush getAppId];
+            paras[@"device_type"]=@"4";
+            [HttpTool post:@"msg_push_unregister" params:paras success:^(id responseObj) {
+                NSLog(@"注销推送成功%@",responseObj);
+            } failure:^(NSError *error) {
+                 NSLog(@"注销推送失败%@",error);
+            }];
             if(self.tabBarController.selectedIndex==0)
                 [self.navigationController popToRootViewControllerAnimated:YES];
             else{
-                
-                
                 UIView * fromView = self.tabBarController.selectedViewController.view;
                 UIView * toView =[[self.tabBarController.viewControllers objectAtIndex:0] view];
                 [UIView transitionFromView:fromView

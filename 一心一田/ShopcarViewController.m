@@ -130,13 +130,11 @@
 -(void)getdatafromweb{
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    paras[@"page_no"]=@"1";
-    paras[@"page_size"]=@999999;
     NSLog(@"购物车参数 %@",paras);
     [HttpTool post:@"get_shopping_cart" params:paras success:^(id responseObj) {
         NSLog(@"购物车参数 %@ res=%@",paras,responseObj);
         if([responseObj int32ForKey:@"result"]==0){
-            [refreshshoppingcarbadgenum refresh:self.tabBarController];
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             //购物车没有商品
             if([[responseObj arrayForKey:@"data"] count]==0){
                 _optionBar.hidden=YES;
@@ -178,7 +176,7 @@
         cell.singleBtn.hidden=NO;
         cell.singleBtn.selected=NO;
 //
-        totaltopay+=[tabledata[j] int32ForKey:@"quantity"]*[tabledata[j] doubleForKey:@"salePrice"];
+        totaltopay+=[tabledata[j] int32ForKey:@"quantity"]*[tabledata[j] doubleForKey:@"price"];
         
         NSLog(@"cell%d的 数量＝%d,salprice=%f totaltopay=%f",j,[cell.countlab.text intValue],[tabledata[j] doubleForKey:@"salePrice"],totaltopay);
         quantity+=[tabledata[j] int32ForKey:@"quantity"];
@@ -225,24 +223,22 @@
     
     ShoppingCarTableViewCell *cell=[ShoppingCarTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    cell.image=[tabledata[indexPath.section] stringForKey:@"thumbnailImg"];
-    cell.name=[tabledata[indexPath.section] stringForKey:@"goodsName"];
-    cell.pricebefore=[NSString stringWithFormat:@"¥%.1f",[tabledata[indexPath.section] doubleForKey:@"salePrice"]];
-    
-    cell.originalprice=[NSString stringWithFormat:@"原价:¥%.1f",[tabledata[indexPath.section] doubleForKey:@"marketPrice"]];
-
-    cell.currentprice=[NSString stringWithFormat:@"现价:¥%.1f",[tabledata[indexPath.section] doubleForKey:@"salePrice"]];
+    NSDictionary *dict=[tabledata[indexPath.section] dictionaryForKey:@"goodsRelationDto"];
+    cell.image=[dict stringForKey:@"thumbnailImg"];
+    cell.name=[dict stringForKey:@"name"];
     cell.thecountchoosed=[NSString stringWithFormat:@"已选%@件商品",[tabledata[indexPath.section] stringForKey:@"quantity"]];
-    cell.currentcount=[NSString stringWithFormat:@"%@",[tabledata[indexPath.section] stringForKey:@"quantity"]];
-    if([tabledata[indexPath.section] int32ForKey:@"quantity"]==1){
+    cell.currentcount=[dict stringForKey:@"minNum"];
+    cell.shortcomment=[dict stringForKey:@"commentary"];
+    cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%d",[tabledata[indexPath.section]int32ForKey:@"price"]*[tabledata[indexPath.section]int32ForKey:@"quantity"]];
+    if([tabledata[indexPath.section] int32ForKey:@"quantity"]==[dict int32ForKey:@"minNum"]){
         [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         [cell.addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
-    if([tabledata[indexPath.section] int32ForKey:@"quantity"]>1){
+    if([tabledata[indexPath.section] int32ForKey:@"quantity"]>[dict int32ForKey:@"minNum"]){
         [cell.minusBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [cell.addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
-    cell.acctuallypaid=[NSString stringWithFormat:@"实付:¥%.1f",[tabledata[indexPath.section] doubleForKey:@"salePrice"]*[tabledata[indexPath.section] int32ForKey:@"quantity"]];
+   
     cell.minusBtn.tag=indexPath.section;
     cell.addBtn.tag=indexPath.section;
     cell.singleBtn.tag=indexPath.section;
@@ -332,9 +328,11 @@
 -(void)minusBtnClicked:(UIButton *)sender{
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
+    NSDictionary *dict=[tabledata[sender.tag] dictionaryForKey:@"goodsRelationDto"];
+    
     int i=[cell.countlab.text intValue];
-    if(i>1){
-        if(i==2)
+    if(i>[dict int32ForKey:@"minNum"]){
+        if(i==[dict int32ForKey:@"minNum"]+1)
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.countlab.text=[NSString stringWithFormat:@"%d",i-1];
         
@@ -345,13 +343,14 @@
         para[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
         [HttpTool post:@"update_cart_goods_number" params:para success:^(id responseObj) {
             cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",i-1];
-            
-          cell.acctuallypaid=[NSString stringWithFormat:@"实付:¥%.1f",[tabledata[sender.tag] doubleForKey:@"salePrice"]*(i-1)];
-            totaltopay-=[tabledata[sender.tag] doubleForKey:@"salePrice"];
+            cell.countlab.text=[NSString stringWithFormat:@"%d",i-1];
+          cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.1f",[tabledata[sender.tag] doubleForKey:@"price"]*(i-1)];
+            //合计
+            totaltopay-=[tabledata[sender.tag] doubleForKey:@"price"];
             _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
             quantity--;
             _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity] ;
-            [refreshshoppingcarbadgenum refresh:self.tabBarController];
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
            
         } failure:^(NSError *error) {
             
@@ -364,7 +363,7 @@
     if(MAIN_HEIGHT==480)
         return MAIN_HEIGHT*0.37;
     else
-    return  MAIN_HEIGHT*0.27;
+    return  MAIN_HEIGHT*0.19;
 }
 
 -(void)addBtnClicked:(UIButton *)sender{
@@ -383,12 +382,12 @@
         [HttpTool post:@"update_cart_goods_number" params:para success:^(id responseObj) {
             cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",i+1];
             
-            cell.acctuallypaid=[NSString stringWithFormat:@"实付:¥%.1f",[tabledata[sender.tag] doubleForKey:@"salePrice"]*(i+1)];
-            totaltopay+=[tabledata[sender.tag] doubleForKey:@"salePrice"];
+            cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.1f",[tabledata[sender.tag] doubleForKey:@"price"]*(i+1)];
+            totaltopay+=[tabledata[sender.tag] doubleForKey:@"price"];
             _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
             quantity++;
             _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
-            [refreshshoppingcarbadgenum refresh:self.tabBarController];
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             
         } failure:^(NSError *error) {
             
@@ -464,13 +463,15 @@
 - (IBAction)suredeletedBtnClicked:(UIButton *)sender {
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    paras[@"cart_id"]=[tabledata[sender.tag] stringForKey:@"id"];
-    [HttpTool post:@"delete_cart" params:paras success:^(id responseObj) {
+    paras[@"drop_ids"]=[NSString stringWithFormat:@"%@",@[[tabledata[sender.tag] stringForKey:@"id"]]];
+    [HttpTool post:@"batch_delete_cart" params:paras success:^(id responseObj) {
+        NSLog(@"调用购物车的删除接口%@",responseObj);
         if([responseObj int32ForKey:@"result"]==0){
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
             if(!cell.singleBtn.selected){
             quantity-=[cell.countlab.text intValue];
-            totaltopay-=[cell.countlab.text intValue]*[tabledata[sender.tag] doubleForKey:@"salePrice"];
+            totaltopay-=[cell.countlab.text intValue]*[tabledata[sender.tag] doubleForKey:@"price"];
                 NSLog(@"当前cell的数量%d,价格=%f",[cell.countlab.text intValue],[tabledata[sender.tag] doubleForKey:@"salePrice"]);
             _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
             _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
@@ -498,7 +499,7 @@
             [v removeFromSuperview];
             
        //刷新购物车badgenum
-            [refreshshoppingcarbadgenum refresh:self.tabBarController];
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             
             
         }

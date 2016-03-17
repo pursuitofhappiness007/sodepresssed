@@ -17,12 +17,12 @@
 
 @property (weak,nonatomic) NSString *image;
 @property (weak,nonatomic) NSString *name;
-@property (weak,nonatomic) NSString *goodsfenlei;
-@property (weak,nonatomic) NSString *pricebefore;
-@property (weak,nonatomic) NSString *originalprice;
-@property (weak,nonatomic) NSString *currentprice;
+@property (weak,nonatomic) NSString *shortcomment;
+//已选商品数量
 @property (weak,nonatomic) NSString *thecountchoosed;
-@property (weak,nonatomic) NSString *acctuallypaid;
+//应付
+@property (weak,nonatomic) NSString *shouldpaid;
+//当前数量
 @property (weak,nonatomic) NSString *currentcount;
 @property (weak, nonatomic) IBOutlet UIButton *singleBtn;
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;

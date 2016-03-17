@@ -12,13 +12,15 @@
 #import "LoginViewController.h"
 #import "SearchViewController.h"
 #import "ShopcarViewController.h"
-
-@interface ClassficationViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>{
+#import "OrderConformationViewController.h"
+@interface ClassficationViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIGestureRecognizerDelegate>{
     NSMutableArray *goodslist;
     NSMutableArray *goodstitles;
     int pagenum;
-    NSString *mainpids;
-    NSString *subpids;
+    NSMutableArray *mainclassfication;
+    NSString *mainpid;
+    NSString *subpid;
+    NSMutableArray *subclassfication;
     NSString *goodsname;
     NSString *sorttype;
     NSString *sortfield;
@@ -26,6 +28,8 @@
     UITableViewCell *basedcell;
     int totalpage;
     UIView *redline;
+    UIView *firstmenu;
+    NSMutableArray *goodscountarray;
 }
 
 
@@ -35,6 +39,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *menuArrow;
 @property (weak, nonatomic) IBOutlet UITableView *titletableview;
 @property (weak, nonatomic) IBOutlet UITableView *fenleitableview;
+@property (weak, nonatomic) IBOutlet UILabel *maintitilelab;
+- (IBAction)singletapofmask:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *numofgoodskindlab;
+@property (weak, nonatomic) IBOutlet UIButton *payBtn;
+- (IBAction)PayBtnClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *summoneylab;
 
 @end
 
@@ -57,36 +67,88 @@
     v.frame=CGRectMake(0, 0, MAIN_WIDTH, 64);
     [self.view addSubview:v];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshfenleivc) name:@"refreshfenleivc" object:nil];
-    
+    redline=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 2, MAIN_HEIGHT*0.07)];
+    redline.backgroundColor=[UIColor redColor];
     
     [self initparas];
-    [self getdatafromweb:1 mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
-    
-    
-}
+    [self setbottombar];
+    //获取列表之前，先获得一级菜单
+    [self getfirstclassfication];
+ }
 
+-(void)setbottombar{
+    //设置种类
+    _numofgoodskindlab.text=[NSString stringWithFormat:@"%d种商品",[LocalAndOnlineFileTool refreshkindnum:self.tabBarController]];
+    //设置商品数量
+    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",[LocalAndOnlineFileTool refreshcoungnum]] forState:UIControlStateNormal];
+    //设置参考价格
+    _summoneylab.text=[NSString stringWithFormat:@"¥%.2f",[LocalAndOnlineFileTool calculatesummoneyinshopcar]];
+}
+-(void)getfirstclassfication{
+    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
+    [HttpTool post:@"get_first_classification" params:paras success:^(id responseObj) {
+        if([responseObj int32ForKey:@"result"]==0){
+            
+            mainclassfication=[[responseObj arrayForKey:@"data"]mutableCopy];
+            //初始化一级分类的id
+            mainpid=[mainclassfication[0] stringForKey:@"id"];
+            _maintitilelab.text=[mainclassfication[0] stringForKey:@"name"];
+            NSLog(@"初始化的值为:%@",mainpid);
+            //获取二级菜单
+            [self getsubclassfication:mainpid];
+            
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"获取一级分类失败%@",error);
+    }];
+}
+//获取二级分类
+-(void)getsubclassfication:(NSString *)firstpids {
+    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+    paras[@"first_classify_id"]=firstpids;
+    [HttpTool post:@"get_second_classification" params:paras success:^(id responseObj) {
+        NSLog(@"获取二级分类%@ 参数=%@",responseObj,paras);
+        if([responseObj int32ForKey:@"result"]==0){
+            if([[responseObj arrayForKey:@"data"] count]>0){
+                subclassfication=[[responseObj arrayForKey:@"data"]mutableCopy];
+                NSLog(@"打印二级fenlei%@",subclassfication);
+                [_titletableview reloadData];
+                subpid=[subclassfication[0]stringForKey:@"id"];
+                [self getdatafromweb:1 mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
+            }
+            
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"获取一级分类失败%@",error);
+    }];
+
+}
 -(void)refreshfenleivc{
-   [self getdatafromweb:1 mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
+   [self getdatafromweb:1 mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
 
 }
 
 -(void)initparas{
+    _titletableview.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
     goodslist=[NSMutableArray array];
     goodstitles=[NSMutableArray array];
     pagenum=1;
-    mainpids=nil;
-    subpids=nil;
+    mainpid=nil;
+    subpid=nil;
+    mainclassfication=[NSMutableArray array];
+    subclassfication=[NSMutableArray array];
+    goodscountarray=[NSMutableArray array];
     sorttype=nil;
     sortfield=nil;
-    redline=[[UIView alloc]initWithFrame:CGRectMake(0, 64, 2, MAIN_HEIGHT*0.07)];
-    [self.view addSubview:redline];
+    
     
 }
 
 -(void)getdatafromweb:(int)page_no mainpids:(NSString *)goodstype subpids:(NSString *)goodstype2 goodsname:(NSString *)goodsname sorttype:(NSString *)sorttype sortfield:(NSString *)sortfield{
     
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"page_size"]=@6;
+    paras[@"page_size"]=@10;
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",page_no];
     paras[@"goodsTypeLv1Id"]=goodstype;
@@ -99,10 +161,13 @@
             previouscount=goodslist.count;
             if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count]>0)
             [goodslist addObjectsFromArray:[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]];
+            //局部刷新
             NSMutableArray *indexs=[NSMutableArray array];
             for(int i=0;i<[[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count];i++){
                 NSIndexPath *index=[NSIndexPath indexPathForRow:previouscount+i inSection:0];
                 [indexs addObject:index];
+                //每次从线上请求新的数据都要喝本地同步
+                [LocalAndOnlineFileTool keepthesamewithonline:goodslist];
             }
             [_fenleitableview beginUpdates];
             [_fenleitableview insertRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -114,10 +179,16 @@
         {
             if([[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] count]>0){
                 _fenleitableview.hidden=NO;
+                
             goodslist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] mutableCopy];
+                //每次从线上请求新的数据都要喝本地同步
+                [LocalAndOnlineFileTool keepthesamewithonline:goodslist];
+                NSLog(@"when next can come to here?");
             totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
                 NSLog(@"总页数%d",totalpage);
-
+                //刷新之前，先取出本地文件
+                goodscountarray=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]arrayForKey:@"goodscount"]mutableCopy];
+                NSLog(@"刷新列表之前获得的shuju %@",goodscountarray);
                 [_fenleitableview reloadData];
             }
             else
@@ -128,15 +199,6 @@
         }
             
         
-       
-        if(goodstitles.count==0){
-        
-//        [goodstitles addObject:@{@"name":@"全部分类"}];
-//            [goodstitles addObjectsFromArray: [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_categories"]];
-//            [_titletableview reloadData];
-        }
-        
-        
     } failure:^(NSError *error) {
         NSLog(@"获取分类失败 %@",error);
     }];
@@ -144,8 +206,12 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(tableView.tag==11)
-        return goodstitles.count;
+    //二级标题
+    if(tableView.tag==11){
+        NSLog(@"二级标题为%@",subclassfication);
+        return subclassfication.count;}
+    //一级标题
+    else if (tableView.tag==99)return  mainclassfication.count;
     else
         return goodslist.count;
     
@@ -169,47 +235,136 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //二级标题
     if(tableView.tag==11){
         UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"titile"];
         if(!cell)
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"titile"];
-        if(indexPath.row==0){
-        
-            cell.textLabel.textColor=[UIColor redColor];
-            basedcell=cell;
-        }
-        cell.textLabel.text=[goodstitles[indexPath.row] stringForKey:@"name"];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
+        cell.textLabel.text=[subclassfication[indexPath.row] stringForKey:@"name"];
        cell.textLabel.textAlignment=NSTextAlignmentCenter;
         cell.textLabel.font=[UIFont systemFontOfSize:12.0];
+        cell.textLabel.textColor=[UIColor blackColor];
         UIView *line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, cell.width, 1.5)];
         line.backgroundColor=[UIColor groupTableViewBackgroundColor];
         
         [cell addSubview:line];
-        if(indexPath.row==goodstitles.count-1){
+        if(indexPath.row==0){
+           [cell addSubview:redline];
+            cell.textLabel.textColor=[UIColor redColor];
+            cell.backgroundColor=[UIColor whiteColor];
+        }
+        if(indexPath.row==subclassfication.count-1){
             UIView *line=[[UIView alloc]initWithFrame:CGRectMake(0, cell.height-1.5, cell.width, 1.5)];
             line.backgroundColor=[UIColor groupTableViewBackgroundColor];
+            
             [cell addSubview:line];
         }
-        
         return cell;
     }
-    
+    //一级标题
+    else if (tableView.tag==99){
+        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"maintitile"];
+        if(!cell)
+            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"maintitile"];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.textLabel.text=[mainclassfication[indexPath.row]stringForKey:@"name"];
+        return cell;
+        
+    }
+    //商品列表
     else{
         GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         NSDictionary *dict=goodslist[indexPath.row];
+        NSLog(@"dict==%@",dict);
+        cell.goodsid=[dict stringForKey:@"goodsId"];
+        cell.price=[dict stringForKey:@"price"];
+        cell.counttobuy=[LocalAndOnlineFileTool singlegoodcount:cell.goodsid];
         cell.goodimg=[dict stringForKey:@"thumbnailImg"];
         cell.goodname=[dict stringForKey:@"name"];
         cell.specific=[dict stringForKey:@"specifications"];
+        cell.counthasbeensaled=[NSString stringWithFormat:@"本市场今日已销售%@瓶",[dict stringForKey:@"dailySales"]];
+        cell.shortcomment=[dict stringForKey:@"commentary"];
         NSArray *array=[dict arrayForKey:@"goodsRangePrice"];
-        cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
-        cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
-        cell.range3=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
-        cell.range4=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
-        cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
-        cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
-        cell.price3=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
-        cell.price4=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
-        cell.count=@"1";
+        switch (array.count) {
+            case 0:
+            {
+            }
+                break;
+            case 1:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                
+            }
+                break;
+            case 2:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range2lab.hidden=NO;
+                cell.price2lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            }
+                break;
+            case 3:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range2lab.hidden=NO;
+                cell.price2lab.hidden=NO;
+                cell.range3lab.hidden=NO;
+                cell.price3lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                cell.range3=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.price3=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            }
+                break;
+            case 4:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range2lab.hidden=NO;
+                cell.price2lab.hidden=NO;
+                cell.range3lab.hidden=NO;
+                cell.price3lab.hidden=NO;
+                cell.range4lab.hidden=NO;
+                cell.price4lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.range3=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
+                cell.range4=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                cell.price3=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
+                cell.price4=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
+            }
+                break;
+            default:
+                break;
+        }
+        //到沙盒文件里去取数量
+        NSLog(@"到沙盒文件里去取数量 %@",goodscountarray);
+        for (NSMutableArray *array in goodscountarray) {
+            NSLog(@"沙盒id=%@ 沙盒数量＝%@,线上id＝%@",array[0],array[1],[dict stringForKey:@"goodsId"]);
+            if([array[0] isEqualToString:[dict stringForKey:@"goodsId"]])
+            {
+                
+            cell.count=array[1];
+                NSLog(@"沙盒里的数量==%@",array[1]);
+                break;
+            }
+        }
+        
         cell.minusBtn.tag=indexPath.row;
         cell.addBtn.tag=indexPath.row;
         [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -222,42 +377,50 @@
 
 -(void)minusBtnClicked:(UIButton *)sender{
     GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
-    int i=[cell.count intValue];
-    if(i>1){
-        if(i==2)
+    int i=[cell.countlab.text intValue];
+    if(i>0){
+        if(i==1)
     [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.count=[NSString stringWithFormat:@"%d",i-1];
+        cell.counttobuy=i-1;
+        //定位本地数据
+        for (NSMutableArray *array in goodscountarray) {
+            if([cell.goodsid isEqualToString:array[0]]){
+                //刷新本地数据
+                NSArray *temp=@[cell.goodsid,[NSString stringWithFormat:@"%d",i-1],cell.price];
+                [goodscountarray replaceObjectAtIndex:sender.tag withObject:temp];
+                //完成刷新后存到手机沙盒
+                [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":goodscountarray} filepath:@"goodscount.txt"];
+                NSLog(@"本地数据是否更改%@",goodscountarray);
+                break;
+            }
+        }
+        [self setbottombar];
 }
 }
 
 -(void)addBtnClicked:(UIButton *)sender{
     GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
-    int i=[cell.count intValue];
+    int i=[cell.countlab.text intValue];
     cell.count=[NSString stringWithFormat:@"%d",i+1];
-
-}
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Add your Colour.
-    if(tableView.tag==11){
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self setCellColor:[UIColor whiteColor] ForCell:cell];
-        //highlight colour
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(tableView.tag==11){
-    // Reset Colour.
-    UITableViewCell *cell =[tableView cellForRowAtIndexPath:indexPath];
-    [self setCellColor:[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0] ForCell:cell];
-        //normal color
+    cell.counttobuy=i+1;
+    //定位本地数据
+    for (NSArray *array in goodscountarray) {
+        if([cell.goodsid isEqualToString:array[0]]){
+            //刷新本地数据
+            NSArray *temp=@[cell.goodsid,[NSString stringWithFormat:@"%d",i+1],cell.price];
+            [goodscountarray replaceObjectAtIndex:sender.tag withObject:temp];
+            //完成刷新后存到手机沙盒
+            [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":goodscountarray} filepath:@"goodscount.txt"];
+           
+            break;
+        }
     }
     
+    [self setbottombar];
+
 }
+
 
 - (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
     cell.contentView.backgroundColor = color;
@@ -290,7 +453,7 @@
         paras[@"quantity"]=@"1";
         [HttpTool post:@"add_to_cart" params:paras success:^(id responseObj) {
             if([responseObj int32ForKey:@"result"]==0){
-                [refreshshoppingcarbadgenum refresh:self.tabBarController];
+                
                 [[NSNotificationCenter defaultCenter]postNotificationName:@"addedtocar" object:nil];
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 
@@ -323,44 +486,70 @@
 
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"goodslist=%d",goodslist.count);
-    
-    if(tableView.tag==22&&(indexPath.row==goodslist.count-1)){
-       
-        if(pagenum<totalpage){
-        pagenum++;
-        NSLog(@"huadongdi %d",pagenum);
-            [self getdatafromweb:pagenum mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
-        }
-      
-    }
-
-}
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSLog(@"goodslist=%d",goodslist.count);
+//    
+//    if(tableView.tag==22&&(indexPath.row==goodslist.count-1)){
+//       
+//        if(pagenum<totalpage){
+//        pagenum++;
+//        NSLog(@"huadongdi %d",pagenum);
+//    [self getdatafromweb:pagenum mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
+//        }
+//      
+//    }
+//
+//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //二级标题
     if(tableView.tag==11){
-        redline.y=64+indexPath.row*MAIN_HEIGHT*0.07;
+        UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+        [cell addSubview:redline];
+        //如果点击的不是第一个，将第一个手动设定为为选中状态
+        if(indexPath.row){
+          UITableViewCell *cell0=[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            cell0.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
+            cell0.textLabel.textColor=[UIColor blackColor];
+        }
+        cell.backgroundColor=[UIColor whiteColor];
         [goodslist removeAllObjects];
         pagenum=1;
         basedcell.textLabel.textColor=[UIColor blackColor];
-        UITableViewCell *cell=[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
         cell.textLabel.textColor=[UIColor redColor];
+        [cell addSubview:redline];
         basedcell=cell;
-
-        if(indexPath.row==0){
-            mainpids=nil;
-            subpids=nil;
-            [self getdatafromweb:pagenum mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
-        
-        }
-        else{
-            mainpids=[goodstitles[indexPath.row] stringForKey:@"pids"];
-           [self getdatafromweb:pagenum mainpids:mainpids subpids:subpids goodsname:goodsname sorttype:sorttype sortfield:sortfield];
-        }
+        subpid=[subclassfication[indexPath.row] stringForKey:@"id"];
+           [self getdatafromweb:pagenum mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
+       
    }
+    //一级标题
+    if(tableView.tag==99){
+        GoodListTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+        cell.backgroundColor=[UIColor colorWithRed:254.0/255 green:147.0/255 blue:147.0/255 alpha:1.0];
+        [self singletapofmask:nil];
+        [goodslist removeAllObjects];
+        [subclassfication removeAllObjects];
+        pagenum=1;
+        mainpid=[mainclassfication[indexPath.row] stringForKey:@"id"];
+        _maintitilelab.text=[mainclassfication[indexPath.row] stringForKey:@"name"];
+        [self getsubclassfication:mainpid];
+        
+        
+        
+    }
         
 
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(tableView.tag==11){
+        UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+         cell.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
+    }
+    if(tableView.tag==99){
+        GoodListTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+        cell.backgroundColor=[UIColor whiteColor];
+    }
 }
 -(void)backBtnClicked{
     if(self.tabBarController.selectedIndex==0)
@@ -386,8 +575,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //二级标题
     if(tableView.tag==11)
         return MAIN_HEIGHT*0.07;
+    //一级标题
+    else if (tableView.tag==99)
+        return MAIN_HEIGHT*0.058;
     else
     {
         return MAIN_HEIGHT*0.24;
@@ -403,11 +596,49 @@
 
 
 - (IBAction)backBtnClicked:(id)sender {
+//   [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"goodscount.txt"];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)searchIconClicked:(id)sender {
+    SearchViewController *vc=[[SearchViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
+//弹出一级菜单
 - (IBAction)showMenuBtnClicked:(id)sender {
+    firstmenu=[[[NSBundle mainBundle]loadNibNamed:@"popfirstclassficationmenu" owner:self options:nil]firstObject];
+    firstmenu.frame=CGRectMake(0, 64, MAIN_WIDTH, MAIN_HEIGHT-64);
+    [self.view addSubview:firstmenu];
+    
+    
+}
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+   if(touch.view.tag==99)
+       return NO;
+    else
+        return YES;
+}
+- (IBAction)singletapofmask:(id)sender {
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options: UIViewAnimationCurveLinear
+                     animations:^{
+                         firstmenu.alpha = 0;
+                     }completion:^(BOOL finished){
+                         [firstmenu removeFromSuperview];
+                     }];}
+- (IBAction)PayBtnClicked:(id)sender {
+    NSMutableArray *orderconfirmtabladata=[NSMutableArray array];
+    for (int i=0; i<goodslist.count; i++) {
+        GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        NSLog(@"cell.counttuby=%d",cell.counttobuy);
+        if(cell.counttobuy>0)
+           [orderconfirmtabladata addObject:goodslist[i]];
+    }
+  
+    OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
+    vc.tabledata=[orderconfirmtabladata mutableCopy];
+      NSLog(@"传到订单确认的rabledata=%@  vc.table=%@",orderconfirmtabladata,vc.tabledata);
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -42,6 +42,7 @@
       success:^(AFHTTPRequestOperation *operation, id responseObj) {
           
           if (success) {
+//              NSMutableDictionary *result=[NSMutableDictionary dictionary];
               success(responseObj);
           }
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

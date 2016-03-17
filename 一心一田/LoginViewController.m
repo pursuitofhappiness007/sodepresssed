@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterVC.h"
 #import "PersonalCenterViewController.h"
-
+#import "BPush.h"
 @interface LoginViewController ()<UITextFieldDelegate>{
     CGFloat originalYofcontainer;
 }
@@ -140,7 +140,18 @@
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:[responseObj dictionaryForKey:@"data"] filepath:@"tokenfile.txt"];
             NSDictionary *userandpassword=@{@"user":_accounttextfield.text,@"password":_pwdtextfield.text};
             [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:userandpassword filepath:@"userpassword.txt"];
-            [refreshshoppingcarbadgenum refresh:self.tabBarController];
+            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
+            //注册推送接口
+            NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+            paras[@"baidu_user_id"]=[BPush getUserId];
+            paras[@"baidu_channel_id"]=[BPush getChannelId];
+            paras[@"baidu_app_id"]=[BPush getAppId];
+            paras[@"device_type"]=@"4";
+            [HttpTool post:@"msg_push_register" params:paras success:^(id responseObj) {
+                NSLog(@"注册推送接口成功%@",responseObj);
+            } failure:^(NSError *error) {
+                NSLog(@"注册推送接口失败%@",error);
+            }];
             [[NSNotificationCenter defaultCenter]postNotificationName:@"login" object:nil];
             if([_source isEqualToString:@"back"]){
                 
