@@ -102,6 +102,14 @@
 		FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
+		FE9B6A211C9AD44D007B6683 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */; };
+		FE9B6A221C9AD44D007B6683 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A141C9AD44D007B6683 /* TAAbstractDotView.m */; };
+		FE9B6A231C9AD44D007B6683 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A161C9AD44D007B6683 /* TAAnimatedDotView.m */; };
+		FE9B6A241C9AD44D007B6683 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A181C9AD44D007B6683 /* TADotView.m */; };
+		FE9B6A251C9AD44D007B6683 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A1A1C9AD44D007B6683 /* TAPageControl.m */; };
+		FE9B6A261C9AD44D007B6683 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A1C1C9AD44D007B6683 /* SDCollectionViewCell.m */; };
+		FE9B6A271C9AD44D007B6683 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A1E1C9AD44D007B6683 /* SDCycleScrollView.m */; };
+		FE9B6A281C9AD44D007B6683 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A201C9AD44D007B6683 /* UIView+SDExtension.m */; };
 		FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D991C926E2C0018A11C /* NavBar.xib */; };
 		FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9B1C929A830018A11C /* titileaftersearch.xib */; };
 		FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9D1C929C860018A11C /* filterwindow.xib */; };
@@ -312,6 +320,22 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FE9B6A101C9AD44D007B6683 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
+		FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
+		FE9B6A131C9AD44D007B6683 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		FE9B6A141C9AD44D007B6683 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		FE9B6A151C9AD44D007B6683 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		FE9B6A161C9AD44D007B6683 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		FE9B6A171C9AD44D007B6683 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		FE9B6A181C9AD44D007B6683 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		FE9B6A191C9AD44D007B6683 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		FE9B6A1A1C9AD44D007B6683 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		FE9B6A1B1C9AD44D007B6683 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		FE9B6A1C1C9AD44D007B6683 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		FE9B6A1D1C9AD44D007B6683 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		FE9B6A1E1C9AD44D007B6683 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		FE9B6A1F1C9AD44D007B6683 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		FE9B6A201C9AD44D007B6683 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		FEB20D991C926E2C0018A11C /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
 		FEB20D9B1C929A830018A11C /* titileaftersearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = titileaftersearch.xib; sourceTree = "<group>"; };
 		FEB20D9D1C929C860018A11C /* filterwindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filterwindow.xib; sourceTree = "<group>"; };
@@ -557,6 +581,7 @@
 		FE6DC0461C8D5B7A00E93578 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				FE9B6A0F1C9AD44D007B6683 /* SDCycleScrollView */,
 				FE545B141C9015610081DB28 /* LibBPush */,
 				FE7734AD1C8D8B1A00397142 /* wechatsdk */,
 				FE7DBF751C8D6AB4003536BC /* FMDB */,
@@ -789,6 +814,37 @@
 				FE6DC04A1C8D5BD700E93578 /* ExinEtianTabbarcontroller.m */,
 			);
 			name = TabBar;
+			sourceTree = "<group>";
+		};
+		FE9B6A0F1C9AD44D007B6683 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				FE9B6A101C9AD44D007B6683 /* NSData+SDDataCache.h */,
+				FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */,
+				FE9B6A121C9AD44D007B6683 /* PageControl */,
+				FE9B6A1B1C9AD44D007B6683 /* SDCollectionViewCell.h */,
+				FE9B6A1C1C9AD44D007B6683 /* SDCollectionViewCell.m */,
+				FE9B6A1D1C9AD44D007B6683 /* SDCycleScrollView.h */,
+				FE9B6A1E1C9AD44D007B6683 /* SDCycleScrollView.m */,
+				FE9B6A1F1C9AD44D007B6683 /* UIView+SDExtension.h */,
+				FE9B6A201C9AD44D007B6683 /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		FE9B6A121C9AD44D007B6683 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				FE9B6A131C9AD44D007B6683 /* TAAbstractDotView.h */,
+				FE9B6A141C9AD44D007B6683 /* TAAbstractDotView.m */,
+				FE9B6A151C9AD44D007B6683 /* TAAnimatedDotView.h */,
+				FE9B6A161C9AD44D007B6683 /* TAAnimatedDotView.m */,
+				FE9B6A171C9AD44D007B6683 /* TADotView.h */,
+				FE9B6A181C9AD44D007B6683 /* TADotView.m */,
+				FE9B6A191C9AD44D007B6683 /* TAPageControl.h */,
+				FE9B6A1A1C9AD44D007B6683 /* TAPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		FEDC9FBB1C97AEE40002FB2F /* 修改昵称和电话 */ = {
@@ -1036,17 +1092,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE9B6A221C9AD44D007B6683 /* TAAbstractDotView.m in Sources */,
 				FE6DC07A1C8D612B00E93578 /* DictionaryToJsonStr.m in Sources */,
 				FE7DBF501C8D6899003536BC /* UIButton+WebCache.m in Sources */,
 				FE7DBF631C8D68D5003536BC /* UIView+Extension.m in Sources */,
 				FE7DBF4E1C8D6899003536BC /* SDWebImageManager.m in Sources */,
 				FEDFA0CF1C9127180010E5E3 /* GoodsDetailViewController.m in Sources */,
 				FE6DC0521C8D5C1200E93578 /* NewFuturesViewController.m in Sources */,
+				FE9B6A271C9AD44D007B6683 /* SDCycleScrollView.m in Sources */,
 				FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */,
+				FE9B6A231C9AD44D007B6683 /* TAAnimatedDotView.m in Sources */,
 				FE6DC04C1C8D5BD700E93578 /* ExinEtianTabbarcontroller.m in Sources */,
 				FE7DBF1E1C8D6873003536BC /* AFHTTPSessionManager.m in Sources */,
 				FE7DBF621C8D68D5003536BC /* UIBarButtonItem+Extension.m in Sources */,
 				FE7DBF4C1C8D6899003536BC /* SDWebImageDownloader.m in Sources */,
+				FE9B6A251C9AD44D007B6683 /* TAPageControl.m in Sources */,
 				FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */,
 				FE6DC0301C8D597200E93578 /* AppDelegate.m in Sources */,
 				CEECE2021C9AD1AD009D11D8 /* AccountDetailViewController.m in Sources */,
@@ -1080,12 +1140,15 @@
 				FE7DBF531C8D6899003536BC /* UIImage+WebP.m in Sources */,
 				FE7DBF491C8D6899003536BC /* SDImageCache.m in Sources */,
 				CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */,
+				FE9B6A281C9AD44D007B6683 /* UIView+SDExtension.m in Sources */,
 				FE7DBF521C8D6899003536BC /* UIImage+MultiFormat.m in Sources */,
 				FE7DBF4D1C8D6899003536BC /* SDWebImageDownloaderOperation.m in Sources */,
 				FE6DC0791C8D612B00E93578 /* DataBaseTool.m in Sources */,
+				FE9B6A241C9AD44D007B6683 /* TADotView.m in Sources */,
 				FE7DBF641C8D68D5003536BC /* UIView+xibcong.m in Sources */,
 				FE7DBF541C8D6899003536BC /* UIImageView+HighlightedWebCache.m in Sources */,
 				FE7DBF821C8D6AC2003536BC /* FMDatabaseAdditions.m in Sources */,
+				FE9B6A211C9AD44D007B6683 /* NSData+SDDataCache.m in Sources */,
 				FE6DC0781C8D612B00E93578 /* ClearCacheTool.m in Sources */,
 				CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */,
 				FE6DC02D1C8D597200E93578 /* main.m in Sources */,
@@ -1114,6 +1177,7 @@
 				FE7DBF471C8D6899003536BC /* MKAnnotationView+WebCache.m in Sources */,
 				CEECE1F01C9AD18F009D11D8 /* CollectionListTableViewCell.m in Sources */,
 				FE7DBF511C8D6899003536BC /* UIImage+GIF.m in Sources */,
+				FE9B6A261C9AD44D007B6683 /* SDCollectionViewCell.m in Sources */,
 				FE7DBF711C8D6983003536BC /* LoginViewController.m in Sources */,
 				FEDFA0E01C9129180010E5E3 /* OrderConformationViewController.m in Sources */,
 				FE7DBF231C8D6873003536BC /* AFURLResponseSerialization.m in Sources */,
