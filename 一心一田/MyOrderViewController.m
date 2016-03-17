@@ -92,7 +92,7 @@
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
      paras[@"page_no"]=[NSString stringWithFormat:@"%d",pagenum];
-    paras[@"order_conditions"]=[DictionaryToJsonStr dictToJsonStr:dict];
+//    paras[@"order_conditions"]=[DictionaryToJsonStr dictToJsonStr:dict];
     [HttpTool post:@"get_order_list" params:paras success:^(id responseObj) {
         NSLog(@"获取所有订单为 %@",responseObj);
         NSLog(@"获取订单参数%@",paras);

@@ -320,6 +320,8 @@
             }
             //余额支付
             else {
+                //跳到个人中心
+                [self.tabBarController setSelectedIndex:2];
               
             }
             
