@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */; };
+		CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */; };
+		CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */; };
+		CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1DC1C9AD17D009D11D8 /* HomeTableViewCell.xib */; };
+		CEECE1E51C9AD17D009D11D8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1DE1C9AD17D009D11D8 /* HomeViewController.m */; };
+		CEECE1E61C9AD17D009D11D8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1DF1C9AD17D009D11D8 /* HomeViewController.xib */; };
+		CEECE1E71C9AD17D009D11D8 /* NavBarForHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1E01C9AD17D009D11D8 /* NavBarForHome.xib */; };
+		CEECE1E81C9AD17D009D11D8 /* NavBarSearchForHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1E11C9AD17D009D11D8 /* NavBarSearchForHome.xib */; };
+		CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1E21C9AD17D009D11D8 /* tableviewheader.xib */; };
+		CEECE1F01C9AD18F009D11D8 /* CollectionListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1EB1C9AD18F009D11D8 /* CollectionListTableViewCell.m */; };
+		CEECE1F11C9AD18F009D11D8 /* CollectionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1EC1C9AD18F009D11D8 /* CollectionListTableViewCell.xib */; };
+		CEECE1F21C9AD18F009D11D8 /* OriginalCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1EE1C9AD18F009D11D8 /* OriginalCollectionListViewController.m */; };
+		CEECE1F31C9AD18F009D11D8 /* OriginalCollectionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1EF1C9AD18F009D11D8 /* OriginalCollectionListViewController.xib */; };
+		CEECE1F71C9AD19F009D11D8 /* AccountRecharge.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1F51C9AD19F009D11D8 /* AccountRecharge.m */; };
+		CEECE1F81C9AD19F009D11D8 /* AccountRecharge.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1F61C9AD19F009D11D8 /* AccountRecharge.xib */; };
+		CEECE2021C9AD1AD009D11D8 /* AccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1FA1C9AD1AD009D11D8 /* AccountDetailViewController.m */; };
+		CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1FB1C9AD1AD009D11D8 /* AccountDetailViewController.xib */; };
+		CEECE2041C9AD1AD009D11D8 /* AcountDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1FD1C9AD1AD009D11D8 /* AcountDetailTableViewCell.m */; };
+		CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1FE1C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib */; };
+		CEECE2061C9AD1AD009D11D8 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */; };
+		CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */; };
+		CEECE21A1C9AD21D009D11D8 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE20A1C9AD21D009D11D8 /* NSData+SDDataCache.m */; };
+		CEECE21B1C9AD21D009D11D8 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE20D1C9AD21D009D11D8 /* TAAbstractDotView.m */; };
+		CEECE21C1C9AD21D009D11D8 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE20F1C9AD21D009D11D8 /* TAAnimatedDotView.m */; };
+		CEECE21D1C9AD21D009D11D8 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2111C9AD21D009D11D8 /* TADotView.m */; };
+		CEECE21E1C9AD21D009D11D8 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2131C9AD21D009D11D8 /* TAPageControl.m */; };
+		CEECE21F1C9AD21D009D11D8 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2151C9AD21D009D11D8 /* SDCollectionViewCell.m */; };
+		CEECE2201C9AD21D009D11D8 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2171C9AD21D009D11D8 /* SDCycleScrollView.m */; };
+		CEECE2211C9AD21D009D11D8 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2191C9AD21D009D11D8 /* UIView+SDExtension.m */; };
 		FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */; };
 		FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E110E1C9A924000916CAD /* popaddresschooser.xib */; };
 		FE3F31841C8EC43400A7026D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31831C8EC43400A7026D /* CoreTelephony.framework */; };
@@ -124,6 +153,52 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEECE1D51C9AD173009D11D8 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
+		CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
+		CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterViewController.xib; sourceTree = "<group>"; };
+		CEECE1DA1C9AD17D009D11D8 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		CEECE1DC1C9AD17D009D11D8 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		CEECE1DD1C9AD17D009D11D8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CEECE1DE1C9AD17D009D11D8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CEECE1DF1C9AD17D009D11D8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		CEECE1E01C9AD17D009D11D8 /* NavBarForHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBarForHome.xib; sourceTree = "<group>"; };
+		CEECE1E11C9AD17D009D11D8 /* NavBarSearchForHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBarSearchForHome.xib; sourceTree = "<group>"; };
+		CEECE1E21C9AD17D009D11D8 /* tableviewheader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableviewheader.xib; sourceTree = "<group>"; };
+		CEECE1EA1C9AD18F009D11D8 /* CollectionListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionListTableViewCell.h; sourceTree = "<group>"; };
+		CEECE1EB1C9AD18F009D11D8 /* CollectionListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionListTableViewCell.m; sourceTree = "<group>"; };
+		CEECE1EC1C9AD18F009D11D8 /* CollectionListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionListTableViewCell.xib; sourceTree = "<group>"; };
+		CEECE1ED1C9AD18F009D11D8 /* OriginalCollectionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OriginalCollectionListViewController.h; sourceTree = "<group>"; };
+		CEECE1EE1C9AD18F009D11D8 /* OriginalCollectionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OriginalCollectionListViewController.m; sourceTree = "<group>"; };
+		CEECE1EF1C9AD18F009D11D8 /* OriginalCollectionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OriginalCollectionListViewController.xib; sourceTree = "<group>"; };
+		CEECE1F41C9AD19F009D11D8 /* AccountRecharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRecharge.h; sourceTree = "<group>"; };
+		CEECE1F51C9AD19F009D11D8 /* AccountRecharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRecharge.m; sourceTree = "<group>"; };
+		CEECE1F61C9AD19F009D11D8 /* AccountRecharge.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountRecharge.xib; sourceTree = "<group>"; };
+		CEECE1F91C9AD1AD009D11D8 /* AccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailViewController.h; sourceTree = "<group>"; };
+		CEECE1FA1C9AD1AD009D11D8 /* AccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailViewController.m; sourceTree = "<group>"; };
+		CEECE1FB1C9AD1AD009D11D8 /* AccountDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountDetailViewController.xib; sourceTree = "<group>"; };
+		CEECE1FC1C9AD1AD009D11D8 /* AcountDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcountDetailTableViewCell.h; sourceTree = "<group>"; };
+		CEECE1FD1C9AD1AD009D11D8 /* AcountDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcountDetailTableViewCell.m; sourceTree = "<group>"; };
+		CEECE1FE1C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcountDetailTableViewCell.xib; sourceTree = "<group>"; };
+		CEECE1FF1C9AD1AD009D11D8 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
+		CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
+		CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
+		CEECE2091C9AD21D009D11D8 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
+		CEECE20A1C9AD21D009D11D8 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
+		CEECE20C1C9AD21D009D11D8 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		CEECE20D1C9AD21D009D11D8 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		CEECE20E1C9AD21D009D11D8 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		CEECE20F1C9AD21D009D11D8 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		CEECE2101C9AD21D009D11D8 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		CEECE2111C9AD21D009D11D8 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		CEECE2121C9AD21D009D11D8 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		CEECE2131C9AD21D009D11D8 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		CEECE2141C9AD21D009D11D8 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		CEECE2151C9AD21D009D11D8 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		CEECE2161C9AD21D009D11D8 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		CEECE2171C9AD21D009D11D8 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		CEECE2181C9AD21D009D11D8 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		CEECE2191C9AD21D009D11D8 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		FE2E110B1C9A59D000916CAD /* LocalAndOnlineFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAndOnlineFileTool.h; sourceTree = "<group>"; };
 		FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAndOnlineFileTool.m; sourceTree = "<group>"; };
 		FE2E110E1C9A924000916CAD /* popaddresschooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = popaddresschooser.xib; sourceTree = "<group>"; };
@@ -344,6 +419,9 @@
 		CEADD1681C91706F00E13421 /* 账户充值 */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE1F41C9AD19F009D11D8 /* AccountRecharge.h */,
+				CEECE1F51C9AD19F009D11D8 /* AccountRecharge.m */,
+				CEECE1F61C9AD19F009D11D8 /* AccountRecharge.xib */,
 			);
 			name = "账户充值";
 			sourceTree = "<group>";
@@ -351,8 +429,48 @@
 		CEADD1691C9170A100E13421 /* 账单详情 */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE1F91C9AD1AD009D11D8 /* AccountDetailViewController.h */,
+				CEECE1FA1C9AD1AD009D11D8 /* AccountDetailViewController.m */,
+				CEECE1FB1C9AD1AD009D11D8 /* AccountDetailViewController.xib */,
+				CEECE1FC1C9AD1AD009D11D8 /* AcountDetailTableViewCell.h */,
+				CEECE1FD1C9AD1AD009D11D8 /* AcountDetailTableViewCell.m */,
+				CEECE1FE1C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib */,
+				CEECE1FF1C9AD1AD009D11D8 /* RechargeCell.h */,
+				CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */,
+				CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */,
 			);
 			name = "账单详情";
+			sourceTree = "<group>";
+		};
+		CEECE2081C9AD21D009D11D8 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				CEECE2091C9AD21D009D11D8 /* NSData+SDDataCache.h */,
+				CEECE20A1C9AD21D009D11D8 /* NSData+SDDataCache.m */,
+				CEECE20B1C9AD21D009D11D8 /* PageControl */,
+				CEECE2141C9AD21D009D11D8 /* SDCollectionViewCell.h */,
+				CEECE2151C9AD21D009D11D8 /* SDCollectionViewCell.m */,
+				CEECE2161C9AD21D009D11D8 /* SDCycleScrollView.h */,
+				CEECE2171C9AD21D009D11D8 /* SDCycleScrollView.m */,
+				CEECE2181C9AD21D009D11D8 /* UIView+SDExtension.h */,
+				CEECE2191C9AD21D009D11D8 /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		CEECE20B1C9AD21D009D11D8 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				CEECE20C1C9AD21D009D11D8 /* TAAbstractDotView.h */,
+				CEECE20D1C9AD21D009D11D8 /* TAAbstractDotView.m */,
+				CEECE20E1C9AD21D009D11D8 /* TAAnimatedDotView.h */,
+				CEECE20F1C9AD21D009D11D8 /* TAAnimatedDotView.m */,
+				CEECE2101C9AD21D009D11D8 /* TADotView.h */,
+				CEECE2111C9AD21D009D11D8 /* TADotView.m */,
+				CEECE2121C9AD21D009D11D8 /* TAPageControl.h */,
+				CEECE2131C9AD21D009D11D8 /* TAPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		FE545AFD1C8FC2400081DB28 /* 个人资料 */ = {
@@ -494,6 +612,7 @@
 		FE6DC0461C8D5B7A00E93578 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE2081C9AD21D009D11D8 /* SDCycleScrollView */,
 				FE545B141C9015610081DB28 /* LibBPush */,
 				FE7734AD1C8D8B1A00397142 /* wechatsdk */,
 				FE7DBF751C8D6AB4003536BC /* FMDB */,
@@ -554,6 +673,15 @@
 		FE6DC0541C8D5F1200E93578 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE1DA1C9AD17D009D11D8 /* HomeTableViewCell.h */,
+				CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */,
+				CEECE1DC1C9AD17D009D11D8 /* HomeTableViewCell.xib */,
+				CEECE1DD1C9AD17D009D11D8 /* HomeViewController.h */,
+				CEECE1DE1C9AD17D009D11D8 /* HomeViewController.m */,
+				CEECE1DF1C9AD17D009D11D8 /* HomeViewController.xib */,
+				CEECE1E01C9AD17D009D11D8 /* NavBarForHome.xib */,
+				CEECE1E11C9AD17D009D11D8 /* NavBarSearchForHome.xib */,
+				CEECE1E21C9AD17D009D11D8 /* tableviewheader.xib */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -575,6 +703,9 @@
 		FE6DC0601C8D5F4F00E93578 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE1D51C9AD173009D11D8 /* PersonalCenterViewController.h */,
+				CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */,
+				CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */,
 			);
 			name = "个人中心";
 			sourceTree = "<group>";
@@ -811,6 +942,12 @@
 		FEDFA0F21C914AC30010E5E3 /* 收藏 */ = {
 			isa = PBXGroup;
 			children = (
+				CEECE1EA1C9AD18F009D11D8 /* CollectionListTableViewCell.h */,
+				CEECE1EB1C9AD18F009D11D8 /* CollectionListTableViewCell.m */,
+				CEECE1EC1C9AD18F009D11D8 /* CollectionListTableViewCell.xib */,
+				CEECE1ED1C9AD18F009D11D8 /* OriginalCollectionListViewController.h */,
+				CEECE1EE1C9AD18F009D11D8 /* OriginalCollectionListViewController.m */,
+				CEECE1EF1C9AD18F009D11D8 /* OriginalCollectionListViewController.xib */,
 			);
 			name = "收藏";
 			sourceTree = "<group>";
@@ -898,10 +1035,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */,
+				CEECE1E81C9AD17D009D11D8 /* NavBarSearchForHome.xib in Resources */,
 				FE7DBF721C8D6983003536BC /* LoginViewController.xib in Resources */,
 				FE7DBF741C8D6983003536BC /* reSetPwdViewController.xib in Resources */,
 				FEDC9FCD1C97FA660002FB2F /* titileForSearchVC.xib in Resources */,
 				FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */,
+				CEECE1F31C9AD18F009D11D8 /* OriginalCollectionListViewController.xib in Resources */,
 				FE6DC0531C8D5C1200E93578 /* NewFuturesViewController.xib in Resources */,
 				FE545B091C8FCDFC0081DB28 /* MessageCenterViewController.xib in Resources */,
 				FEDFA0D01C9127180010E5E3 /* GoodsDetailViewController.xib in Resources */,
@@ -910,23 +1050,32 @@
 				FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */,
 				FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */,
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
+				CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */,
 				FEDFA0F11C9149C70010E5E3 /* NewAddressViewController.xib in Resources */,
 				FEDC9FCF1C9839980002FB2F /* popfirstclassficationmenu.xib in Resources */,
 				FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */,
 				FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */,
 				FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */,
+				CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */,
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
+				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
+				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
 				FEDFA0C41C9124C70010E5E3 /* deleteview.xib in Resources */,
 				FE545B0E1C8FCE7E0081DB28 /* MessageTableViewCell.xib in Resources */,
 				FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */,
+				CEECE1E71C9AD17D009D11D8 /* NavBarForHome.xib in Resources */,
 				FEDFA0EB1C912A500010E5E3 /* AddInOrderTableViewCell.xib in Resources */,
+				CEECE1F81C9AD19F009D11D8 /* AccountRecharge.xib in Resources */,
 				FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */,
+				CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */,
 				FEDFA0C21C91242C0010E5E3 /* ShoppingCarTableViewCell.xib in Resources */,
 				FEDFA0C01C91242C0010E5E3 /* ShopcarViewController.xib in Resources */,
 				FE545B021C8FC3830081DB28 /* PersonalInfomationViewController.xib in Resources */,
+				CEECE1E61C9AD17D009D11D8 /* HomeViewController.xib in Resources */,
+				CEECE1F11C9AD18F009D11D8 /* CollectionListTableViewCell.xib in Resources */,
 				FEDFA0E11C9129180010E5E3 /* OrderConformationViewController.xib in Resources */,
 				FEDFA0E61C9129640010E5E3 /* SearchResultsViewController.xib in Resources */,
 				FEDFA1071C914C600010E5E3 /* MyOrderViewController.xib in Resources */,
@@ -943,19 +1092,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEECE21B1C9AD21D009D11D8 /* TAAbstractDotView.m in Sources */,
 				FE6DC07A1C8D612B00E93578 /* DictionaryToJsonStr.m in Sources */,
 				FE7DBF501C8D6899003536BC /* UIButton+WebCache.m in Sources */,
 				FE7DBF631C8D68D5003536BC /* UIView+Extension.m in Sources */,
 				FE7DBF4E1C8D6899003536BC /* SDWebImageManager.m in Sources */,
 				FEDFA0CF1C9127180010E5E3 /* GoodsDetailViewController.m in Sources */,
 				FE6DC0521C8D5C1200E93578 /* NewFuturesViewController.m in Sources */,
+				CEECE2201C9AD21D009D11D8 /* SDCycleScrollView.m in Sources */,
 				FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */,
+				CEECE21C1C9AD21D009D11D8 /* TAAnimatedDotView.m in Sources */,
 				FE6DC04C1C8D5BD700E93578 /* ExinEtianTabbarcontroller.m in Sources */,
 				FE7DBF1E1C8D6873003536BC /* AFHTTPSessionManager.m in Sources */,
 				FE7DBF621C8D68D5003536BC /* UIBarButtonItem+Extension.m in Sources */,
 				FE7DBF4C1C8D6899003536BC /* SDWebImageDownloader.m in Sources */,
+				CEECE21E1C9AD21D009D11D8 /* TAPageControl.m in Sources */,
 				FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */,
 				FE6DC0301C8D597200E93578 /* AppDelegate.m in Sources */,
+				CEECE2021C9AD1AD009D11D8 /* AccountDetailViewController.m in Sources */,
 				FE7DBF811C8D6AC2003536BC /* FMDatabase.m in Sources */,
 				FE7DBF4A1C8D6899003536BC /* SDWebImageCompat.m in Sources */,
 				FE7734B91C8D8D6C00397142 /* WXPayTool.m in Sources */,
@@ -971,6 +1125,7 @@
 				FE7DBF221C8D6873003536BC /* AFURLRequestSerialization.m in Sources */,
 				FE7DBF831C8D6AC2003536BC /* FMDatabasePool.m in Sources */,
 				FEDFA1061C914C600010E5E3 /* MyOrderViewController.m in Sources */,
+				CEECE1F21C9AD18F009D11D8 /* OriginalCollectionListViewController.m in Sources */,
 				FE7DBF841C8D6AC2003536BC /* FMDatabaseQueue.m in Sources */,
 				FE7DBF561C8D6899003536BC /* UIView+WebCacheOperation.m in Sources */,
 				FEDFA0EA1C912A500010E5E3 /* AddInOrderTableViewCell.m in Sources */,
@@ -979,23 +1134,31 @@
 				FE7734B41C8D8B4400397142 /* WXApiManager.m in Sources */,
 				FE7DBF731C8D6983003536BC /* reSetPwdViewController.m in Sources */,
 				FE7DBF211C8D6873003536BC /* AFURLConnectionOperation.m in Sources */,
+				CEECE2041C9AD1AD009D11D8 /* AcountDetailTableViewCell.m in Sources */,
 				FE7DBF241C8D6873003536BC /* AFURLSessionManager.m in Sources */,
 				FE7DBF551C8D6899003536BC /* UIImageView+WebCache.m in Sources */,
 				FE7DBF531C8D6899003536BC /* UIImage+WebP.m in Sources */,
 				FE7DBF491C8D6899003536BC /* SDImageCache.m in Sources */,
+				CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */,
+				CEECE2211C9AD21D009D11D8 /* UIView+SDExtension.m in Sources */,
 				FE7DBF521C8D6899003536BC /* UIImage+MultiFormat.m in Sources */,
 				FE7DBF4D1C8D6899003536BC /* SDWebImageDownloaderOperation.m in Sources */,
 				FE6DC0791C8D612B00E93578 /* DataBaseTool.m in Sources */,
+				CEECE21D1C9AD21D009D11D8 /* TADotView.m in Sources */,
 				FE7DBF641C8D68D5003536BC /* UIView+xibcong.m in Sources */,
 				FE7DBF541C8D6899003536BC /* UIImageView+HighlightedWebCache.m in Sources */,
 				FE7DBF821C8D6AC2003536BC /* FMDatabaseAdditions.m in Sources */,
+				CEECE21A1C9AD21D009D11D8 /* NSData+SDDataCache.m in Sources */,
 				FE6DC0781C8D612B00E93578 /* ClearCacheTool.m in Sources */,
+				CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */,
 				FE6DC02D1C8D597200E93578 /* main.m in Sources */,
 				FE6DC07F1C8D612B00E93578 /* SaveFileAndWriteFileToSandBox.m in Sources */,
 				FE7DBF481C8D6899003536BC /* NSData+ImageContentType.m in Sources */,
 				FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */,
+				CEECE1E51C9AD17D009D11D8 /* HomeViewController.m in Sources */,
 				FE7DBF601C8D68D5003536BC /* Fountain+log.m in Sources */,
 				FE6DC07D1C8D612B00E93578 /* MBProgressHUD.m in Sources */,
+				CEECE2061C9AD1AD009D11D8 /* RechargeCell.m in Sources */,
 				FE7DBF4B1C8D6899003536BC /* SDWebImageDecoder.m in Sources */,
 				FEDFA0D51C9127B90010E5E3 /* SearchViewController.m in Sources */,
 				FE7DBF201C8D6873003536BC /* AFSecurityPolicy.m in Sources */,
@@ -1003,6 +1166,7 @@
 				FE6DC07B1C8D612B00E93578 /* DownLoadImageTool.m in Sources */,
 				FEDFA0BF1C91242C0010E5E3 /* ShopcarViewController.m in Sources */,
 				FEDFA0DB1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.m in Sources */,
+				CEECE1F71C9AD19F009D11D8 /* AccountRecharge.m in Sources */,
 				FE7DBF1D1C8D6873003536BC /* AFHTTPRequestOperationManager.m in Sources */,
 				FEDC9FC91C97C4710002FB2F /* GoodListTableViewCell.m in Sources */,
 				FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */,
@@ -1011,7 +1175,9 @@
 				FEDFA0C91C91266E0010E5E3 /* ClassficationViewController.m in Sources */,
 				FE7DBF4F1C8D6899003536BC /* SDWebImagePrefetcher.m in Sources */,
 				FE7DBF471C8D6899003536BC /* MKAnnotationView+WebCache.m in Sources */,
+				CEECE1F01C9AD18F009D11D8 /* CollectionListTableViewCell.m in Sources */,
 				FE7DBF511C8D6899003536BC /* UIImage+GIF.m in Sources */,
+				CEECE21F1C9AD21D009D11D8 /* SDCollectionViewCell.m in Sources */,
 				FE7DBF711C8D6983003536BC /* LoginViewController.m in Sources */,
 				FEDFA0E01C9129180010E5E3 /* OrderConformationViewController.m in Sources */,
 				FE7DBF231C8D6873003536BC /* AFURLResponseSerialization.m in Sources */,
