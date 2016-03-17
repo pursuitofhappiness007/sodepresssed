@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RechargeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *timeLb;
+@property (weak, nonatomic) IBOutlet UILabel *acBalLb;
+@property (weak, nonatomic) IBOutlet UILabel *remarkLb;
 
 @end

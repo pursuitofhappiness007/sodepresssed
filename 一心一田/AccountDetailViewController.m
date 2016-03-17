@@ -14,62 +14,178 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelLeadingConstrains;
 @property (weak, nonatomic) IBOutlet UIButton *firstbt;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *billArr;
+@property (strong, nonatomic) NSMutableArray *icomeArr;
+@property (strong, nonatomic) NSMutableArray *expenditureArr;
 @end
 
 @implementation AccountDetailViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.selectedButton = self.firstbt;
-    self.selectedButton.selected = YES;
+- (NSMutableArray *)billArr{
+    if (!_billArr) {
+        _billArr = [[NSMutableArray alloc]init];
+    }
+    return  _billArr;
 }
 
+- (NSMutableArray *)icomeArr{
+    if (!_icomeArr) {
+        _icomeArr = [[NSMutableArray alloc]init];
+    }
+    return _icomeArr;
+}
+
+- (NSMutableArray *)expenditureArr{
+    if (!_expenditureArr) {
+        _expenditureArr = [[NSMutableArray alloc]init];
+    }
+    return  _expenditureArr;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+    self.tabBarController.tabBar.hidden = YES;
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"账单详情";
+    UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    self.selectedButton = self.firstbt;
+    self.selectedButton.selected = YES;
+    [self getBillData];
+}
+
+- (void)getBillData{
+    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+    NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
+    NSString *str = [dic stringForKey:@"token"];
+    NSLog(@"token:%@", str);
+    paras[@"token"] = [dic stringForKey:@"token"];
+    [HttpTool post:@"obvious_bill" params:paras success:^(id responseObj) {
+        NSLog(@"...........recharge message:%@",responseObj);
+        if([responseObj int32ForKey:@"result"]==0){
+            NSMutableArray *arr = [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"tranFlowList"] ;
+           self.billArr = [arr mutableCopy];
+            for (int i = 0; i < self.billArr.count; i ++) {
+                NSDictionary *dic = self.billArr[i];
+                if ([dic int32ForKey:@"acBal"] < 0) {
+                    [self.expenditureArr addObject:dic];
+                }else{
+                    [self.icomeArr addObject:dic];
+                }
+            }
+            [self.tableView reloadData];
+            NSLog(@"获取数据成功");
+            return;
+        } else{
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
+            hud.margin = 10.f;
+            hud.removeFromSuperViewOnHide = YES;
+            [hud hide:YES afterDelay:1.2];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"获取数据失败");
+        NSLog(@"%@", error);
+    }];
+
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - UITableViewataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    switch (self.selectedButton.tag) {
+        case 0:
+            return self.billArr.count;
+            break;
+        case 1:
+            return self.icomeArr.count;
+            break;
+        case 2:
+            return self.expenditureArr.count;
+        break;
+        default:
+            return 0;
+            break;
+    }
+ 
     
-    return 10;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     switch (self.selectedButton.tag) {
         case 0:
         {
-            static NSString *CellIdentifier = @"businessdeal";
-            AcountDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (cell == nil)
-            {
-                cell= [[[NSBundle  mainBundle] loadNibNamed:@"AcountDetailTableViewCell" owner:self options:nil]  lastObject];
+                NSDictionary *dic = self.billArr[indexPath.row];
+                if ([dic int32ForKey:@"acBal"] < 0) {
+                      static NSString *CellIdentifier = @"businessdeal";
+                      AcountDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                      if (cell == nil)
+                     {
+                        cell= [[[NSBundle  mainBundle] loadNibNamed:@"AcountDetailTableViewCell" owner:self options:nil]  lastObject];
+                         cell.remarkLb.text = [dic stringForKey:@"remark"];
+                         cell.timeLb.text = [dic stringForKey:@"addTime"];
+                         cell.acBalLb.text = [NSString stringWithFormat:@"%@.00",[dic stringForKey:@"acBal"]];
+                         cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@.00",[dic stringForKey:@"amount"]];
+                     }
+                    
+                    return cell;
+                } else{
+                        static NSString *CellIdentifier = @"recharge";
+                        RechargeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                        if (cell == nil)
+                        {
+                            cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
+                            cell.remarkLb.text = [dic stringForKey:@"remark"];
+                            cell.timeLb.text = [dic stringForKey:@"addTime"];
+                            cell.acBalLb.text = [NSString stringWithFormat:@"+%@.00",[dic stringForKey:@"acBal"]];
+                        }
+                    
+                    return cell;
+                    }
             }
-            
-            return cell;
-        }
             break;
         case 1:
         {
-            static NSString *CellIdentifier = @"businessdeal";
-            AcountDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (cell == nil)
-            {
-                cell= [[[NSBundle  mainBundle] loadNibNamed:@"AcountDetailTableViewCell" owner:self options:nil]  lastObject];
-            }
-            
-            return cell;        }
-            break;
-        case 2:
-        {
+            NSDictionary *dic = self.icomeArr[indexPath.row];
             static NSString *CellIdentifier = @"recharge";
             RechargeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil)
             {
                 cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
+                cell.remarkLb.text = [dic stringForKey:@"remark"];
+                cell.timeLb.text = [dic stringForKey:@"addTime"];
+                 cell.acBalLb.text = [NSString stringWithFormat:@"+%@.00",[dic stringForKey:@"acBal"]];
             }
             return cell;
         }
             break;
-        default:
+        case 2:
+        {
+             NSDictionary *dic = self.expenditureArr[indexPath.row];
+            static NSString *CellIdentifier = @"businessdeal";
+            AcountDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil)
+            {
+                cell= [[[NSBundle  mainBundle] loadNibNamed:@"AcountDetailTableViewCell" owner:self options:nil]  lastObject];
+                cell.remarkLb.text = [dic stringForKey:@"remark"];
+                cell.timeLb.text = [dic stringForKey:@"addTime"];
+                cell.acBalLb.text = [NSString stringWithFormat:@"%@.00",[dic stringForKey:@"acBal"]];
+                cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@.00",[dic stringForKey:@"amount"]];
+            }
+            return cell;
+        }
+            break;
+               default:
             return 0;
             break;
     }

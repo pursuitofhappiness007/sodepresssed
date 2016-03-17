@@ -17,13 +17,16 @@
 @end
 
 @implementation AccountRecharge
-
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden=NO;
+    self.tabBarController.tabBar.hidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
    self.navigationItem.title = @"账户充值";
    UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn addTarget:self action:@selector(goBackClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
@@ -35,13 +38,6 @@
     [hud1 removeFromSuperview];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
-    // Configure for text only and offset down
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText =@"充值成功！";
-    hud.margin = 10.f;
-    hud.removeFromSuperViewOnHide = YES;
-    
-    [hud hide:YES afterDelay:1.0];
 }
 //支付失败
 -(void)payfailedoption{
@@ -59,8 +55,8 @@
 }
 
 
-- (void)goBack{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)goBackClick{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

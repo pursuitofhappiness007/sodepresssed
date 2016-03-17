@@ -9,7 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OriginalCollectionListViewController">
             <connections>
+                <outlet property="addToShopCarBt" destination="qTo-NV-hck" id="tX6-wr-hu1"/>
                 <outlet property="bottomView" destination="8Ce-2W-ph3" id="ECI-bw-PBs"/>
+                <outlet property="cancelCollectBt" destination="iy6-RC-uym" id="IGf-gd-cLg"/>
                 <outlet property="coverView" destination="icF-jY-2EC" id="h9F-sq-Ur8"/>
                 <outlet property="firstbt" destination="BB0-2J-t6j" id="LIN-ck-IaW"/>
                 <outlet property="labelLeadingConstrains" destination="SX1-Sb-9AP" id="nsx-lD-nSu"/>

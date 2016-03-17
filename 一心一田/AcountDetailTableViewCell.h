@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AcountDetailTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *remarkLb;
+@property (weak, nonatomic) IBOutlet UILabel *amountLb;
+@property (weak, nonatomic) IBOutlet UILabel *timeLb;
+@property (weak, nonatomic) IBOutlet UILabel *acBalLb;
 
 @end

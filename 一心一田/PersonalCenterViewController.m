@@ -10,6 +10,7 @@
 #import "AccountRecharge.h"
 #import "PersonalInfomationViewController.h"
 #import "OriginalCollectionListViewController.h"
+#import "AccountDetailViewController.h"
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -84,20 +85,20 @@
 //充值
 - (IBAction)chongzhiBtnClicked:(id)sender {
     AccountRecharge *rechargeVc = [[AccountRecharge alloc]init];
-    UINavigationController *reVc = [[UINavigationController alloc]initWithRootViewController:rechargeVc];
-    [self presentViewController:reVc animated:YES completion:nil];
+    [self.navigationController pushViewController:rechargeVc animated:YES];
 }
 //我的订单
 - (IBAction)myOrderclicked:(id)sender {
 }
 //我的账单
 - (IBAction)myBillsBtnClicked:(id)sender {
+    AccountDetailViewController *acVc = [[AccountDetailViewController alloc]init];
+    [self.navigationController pushViewController:acVc animated:YES];
 }
 //商品收藏
 - (IBAction)goodsCollectionBtnClicked:(id)sender {
     OriginalCollectionListViewController *collectionVc = [[OriginalCollectionListViewController alloc]init];
-    UINavigationController *coVc = [[UINavigationController alloc]initWithRootViewController:collectionVc];
-    [self presentViewController:coVc animated:YES completion:nil];
+    [self.navigationController pushViewController:collectionVc animated:YES];
 
 }
 //消息中心
@@ -210,8 +211,6 @@
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"图像上传失败  %@",error);
           }];
-    
-    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

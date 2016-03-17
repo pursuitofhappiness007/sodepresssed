@@ -91,8 +91,6 @@
 -(void)setPrice4:(NSString *)price4{
     _price4lab.text=price4;
 }
-- (IBAction)clickbt:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ButtonClicked" object:self];
-}
+
 
 @end

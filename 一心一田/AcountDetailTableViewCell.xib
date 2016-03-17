@@ -14,39 +14,55 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="商品交易扣除(订单号：111111111111111)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-3u-JON">
-                        <rect key="frame" x="20" y="15" width="299" height="28"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="账户余额：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-Ua-hD6">
-                        <rect key="frame" x="20" y="43" width="285" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品交易扣除(订单号：111111111111111)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-3u-JON">
+                        <rect key="frame" x="10" y="13" width="294.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015-05-21  12: 19: 09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6H-7D-VeK">
-                        <rect key="frame" x="20" y="71" width="285" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-05-21  12: 19: 09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6H-7D-VeK">
+                        <rect key="frame" x="10" y="64" width="156.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-30.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlK-Jy-dup">
-                        <rect key="frame" x="290" y="30" width="85" height="48.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="highlightedColor" patternImage="812C5641-B191-49E1-ACBA-9811629B4464" colorSpace="pattern"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-30.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlK-Jy-dup">
+                        <rect key="frame" x="307" y="36.5" width="58" height="23.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="highlightedColor" patternImage="453B5B83-C41E-4F01-A135-A68D1F12095A" colorSpace="pattern"/>
                         <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户余额：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-Ua-hD6">
+                        <rect key="frame" x="10" y="38" width="85" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="i6H-7D-VeK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="B2H-EP-lh9"/>
+                    <constraint firstAttribute="trailing" secondItem="RlK-Jy-dup" secondAttribute="trailing" constant="10" id="Xsd-cy-zNw"/>
+                    <constraint firstItem="Sg7-Ua-hD6" firstAttribute="top" secondItem="cUl-3u-JON" secondAttribute="bottom" constant="5" id="bHm-Ya-PPJ"/>
+                    <constraint firstItem="Sg7-Ua-hD6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="d2j-5c-cDl"/>
+                    <constraint firstItem="i6H-7D-VeK" firstAttribute="top" secondItem="Sg7-Ua-hD6" secondAttribute="bottom" constant="5" id="mD2-dz-jtA"/>
+                    <constraint firstItem="Sg7-Ua-hD6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qej-as-o0d"/>
+                    <constraint firstItem="RlK-Jy-dup" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uEF-yh-wCU"/>
+                    <constraint firstItem="cUl-3u-JON" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="yz1-LJ-4Ye"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="acBalLb" destination="RlK-Jy-dup" id="7cV-ZK-dWg"/>
+                <outlet property="amountLb" destination="Sg7-Ua-hD6" id="O3d-0g-qGX"/>
+                <outlet property="remarkLb" destination="cUl-3u-JON" id="LHi-sa-OUC"/>
+                <outlet property="timeLb" destination="i6H-7D-VeK" id="Rry-p7-rAJ"/>
+            </connections>
             <point key="canvasLocation" x="367.5" y="332.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="812C5641-B191-49E1-ACBA-9811629B4464" width="512" height="512">
+        <image name="453B5B83-C41E-4F01-A135-A68D1F12095A" width="512" height="512">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

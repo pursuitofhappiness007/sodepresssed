@@ -16,22 +16,26 @@
 @property (nonatomic,strong)UIButton *selectedButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) NSMutableArray *collectionListArr;
+@property (weak, nonatomic) IBOutlet UIButton *addToShopCarBt;
+@property (weak, nonatomic) IBOutlet UIButton *cancelCollectBt;
+
 @end
 
 @implementation OriginalCollectionListViewController
+
 - (NSMutableArray *)collectionListArr{
     if (!_collectionListArr) {
         _collectionListArr = [[NSMutableArray alloc]init];
     }
     return _collectionListArr;
 }
-
-- (void)viewWillAppear:(BOOL)animated{
-  //  self.tabBarController.tabBar.hidden = YES;
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden=NO;
+    self.tabBarController.tabBar.hidden = YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"商品列表";
+    self.navigationItem.title = @"商品收藏";
     UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -42,17 +46,12 @@
     self.bottomView.hidden = YES;
     [self getData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(function) name:@"ButtonClicked" object:nil];
-    
+    self.tableview.tableFooterView = [UIView new];
     // Do any additional setup after loading the view from its nib.
-}
-- (void)function{
-    self.coverView.hidden = NO;
-    self.bottomView.hidden = NO;
-   // self.bottomView.layer.zPosition = 1000;
 }
 
 - (void)goBack{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //数据方法
 - (void)getData{
@@ -63,8 +62,10 @@
     paras[@"token"] = [dic stringForKey:@"token"];
     [HttpTool post:@"get_favour_list" params:paras success:^(id responseObj) {
         NSLog(@"recharge message:%@",responseObj);
-        
         if([responseObj int32ForKey:@"result"]==0){
+        NSMutableArray *arr = [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour"] ;
+            self.collectionListArr = [arr mutableCopy] ;
+            [self.tableview reloadData];
             NSLog(@"获取数据成功");
             return;
         } else{
@@ -77,12 +78,12 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"获取数据失败");
+        NSLog(@"%@", error);
     }];
 }
 #pragma mark - UITableViewataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //    return tablelist.count;
-    return 5;
+    return  self.collectionListArr.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -90,8 +91,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CollectionListTableViewCell    *cell=[CollectionListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
-    return cell;
+    NSDictionary *dic = self.collectionListArr[indexPath.row];
+    cell.goodname = [[dic dictionaryForKey:@"goods"]stringForKey:@"name"];
+    cell.shortcomment = [[dic dictionaryForKey:@"goods"]stringForKey:@"commentary"];
+    cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
+   // cell.goodimg = [[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"];
+    cell.actionBt.tag = indexPath.row;
+    [cell.actionBt addTarget:self action:@selector(function:) forControlEvents:UIControlEventTouchUpInside];
     
+    return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -102,6 +110,12 @@
        [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+- (void)function:(UIButton *)sender{
+    self.coverView.hidden = NO;
+    self.bottomView.hidden = NO;
+    self.addToShopCarBt.tag = sender.tag;
+    self.cancelCollectBt.tag = sender.tag;
+}
 - (IBAction)buttonClicked:(UIButton *)sender {
     self.selectedButton.selected = NO;
     self.selectedButton = sender;
@@ -118,9 +132,38 @@
 }
 - (IBAction)addToShoppingCar:(id)sender {
     NSLog(@"加入购物车");
+    self.bottomView.hidden = YES;
+    self.coverView.hidden = YES;
 }
 - (IBAction)cancelCollection:(id)sender {
     NSLog(@"取消收藏");
+    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+    NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
+    NSString *str = [dic stringForKey:@"token"];
+    NSLog(@"token:%@", str);
+    paras[@"token"] = [dic stringForKey:@"token"];
+    paras[@"favour_id"] = [self.collectionListArr[self.cancelCollectBt.tag] stringForKey:@"favour_id"];
+    [HttpTool post:@"delete_favour_by_id" params:paras success:^(id responseObj) {
+        NSLog(@"recharge message:%@",responseObj);
+        if([responseObj int32ForKey:@"result"]==0){
+           [self.collectionListArr removeObjectAtIndex:self.cancelCollectBt.tag] ;
+            [self.tableview reloadData];
+            NSLog(@"获取数据成功");
+            return;
+        } else{
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
+            hud.margin = 10.f;
+            hud.removeFromSuperViewOnHide = YES;
+            [hud hide:YES afterDelay:1.2];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"获取数据失败");
+        NSLog(@"%@", error);
+    }];
+    self.bottomView.hidden = YES;
+    self.coverView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

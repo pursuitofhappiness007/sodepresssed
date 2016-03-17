@@ -175,9 +175,6 @@
                         <state key="normal" title="...">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="clickbt:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="N9d-KS-RZY"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -223,6 +220,7 @@
                 <constraint firstItem="mqV-lv-dqR" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="yUa-lu-TtE"/>
             </constraints>
             <connections>
+                <outlet property="actionBt" destination="N7q-Z9-Nov" id="0hh-zu-HEt"/>
                 <outlet property="goodnamelab" destination="qfz-j9-7Nx" id="yCE-Fn-72r"/>
                 <outlet property="goodsimageview" destination="lst-3D-RJG" id="zDj-MG-Agv"/>
                 <outlet property="price1lab" destination="DXm-lE-5XK" id="xmL-eU-d4J"/>
