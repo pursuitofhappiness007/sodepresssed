@@ -109,6 +109,7 @@
           hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             
             hud1.labelText = NSLocalizedString(@"正在充值...", @"HUD loading title");
+            
             if([WXPayTool wxpaywithdict:[responseObj dictionaryForKey:@"data"]]){
                 [dimview removeFromSuperview];
                 [hud1 removeFromSuperview];

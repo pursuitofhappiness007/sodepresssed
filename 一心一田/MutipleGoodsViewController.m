@@ -62,6 +62,7 @@
     paras[@"order_id"]=_order_id;
     paras[@"isParent"]=@"false";
     [HttpTool post:@"get_order_detail" params:paras success:^(id responseObj) {
+        NSLog(@"获取订单详情=%@",responseObj);
         if([responseObj int32ForKey:@"result"]==0&&([[[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_detail"]arrayForKey:@"orderDetailList"]count]>0))
         orderinfo=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_detail"];
         [_orderdetailtableview reloadData];
