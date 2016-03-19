@@ -289,10 +289,9 @@
             
     }
     }
-           failure:^(NSError *error) {
+    failure:^(NSError *error) {
         NSLog(@"提交订单shibai%@",error);
     }];
-    
 }
 
 -(void)paysucceedoption{
