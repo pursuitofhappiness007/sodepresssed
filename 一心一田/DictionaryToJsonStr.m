@@ -23,4 +23,8 @@
     return jsonString;
 
 }
++(NSDictionary *)JsonStrToDict:(NSString *)string{
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    return  [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+}
 @end

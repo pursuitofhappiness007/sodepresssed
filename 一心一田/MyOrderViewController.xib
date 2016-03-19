@@ -100,6 +100,7 @@
                         <constraint firstAttribute="bottom" secondItem="a2w-jr-XGY" secondAttribute="bottom" id="IRr-Ru-Iof"/>
                         <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="Jeo-pY-A9I"/>
                         <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" id="NMF-S0-B7n"/>
+                        <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="a2w-jr-XGY" secondAttribute="centerX" id="VBj-dD-Yz3"/>
                         <constraint firstAttribute="trailing" secondItem="QSZ-dU-QNa" secondAttribute="trailing" id="WBT-fS-P2L"/>
                         <constraint firstAttribute="height" constant="44" id="gyK-OS-PYN"/>
                         <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="0.2" id="iCf-ma-o9O"/>
@@ -113,6 +114,7 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="pUf-rY-PfW"/>
+                            <exclude reference="86o-VU-TeP"/>
                             <exclude reference="ish-Kb-1o0"/>
                             <exclude reference="zPI-oB-Wsw"/>
                             <exclude reference="iCf-ma-o9O"/>

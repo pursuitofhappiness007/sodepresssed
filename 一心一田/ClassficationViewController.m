@@ -33,6 +33,7 @@
 }
 
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightconstraint;
 - (IBAction)backBtnClicked:(id)sender;
 - (IBAction)searchIconClicked:(id)sender;
 - (IBAction)showMenuBtnClicked:(id)sender;
@@ -45,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 - (IBAction)PayBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *summoneylab;
+@property (strong, nonatomic) IBOutlet UITableView *firstclassmenutableview;
 
 @end
 
@@ -89,12 +91,15 @@
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     [HttpTool post:@"get_first_classification" params:paras success:^(id responseObj) {
         if([responseObj int32ForKey:@"result"]==0){
-            
+            if([[responseObj arrayForKey:@"data"]count]==0)
+                return ;
             mainclassfication=[[responseObj arrayForKey:@"data"]mutableCopy];
             //初始化一级分类的id
             mainpid=[mainclassfication[0] stringForKey:@"id"];
             _maintitilelab.text=[mainclassfication[0] stringForKey:@"name"];
+           
             NSLog(@"初始化的值为:%@",mainpid);
+            
             //获取二级菜单
             [self getsubclassfication:mainpid];
             
@@ -187,7 +192,7 @@
             totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
                 NSLog(@"总页数%d",totalpage);
                 //刷新之前，先取出本地文件
-                goodscountarray=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]arrayForKey:@"goodscount"]mutableCopy];
+                goodscountarray=[[[LocalAndOnlineFileTool alloc]init].localarray mutableCopy];
                 NSLog(@"刷新列表之前获得的shuju %@",goodscountarray);
                 [_fenleitableview reloadData];
             }
@@ -278,9 +283,10 @@
         GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         NSDictionary *dict=goodslist[indexPath.row];
         NSLog(@"dict==%@",dict);
-        cell.goodsid=[dict stringForKey:@"goodsId"];
+        
+        cell.goodsid=[dict stringForKey:@"id"];
+        cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
         cell.price=[dict stringForKey:@"price"];
-        cell.counttobuy=[LocalAndOnlineFileTool singlegoodcount:cell.goodsid];
         cell.goodimg=[dict stringForKey:@"thumbnailImg"];
         cell.goodname=[dict stringForKey:@"name"];
         cell.specific=[dict stringForKey:@"specifications"];
@@ -354,16 +360,7 @@
         }
         //到沙盒文件里去取数量
         NSLog(@"到沙盒文件里去取数量 %@",goodscountarray);
-        for (NSMutableArray *array in goodscountarray) {
-            NSLog(@"沙盒id=%@ 沙盒数量＝%@,线上id＝%@",array[0],array[1],[dict stringForKey:@"goodsId"]);
-            if([array[0] isEqualToString:[dict stringForKey:@"goodsId"]])
-            {
-                
-            cell.count=array[1];
-                NSLog(@"沙盒里的数量==%@",array[1]);
-                break;
-            }
-        }
+        cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
         
         cell.minusBtn.tag=indexPath.row;
         cell.addBtn.tag=indexPath.row;
@@ -382,19 +379,7 @@
         if(i==1)
     [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.count=[NSString stringWithFormat:@"%d",i-1];
-        cell.counttobuy=i-1;
-        //定位本地数据
-        for (NSMutableArray *array in goodscountarray) {
-            if([cell.goodsid isEqualToString:array[0]]){
-                //刷新本地数据
-                NSArray *temp=@[cell.goodsid,[NSString stringWithFormat:@"%d",i-1],cell.price];
-                [goodscountarray replaceObjectAtIndex:sender.tag withObject:temp];
-                //完成刷新后存到手机沙盒
-                [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":goodscountarray} filepath:@"goodscount.txt"];
-                NSLog(@"本地数据是否更改%@",goodscountarray);
-                break;
-            }
-        }
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
         [self setbottombar];
 }
 }
@@ -403,20 +388,7 @@
     GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
     int i=[cell.countlab.text intValue];
     cell.count=[NSString stringWithFormat:@"%d",i+1];
-    cell.counttobuy=i+1;
-    //定位本地数据
-    for (NSArray *array in goodscountarray) {
-        if([cell.goodsid isEqualToString:array[0]]){
-            //刷新本地数据
-            NSArray *temp=@[cell.goodsid,[NSString stringWithFormat:@"%d",i+1],cell.price];
-            [goodscountarray replaceObjectAtIndex:sender.tag withObject:temp];
-            //完成刷新后存到手机沙盒
-            [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":goodscountarray} filepath:@"goodscount.txt"];
-           
-            break;
-        }
-    }
-    
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
 
 }
@@ -607,7 +579,17 @@
 //弹出一级菜单
 - (IBAction)showMenuBtnClicked:(id)sender {
     firstmenu=[[[NSBundle mainBundle]loadNibNamed:@"popfirstclassficationmenu" owner:self options:nil]firstObject];
-    firstmenu.frame=CGRectMake(0, 64, MAIN_WIDTH, MAIN_HEIGHT-64);
+     firstmenu.frame=CGRectMake(0, 64, MAIN_WIDTH, MAIN_HEIGHT-64);
+    _heightconstraint.active=NO;
+    NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:_firstclassmenutableview
+                                                                        attribute:NSLayoutAttributeHeight
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:nil
+                                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                                       multiplier:1.0
+                                                                         constant:MAIN_HEIGHT*0.058*[mainclassfication count]];
+   
+    [firstmenu addConstraint:heightConstraint];
     [self.view addSubview:firstmenu];
     
     
@@ -631,8 +613,7 @@
     NSMutableArray *orderconfirmtabladata=[NSMutableArray array];
     for (int i=0; i<goodslist.count; i++) {
         GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        NSLog(@"cell.counttuby=%d",cell.counttobuy);
-        if(cell.counttobuy>0)
+            if([cell.countlab.text intValue]>0)
            [orderconfirmtabladata addObject:goodslist[i]];
     }
   

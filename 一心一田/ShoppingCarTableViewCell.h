@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ShoppingCarTableViewCell : UITableViewCell
+//商品的godsid
+@property (nonatomic,weak)NSString *goodsid;
+//商品的单价
+@property (nonatomic,assign)double singleprice;
+
 @property (weak, nonatomic) IBOutlet UIButton *minusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UILabel *countlab;

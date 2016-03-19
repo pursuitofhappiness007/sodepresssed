@@ -10,4 +10,5 @@
 
 @interface DictionaryToJsonStr : NSObject
 +(NSString *)dictToJsonStr:(NSDictionary *)dict;
++(NSDictionary *)JsonStrToDict:(NSString *)string;
 @end

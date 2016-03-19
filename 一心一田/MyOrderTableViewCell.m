@@ -11,9 +11,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *goodsimage;
 
 @property (weak, nonatomic) IBOutlet UILabel *goodsnamelab;
-@property (weak, nonatomic) IBOutlet UILabel *salespricelab;
+@property (weak, nonatomic) IBOutlet UILabel *shortcommentlab;
 
-@property (weak, nonatomic) IBOutlet UILabel *counttobuylab;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *totalgoodstobuylab;
 @property (weak, nonatomic) IBOutlet UILabel *acctuallypaidlab;
 
@@ -55,15 +56,9 @@
     _goodsnamelab.text=name;
 }
 
--(void)setPrice:(NSString *)price{
-    _salespricelab.text=price;
+-(void)setShortcomment:(NSString *)shortcomment{
+    _shortcommentlab.text=shortcomment;
 }
-
-
--(void)setCounttobuy:(NSString *)counttobuy{
-    _counttobuylab.text=counttobuy;
-}
-
 -(void)setTotalgoodstobuy:(NSString *)totalgoodstobuy{
     _totalgoodstobuylab.text=totalgoodstobuy;
 }

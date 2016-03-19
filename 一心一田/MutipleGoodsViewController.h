@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MutipleGoodsViewController : UIViewController
-@property (nonatomic,strong)NSDictionary *orderinfo;
+@property (nonatomic,strong)NSString *order_id;
 @property (assign,nonatomic)int backtoprevious;
 @end

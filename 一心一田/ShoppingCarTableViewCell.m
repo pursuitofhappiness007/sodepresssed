@@ -65,7 +65,7 @@
 }
 
 -(void)setShortcomment:(NSString *)shortcomment{
-    _shouldpaylab.text=shortcomment;
+    _shortcommentlab.text=shortcomment;
 }
 
 -(void)setShouldpaid:(NSString *)shoulepaid{

@@ -9,32 +9,7 @@
 #import "WXPayTool.h"
 #import "WXApiManager.h"
 @implementation WXPayTool
-static WXPayTool *_sigletonInstance=nil;
-+(WXPayTool *)singletonInstance{
-    @synchronized([DownLoadImageTool class])
-    {
-        if (!_sigletonInstance)
-            _sigletonInstance = [[self alloc] init];
-        return _sigletonInstance;
-    }
-    
-    return nil;
-
-}
-
-+(id)alloc
-{
-    @synchronized([WXPayTool class])
-    {
-        NSAssert(_sigletonInstance == nil, @"Attempted to allocate a second instance of a singleton.");
-        _sigletonInstance = [super alloc];
-        return _sigletonInstance;
-    }
-    
-    return nil;
-}
-
--(BOOL)wxpaywithdict:(NSDictionary *)dict{
++(BOOL)wxpaywithdict:(NSDictionary *)dict{
     PayReq *request=[[PayReq alloc]init];
     
     request.partnerId=[dict stringForKey:@"prepayId"];

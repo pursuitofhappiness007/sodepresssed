@@ -40,7 +40,7 @@
         ExinEtianTabbarcontroller *tabbar=[[ExinEtianTabbarcontroller alloc] init];
         
         self.window.rootViewController =tabbar;
-        
+       
         
     }
     else {

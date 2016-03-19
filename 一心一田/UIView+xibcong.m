@@ -21,4 +21,7 @@
 -(void)setCornerRadius:(CGFloat)cornerRadius{
     [self.layer setCornerRadius:cornerRadius];
 }
+-(void)setMasksToBounds:(BOOL)masksToBounds{
+    [self.layer setMasksToBounds:YES];
+}
 @end

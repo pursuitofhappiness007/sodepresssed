@@ -11,6 +11,7 @@
 #import "PersonalInfomationViewController.h"
 #import "OriginalCollectionListViewController.h"
 #import "AccountDetailViewController.h"
+#import "MyOrderViewController.h"
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -89,6 +90,9 @@
 }
 //我的订单
 - (IBAction)myOrderclicked:(id)sender {
+    MyOrderViewController *vc=[[MyOrderViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 //我的账单
 - (IBAction)myBillsBtnClicked:(id)sender {

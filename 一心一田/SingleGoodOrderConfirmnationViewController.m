@@ -371,41 +371,13 @@
     hud.removeFromSuperViewOnHide = YES;
     
     [hud hide:YES afterDelay:1.0];
-    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
-    if([_sourcetype isEqualToString:@"qianggou"])
-    paras[@"order_id"]=[[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"detailbasedinfo.txt"] dictionaryForKey:@"data"]dictionaryForKey:@"secKill_info"] stringForKey:@"id"];
+    MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
+   if([_sourcetype isEqualToString:@"qianggou"])
+    vc.order_id=[[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"detailbasedinfo.txt"] dictionaryForKey:@"data"]dictionaryForKey:@"secKill_info"] stringForKey:@"id"];
 
     else
-     paras[@"order_id"]=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"detailbasedinfo.txt"]dictionaryForKey:@"data"]stringForKey:@"order_id"];
-
-    [HttpTool post:@"get_order_detail" params:paras success:^(id responseObj) {
-        NSLog(@"抢购陈宫获得的json=%@",responseObj);
-        if([responseObj int32ForKey:@"result"]==0){
-            
-            MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-            vc.orderinfo=[responseObj dictionaryForKey:@"data"];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-        else{
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            
-            // Configure for text only and offset down
-            hud.mode = MBProgressHUDModeText;
-            hud.labelText =[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
-            hud.margin = 10.f;
-            hud.removeFromSuperViewOnHide = YES;
-            
-            [hud hide:YES afterDelay:1.0];
-            [self.navigationController  popViewControllerAnimated:YES];
-            
-        }
-    } failure:^(NSError *error) {
-        NSLog(@"获取订单详情失败 %@",error);
-    }];
-
-    
+     vc.order_id=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"detailbasedinfo.txt"]dictionaryForKey:@"data"]stringForKey:@"order_id"];
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)payfailedoption{
