@@ -8,6 +8,5 @@
 
 #import <Foundation/Foundation.h>
 @interface WXPayTool : NSObject
-+(WXPayTool *)singletonInstance;
--(BOOL)wxpaywithdict:(NSDictionary *)dict;
++(BOOL)wxpaywithdict:(NSDictionary *)dict;
 @end

@@ -10,11 +10,10 @@
 #import "GoodLIstTableViewCell.h"
 #import "GoodsDetailViewController.h"
 
-@interface SearchResultsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>{
+@interface SearchResultsViewController ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>{
     NSMutableArray *goodslist;
     int pagenum;
     int previouscount;
-    UICollectionView *cv;
     UIView *v;
     UITableView *table;
     UIView *pricechooserview;
@@ -24,6 +23,7 @@
     NSString *sortorder;
     NSString *sortfield;
     UIView *filterv;
+    UIButton *selectedBtn;
     
    
 }
@@ -50,6 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *zongheBtn;
 - (IBAction)zongheBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *amountpriorityBtn;
+@property (weak, nonatomic) IBOutlet UIView *redline;
 
 
 @end
@@ -68,7 +69,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _zongheBtn.selected=YES;
+    selectedBtn=_zongheBtn;
     v=[[[NSBundle mainBundle]loadNibNamed:@"titileaftersearch" owner:self options:nil] firstObject];
     v.frame=CGRectMake(0, StatusBarH, MAIN_WIDTH, NaviBarH);
     [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor grayColor]];
@@ -91,10 +93,113 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+        NSDictionary *dict=goodslist[indexPath.row];
+        NSLog(@"dict==%@",dict);
+        cell.goodsid=[dict stringForKey:@"goodsId"];
+        cell.price=[dict stringForKey:@"price"];
+        cell.goodimg=[dict stringForKey:@"thumbnailImg"];
+        cell.goodname=[dict stringForKey:@"name"];
+        cell.specific=[dict stringForKey:@"specifications"];
+        cell.counthasbeensaled=[NSString stringWithFormat:@"本市场今日已销售%@瓶",[dict stringForKey:@"dailySales"]];
+        cell.shortcomment=[dict stringForKey:@"commentary"];
+        NSArray *array=[dict arrayForKey:@"goodsRangePrice"];
+        switch (array.count) {
+            case 0:
+            {
+            }
+                break;
+            case 1:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                
+            }
+                break;
+            case 2:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range2lab.hidden=NO;
+                cell.price2lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            }
+                break;
+            case 3:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range2lab.hidden=NO;
+                cell.price2lab.hidden=NO;
+                cell.range3lab.hidden=NO;
+                cell.price3lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                cell.range3=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.price3=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            }
+                break;
+            case 4:
+            {
+                cell.range1lab.hidden=NO;
+                cell.price1lab.hidden=NO;
+                cell.range2lab.hidden=NO;
+                cell.price2lab.hidden=NO;
+                cell.range3lab.hidden=NO;
+                cell.price3lab.hidden=NO;
+                cell.range4lab.hidden=NO;
+                cell.price4lab.hidden=NO;
+                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                cell.range3=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
+                cell.range4=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
+                cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                cell.price3=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
+                cell.price4=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
+            }
+                break;
+            default:
+                break;
+        }
+    
+        cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
+        cell.minusBtn.tag=indexPath.row;
+        cell.addBtn.tag=indexPath.row;
+        [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
+        
+    
 }
+-(void)addBtnClicked:(UIButton *)sender{
+    GoodListTableViewCell *cell=[table cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    int i=[cell.countlab.text intValue];
+    cell.count=[NSString stringWithFormat:@"%d",i+1];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+}
+-(void)minusBtnClicked:(UIButton *)sender{
+    GoodListTableViewCell *cell=[table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    int i=[cell.countlab.text intValue];
+    if(i>0){
+        if(i==1)
+            [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
+        cell.count=[NSString stringWithFormat:@"%d",i-1];
+        
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+        
+        
+    }
+}
+
 
 -(void)showgoodsdetail:(UIButton *)sender{
     GoodsDetailViewController *vc=[[GoodsDetailViewController alloc]init];
@@ -114,6 +219,7 @@
     table.separatorStyle=UITableViewCellSeparatorStyleNone;
     table.dataSource=self;
     table.delegate = self;
+    [self.view addSubview:table];
     }
 
 
@@ -121,29 +227,25 @@
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",page_no];
-    paras[@"keyword"]=_keywords;
+    paras[@"goodsName"]=_keywords;
+    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
     paras[@"minSalePrice"]=minprice;
     paras[@"maxSalePrice"]=maxprice;
     paras[@"sortOrder"]=sortorder;
     paras[@"sortField"]=sortfield;
     [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
-        NSLog(@"搜索的到的json %@",responseObj);
+        NSLog(@"搜索的到的json %@ 参数=%@",responseObj,paras);
         if(goodslist.count>0){
             previouscount=goodslist.count;
-            if([[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]!=nil)
+            if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]count]>0)
             [goodslist addObjectsFromArray:[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]];
+          
             NSMutableArray *indexs=[NSMutableArray array];
             for(int i=0;i<[[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count];i++){
                 NSIndexPath *index=[NSIndexPath indexPathForRow:previouscount+i inSection:0];
                 [indexs addObject:index];
             }
-           
-            [cv performBatchUpdates:^{
-                [cv insertItemsAtIndexPaths:indexs];
-            } completion:^(BOOL finished) {
-                
-            }];
-         
+          
             [table beginUpdates];
             [table insertRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationAutomatic];
             [table endUpdates];
@@ -153,9 +255,9 @@
         }
         else{
         
-            if([[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]!=nil)
-            goodslist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] mutableCopy];
-            [cv reloadData];
+            if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]count]>0)
+            goodslist=[[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] mutableCopy];
+            NSLog(@"没有扶植成功吗=%@",goodslist);
             [table reloadData];
         }
       
@@ -170,9 +272,10 @@
     minprice=nil;
     maxprice=nil;
     sortorder=nil;
-    sortfield=nil;
+    sortfield=@"sort";
     goodslist=[NSMutableArray array];
     pagenum=1;
+    
     
 }
 
@@ -215,28 +318,10 @@
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
    if(touch.view.tag==88)
-       return YES;
+       return NO;
     else
-        return NO;
+        return YES;
 }
-
-- (IBAction)tubiaoClicked:(UIButton *)sender {
-    NSLog(@"点了没有");
-    if(!sender.selected){
-        NSLog(@"是图标点了");
-        [self.view addSubview:table];
-        table.delegate=self;
-        table.dataSource=self;
-        sender.selected=YES;
-    }
-    
-    else{
-        NSLog(@"不是图标点了");
-        [table removeFromSuperview];
-        sender.selected=NO;
-    }
-}
-
 
 - (IBAction)resetBtnClicked:(id)sender {
     _minpricetf.text=nil;
@@ -265,23 +350,47 @@
         [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
 }
 
-- (IBAction)lastestBtnClicked:(id)sender {
+- (IBAction)lastestBtnClicked:(UIButton *)sender {
+    [self removepricechooser:nil];
+    CGPoint temp=_redline.center;
+    temp.x=sender.center.x;
+    _redline.center=temp;
+    if(sender.selected)
+        sender.selected=NO;
+    else
+    {   sender.selected=YES;
+        selectedBtn.selected=NO;
+        selectedBtn=sender;
+    }
+    [goodslist removeAllObjects];
+    pagenum=1;
+    sortorder=nil;
+    sortfield=@"edit_time";
+    [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
+
 }
 
-- (IBAction)priceBtnClicked:(id)sender {
+- (IBAction)priceBtnClicked:(UIButton *)sender {
     pricechooserview=[[[NSBundle mainBundle]loadNibNamed:@"pricechooser" owner:self options:nil]firstObject];
     pricechooserview.frame=CGRectMake(0, _titileview.y+_titileview.height, MAIN_WIDTH, MAIN_HEIGHT-pricechooserview.y-49);
     [self.view addSubview:pricechooserview];
-    _amountpriorityBtn.titleLabel.textColor=[UIColor blackColor];
-    _zongheBtn.titleLabel.textColor=[UIColor blackColor];
+    CGPoint temp=_redline.center;
+    temp.x=sender.center.x;
+    _redline.center=temp;
+    if(sender.selected)
+        sender.selected=NO;
+    else
+    {   sender.selected=YES;
+        selectedBtn.selected=NO;
+        selectedBtn=sender;
+    }
 }
 - (IBAction)shenxuBtnClicked:(id)sender {
-    [pricechooserview removeFromSuperview];
+    [self removepricechooser:nil];
     pagenum=1;
     sortorder=@"asc";
-    sortfield=@"sale_price";
-    _pricelab.text=@"价格从低到高";
-    _pricelab.textColor=[UIColor redColor];
+    sortfield=@"price";
+    [_zongheBtn setTitle:@"从低到高" forState:UIControlStateSelected];
     _lowtohighlab.textColor=[UIColor redColor];
     _hightolowlab.textColor=[UIColor blackColor];
     [goodslist removeAllObjects];
@@ -289,12 +398,11 @@
 }
 
 - (IBAction)jiangxuBtnClicked:(id)sender {
-    [pricechooserview removeFromSuperview];
+    [self removepricechooser:nil];
     pagenum=1;
     sortorder=@"desc";
-    sortfield=@"sale_price";
-    _pricelab.text=@"价格从高到低";
-    _pricelab.textColor=[UIColor redColor];
+    sortfield=@"price";
+    [_zongheBtn setTitle:@"从高到低" forState:UIControlStateSelected];
     _lowtohighlab.textColor=[UIColor blackColor];
     _hightolowlab.textColor=[UIColor redColor];
     [goodslist removeAllObjects];
@@ -305,34 +413,40 @@
 }
 
 - (IBAction)amountpirorityBtnClicked:(UIButton *)sender {
-    [pricechooserview removeFromSuperview];
+    [self removepricechooser:nil];
+    CGPoint temp=_redline.center;
+    temp.x=sender.center.x;
+    _redline.center=temp;
+    if(sender.selected)
+        sender.selected=NO;
+    else
+    {   sender.selected=YES;
+        selectedBtn.selected=NO;
+        selectedBtn=sender;
+    }
+   [goodslist removeAllObjects];
     pagenum=1;
     sortorder=@"asc";
-    sortfield=@"sales_count";
-    [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    _pricelab.textColor=[UIColor blackColor];
+    sortfield=@"daily_sales";
     _pricelab.text=@"价格";
-    _lowtohighlab.textColor=[UIColor blackColor];
-    _hightolowlab.textColor=[UIColor blackColor];
-    _lowtohighlab.textColor=[UIColor blackColor];
-    _hightolowlab.textColor=[UIColor redColor];
-    _zongheBtn.titleLabel.textColor=[UIColor blackColor];
-    
-    [goodslist removeAllObjects];
     [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
 }
 - (IBAction)zongheBtnClicked:(UIButton *)sender {
-    [pricechooserview removeFromSuperview];
+    [self removepricechooser:nil];
+    CGPoint temp=_redline.center;
+    temp.x=sender.center.x;
+    _redline.center=temp;
+    if(sender.selected)
+        sender.selected=NO;
+    else
+    {   sender.selected=YES;
+        selectedBtn.selected=NO;
+        selectedBtn=sender;
+    }
+    [goodslist removeAllObjects];
     pagenum=1;
     sortorder=nil;
-    sortfield=nil;
-    [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    _amountpriorityBtn.titleLabel.textColor=[UIColor blackColor];
-    _pricelab.textColor=[UIColor blackColor];
-    _pricelab.text=@"价格";
-    _lowtohighlab.textColor=[UIColor blackColor];
-    _hightolowlab.textColor=[UIColor blackColor];
-    [goodslist removeAllObjects];
+    sortfield=@"sort";
     [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
 }
 - (IBAction)tapped:(id)sender {

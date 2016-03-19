@@ -12,5 +12,5 @@
 @property (nonatomic) IBInspectable UIColor *borderColor;
 @property (nonatomic) IBInspectable CGFloat borderWidth;
 @property (nonatomic) IBInspectable CGFloat cornerRadius;
-
+@property (nonatomic) IBInspectable BOOL masksToBounds;
 @end

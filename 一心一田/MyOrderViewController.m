@@ -11,24 +11,28 @@
 #import "GoodsDetailViewController.h"
 #import "MutipleGoodsViewController.h"
 #import "WXApiManager.h"
+#define  singlesize @"6"
 @interface MyOrderViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSMutableArray *orderlist;
-    
-    double pagenum;
+    int pagenum;
     int previouscount;
     UIButton *selectedBtn;
     NSDictionary *jsondict;
     BOOL cancelorder;
-    double totalpage;
+    int totalrows;
     UIView *dimview;
     MBProgressHUD *hud1;
     int paybtntag;
+    int sectioncount;
+    NSMutableArray *rowinsecionsarray;
     
    
 }
+@property (weak, nonatomic) IBOutlet UILabel *orderstatuslab;
+@property (weak, nonatomic) IBOutlet UILabel *ordercodelab;
+
+
 @property (weak, nonatomic) IBOutlet UITableView *myordertableview;
-@property (weak, nonatomic) IBOutlet UILabel *dealtimelab;
-@property (strong, nonatomic) IBOutlet UILabel *orderstatuslab;
 @property (weak, nonatomic) IBOutlet UILabel *summarycountlab;
 - (IBAction)showAllOrders:(id)sender;
 - (IBAction)underDealBtnClicked:(id)sender;
@@ -92,25 +96,27 @@
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
      paras[@"page_no"]=[NSString stringWithFormat:@"%d",pagenum];
+    paras[@"page_size"]=singlesize;
 //    paras[@"order_conditions"]=[DictionaryToJsonStr dictToJsonStr:dict];
     [HttpTool post:@"get_order_list" params:paras success:^(id responseObj) {
         NSLog(@"获取所有订单为 %@",responseObj);
         NSLog(@"获取订单参数%@",paras);
         if(orderlist.count>0){
+            if ([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"]count]==0)
+                return ;
             previouscount=orderlist.count;
-            for(int i=0;i<[[[responseObj dictionaryForKey:@"data"] arrayForKey:@"orderList"] count];i++) {
-               [_myordertableview beginUpdates];
-               [_myordertableview insertSections:[NSIndexSet indexSetWithIndex:previouscount+i] withRowAnimation:UITableViewRowAnimationAutomatic];
-               [orderlist addObject:[[responseObj dictionaryForKey:@"data"] arrayForKey:@"orderList"][i]];
-               [_myordertableview endUpdates];
-                
+            for(int i=0;i<[[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"]count];i++) {
+                    [_myordertableview beginUpdates];
+                    [_myordertableview insertSections:[NSIndexSet indexSetWithIndex:previouscount+i] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [orderlist addObject:[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"][i]];
+                    [_myordertableview endUpdates];
                 }
         }
-                    else
+        else
         {
-            if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"orderList"]count]>0)
-            orderlist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"orderList"] mutableCopy];
-            totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"totalPage"];
+        if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"]count]>0)
+        orderlist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"order_list"] mutableCopy];
+        totalrows=[[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"page"]int32ForKey:@"totalRows"];
             [_myordertableview reloadData];
         }
         
@@ -121,10 +127,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return [[orderlist[section] arrayForKey:@"orderGoods"] count];
-    
-    
+    return [[orderlist[section]arrayForKey:@"orderDetailList"]count];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -137,27 +140,23 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyOrderTableViewCell *cell=[MyOrderTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.image=[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] stringForKey:@"thumbnailImg"];
-        cell.name=[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] stringForKey:@"name"];
-    cell.price=[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] stringForKey:@"salePrice"];
-    cell.counttobuy=[NSString stringWithFormat:@"X%@",[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] stringForKey:@"quantity"]];
-   cell.totalgoodstobuy=[NSString stringWithFormat:@"共%@件商品",[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] stringForKey:@"quantity"]];
-    NSString *temp=[[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] stringForKey:@"salePrice"]stringByReplacingOccurrencesOfString:@"￥" withString:@""];
-    cell.actuallypaid=[NSString stringWithFormat:@"实付金额:¥%.2f",[temp floatValue]*[[orderlist[indexPath.section] arrayForKey:@"orderGoods"][indexPath.row] floatForKey:@"quantity"]];
-    
+    NSDictionary *dict=[orderlist[indexPath.section] arrayForKey:@"orderDetailList"][indexPath.row];
+        cell.image=[dict stringForKey:@"goodsPic"];
+        cell.name=[dict stringForKey:@"goodsName"];
+    cell.shortcomment=[dict stringForKey:@"commentary"];
       return cell;
 }
 
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MAIN_HEIGHT*0.15;
+    return MAIN_HEIGHT*0.1;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.section==orderlist.count-1){
-        if(pagenum<totalpage){
+        if(pagenum*[singlesize intValue]<totalrows){
         pagenum++;
         NSLog(@"huadongdi %d",pagenum);
         [self getdatafromweb:pagenum jsondict:jsondict];
@@ -203,11 +202,11 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"sectiontitile" owner:self options:nil]firstObject];
+    UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"sectiontitle" owner:self options:nil]firstObject];
     view.frame=CGRectMake(0, 0, MAIN_WIDTH, 40);
-    _dealtimelab.text=[NSString stringWithFormat:@"下单时间:%@",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"createTime"]];
+    _ordercodelab.text=[NSString stringWithFormat:@"订单编号:%@",[[orderlist[section] dictionaryForKey:@"orderHeader"] stringForKey:@"orderCode"]];
    
-    _orderstatuslab.text=[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"businessName"];
+    _orderstatuslab.text=[[orderlist[section] dictionaryForKey:@"orderHeader"] stringForKey:@"businessStatusName"];
     view.tag=section+50;
 
     return view;
@@ -231,8 +230,9 @@
 
 //所有订单
 - (IBAction)showAllOrders:(UIButton *)sender {
-    
-    _blueline.x=sender.x;
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
     if(sender.selected)
         sender.selected=NO;
     else
@@ -248,11 +248,17 @@
     
     
 }
-
-- (IBAction)underDealBtnClicked:(id)sender {
+//处理中
+- (IBAction)underDealBtnClicked:(UIButton *)sender {
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
 }
-
-- (IBAction)dealBtnClicked:(id)sender {
+//已处理完
+- (IBAction)dealBtnClicked:(UIButton *)sender {
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
 }
 //待付款
 - (IBAction)showdfkorders:(UIButton *)sender {
@@ -333,35 +339,10 @@
 
 //查看订单
 - (IBAction)seeorderBtnClicked:(UIButton *)sender {
-    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
-    paras[@"order_id"]=[[orderlist[sender.tag] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"id"];
-    [HttpTool post:@"get_order_detail" params:paras success:^(id responseObj) {
-        if([responseObj int32ForKey:@"result"]==0){
-            NSLog(@"获取商品详情的参数＝%@ json＝%@",paras,responseObj);
-            MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-            
-            vc.orderinfo=[responseObj dictionaryForKey:@"data"];
-            vc.backtoprevious=1;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else{
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            
-            // Configure for text only and offset down
-            hud.mode = MBProgressHUDModeText;
-            
-            hud.labelText =[[responseObj dictionaryForKey:@"data"]stringForKey:@"error_msg"];
-            hud.margin = 10.f;
-            hud.removeFromSuperViewOnHide = YES;
-            
-            [hud hide:YES afterDelay:1.2];
-            
-        }
-    } failure:^(NSError *error) {
-        NSLog(@"获取订单详情失败 %@",error);
-    }];
-
+    MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
+    vc.order_id=[[orderlist[sender.tag] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"id"];
+    vc.backtoprevious=1;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //取消订单
 - (IBAction)cancelorderBtnClicked:(UIButton *)sender {

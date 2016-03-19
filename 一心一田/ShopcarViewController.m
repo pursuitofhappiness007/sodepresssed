@@ -9,7 +9,7 @@
 #import "ShopcarViewController.h"
 #import "ShoppingCarTableViewCell.h"
 //#import "GoodsDetailViewController.h"
-//#import "OrderConformationViewController.h"
+#import "OrderConformationViewController.h"
 
 @interface ShopcarViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray *tabledata;
@@ -42,14 +42,32 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.view.backgroundColor=[UIColor colorWithRed:249.0/255 green:249.0/255 blue:249.0/255 alpha:1.0];
+    self.tabBarController.tabBar.hidden=NO;
+    [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+        [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
+        rightBtn.selected=NO;
+        _shopcartableview.editing=NO;
+        for(int i=0;i<[_shopcartableview numberOfSections];i++){
+            ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            cell.singleBtn.hidden=NO;
+            
+        }
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tableviewdidfinishloadcount=0;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addedtocarclicked) name:@"addedtocar" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(piliangtijiaorefresh) name:@"piliangtijiao" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backtocartrefresh) name:@"backtocart" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
+    [self initparas];
+    [self setnavbar];
+    [self setbottombar];
+}
+-(void)refreshgoodnum{
+    [self initparas];
+}
+-(void)setnavbar{
     self.navigationItem.title=@"购物车";
     rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
@@ -59,22 +77,16 @@
     [rightBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     rightBtn.hidden=YES;
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:rightBtn];
-        [self initparas];
-    [self getdatafromweb];
-    
 }
 
--(void)backtocartrefresh{
-    [self getdatafromweb];
-}
--(void)addedtocarclicked{
-    [self getdatafromweb];
+-(void)setbottombar{
+    quantity=[LocalAndOnlineFileTool refreshcoungnum];
+    totaltopay=[LocalAndOnlineFileTool calculatesummoneyinshopcar];
+    _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
+    
+    [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
 }
 
--(void)piliangtijiaorefresh{
-    
-    [self getdatafromweb];
-}
 -(void)backBtnClicked{
     
     if(self.tabBarController.selectedIndex==2){
@@ -123,74 +135,29 @@
 }
 
 -(void)initparas{
+    LocalAndOnlineFileTool *localtool=[[LocalAndOnlineFileTool alloc]init];
+    NSLog(@"进购物车的数据%@",localtool.localarray);
     tabledata=[NSMutableArray array];
+    for (NSArray *array in localtool.localarray)
+        if ([array[1]intValue]>0)
+            [tabledata addObject:array];
+    if(tabledata.count==0){
+        _emptynoticelab.hidden=NO;
+        _optionBar.hidden=YES;
+    _shopcartableview.hidden=YES;
+    }
+    else{
+        _emptynoticelab.hidden=YES;
+        rightBtn.hidden=NO;
+        _optionBar.hidden=NO;
+        _shopcartableview.hidden=NO;
+        [self setbottombar];
+        [_shopcartableview reloadData];
+    
+    }
+
  
 }
-
--(void)getdatafromweb{
-    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    NSLog(@"购物车参数 %@",paras);
-    [HttpTool post:@"get_shopping_cart" params:paras success:^(id responseObj) {
-        NSLog(@"购物车参数 %@ res=%@",paras,responseObj);
-        if([responseObj int32ForKey:@"result"]==0){
-            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
-            //购物车没有商品
-            if([[responseObj arrayForKey:@"data"] count]==0){
-                _optionBar.hidden=YES;
-                _shopcartableview.hidden=YES;
-                
-            }
-            //购物车有商品
-            else{
-                rightBtn.hidden=NO;
-                _emptynoticelab.hidden=YES;
-                _shopcartableview.hidden=NO;
-                _optionBar.hidden=NO;
-            tabledata=[[responseObj arrayForKey:@"data"] mutableCopy];
-                [_shopcartableview reloadData];
-                [self settotalmoney];
-        }
-            
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
-
-
--(void)settotalmoney{
-    _shopcartableview.editing=NO;
-    _paybtn.enabled=YES;
-    _paylabtext.backgroundColor=[UIColor redColor];
-    totaltopay=0;
-    quantity=0;
-    if(tabledata.count==0)
-        _chooseallBtn.selected=YES;
-    else
-    _chooseallBtn.selected=NO;
-    for (int j=0; j<tabledata.count;++j)
-    {
-        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:j]];
-        cell.singleBtn.hidden=NO;
-        cell.singleBtn.selected=NO;
-//
-        totaltopay+=[tabledata[j] int32ForKey:@"quantity"]*[tabledata[j] doubleForKey:@"price"];
-        
-        NSLog(@"cell%d的 数量＝%d,salprice=%f totaltopay=%f",j,[cell.countlab.text intValue],[tabledata[j] doubleForKey:@"salePrice"],totaltopay);
-        quantity+=[tabledata[j] int32ForKey:@"quantity"];
-        
-    }
-    NSLog(@"最后的totaltopay=%d",totaltopay);
-    _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-    _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
-  
-}
-
-
-
-
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -223,25 +190,20 @@
     
     ShoppingCarTableViewCell *cell=[ShoppingCarTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    NSDictionary *dict=[tabledata[indexPath.section] dictionaryForKey:@"goodsRelationDto"];
+    NSArray *array=tabledata[indexPath.section];
+    NSDictionary *dict=[DictionaryToJsonStr JsonStrToDict:array[3]];
+    cell.goodsid=[dict stringForKey:@"id"];
     cell.image=[dict stringForKey:@"thumbnailImg"];
     cell.name=[dict stringForKey:@"name"];
-    cell.thecountchoosed=[NSString stringWithFormat:@"已选%@件商品",[tabledata[indexPath.section] stringForKey:@"quantity"]];
-    cell.currentcount=[dict stringForKey:@"minNum"];
+    cell.thecountchoosed=[NSString stringWithFormat:@"已选%@件商品",array[1]];
+    cell.currentcount=array[1];
     cell.shortcomment=[dict stringForKey:@"commentary"];
-    cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%d",[tabledata[indexPath.section]int32ForKey:@"price"]*[tabledata[indexPath.section]int32ForKey:@"quantity"]];
-    if([tabledata[indexPath.section] int32ForKey:@"quantity"]==[dict int32ForKey:@"minNum"]){
-        [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
-        [cell.addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    }
-    if([tabledata[indexPath.section] int32ForKey:@"quantity"]>[dict int32ForKey:@"minNum"]){
-        [cell.minusBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [cell.addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    }
-   
+    cell.singleprice=[array[2] doubleValue];
+    cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.2f", [array[2] doubleValue]*[array[1] intValue]];
     cell.minusBtn.tag=indexPath.section;
     cell.addBtn.tag=indexPath.section;
     cell.singleBtn.tag=indexPath.section;
+    cell.singleBtn.selected=NO;
     cell.goodspicBtn.tag=indexPath.section;
     [cell.goodspicBtn addTarget:self action:@selector(goodspicBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell.singleBtn addTarget:self action:@selector(singleBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -265,8 +227,8 @@
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
         
         _allmoneytopaylab.text=[_allmoneytopaylab.text stringByReplacingOccurrencesOfString:@"¥" withString:@""];
-        totaltopay=[_allmoneytopaylab.text doubleValue]-[cell.countlab.text intValue]*[tabledata[sender.tag] doubleForKey:@"salePrice"];
-       _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
+        totaltopay=[_allmoneytopaylab.text doubleValue]-[cell.countlab.text intValue]*cell.singleprice;
+       _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.1f",totaltopay];
         quantity-=[cell.countlab.text intValue];
         if(quantity==0)
         {
@@ -274,7 +236,7 @@
             _paylabtext.backgroundColor=[UIColor grayColor];
 
         }
-       _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
+        [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
 
     }
     else{
@@ -309,10 +271,11 @@
         
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
         _allmoneytopaylab.text=[_allmoneytopaylab.text stringByReplacingOccurrencesOfString:@"¥" withString:@""];
-        totaltopay=[_allmoneytopaylab.text doubleValue]+[cell.countlab.text intValue]*[tabledata[sender.tag] doubleForKey:@"salePrice"];
+        totaltopay=[_allmoneytopaylab.text doubleValue]+[cell.countlab.text intValue]*cell.singleprice;
         _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
         quantity+=[cell.countlab.text intValue];
-        _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
+        
+       [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
 
     }
     
@@ -328,34 +291,14 @@
 -(void)minusBtnClicked:(UIButton *)sender{
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
-    NSDictionary *dict=[tabledata[sender.tag] dictionaryForKey:@"goodsRelationDto"];
     
     int i=[cell.countlab.text intValue];
-    if(i>[dict int32ForKey:@"minNum"]){
-        if(i==[dict int32ForKey:@"minNum"]+1)
+    if(i>0){
+        if(i==1)
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
-        cell.countlab.text=[NSString stringWithFormat:@"%d",i-1];
-        
-        NSMutableDictionary *para=[NSMutableDictionary dictionary];
-        
-        para[@"goodsId"]=[tabledata[sender.tag] stringForKey:@"goodsId"];
-        para[@"quantity"]=[NSString stringWithFormat:@"%d",i-1];
-        para[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-        [HttpTool post:@"update_cart_goods_number" params:para success:^(id responseObj) {
-            cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",i-1];
-            cell.countlab.text=[NSString stringWithFormat:@"%d",i-1];
-          cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.1f",[tabledata[sender.tag] doubleForKey:@"price"]*(i-1)];
-            //合计
-            totaltopay-=[tabledata[sender.tag] doubleForKey:@"price"];
-            _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-            quantity--;
-            _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity] ;
-            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
-           
-        } failure:^(NSError *error) {
-            
-        }];
-        
+        cell.currentcount=[NSString stringWithFormat:@"%d",i-1];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+        [self setbottombar];
     }
 }
 
@@ -370,30 +313,9 @@
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
     int i=[cell.countlab.text intValue];
-    
-        
-        cell.countlab.text=[NSString stringWithFormat:@"%d",i+1];
-        NSMutableDictionary *para=[NSMutableDictionary dictionary];
-        
-        para[@"goodsId"]=[tabledata[sender.tag] stringForKey:@"goodsId"];
-        para[@"quantity"]=[NSString stringWithFormat:@"%d",i+1];
-        para[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    
-        [HttpTool post:@"update_cart_goods_number" params:para success:^(id responseObj) {
-            cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",i+1];
-            
-            cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.1f",[tabledata[sender.tag] doubleForKey:@"price"]*(i+1)];
-            totaltopay+=[tabledata[sender.tag] doubleForKey:@"price"];
-            _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-            quantity++;
-            _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
-            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
-            
-        } failure:^(NSError *error) {
-            
-        }];
-        
-   
+    cell.currentcount=[NSString stringWithFormat:@"%d",i+1];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+    [self setbottombar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -404,23 +326,22 @@
 
 
 - (IBAction)payBtnClicked:(id)sender {
+    OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
+    NSMutableArray *temp=[NSMutableArray array];
+    for (NSInteger j=0; j<[_shopcartableview numberOfSections];j++)
+    {
+        
+        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j]];
+        
+        if(!cell.singleBtn.selected){
+            
+            NSMutableDictionary *dict=[[DictionaryToJsonStr JsonStrToDict:tabledata[j][3]] mutableCopy];
+            [temp addObject:dict];
+        }
+        vc.tabledata=[temp mutableCopy];
     
-//    OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
-//    NSMutableArray *temp=[NSMutableArray array];
-//    for (NSInteger j=0; j<[_shopcartableview numberOfSections];j++)
-//    {
-//        
-//        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j]];
-//        
-//        if(!cell.singleBtn.selected){
-//            NSMutableDictionary *dict=[tabledata[j] mutableCopy];
-//            [dict setValue:cell.countlab.text forKey:@"quantity"];
-//            [temp addObject:dict];
-//        }
-//        vc.tabledata=[temp mutableCopy];
-//    
-//    }
-//    [self.navigationController pushViewController:vc animated:YES];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)chooseallBtnClicked:(UIButton *)sender {
     if(!sender.selected){
@@ -461,53 +382,43 @@
 }
 
 - (IBAction)suredeletedBtnClicked:(UIButton *)sender {
-    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
-    paras[@"drop_ids"]=[NSString stringWithFormat:@"%@",@[[tabledata[sender.tag] stringForKey:@"id"]]];
-    [HttpTool post:@"batch_delete_cart" params:paras success:^(id responseObj) {
-        NSLog(@"调用购物车的删除接口%@",responseObj);
-        if([responseObj int32ForKey:@"result"]==0){
-            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
-            ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
-            if(!cell.singleBtn.selected){
+        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
+        if(!cell.singleBtn.selected){
             quantity-=[cell.countlab.text intValue];
-            totaltopay-=[cell.countlab.text intValue]*[tabledata[sender.tag] doubleForKey:@"price"];
-                NSLog(@"当前cell的数量%d,价格=%f",[cell.countlab.text intValue],[tabledata[sender.tag] doubleForKey:@"salePrice"]);
+            totaltopay-=[cell.countlab.text intValue]*cell.singleprice;
             _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-            _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
-            }
-            
-            [tabledata removeObjectAtIndex:sender.tag];
-            if(tabledata.count==0){
-                rightBtn.hidden=YES;
-                _emptynoticelab.hidden=NO;
-                [_shopcartableview setEditing:NO];
-                _optionBar.hidden=YES;
-                _chooseallBtn.selected=YES;}
-            [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag]
-                     withRowAnimation:UITableViewRowAnimationAutomatic];
-            
-            [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
-            rightBtn.selected=NO;
-            _shopcartableview.editing=NO;
-            for(int i=0;i<tabledata.count;i++){
-                ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
-                cell.singleBtn.hidden=NO;
-                
-            }
-            
-            [v removeFromSuperview];
-            
-       //刷新购物车badgenum
-            [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
-            
+            [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
+            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:@[cell.goodsid]];
+        }
+        
+        [tabledata removeObjectAtIndex:sender.tag];
+    cell.singleBtn.hidden=NO;
+        if(tabledata.count==0){
+            rightBtn.hidden=YES;
+            _emptynoticelab.hidden=NO;
+            [_shopcartableview setEditing:NO];
+            _optionBar.hidden=YES;
+            _chooseallBtn.selected=NO;
+        }
+    [_shopcartableview beginUpdates];
+        [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag]
+                         withRowAnimation:UITableViewRowAnimationAutomatic];
+    [_shopcartableview endUpdates];
+        
+        [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
+        rightBtn.selected=NO;
+        _shopcartableview.editing=NO;
+        for(int i=0;i<tabledata.count;i++){
+            ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+            cell.singleBtn.hidden=NO;
             
         }
-    } failure:^(NSError *error) {
-        NSLog(@"购物车删除失败 %@",error);
-    }];
+        
+        [v removeFromSuperview];
+        //刷新购物车种类
+        [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
+        
     
-
 }
 
 

@@ -13,8 +13,6 @@
 @property (nonatomic,copy)NSString *goodsid;
 //商品的单价
 @property (nonatomic,copy)NSString *price;
-//商品的数量
-@property (nonatomic,assign)int counttobuy;
 @property (nonatomic,copy)NSString *goodimg;
 @property (nonatomic,copy)NSString *goodname;
 @property (nonatomic,copy)NSString *shortcomment;

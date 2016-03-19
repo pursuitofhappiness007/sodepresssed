@@ -7,8 +7,27 @@
 //
 
 #import "LocalAndOnlineFileTool.h"
-
 @implementation LocalAndOnlineFileTool
+
+-(void)setLocalarray:(NSMutableArray *)localarray{
+    self.localarray=localarray;
+}
+-(NSMutableArray *)localarray{
+    NSMutableArray *local=[NSMutableArray array];
+    local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
+    return local;
+}
++(int)getindexoflocal:(NSString *)goodsid{
+    NSMutableArray *local=[NSMutableArray array];
+    NSMutableArray *localids=[NSMutableArray array];
+    local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
+    for (NSArray *array in local)
+        [localids addObject:array[0]];
+    if([localids containsObject:goodsid])
+        return [localids indexOfObject:goodsid];
+    else
+        return -1;
+}
 +(void)keepthesamewithonline:(NSMutableArray *)onlinegoodlist{
     //如果已经存储过加入购物车的数量，就将本地和线上的同步
     
@@ -24,15 +43,12 @@
         NSMutableArray *onlineids=[NSMutableArray array];
         for (NSArray *array in local)
             [localids addObject:array[0]];
-        ////        //将线上的id到本地文件中遍历一次，找不到就加到本地文件
-        
-        
+   //将线上的id到本地文件中遍历一次，找不到就加到本地文件
         for (NSDictionary *dict in onlinegoodlist) {
-            [onlineids addObject:[dict stringForKey:@"goodsId"]];
-            if(![localids containsObject:[dict stringForKey:@"goodsId"]]){
-                NSArray *temp=@[[dict stringForKey:@"goodsId"],@"0"];
-                [localids addObject:[dict stringForKey:@"goodsId"]];
-                [local addObject:temp];
+            [onlineids addObject:[dict stringForKey:@"id"]];
+            if(![localids containsObject:[dict stringForKey:@"id"]]){
+                [localids addObject:[dict stringForKey:@"id"]];
+                [local addObject:@[[dict stringForKey:@"id"],@"0",[dict stringForKey:@"price"],dict]];
             }
             
         }
@@ -48,13 +64,11 @@
         
         
     }
-    
-    
-    //如果没有存储过，初始化本地数组
+//如果没有存储过，初始化本地数组
     else{
         NSMutableArray *sum=[NSMutableArray array];
         for (NSDictionary *dict in onlinegoodlist){
-            [sum addObject:@[[dict stringForKey:@"goodsId"],@"0",[dict stringForKey:@"price"]]];
+            [sum addObject:@[[dict stringForKey:@"id"],@"0",[dict stringForKey:@"price"],[DictionaryToJsonStr dictToJsonStr:dict]]];
         }
         
         
@@ -72,15 +86,18 @@
 }
 +(int)refreshkindnum:(UITabBarController *)tabbarvc{
     //统计最新的种类数量
-    //统计种类
-    int kindcount=0;
+    
     NSMutableArray *local=[NSMutableArray array];
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
+    //统计种类
+    int kindcount=0;
     for (NSArray *array in local){
         if([array[1]intValue]>0)
             kindcount++;
     }
     [[tabbarvc.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d种商品",kindcount]];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil];
+    
 
     return kindcount;
 }
@@ -95,12 +112,12 @@
     
     return kindcount;
 }
-+(double)calculatesummoneyinshopcar{
++(float)calculatesummoneyinshopcar{
     NSMutableArray *local=[NSMutableArray array];
-    double sum=0;
+    float sum=0.00;
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
     for (NSArray *array in local) {
-        sum+=[array[1] doubleValue]*[array[2]intValue];
+        sum+=[array[1] doubleValue]*[array[2]doubleValue];
     }
     return sum;
 }
@@ -120,19 +137,46 @@
     NSMutableArray *local=[NSMutableArray array];
     NSMutableArray *localids=[NSMutableArray array];
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
-    for (NSArray *array in local) {
+    for (NSArray *array in local)
         [localids addObject:array[0]];
-    }
     
     for (NSString *str in idstodedelete) {
         if([localids containsObject:str]){
             int deleteindex=[localids indexOfObject:str];
             NSArray *temp=[local objectAtIndex:deleteindex];
-            NSArray *new=@[temp[0],@"0",temp[2]];
+            NSArray *new=@[temp[0],@"0",temp[2],temp[3]];
             [local replaceObjectAtIndex:deleteindex withObject:new];
         }
             }
     //重置数据后再次写入沙盒
     [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":local} filepath:@"goodscount.txt"];
+}
++(void)addOrMinusBtnClickedToRefreshlocal:(NSString *)goodsid withcount:(int)i tabbar:(UITabBarController *)tabbarvc{
+    
+    NSMutableArray *local=[NSMutableArray array];
+    local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
+    for (NSArray *array in local) {
+        if([goodsid isEqualToString:array[0]]){
+            //刷新本地数据
+            NSArray *temp=@[goodsid,[NSString stringWithFormat:@"%d",i],array[2],array[3]];
+            //定位本地数据
+            [local replaceObjectAtIndex:[self getindexoflocal:goodsid] withObject:temp];
+            NSLog(@"点击增加时原来=%@ 现在=%@",array,temp);
+            //刷新购物车badgenum
+            //统计种类
+            int kindcount=0;
+            for (NSArray *array in local){
+                if([array[1]intValue]>0)
+                    kindcount++;
+            }
+            
+            [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:[@{@"goodscount":local} mutableCopy] filepath:@"goodscount.txt"];
+            [self refreshkindnum:tabbarvc];
+            
+            break;
+        }
+    }
+    
+
 }
 @end

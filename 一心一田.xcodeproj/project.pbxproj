@@ -28,6 +28,7 @@
 		CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1FE1C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib */; };
 		CEECE2061C9AD1AD009D11D8 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */; };
 		CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */; };
+		FE06ABBC1C9BFAF30072F2BB /* pricechooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */; };
 		FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */; };
 		FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E110E1C9A924000916CAD /* popaddresschooser.xib */; };
 		FE3F31841C8EC43400A7026D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31831C8EC43400A7026D /* CoreTelephony.framework */; };
@@ -102,6 +103,7 @@
 		FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
+		FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9915771C9AE9F900425055 /* sectiontitle.xib */; };
 		FE9B6A211C9AD44D007B6683 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */; };
 		FE9B6A221C9AD44D007B6683 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A141C9AD44D007B6683 /* TAAbstractDotView.m */; };
 		FE9B6A231C9AD44D007B6683 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A161C9AD44D007B6683 /* TAAnimatedDotView.m */; };
@@ -183,6 +185,7 @@
 		CEECE1FF1C9AD1AD009D11D8 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
 		CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
 		CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
+		FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pricechooser.xib; sourceTree = "<group>"; };
 		FE2E110B1C9A59D000916CAD /* LocalAndOnlineFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAndOnlineFileTool.h; sourceTree = "<group>"; };
 		FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAndOnlineFileTool.m; sourceTree = "<group>"; };
 		FE2E110E1C9A924000916CAD /* popaddresschooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = popaddresschooser.xib; sourceTree = "<group>"; };
@@ -320,6 +323,7 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FE9915771C9AE9F900425055 /* sectiontitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitle.xib; sourceTree = "<group>"; };
 		FE9B6A101C9AD44D007B6683 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		FE9B6A131C9AD44D007B6683 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -339,11 +343,9 @@
 		FEB20D991C926E2C0018A11C /* NavBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
 		FEB20D9B1C929A830018A11C /* titileaftersearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = titileaftersearch.xib; sourceTree = "<group>"; };
 		FEB20D9D1C929C860018A11C /* filterwindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filterwindow.xib; sourceTree = "<group>"; };
-		FEB20D9F1C929CFD0018A11C /* pricechooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pricechooser.xib; sourceTree = "<group>"; };
 		FEB20DA11C929F670018A11C /* footerforsection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = footerforsection.xib; sourceTree = "<group>"; };
 		FEB20DA21C929F670018A11C /* onebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onebtninfooter.xib; sourceTree = "<group>"; };
 		FEB20DA31C929F670018A11C /* threebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = threebtninfooter.xib; sourceTree = "<group>"; };
-		FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitile.xib; sourceTree = "<group>"; };
 		FEDC9FC11C97B0DC0002FB2F /* EditNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNickNameViewController.h; sourceTree = "<group>"; };
 		FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNickNameViewController.m; sourceTree = "<group>"; };
 		FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNickNameViewController.xib; sourceTree = "<group>"; };
@@ -906,8 +908,8 @@
 				FEDFA0E41C9129640010E5E3 /* SearchResultsViewController.xib */,
 				FEB20D9B1C929A830018A11C /* titileaftersearch.xib */,
 				FEB20D9D1C929C860018A11C /* filterwindow.xib */,
-				FEB20D9F1C929CFD0018A11C /* pricechooser.xib */,
 				FEDC9FCC1C97FA660002FB2F /* titileForSearchVC.xib */,
+				FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */,
 			);
 			name = "搜索";
 			sourceTree = "<group>";
@@ -964,7 +966,7 @@
 				FEB20DA11C929F670018A11C /* footerforsection.xib */,
 				FEB20DA21C929F670018A11C /* onebtninfooter.xib */,
 				FEB20DA31C929F670018A11C /* threebtninfooter.xib */,
-				FEB20DA71C92A1EF0018A11C /* sectiontitile.xib */,
+				FE9915771C9AE9F900425055 /* sectiontitle.xib */,
 			);
 			name = "我的订单";
 			sourceTree = "<group>";
@@ -1039,10 +1041,12 @@
 				CEECE1E81C9AD17D009D11D8 /* NavBarSearchForHome.xib in Resources */,
 				FE7DBF721C8D6983003536BC /* LoginViewController.xib in Resources */,
 				FE7DBF741C8D6983003536BC /* reSetPwdViewController.xib in Resources */,
+				FE06ABBC1C9BFAF30072F2BB /* pricechooser.xib in Resources */,
 				FEDC9FCD1C97FA660002FB2F /* titileForSearchVC.xib in Resources */,
 				FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */,
 				CEECE1F31C9AD18F009D11D8 /* OriginalCollectionListViewController.xib in Resources */,
 				FE6DC0531C8D5C1200E93578 /* NewFuturesViewController.xib in Resources */,
+				FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */,
 				FE545B091C8FCDFC0081DB28 /* MessageCenterViewController.xib in Resources */,
 				FEDFA0D01C9127180010E5E3 /* GoodsDetailViewController.xib in Resources */,
 				FEDC9FCA1C97C4710002FB2F /* GoodListTableViewCell.xib in Resources */,

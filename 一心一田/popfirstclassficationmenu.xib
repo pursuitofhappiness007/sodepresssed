@@ -6,7 +6,12 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassficationViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassficationViewController">
+            <connections>
+                <outlet property="firstclassmenutableview" destination="Wcb-p7-E9T" id="0vn-Wc-fdj"/>
+                <outlet property="heightconstraint" destination="RW7-wp-Q2A" id="Sdb-Xc-IKO"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="d1W-Vv-YMB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>

@@ -27,7 +27,10 @@
     }
     return self;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"bubeidaioyongda");
+   
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginbindvc) name:@"login" object:nil];
@@ -44,7 +47,8 @@
         [self addOneChlildVc:shopcar title:@"购物车" imageName:@"购物车" selectedImageName:@""];
         PersonalCenterViewController *personinfo=[[PersonalCenterViewController alloc]init];
         [self addOneChlildVc:personinfo title:@"我的" imageName:@"我的" selectedImageName:@""];
-        [LocalAndOnlineFileTool refreshkindnum:self];
+         [LocalAndOnlineFileTool refreshkindnum:self];
+         NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
         
     }
     //没有登录
@@ -55,7 +59,7 @@
         [self addOneChlildVc:login2 title:@"我的" imageName:@"我的" selectedImageName:@""];
         
     }
-    
+
     
 }
 
