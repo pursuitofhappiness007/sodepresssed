@@ -31,9 +31,6 @@
         NSLog(@"内存中没找到");
         [tableview registerNib:[UINib nibWithNibName:@"OrderllistTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
         cell=[tableview dequeueReusableCellWithIdentifier:ID];
-        
-        
-        
     }
     return cell;
 

@@ -95,8 +95,8 @@
     cell.goodname = [[dic dictionaryForKey:@"goods"]stringForKey:@"name"];
     cell.shortcomment = [[dic dictionaryForKey:@"goods"]stringForKey:@"commentary"];
     cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
-   // cell.goodimg = [[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"];
-    cell.actionBt.tag = indexPath.row;
+    cell.goodimg = [[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"];
+    cell.actionBt.tag = indexPath.row; 
     [cell.actionBt addTarget:self action:@selector(function:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
