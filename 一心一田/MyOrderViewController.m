@@ -168,34 +168,34 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view=[[UIView alloc]init];
+    view.frame=CGRectMake(0, 0, MAIN_WIDTH, 25);
+    NSDictionary *dict=[orderlist[section] dictionaryForKey:@"orderHeader"];
+    int i=[dict int32ForKey:@"businessStatus"];
+   
     //只有一个按钮的情况
-    if([[orderlist[section] dictionaryForKey:@"orderHeadVOs"] int32ForKey:@"businessStatus"]==-1||[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] int32ForKey:@"businessStatus"]==3||[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] int32ForKey:@"businessStatus"]==6){
+    if(i==2||i==6||i==8||i<0){
         view=[[[NSBundle mainBundle]loadNibNamed:@"onebtninfooter" owner:self options:nil]firstObject];
-        view.frame=CGRectMake(0, 0, MAIN_WIDTH, 25);
-        _seeorderBtn.tag=section;
-        _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:%@",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"actualAmount"]];
-        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"totalQuantity"]];
+        _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
+        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[dict stringForKey:@"totalQuantity"]];
+         _seeorderBtn.tag=section;
     }
     //有两个按钮的情况
-    if([[orderlist[section] dictionaryForKey:@"orderHeadVOs"] int32ForKey:@"businessStatus"]==4){
+    
+    if(i==6){
         view=[[[NSBundle mainBundle]loadNibNamed:@"footerforsection" owner:self options:nil]firstObject];
-        view.frame=CGRectMake(0, 0, MAIN_WIDTH, 25);
+        _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
+        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[dict stringForKey:@"totalQuantity"]];
         _seeorderBtn.tag=section;
         _surereceiveBtn.tag=section;
-        _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:%@",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"actualAmount"]];
-        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"totalQuantity"]];
     }
     //3个按钮的情况
-    if([[orderlist[section] dictionaryForKey:@"orderHeadVOs"] int32ForKey:@"businessStatus"]==1)
-    {
+    if(i==0){
         view=[[[NSBundle mainBundle]loadNibNamed:@"threebtninfooter" owner:self options:nil]firstObject];
-        view.frame=CGRectMake(0, 0, MAIN_WIDTH, 25);
+        _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
+        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[dict stringForKey:@"totalQuantity"]];
         _seeorderBtn.tag=section;
         _cancelorderBtn.tag=section;
         _payBtn.tag=section;
-        paybtntag=section;
-        _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:%@",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"actualAmount"]];
-        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[[orderlist[section] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"totalQuantity"]];
     }
     return view;
     
@@ -204,9 +204,10 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"sectiontitle" owner:self options:nil]firstObject];
     view.frame=CGRectMake(0, 0, MAIN_WIDTH, 40);
-    _ordercodelab.text=[NSString stringWithFormat:@"订单编号:%@",[[orderlist[section] dictionaryForKey:@"orderHeader"] stringForKey:@"orderCode"]];
+    NSDictionary *dict=[orderlist[section] dictionaryForKey:@"orderHeader"];
+    _ordercodelab.text=[NSString stringWithFormat:@"订单编号:%@",[dict stringForKey:@"orderCode"]];
    
-    _orderstatuslab.text=[[orderlist[section] dictionaryForKey:@"orderHeader"] stringForKey:@"businessStatusName"];
+    _orderstatuslab.text=[dict stringForKey:@"businessStatusName"];
     view.tag=section+50;
 
     return view;
@@ -340,7 +341,7 @@
 //查看订单
 - (IBAction)seeorderBtnClicked:(UIButton *)sender {
     MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-    vc.order_id=[[orderlist[sender.tag] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"id"];
+    vc.order_id=[[orderlist[sender.tag] dictionaryForKey:@"orderHeader"] stringForKey:@"id"];
     vc.backtoprevious=1;
     [self.navigationController pushViewController:vc animated:YES];
 }

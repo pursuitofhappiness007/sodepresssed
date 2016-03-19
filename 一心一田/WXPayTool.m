@@ -12,7 +12,7 @@
 +(BOOL)wxpaywithdict:(NSDictionary *)dict{
     PayReq *request=[[PayReq alloc]init];
     
-    request.partnerId=[dict stringForKey:@"prepayId"];
+    request.partnerId=[dict stringForKey:@"partnerid"];
     request.package =@"Sign=WXPay";
     request.prepayId=[dict stringForKey:@"prepayid"];
     request.nonceStr=[dict stringForKey:@"noncestr"];

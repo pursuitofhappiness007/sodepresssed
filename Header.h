@@ -1,39 +1,67 @@
-{
-    "result": 0,
-    "data": {
-        "page": {
-            "page_no": 1,
-            "page_size": 10,
-            "totalRows": 1
+获取所有订单为 {
+    result=0,
+    data={
+
+        order_list=[
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://192.168.199.50:8870/images/no_picture.png,
+                frontPrice=89.98999999999999,
+                frontQuantity=1,
+                goodsId=1003,
+                frontWeight=10,
+                goodsName=A商品_[别动我！！！]
+            }
+                             ],
+            orderHeader={
+                id=332,
+                parentId=331,
+                businessStatusName=订单完成,
+                buyerRemark=<null>,
+                orderCode=OD20160318170448,
+                payMode=BA,
+                address=某市某镇某街道某市场,
+                paymentAmount=89.98999999999999,
+                consigneeTel1=13245678912,
+                marketName=A测试市场,
+                isParent=0,
+                businessStatus=8,
+                marketId=58
+            }
         },
-        "order_list": [
-                       {
-                           "orderDetailList": [
-                                               {
-                                                   "goodsId": 1003,
-                                                   "goodsName": "A商品_[别动我！！！]",
-                                                   "frontPrice": 89.99,
-                                                   "frontQuantity": 1,
-                                                   "frontWeight": 10,
-                                                   "goodsPic": "http://192.168.199.50:8870/images/no_picture.png"
-                                               }
-                                               ],
-                           "orderHeader": {
-                               "id": 328,
-                               "address": "某市某镇某街道某市场",
-                               "businessStatus": 8,
-                               "marketName": "A测试市场",
-                               "marketId": 58,
-                               "orderCode": "OD20160318140444",
-                               "payMode": "BA",
-                               "paymentAmount": 89.99,
-                               "buyerRemark": "1",
-                               "consigneeTel1": "13245678912",
-                               "parentId": 327,
-                               "businessStatusName": "订单完成",
-                               "isParent": false
-                           }
-                       }
-                       ]
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://192.168.199.50:8870/images/no_picture.png,
+                frontPrice=89.98999999999999,
+                frontQuantity=1,
+                goodsId=1003,
+                frontWeight=10,
+                goodsName=A商品_[别动我！！！]
+            }
+                             ],
+            orderHeader={
+                id=330,
+                parentId=329,
+                businessStatusName=订单完成,
+                buyerRemark=<null>,
+                orderCode=OD20160318150446,
+                payMode=BA,
+                address=某市某镇某街道某市场,
+                paymentAmount=89.98999999999999,
+                consigneeTel1=13245678912,
+                marketName=A测试市场,
+                isParent=0,
+                businessStatus=8,
+                marketId=58
+            }
+        }
+                    ],
+        page={
+            page_no=1,
+            totalRows=2,
+            page_size=6
+        }
     }
-}
+    }
