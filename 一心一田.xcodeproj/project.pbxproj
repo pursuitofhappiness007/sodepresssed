@@ -150,6 +150,8 @@
 		FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA1001C914C600010E5E3 /* MyOrderTableViewCell.xib */; };
 		FEDFA1061C914C600010E5E3 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA1021C914C600010E5E3 /* MyOrderViewController.m */; };
 		FEDFA1071C914C600010E5E3 /* MyOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA1031C914C600010E5E3 /* MyOrderViewController.xib */; };
+		FEE1629E1C9D5634006F3511 /* PersonalInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1629C1C9D5634006F3511 /* PersonalInfomationViewController.m */; };
+		FEE1629F1C9D5634006F3511 /* PersonalInfomationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE1629D1C9D5634006F3511 /* PersonalInfomationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -393,6 +395,9 @@
 		FEDFA1011C914C600010E5E3 /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
 		FEDFA1021C914C600010E5E3 /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
 		FEDFA1031C914C600010E5E3 /* MyOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderViewController.xib; sourceTree = "<group>"; };
+		FEE1629B1C9D5634006F3511 /* PersonalInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfomationViewController.h; sourceTree = "<group>"; };
+		FEE1629C1C9D5634006F3511 /* PersonalInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfomationViewController.m; sourceTree = "<group>"; };
+		FEE1629D1C9D5634006F3511 /* PersonalInfomationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfomationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +447,9 @@
 		FE545AFD1C8FC2400081DB28 /* 个人资料 */ = {
 			isa = PBXGroup;
 			children = (
+				FEE1629B1C9D5634006F3511 /* PersonalInfomationViewController.h */,
+				FEE1629C1C9D5634006F3511 /* PersonalInfomationViewController.m */,
+				FEE1629D1C9D5634006F3511 /* PersonalInfomationViewController.xib */,
 			);
 			name = "个人资料";
 			sourceTree = "<group>";
@@ -1076,6 +1084,7 @@
 				FEDFA1071C914C600010E5E3 /* MyOrderViewController.xib in Resources */,
 				FE6DC0381C8D597200E93578 /* Assets.xcassets in Resources */,
 				FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */,
+				FEE1629F1C9D5634006F3511 /* PersonalInfomationViewController.xib in Resources */,
 				FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1140,6 +1149,7 @@
 				FE6DC0791C8D612B00E93578 /* DataBaseTool.m in Sources */,
 				FE9B6A241C9AD44D007B6683 /* TADotView.m in Sources */,
 				FE7DBF641C8D68D5003536BC /* UIView+xibcong.m in Sources */,
+				FEE1629E1C9D5634006F3511 /* PersonalInfomationViewController.m in Sources */,
 				FE7DBF541C8D6899003536BC /* UIImageView+HighlightedWebCache.m in Sources */,
 				FE7DBF821C8D6AC2003536BC /* FMDatabaseAdditions.m in Sources */,
 				FE9B6A211C9AD44D007B6683 /* NSData+SDDataCache.m in Sources */,
