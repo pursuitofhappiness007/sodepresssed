@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *price4;
 @property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 @property (assign, nonatomic)BOOL  isFavour;
+@property (weak, nonatomic) IBOutlet UITextView *textArea;
 
 @property (weak, nonatomic) IBOutlet UIButton *productInstuctionBt;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redlineleadingconstant;
@@ -155,8 +156,10 @@
     sender.selected = YES;
     if (sender.tag == 1) {
         self.redlineleadingconstant.constant = 0;
+        self.textArea.text = @"产品介绍";
     }else if(sender.tag == 2){
      self.redlineleadingconstant.constant = self.productInstuctionBt.frame.size.width + 30;
+        self.textArea.text = @"供应商信息";
     }
     
     [self updateViewConstraints];
