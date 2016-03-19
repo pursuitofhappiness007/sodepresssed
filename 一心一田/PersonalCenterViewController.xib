@@ -9,7 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonalCenterViewController">
             <connections>
+                <outlet property="amount" destination="XUy-rn-w01" id="uX1-vh-6UR"/>
                 <outlet property="backgroundimage" destination="X0V-Xn-kZR" id="tPb-Co-6lY"/>
+                <outlet property="creditAmount" destination="lYE-fb-lPU" id="mBz-JO-vG2"/>
                 <outlet property="namelab" destination="kss-eK-6fo" id="wTU-HS-ipD"/>
                 <outlet property="shadowoficon" destination="0Y3-1G-vUA" id="xD0-RG-YNf"/>
                 <outlet property="usericon" destination="Qfi-Dy-K6E" id="OZ4-Pp-Sg3"/>
@@ -131,7 +133,6 @@
                         <constraint firstItem="5OM-Dx-FRF" firstAttribute="centerY" secondItem="Nsj-vw-xBw" secondAttribute="centerY" id="kQm-PJ-EO9"/>
                         <constraint firstItem="9MC-ny-eEA" firstAttribute="leading" secondItem="Nsj-vw-xBw" secondAttribute="leading" id="oSv-q9-gdo"/>
                         <constraint firstAttribute="trailing" secondItem="9MC-ny-eEA" secondAttribute="trailing" id="uNm-2y-ZBW"/>
-                        <constraint firstItem="XUy-rn-w01" firstAttribute="centerX" secondItem="Nsj-vw-xBw" secondAttribute="centerX" multiplier="0.45" id="x3B-3z-fME"/>
                         <constraint firstItem="lYE-fb-lPU" firstAttribute="leading" secondItem="XUy-rn-w01" secondAttribute="leading" id="xt4-Hv-8Ie"/>
                         <constraint firstAttribute="bottom" secondItem="9MC-ny-eEA" secondAttribute="bottom" id="zmh-Z8-CNJ"/>
                     </constraints>
@@ -144,13 +145,6 @@
                             <exclude reference="zmh-Z8-CNJ"/>
                         </mask>
                     </variation>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6C-Lb-vdT" userLabel="separator0">
-                    <rect key="frame" x="0.0" y="229" width="375" height="8"/>
-                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="8" id="cRm-N4-h7w"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afL-PA-eIJ" userLabel="我的订单">
                     <rect key="frame" x="0.0" y="237" width="375" height="47"/>
@@ -777,6 +771,13 @@
                         <action selector="changeIconClicked:" destination="-1" eventType="touchUpInside" id="hgW-uO-tMp"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6C-Lb-vdT" userLabel="separator0">
+                    <rect key="frame" x="0.0" y="229" width="375" height="8"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="cRm-N4-h7w"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -884,6 +885,7 @@
                 <constraint firstItem="RAy-FY-GAY" firstAttribute="height" secondItem="fdr-7G-Jhs" secondAttribute="height" id="uqs-mJ-X1M"/>
                 <constraint firstItem="H6C-Lb-vdT" firstAttribute="leading" secondItem="prK-F0-8hh" secondAttribute="leading" id="wKP-Ta-Gsz"/>
                 <constraint firstItem="0Y3-1G-vUA" firstAttribute="bottom" secondItem="Qfi-Dy-K6E" secondAttribute="bottom" id="xet-BS-8ra"/>
+                <constraint firstItem="evU-GH-jqH" firstAttribute="leading" secondItem="XUy-rn-w01" secondAttribute="leading" id="yZO-nC-bua"/>
                 <constraint firstItem="J8t-E3-XXI" firstAttribute="centerY" secondItem="Qfi-Dy-K6E" secondAttribute="centerY" id="ykx-5w-uvq"/>
                 <constraint firstItem="eLn-01-iQN" firstAttribute="leading" secondItem="prK-F0-8hh" secondAttribute="leading" id="zHE-8D-MFq"/>
             </constraints>

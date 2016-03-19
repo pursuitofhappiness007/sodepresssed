@@ -51,13 +51,9 @@
     _personalIcon.layer.cornerRadius=_personalIcon.width/2.0;
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
-
-    [[DownLoadImageTool singletonInstance]imageWithImage:[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"imagePath"] scaledToWidth:_personalIcon.width imageview:_personalIcon];
+   [[DownLoadImageTool singletonInstance] imageWithImage:dict[@"headPath"]  scaledToWidth:_personalIcon.width imageview:_personalIcon];
     _usernamelab.text=[dict stringForKey:@"name"];
-    //返回的json中无此字段
-//    _phone1lab.text=;
-//    _phone2lab.text=;
-//    _phone3lab.text=;
+    NSMutableArray *telArr = dict[@"phones"];
 }
 
 - (void)didReceiveMemoryWarning {

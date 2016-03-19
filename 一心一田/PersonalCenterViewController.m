@@ -25,7 +25,9 @@
 - (IBAction)aboutusBtnClicked:(id)sender;
 - (IBAction)currentVersionBtnClicked:(id)sender;
 - (IBAction)seePersonInfoClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *amount;
 
+@property (weak, nonatomic) IBOutlet UILabel *creditAmount;
 
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
 @property (weak, nonatomic) IBOutlet UIImageView *usericon;
@@ -47,8 +49,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(namechangedrefresh) name:@"namechanged" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshbadgenum) name:@"refreshbadgenum" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateicon) name:@"iconchanged" object:nil];
-    
-    
+    [self getPersonInfo];
     [self setpersoninfo];
     
 }
@@ -56,6 +57,22 @@
 -(void)updateicon{
     [self setpersoninfo];
 }
+
+
+- (void)getPersonInfo{
+        NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"];
+         NSLog(@"%@",dict);
+        [[DownLoadImageTool singletonInstance] imageWithImage:dict[@"headPath"] scaledToWidth:self.usericon.width imageview:self.usericon];
+       self.namelab.text= dict[@"login_name"];
+       self.amount.text = [NSString stringWithFormat:@"余额¥%@", dict[@"amount"]];
+       self.creditAmount.text = [NSString stringWithFormat:@"信用额度¥%@", dict[@"amount"]];
+       
+        //返回的json中无此字段
+        //    _phone1lab.text=;
+        //    _phone2lab.text=;
+        //    _phone3lab.text=;
+    }
+
 
 -(void)setpersoninfo{
     _namelab.text=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"name"];
