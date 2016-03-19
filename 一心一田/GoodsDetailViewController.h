@@ -10,5 +10,6 @@
 
 @interface GoodsDetailViewController : UIViewController
 @property (nonatomic,strong) NSString *goodsid;
-
+@property (nonatomic,strong) NSString *marketid;
+@property (nonatomic,strong) NSString *supplierid;
 @end
