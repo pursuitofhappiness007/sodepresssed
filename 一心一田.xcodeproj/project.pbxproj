@@ -34,8 +34,6 @@
 		FE3F31841C8EC43400A7026D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31831C8EC43400A7026D /* CoreTelephony.framework */; };
 		FE3F31861C8EC47300A7026D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31851C8EC47300A7026D /* Security.framework */; };
 		FE3F31881C8EC48000A7026D /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31871C8EC48000A7026D /* libz.1.2.5.tbd */; };
-		FE545B011C8FC3830081DB28 /* PersonalInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE545AFF1C8FC3830081DB28 /* PersonalInfomationViewController.m */; };
-		FE545B021C8FC3830081DB28 /* PersonalInfomationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE545B001C8FC3830081DB28 /* PersonalInfomationViewController.xib */; };
 		FE545B081C8FCDFC0081DB28 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE545B061C8FCDFC0081DB28 /* MessageCenterViewController.m */; };
 		FE545B091C8FCDFC0081DB28 /* MessageCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE545B071C8FCDFC0081DB28 /* MessageCenterViewController.xib */; };
 		FE545B0D1C8FCE7E0081DB28 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE545B0B1C8FCE7E0081DB28 /* MessageTableViewCell.m */; };
@@ -192,9 +190,6 @@
 		FE3F31831C8EC43400A7026D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FE3F31851C8EC47300A7026D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FE3F31871C8EC48000A7026D /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
-		FE545AFE1C8FC3830081DB28 /* PersonalInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfomationViewController.h; sourceTree = "<group>"; };
-		FE545AFF1C8FC3830081DB28 /* PersonalInfomationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfomationViewController.m; sourceTree = "<group>"; };
-		FE545B001C8FC3830081DB28 /* PersonalInfomationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfomationViewController.xib; sourceTree = "<group>"; };
 		FE545B051C8FCDFC0081DB28 /* MessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
 		FE545B061C8FCDFC0081DB28 /* MessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
 		FE545B071C8FCDFC0081DB28 /* MessageCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenterViewController.xib; sourceTree = "<group>"; };
@@ -447,9 +442,6 @@
 		FE545AFD1C8FC2400081DB28 /* 个人资料 */ = {
 			isa = PBXGroup;
 			children = (
-				FE545AFE1C8FC3830081DB28 /* PersonalInfomationViewController.h */,
-				FE545AFF1C8FC3830081DB28 /* PersonalInfomationViewController.m */,
-				FE545B001C8FC3830081DB28 /* PersonalInfomationViewController.xib */,
 			);
 			name = "个人资料";
 			sourceTree = "<group>";
@@ -1077,7 +1069,6 @@
 				CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */,
 				FEDFA0C21C91242C0010E5E3 /* ShoppingCarTableViewCell.xib in Resources */,
 				FEDFA0C01C91242C0010E5E3 /* ShopcarViewController.xib in Resources */,
-				FE545B021C8FC3830081DB28 /* PersonalInfomationViewController.xib in Resources */,
 				CEECE1E61C9AD17D009D11D8 /* HomeViewController.xib in Resources */,
 				CEECE1F11C9AD18F009D11D8 /* CollectionListTableViewCell.xib in Resources */,
 				FEDFA0E11C9129180010E5E3 /* OrderConformationViewController.xib in Resources */,
@@ -1134,7 +1125,6 @@
 				FE7DBF561C8D6899003536BC /* UIView+WebCacheOperation.m in Sources */,
 				FEDFA0EA1C912A500010E5E3 /* AddInOrderTableViewCell.m in Sources */,
 				FEDFA0F01C9149C70010E5E3 /* NewAddressViewController.m in Sources */,
-				FE545B011C8FC3830081DB28 /* PersonalInfomationViewController.m in Sources */,
 				FE7734B41C8D8B4400397142 /* WXApiManager.m in Sources */,
 				FE7DBF731C8D6983003536BC /* reSetPwdViewController.m in Sources */,
 				FE7DBF211C8D6873003536BC /* AFURLConnectionOperation.m in Sources */,
