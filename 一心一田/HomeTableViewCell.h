@@ -12,6 +12,7 @@
 //商品的id
 @property (nonatomic,copy)NSString *goodsid;
 
+
 @property (nonatomic,copy)NSString *goodimg;
 @property (nonatomic,copy)NSString *goodname;
 @property (nonatomic,copy)NSString *shortcomment;
