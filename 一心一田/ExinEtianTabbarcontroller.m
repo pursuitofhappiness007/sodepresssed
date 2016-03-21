@@ -101,11 +101,11 @@
     item0.title=@"首页";
     item0.image=[UIImage imageNamed:@"首页"];
     item1.title=@"购物车";
-    item1.image=[UIImage imageNamed:@"carnotsel"];
-    item1.selectedImage=[UIImage imageNamed:@"car"];
+    item1.image=[UIImage imageNamed:@"购物车"];
+//    item1.selectedImage=[UIImage imageNamed:@"car"];
     item2.title=@"我的";
-    item2.image=[UIImage imageNamed:@"minenotsel"];
-    item2.selectedImage=[UIImage imageNamed:@"mine"];
+    item2.image=[UIImage imageNamed:@"我的"];
+//    item2.selectedImage=[UIImage imageNamed:@"mine"];
     [LocalAndOnlineFileTool refreshkindnum:self];
 
 }
@@ -129,11 +129,11 @@
     item0.title=@"首页";
     item0.image=[UIImage imageNamed:@"首页"];
     item1.title=@"购物车";
-    item1.image=[UIImage imageNamed:@"carnotsel"];
-    item1.selectedImage=[UIImage imageNamed:@"car"];
+    item1.image=[UIImage imageNamed:@"购物车"];
+//    item1.selectedImage=[UIImage imageNamed:@"car"];
     item2.title=@"我的";
-    item2.image=[UIImage imageNamed:@"minenotsel"];
-    item2.selectedImage=[UIImage imageNamed:@"mine"];
+    item2.image=[UIImage imageNamed:@"我的"];
+//    item2.selectedImage=[UIImage imageNamed:@"mine"];
 
 }
 - (void)didReceiveMemoryWarning {
