@@ -28,6 +28,16 @@
 @property (nonatomic,copy)NSString *price4;
 //购买数量
 @property (nonatomic,copy)NSString *count;
+//区间价格
+@property (weak, nonatomic) IBOutlet UILabel *range1lab;
+@property (weak, nonatomic) IBOutlet UILabel *range2lab;
+@property (weak, nonatomic) IBOutlet UILabel *range3lab;
+@property (weak, nonatomic) IBOutlet UILabel *range4lab;
+@property (weak, nonatomic) IBOutlet UILabel *price1lab;
+@property (weak, nonatomic) IBOutlet UILabel *price2lab;
+@property (weak, nonatomic) IBOutlet UILabel *price3lab;
+@property (weak, nonatomic) IBOutlet UILabel *price4lab;
+@property (weak, nonatomic) IBOutlet UILabel *countlab;
 //加减按钮
 @property (weak, nonatomic) IBOutlet UIButton *minusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;

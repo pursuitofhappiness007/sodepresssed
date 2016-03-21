@@ -12,12 +12,17 @@
 #import "LoginViewController.h"
 #import "SDCycleScrollView.h"
 #import "GoodsDetailViewController.h"
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
+#import "SearchViewController.h"
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *tablelist;
     NSMutableArray *navigationArr;
     NSMutableArray *noticeArr;
     UIView *searchview;
+    NSString *phonenum;
+    int previouscount;
+    int totalpage;
+    int pagenum;
 }
 - (IBAction)phoneBtnClicked:(id)sender;
 - (IBAction)searchBtnClicked:(id)sender;
@@ -53,7 +58,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     [self initdata];
     [self getdatafromserver];
-    [self getTableListDataFromSever];
+    [self getTableListDataFromSever:1];
   }
 -(void)customernavbar{
     
@@ -69,6 +74,7 @@
    tablelist = [NSMutableArray array];
    navigationArr = [NSMutableArray array];
     noticeArr = [NSMutableArray array];
+    pagenum=1;
 }
 
 -(void)getdatafromserver{
@@ -79,6 +85,7 @@
          NSLog(@"---------------------------------------------------------------");
          NSLog(@"首页数据%@",responseObj);
          NSLog(@"---------------------------------------------------------------");
+         phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
          noticeArr = [noArr mutableCopy];
@@ -92,26 +99,54 @@
  }];
 }
 
-- (void)getTableListDataFromSever{
+- (void)getTableListDataFromSever:(int)pageno{
     // 获取商品列表数据
    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
+    //每次请求的数量
+    paras[@"page_size"]=@10;
+    paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
     [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
-        if([responseObj int32ForKey:@"result"]==0){
-            NSLog(@"---------------------------------------------------------------");
-            NSLog(@"首页商品列表信息%@",responseObj);
-            NSLog(@"---------------------------------------------------------------");
-            NSMutableArray *listArr= responseObj[@"data"][@"goods_list"];
-            tablelist = [listArr mutableCopy];
-            [self.tableview reloadData];
-        }else{
-            NSLog(@"请求首页商品列表数据有误%@", responseObj);
+        if(tablelist.count>0){
+            previouscount=tablelist.count;
+            if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count]>0)
+                [tablelist addObjectsFromArray:[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"]];
+            //局部刷新
+            NSMutableArray *indexs=[NSMutableArray array];
+            for(int i=0;i<[[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count];i++){
+                NSIndexPath *index=[NSIndexPath indexPathForRow:previouscount+i inSection:0];
+                [indexs addObject:index];
+                //每次从线上请求新的数据都要喝本地同步
+                [LocalAndOnlineFileTool keepthesamewithonline:tablelist];
+            }
+            [_tableview beginUpdates];
+            [_tableview insertRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationAutomatic];
+            [_tableview endUpdates];
+            
+            
         }
-    } failure:^(NSError *error) {
-        NSLog(@"---------------------------------------------------------------");
-        NSLog(@"请求首页商品列表数据失败%@",error);
-        NSLog(@"---------------------------------------------------------------");
-    }];
+        else
+        {
+            if([[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] count]>0){
+                _tableview.hidden=NO;
+                
+                tablelist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] mutableCopy];
+                //每次从线上请求新的数据都要喝本地同步
+                [LocalAndOnlineFileTool keepthesamewithonline:tablelist];
+                NSLog(@"when next can come to here?");
+                totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
+                NSLog(@"总页数%d",totalpage);
+                [_tableview reloadData];
+            }
+            else
+            {
+                _tableview.hidden=YES;
+            }
+            
+        }
+
+} failure:^(NSError *error) {
+}];
 
 }
 
@@ -184,10 +219,84 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeTableViewCell *cell=[HomeTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     NSDictionary *good = tablelist[indexPath.row];
+    cell.goodsid=[good stringForKey:@"id"];
     cell.goodname = good[@"name"];
     cell.shortcomment = good[@"commentary"];
     cell.specific = good[@"specifications"];
     cell.goodimg = good[@"thumbnailImg"];
+    NSArray *array=[good arrayForKey:@"goodsRangePrices"];
+    switch (array.count) {
+        case 0:
+        {
+        }
+            break;
+        case 1:
+        {
+            cell.range1lab.hidden=NO;
+            cell.price1lab.hidden=NO;
+            cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            
+        }
+            break;
+        case 2:
+        {
+            cell.range1lab.hidden=NO;
+            cell.price1lab.hidden=NO;
+            cell.range2lab.hidden=NO;
+            cell.price2lab.hidden=NO;
+            cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+        }
+            break;
+        case 3:
+        {
+            cell.range1lab.hidden=NO;
+            cell.price1lab.hidden=NO;
+            cell.range2lab.hidden=NO;
+            cell.price2lab.hidden=NO;
+            cell.range3lab.hidden=NO;
+            cell.price3lab.hidden=NO;
+            cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            cell.range3=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            cell.price3=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+        }
+            break;
+        case 4:
+        {
+            cell.range1lab.hidden=NO;
+            cell.price1lab.hidden=NO;
+            cell.range2lab.hidden=NO;
+            cell.price2lab.hidden=NO;
+            cell.range3lab.hidden=NO;
+            cell.price3lab.hidden=NO;
+            cell.range4lab.hidden=NO;
+            cell.price4lab.hidden=NO;
+            cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            cell.range3=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
+            cell.range4=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
+            cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            cell.price3=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
+            cell.price4=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
+        }
+            break;
+        default:
+            break;
+    }
+    //到沙盒文件里去取数量
+    cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
+    cell.addBtn.tag=indexPath.row;
+    cell.minusBtn.tag=indexPath.row;
+    [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -218,22 +327,61 @@
     return MAIN_HEIGHT*0.58;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"goodslist=%d",tablelist.count);
+        
+        if(pagenum<totalpage){
+            pagenum++;
+            NSLog(@"huadongdi %d",pagenum);
+            [self getTableListDataFromSever:pagenum];
+        }
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)addBtnClicked:(UIButton *)sender{
+    HomeTableViewCell *cell=[_tableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    int i=[cell.countlab.text intValue];
+    cell.count=[NSString stringWithFormat:@"%d",i+1];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+    
 }
-*/
+
+-(void)minusBtnClicked:(UIButton *)sender{
+   HomeTableViewCell *cell=[_tableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    int i=[cell.countlab.text intValue];
+    if(i>0){
+        if(i==1)
+            [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
+        cell.count=[NSString stringWithFormat:@"%d",i-1];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+    }
+}
+
 
 - (IBAction)phoneBtnClicked:(id)sender {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",phonenum]];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:phoneUrl];
+    } else
+    {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        
+        // Configure for text only and offset down
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"无SIM卡";
+        hud.margin = 10.f;
+        hud.removeFromSuperViewOnHide = YES;
+        
+        [hud hide:YES afterDelay:1.0];
+    }
+
     
 }
 
@@ -258,6 +406,12 @@
     } completion:^(BOOL finished) {
         [searchview removeFromSuperview];
     }];
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    SearchViewController *vc=[[SearchViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:NO];
+    return NO;
 }
 
 - (IBAction)shucaishuiguoBtnClicked:(id)sender {

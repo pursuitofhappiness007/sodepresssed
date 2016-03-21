@@ -12,15 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *goodnamelab;
 @property (weak, nonatomic) IBOutlet UILabel *shortcommentlab;
 @property (weak, nonatomic) IBOutlet UILabel *specificlab;
-@property (weak, nonatomic) IBOutlet UILabel *range1lab;
-@property (weak, nonatomic) IBOutlet UILabel *range2lab;
-@property (weak, nonatomic) IBOutlet UILabel *range3lab;
-@property (weak, nonatomic) IBOutlet UILabel *range4lab;
-@property (weak, nonatomic) IBOutlet UILabel *price1lab;
-@property (weak, nonatomic) IBOutlet UILabel *price2lab;
-@property (weak, nonatomic) IBOutlet UILabel *price3lab;
-@property (weak, nonatomic) IBOutlet UILabel *price4lab;
-@property (weak, nonatomic) IBOutlet UILabel *countlab;
+
 
 
 @end

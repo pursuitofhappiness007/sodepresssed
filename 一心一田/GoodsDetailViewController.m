@@ -10,7 +10,7 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "SingleGoodOrderConfirmnationViewController.h"
-
+#import "OrderConformationViewController.h"
 @interface GoodsDetailViewController ()<UIScrollViewDelegate>{
     NSDictionary *goodsdetail;
     BOOL inventeroy;
@@ -24,12 +24,27 @@
 @property (weak, nonatomic) IBOutlet UILabel *price2;
 @property (weak, nonatomic) IBOutlet UILabel *price3;
 @property (weak, nonatomic) IBOutlet UILabel *price4;
+@property (weak, nonatomic) IBOutlet UILabel *range1;
+@property (weak, nonatomic) IBOutlet UILabel *range2;
+@property (weak, nonatomic) IBOutlet UILabel *range3;
+@property (weak, nonatomic) IBOutlet UILabel *range4;
 @property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 @property (assign, nonatomic)BOOL  isFavour;
 @property (weak, nonatomic) IBOutlet UITextView *textArea;
 
 @property (weak, nonatomic) IBOutlet UIButton *productInstuctionBt;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redlineleadingconstant;
+//加减按钮以及数量
+- (IBAction)minusBtnClicked:(id)sender;
+- (IBAction)addBtnClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *countlab;
+//底部控件
+@property (weak, nonatomic) IBOutlet UILabel *sumkindlab;
+@property (weak, nonatomic) IBOutlet UILabel *summoneylab;
+@property (weak, nonatomic) IBOutlet UIButton *payBtn;
+- (IBAction)payBtnClicked:(id)sender;
+
+
 @end
 
 @implementation GoodsDetailViewController
@@ -71,15 +86,96 @@
       NSLog(@"商品详情 参数=%@,%@",paras,responseObj);
          if([responseObj int32ForKey:@"result"]==0){
       goodsdetail=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"goods_detail"];
-      self.nameLb.text = goodsdetail[@"name"];
-      self.specification.text = goodsdetail[@"specifications"];
-      self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
-      self.collectionButton.selected = self.isFavour;
-       [[DownLoadImageTool singletonInstance]imageWithImage:goodsdetail[@"thumbnailImg"] scaledToWidth:self.goodImg.width imageview:self.goodImg];
+    self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
+             [self setlocalcontent];
          }
        } failure:^(NSError *error) {
       NSLog(@"获取商品详情失败 %@",error);
   }];
+}
+
+-(void)setlocalcontent{
+    self.nameLb.text = goodsdetail[@"name"];
+    self.specification.text = goodsdetail[@"specifications"];
+    self.collectionButton.selected = self.isFavour;
+    [[DownLoadImageTool singletonInstance]imageWithImage:goodsdetail[@"thumbnailImg"] scaledToWidth:self.goodImg.width imageview:self.goodImg];
+    NSArray *array=[goodsdetail arrayForKey:@"goodsRangePrices"];
+    switch (array.count) {
+        case 0:
+        {
+        }
+            break;
+        case 1:
+        {
+            _range1.hidden=NO;
+            _price1.hidden=NO;
+            _range1.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            _price1.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            
+        }
+            break;
+        case 2:
+        {
+            _range1.hidden=NO;
+            _price1.hidden=NO;
+            _range2.hidden=NO;
+            _price2.hidden=NO;
+            _range1.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            _price1.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            _range2.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            _price2.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+        }
+            break;
+        case 3:
+        {
+            _range1.hidden=NO;
+            _price1.hidden=NO;
+            _range2.hidden=NO;
+            _price2.hidden=NO;
+            _range3.hidden=NO;
+            _price3.hidden=NO;
+            _range1.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            _price1.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            _range2.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            _price2.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            _range3.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            _price3.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+        }
+            break;
+        case 4:
+        {
+            _range1.hidden=NO;
+            _price1.hidden=NO;
+            _range2.hidden=NO;
+            _price2.hidden=NO;
+            _range3.hidden=NO;
+            _price3.hidden=NO;
+            _range4.hidden=NO;
+            _price4.hidden=NO;
+            _range1.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            _range2.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+            _range3.text=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
+            _range4.text=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
+            _price1.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+            _price2.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+            _price3.text=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
+            _price4.text=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
+        }
+            break;
+        default:
+            break;
+    }
+    _countlab.text=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:[goodsdetail stringForKey:@"id"]]];
+    [self setbottombar];
+}
+
+-(void)setbottombar{
+    //设置种类
+    _sumkindlab.text=[NSString stringWithFormat:@"%d种商品",[LocalAndOnlineFileTool refreshkindnum:self.tabBarController]];
+    //设置商品数量
+    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",[LocalAndOnlineFileTool refreshcoungnum]] forState:UIControlStateNormal];
+    //设置参考价格
+    _summoneylab.text=[NSString stringWithFormat:@"¥%.2f",[LocalAndOnlineFileTool calculatesummoneyinshopcar]];
 }
 - (IBAction)collectionButtonClicked:(UIButton *)sender {
     self.isFavour = !self.isFavour;
@@ -121,33 +217,6 @@
         }];
 
     }else{
-//        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-//        NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
-//        NSString *str = [dic stringForKey:@"token"];
-//        NSLog(@"token:%@", str);
-//        paras[@"token"] = [dic stringForKey:@"token"];
-//        paras[@"favour_id"] = [self.collectionListArr[self.cancelCollectBt.tag] stringForKey:@"favour_id"];
-//        [HttpTool post:@"delete_favour_by_id" params:paras success:^(id responseObj) {
-//            NSLog(@"recharge message:%@",responseObj);
-//            if([responseObj int32ForKey:@"result"]==0){
-//                [self.collectionListArr removeObjectAtIndex:self.cancelCollectBt.tag] ;
-//                [self.tableview reloadData];
-//                NSLog(@"获取数据成功");
-//                return;
-//            } else{
-//                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-//                hud.mode = MBProgressHUDModeText;
-//                hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
-//                hud.margin = 10.f;
-//                hud.removeFromSuperViewOnHide = YES;
-//                [hud hide:YES afterDelay:1.2];
-//            }
-//        } failure:^(NSError *error) {
-//            NSLog(@"获取数据失败");
-//            NSLog(@"%@", error);
-//        }];
-
-    
     }
     
 }
@@ -167,90 +236,30 @@
     
 }
 
-
-//-(void)displaylocalcontent{
-//    int i=0;
-//    for (NSDictionary *dict in [goodsdetail arrayForKey:@"goodsGalleries"]) {
-//        
-//             i++;
-//    }
-//    [self.view bringSubviewToFront:_pagecontrol];
-//  
-//    
-//    _scrollads.contentSize=CGSizeMake(i*MAIN_WIDTH, 0);
-//    UILabel *lab=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, [[goodsdetail stringForKey:@"name"] length]*17, _namescrollview.height)];
-//    
-//    lab.text=[goodsdetail stringForKey:@"name"];
-//    _namescrollview.contentSize=CGSizeMake(lab.width, 0);
-//    [_namescrollview addSubview:lab];
-//    _salepricelab.text=[NSString stringWithFormat:@"¥%.1f",[goodsdetail doubleForKey:@"salePrice"]];
-//    
-//    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"价格:¥%.1f",[goodsdetail doubleForKey:@"marketPrice"]]];
-//    [attributeString addAttribute:NSStrikethroughStyleAttributeName
-//                            value:@2
-//                            range:NSMakeRange(0, [attributeString length])];
-//       _marketpricelab.attributedText=attributeString;
-//
-//    _firstbrandlab.text=[NSString stringWithFormat:@"品牌:%@",[goodsdetail stringForKey:@"brandName"]];
-//    if(inventeroy)
-//    _kucunlab.text=@"库存:有";
-//    else
-//     _kucunlab.text=@"库存:无";
-//    _secondbrandlab.text=[goodsdetail stringForKey:@"brandName"];
-//    _goodscodelab.text=[goodsdetail stringForKey:@"code"];
-//    
-//
-//}
-
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    int nextpage=(int)(scrollView.contentOffset.x/MAIN_WIDTH);
-//    
-//    if(nextpage!=[[goodsdetail arrayForKey:@"goodsGalleries"] count]){
-//        
-//        
-//        _pagecontrol.currentPage=nextpage;
-//    }
-//    else{
-//        _pagecontrol.currentPage=0;
-//        scrollView.contentOffset=CGPointMake(0, 0);
-//    }
-//    
-//    
-//}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)minusBtnClicked:(id)sender {
+    int i=[_countlab.text intValue];
+    if(i>0){
+        _countlab.text=[NSString stringWithFormat:@"%d",i-1];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i-1 tabbar:self.tabBarController];
+        [self setbottombar];
+    }
 
-//- (IBAction)addtocollection:(id)sender {
-//}
-//
-//- (IBAction)buysoonBtnClicked:(id)sender {
-//    if(![[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]){
-//    LoginViewController *vc1=[[LoginViewController alloc]init];
-//    vc1.source=@"buysoon";
-//    [self.navigationController pushViewController:vc1 animated:YES];
-//        return;
-//    }
-//    SingleGoodOrderConfirmnationViewController *vc=[[SingleGoodOrderConfirmnationViewController alloc]init];
-//    vc.imageurl=[[[goodsdetail arrayForKey:@"goodsGalleries"] firstObject] stringForKey:@"imgOriginal"];
-//    NSLog(@"图像链接%@",vc.imageurl);
-//    vc.namestr=[goodsdetail stringForKey:@"name"];
-//    vc.singleprice=[goodsdetail floatForKey:@"salePrice"];
-//    vc.goodsid=[goodsdetail stringForKey:@"id"];
-//    
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
-//    
-//
-//}
+}
 
-
-//- (IBAction)carBtnClicked:(id)sender {
-// 
-//}
-
-
+- (IBAction)addBtnClicked:(id)sender {
+    int i=[_countlab.text intValue];
+    _countlab.text=[NSString stringWithFormat:@"%d",i+1];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i+1 tabbar:self.tabBarController];
+    [self setbottombar];
+}
+- (IBAction)payBtnClicked:(id)sender {
+    OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
+    vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

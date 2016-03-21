@@ -23,8 +23,12 @@
 +(float)calculatesummoneyinshopcar;
 //计算某个商品买了多少件
 +(int)singlegoodcount:(NSString *)goodsid;
+//计算某个商品的单价
++(double)singlegoodprice:(NSString *)goodsid;
 //立即购买支付成功后，所有商品数量清零
 +(void)resetaftersuccessfulsubmit:(NSArray *)idstodedelete;
 //点击加减按钮刷新本地的商品数量
 +(void)addOrMinusBtnClickedToRefreshlocal:(NSString *)goodsid withcount:(int)i tabbar:(UITabBarController *)tabbarvc;
+//获取已经购买的商品
++(NSMutableArray *)getbuyinggoodslist;
 @end
