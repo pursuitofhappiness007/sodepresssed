@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4C87CB1CA009D60033CB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4C87CA1CA009D60033CB29 /* Assets.xcassets */; };
 		CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */; };
 		CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */; };
 		CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */; };
@@ -158,6 +159,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE4C87CA1CA009D60033CB29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEECE1D51C9AD173009D11D8 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterViewController.xib; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				FE6DC0811C8D617500E93578 /* others */,
 				FE6DC0391C8D597200E93578 /* LaunchScreen.storyboard */,
 				FE6DC03C1C8D597200E93578 /* Info.plist */,
+				CE4C87CA1CA009D60033CB29 /* Assets.xcassets */,
 				FE6DC02B1C8D597200E93578 /* Supporting Files */,
 			);
 			path = "一心一田";
@@ -1078,6 +1081,7 @@
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
+				CE4C87CB1CA009D60033CB29 /* Assets.xcassets in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
 				FEDFA0C41C9124C70010E5E3 /* deleteview.xib in Resources */,
 				FE545B0E1C8FCE7E0081DB28 /* MessageTableViewCell.xib in Resources */,
