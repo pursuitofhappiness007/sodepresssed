@@ -76,7 +76,7 @@
     self.navigationController.navigationBarHidden=NO;
     self.navigationItem.title=@"我的订单";
     
-    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self initparas];
     [self getdatafromweb:1 jsondict:jsondict];
     
