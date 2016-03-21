@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQw-Nc-wsb" userLabel="accountandpwdcontainer">
                     <rect key="frame" x="75" y="80" width="225" height="367"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bluelock" translatesAutoresizingMaskIntoConstraints="NO" id="gLS-Kd-bEJ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluelock" translatesAutoresizingMaskIntoConstraints="NO" id="gLS-Kd-bEJ">
                             <rect key="frame" x="2" y="220" width="14" height="17"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluephone" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-wO-Lf0">

@@ -8,7 +8,7 @@
 
 #import "NewFuturesViewController.h"
 #import "ExinEtianTabbarcontroller.h"
-@interface NewFuturesViewController ()
+@interface NewFuturesViewController ()<UIScrollViewDelegate>
 
 @end
 
@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
    ExinEtianTabbarcontroller *vc = [[ExinEtianTabbarcontroller alloc] init];
     

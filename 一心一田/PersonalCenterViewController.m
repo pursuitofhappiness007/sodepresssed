@@ -12,6 +12,8 @@
 #import "OriginalCollectionListViewController.h"
 #import "AccountDetailViewController.h"
 #import "MyOrderViewController.h"
+#import "MessageCenterViewController.h"
+#import "reSetPwdViewController.h"
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -34,13 +36,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundimage;
 - (IBAction)changeIconClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *shadowoficon;
-
+@property (strong ,nonatomic)NSDictionary *userInfo;
 @end
 
 @implementation PersonalCenterViewController
 -(void)viewWillAppear:(BOOL)animated{
    self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
+     [self getPersonInfo];
 }
 
 - (void)viewDidLoad {
@@ -49,8 +52,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(namechangedrefresh) name:@"namechanged" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshbadgenum) name:@"refreshbadgenum" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateicon) name:@"iconchanged" object:nil];
-    [self getPersonInfo];
-    [self setpersoninfo];
+   
+   // [self setpersoninfo];
     
 }
 
@@ -60,17 +63,44 @@
 
 
 - (void)getPersonInfo{
-        NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"];
-         NSLog(@"%@",dict);
-        [[DownLoadImageTool singletonInstance] imageWithImage:dict[@"headPath"] scaledToWidth:self.usericon.width imageview:self.usericon];
-       self.namelab.text= dict[@"login_name"];
-       self.amount.text = [NSString stringWithFormat:@"余额¥%@", dict[@"amount"]];
-       self.creditAmount.text = [NSString stringWithFormat:@"信用额度¥%@", dict[@"amount"]];
-       
+        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
+    [HttpTool post:@"get_member_by_token" params:paras success:^(id responseObj) {
+        if([responseObj int32ForKey:@"result"]==0){
+            NSLog(@"---------------------------------------------------------------");
+            NSLog(@"个人信息获取成功%@",responseObj);
+            NSLog(@"---------------------------------------------------------------");
+            NSDictionary *info = responseObj[@"data"];
+            self.userInfo = info;
+            self.namelab.text = info[@"name"];
+            _usericon.layer.cornerRadius=_usericon.width/2.0;
+            _usericon.clipsToBounds=YES;
+            _usericon.layer.masksToBounds =YES;
+            _usericon.layer.borderWidth=3.0;
+          [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"]  scaledToWidth:self.usericon.width imageview:self.usericon];
+            _shadowoficon.layer.shadowOffset = CGSizeMake(0, 0);
+            _shadowoficon.layer.shadowOpacity = 0.6;
+            _shadowoficon.layer.shadowRadius =_usericon.width/2.0;
+            _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
+            _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
+              [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
+           self.amount.text =  [NSString stringWithFormat:@"余额¥%@",info[@"amount"]];
+          self.creditAmount.text = [NSString stringWithFormat:@"信用额度¥%@",info[@"amount"]];
+            
+        }else{
+            NSLog(@"个人信息获取失败%@", responseObj);
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"---------------------------------------------------------------");
+        NSLog(@"个人信息获取失败%@",error);
+        NSLog(@"---------------------------------------------------------------");
+    }];
+
         //返回的json中无此字段
         //    _phone1lab.text=;
         //    _phone2lab.text=;
         //    _phone3lab.text=;
+    
     }
 
 
@@ -124,9 +154,13 @@
 }
 //消息中心
 - (IBAction)msgCenterBtnClicked:(id)sender {
+    MessageCenterViewController *mvc = [[MessageCenterViewController alloc]init];
+    [self.navigationController pushViewController:mvc animated:YES];
 }
 //密码修改
 - (IBAction)changePwdBtnClicked:(id)sender {
+    reSetPwdViewController *rvc = [[reSetPwdViewController alloc]init];
+    [self.navigationController pushViewController:rvc animated:YES];
 }
 //关于我们
 - (IBAction)aboutusBtnClicked:(id)sender {
@@ -137,6 +171,21 @@
 
 - (IBAction)seePersonInfoClicked:(id)sender {
     PersonalInfomationViewController *vc=[[PersonalInfomationViewController alloc]init];
+    vc.name = self.userInfo[@"name"];
+    vc.icon = [self.userInfo stringForKey:@"imagePath"];
+    NSArray *phoneArr = self.userInfo[@"phones"];
+    if (phoneArr.count == 0) {
+        vc.phoneArr = @[@"",@"",@""];
+     }
+    if (phoneArr.count == 1) {
+         vc.phoneArr = @[phoneArr[0],@"",@""];
+    }
+    if (phoneArr.count == 2) {
+         vc.phoneArr = @[phoneArr[0],phoneArr[1],@""];
+    }
+    if (phoneArr.count == 3) {
+        vc.phoneArr = @[phoneArr[0],phoneArr[1],phoneArr[2]];
+        }
     [self.navigationController pushViewController:vc animated:YES];
 }
 

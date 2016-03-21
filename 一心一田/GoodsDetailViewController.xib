@@ -421,7 +421,7 @@
     </objects>
     <resources>
         <image name="countbg" width="85" height="21"/>
-        <image name="商品收藏" width="15" height="14"/>
+        <image name="商品收藏" width="19" height="18"/>
         <image name="商品收藏1" width="15" height="15"/>
     </resources>
 </document>

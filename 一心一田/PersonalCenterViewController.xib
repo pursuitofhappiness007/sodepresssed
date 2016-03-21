@@ -67,7 +67,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsj-vw-xBw" userLabel="余额">
                     <rect key="frame" x="0.0" y="182" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-Dx-FRF">
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-Dx-FRF">
                             <rect key="frame" x="20" y="11" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="0Ts-Nr-vUI"/>

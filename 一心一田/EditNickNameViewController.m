@@ -53,6 +53,12 @@
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     NSMutableArray *phones=[[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] arrayForKey:@"phones"]mutableCopy];
+    NSMutableArray *phonesArr = [NSMutableArray array];
+    for (int i = 0; i < phones.count; i ++)
+        [phonesArr addObject:phones[i]];
+    for (int i = phones.count; i < 3; i ++)
+        [phonesArr addObject:@""];
+    NSLog(@"*************%@", phonesArr);
     switch (_type) {
         case Nickname:
         {
@@ -61,20 +67,20 @@
             break;
         case Phone1:
         {
-            [phones replaceObjectAtIndex:0 withObject:_stringtobechanged];
-            paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"phones":[NSString stringWithFormat:@"%@",phones]}];
+            [phonesArr replaceObjectAtIndex:0 withObject:_stringtobechanged];
+            paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"phones":[NSString stringWithFormat:@"%@",phonesArr]}];
         }
             break;
         case Phone2:
         {
-            [phones replaceObjectAtIndex:1 withObject:_stringtobechanged];
-            paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"phones":[NSString stringWithFormat:@"%@",phones]}];
+            [phonesArr replaceObjectAtIndex:1 withObject:_stringtobechanged];
+            paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"phones":[NSString stringWithFormat:@"%@",phonesArr]}];
         }
             break;
         case Phone3:
         {
-            [phones replaceObjectAtIndex:2 withObject:_stringtobechanged];
-            paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"phones":[NSString stringWithFormat:@"%@",phones]}];
+            [phonesArr replaceObjectAtIndex:2 withObject:_stringtobechanged];
+            paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"phones":[NSString stringWithFormat:@"%@",phonesArr]}];
         }
             break;
         default:
@@ -105,8 +111,13 @@
             hud.removeFromSuperViewOnHide = YES;
             
             [hud hide:YES afterDelay:1.2];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"nameAndPhoneChanged" object:@{@"name":_nametf.text}];
             //个人信息修改成功后，及时修改沙河里面的文件，更新前面控制器的信息
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"personinfochanged" object:nil];
+           
+            NSDictionary *infodic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
+            [infodic setValue:_nametf.text forKey:@"name"];
+            [[SaveFileAndWriteFileToSandBox singletonInstance] savefiletosandbox:infodic filepath:@"tokenfile.txt"];
+             [[NSNotificationCenter defaultCenter]postNotificationName:@"personinfochanged" object:nil];
             [self.navigationController popViewControllerAnimated:YES];
         }
 

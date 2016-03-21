@@ -90,6 +90,7 @@
 }
 
 -(void)personinfochangedupdate{
+
     [self loginBtnClicked:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"tokenfilechanged" object:nil];
 }

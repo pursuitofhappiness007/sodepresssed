@@ -32,6 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(personinfochangedupdate) name:@"tokenfilechanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInfo) name:@"personinfochanged" object:nil];
     self.navigationItem.title=@"个人资料";
     [UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self setlocalcontent];
@@ -47,13 +48,18 @@
 }
 
 -(void)setlocalcontent{
-    NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"];
+//    NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"];
     _personalIcon.layer.cornerRadius=_personalIcon.width/2.0;
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
-   [[DownLoadImageTool singletonInstance] imageWithImage:dict[@"headPath"]  scaledToWidth:_personalIcon.width imageview:_personalIcon];
-    _usernamelab.text=[dict stringForKey:@"name"];
-    NSMutableArray *telArr = dict[@"phones"];
+     [[DownLoadImageTool singletonInstance] imageWithImage:self.icon  scaledToWidth:_personalIcon.width imageview:_personalIcon];
+    _usernamelab.text= self.name;
+    _phone1lab.text = self.phoneArr[0];
+    _phone2lab.text = self.phoneArr[1];
+    _phone3lab.text = self.phoneArr[2];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -260,6 +266,9 @@
     
 }
 
+- (void)updateInfo{
+self.usernamelab.text = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];
+}
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
     

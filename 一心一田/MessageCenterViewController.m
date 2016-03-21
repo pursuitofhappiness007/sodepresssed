@@ -15,16 +15,23 @@
 @end
 
 @implementation MessageCenterViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"消息中心";
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self initdata];
 }
 -(void)initdata{
     tablelist=[NSMutableArray array];
 }
-
+- (void)backBtnClicked{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }

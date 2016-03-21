@@ -19,13 +19,16 @@
 @end
 
 @implementation reSetPwdViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title=@"重置密码";
-    
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
+     self.originalpedtf.text = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"password"];
 }
 
 -(void)backBtnClicked{
@@ -59,30 +62,27 @@
 
 - (IBAction)confirmBtnClicked:(id)sender {
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"cell_phone"]=_cellphone;
-    paras[@"password"]=_newpwdtf.text;
-    paras[@"password_confirm"]=_confirmpwdtf.text;
-    paras[@"phone_token"]=_phonetoken;
-    [HttpTool post:@"update_password_by_login_name" params:paras success:^(id responseObj) {
-        if([responseObj int32ForKey:@"result"]==-1){
+    NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
+    paras[@"token"] = [dic stringForKey:@"token"];
+    paras[@"password"]= self.originalpedtf.text;
+    paras[@"new_password"]= self.newpwdtf.text;
+    [HttpTool post:@"update_member_password" params:paras success:^(id responseObj) {
+        if([responseObj int32ForKey:@"result"]== 0){
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            
-            // Configure for text only and offset down
             hud.mode = MBProgressHUDModeText;
-            
+            hud.labelText = @"密码修改成功";
+            hud.margin = 10.f;
+            hud.removeFromSuperViewOnHide = YES;
+            [hud hide:YES afterDelay:1.2];
+        }
+        else{
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
             hud.labelText =[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
-            
             [hud hide:YES afterDelay:1.2];
-            
         }
-        else{
-            LoginViewController *vc=[[LoginViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-
     } failure:^(NSError *error) {
          NSLog(@"修改失败%@",error);
     }];

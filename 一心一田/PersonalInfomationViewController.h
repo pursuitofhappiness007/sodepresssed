@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PersonalInfomationViewController : UIViewController
-
+@property (strong, nonatomic)NSString *icon;
+@property (strong, nonatomic)NSString *name;
+@property (strong, nonatomic)NSArray *phoneArr;
+;
 @end
