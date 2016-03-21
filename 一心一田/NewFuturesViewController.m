@@ -8,7 +8,15 @@
 
 #import "NewFuturesViewController.h"
 #import "ExinEtianTabbarcontroller.h"
-@interface NewFuturesViewController ()<UIScrollViewDelegate>
+#define NewFuturesCount 4
+@interface NewFuturesViewController ()<UIScrollViewDelegate>{
+}
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+@property (weak, nonatomic) IBOutlet UIImageView *forwardimg;
+@property (weak, nonatomic) IBOutlet UIButton *startBtn;
+- (IBAction)startBtnClicked:(id)sender;
+
+
 
 @end
 
@@ -22,10 +30,23 @@
     [self setupScrollView];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-   ExinEtianTabbarcontroller *vc = [[ExinEtianTabbarcontroller alloc] init];
-    
+-(void)setupScrollView{
+    CGFloat imgW=_scrollview.width;
+    CGFloat imgH=_scrollview.height;
+    _scrollview.contentSize=CGSizeMake(imgW*NewFuturesCount, 0);
+    _scrollview.pagingEnabled=YES;
+    _scrollview.showsHorizontalScrollIndicator=NO;
+    _forwardimg.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",11]];
+    for (int i=0;i<NewFuturesCount;i++){
+        UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(i*imgW, 0, imgW, imgH)];
+        imgview.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",i+1]];
+        [_scrollview addSubview:imgview];
+    }
+}
 
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+    
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     int pagnum=scrollView.contentOffset.x/scrollView.width;
@@ -40,7 +61,7 @@
         _startBtn.hidden=YES;
     }
     NSLog(@"当前滚到第%d页",pagnum);
-
+    
     
 }
 
@@ -65,7 +86,6 @@
     // 切换控制器
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     window.rootViewController = vc;
-
+    
 }
 @end
-
