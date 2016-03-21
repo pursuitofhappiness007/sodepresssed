@@ -116,7 +116,8 @@
 		FECF1A881C9FEC7000A7A580 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A841C9FEC7000A7A580 /* 1.png */; };
 		FECF1A891C9FEC7000A7A580 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A851C9FEC7000A7A580 /* 2.png */; };
 		FECF1A8A1C9FEC7000A7A580 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A861C9FEC7000A7A580 /* 3.png */; };
-		FECF1A8B1C9FEC7000A7A580 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A871C9FEC7000A7A580 /* 4.png */; };
+		FECF1A8F1C9FEDCD00A7A580 /* NewFuturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */; };
+		FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */; };
 		FEDC9FC41C97B0DC0002FB2F /* EditNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */; };
 		FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */; };
 		FEDC9FC91C97C4710002FB2F /* GoodListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC71C97C4710002FB2F /* GoodListTableViewCell.m */; };
@@ -345,7 +346,9 @@
 		FECF1A841C9FEC7000A7A580 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		FECF1A851C9FEC7000A7A580 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		FECF1A861C9FEC7000A7A580 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		FECF1A871C9FEC7000A7A580 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		FECF1A8C1C9FEDCD00A7A580 /* NewFuturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFuturesViewController.h; sourceTree = "<group>"; };
+		FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFuturesViewController.m; sourceTree = "<group>"; };
+		FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFuturesViewController.xib; sourceTree = "<group>"; };
 		FEDC9FC11C97B0DC0002FB2F /* EditNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNickNameViewController.h; sourceTree = "<group>"; };
 		FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNickNameViewController.m; sourceTree = "<group>"; };
 		FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNickNameViewController.xib; sourceTree = "<group>"; };
@@ -640,7 +643,9 @@
 				FECF1A841C9FEC7000A7A580 /* 1.png */,
 				FECF1A851C9FEC7000A7A580 /* 2.png */,
 				FECF1A861C9FEC7000A7A580 /* 3.png */,
-				FECF1A871C9FEC7000A7A580 /* 4.png */,
+				FECF1A8C1C9FEDCD00A7A580 /* NewFuturesViewController.h */,
+				FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */,
+				FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */,
 			);
 			name = "版本新特性";
 			sourceTree = "<group>";
@@ -1057,7 +1062,6 @@
 				FECF1A891C9FEC7000A7A580 /* 2.png in Resources */,
 				FEDFA0B71C9122B00010E5E3 /* OrderllistTableViewCell.xib in Resources */,
 				FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */,
-				FECF1A8B1C9FEC7000A7A580 /* 4.png in Resources */,
 				FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */,
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
 				CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */,
@@ -1068,6 +1072,7 @@
 				FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */,
 				CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */,
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
+				FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */,
 				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
@@ -1168,6 +1173,7 @@
 				CEECE1E51C9AD17D009D11D8 /* HomeViewController.m in Sources */,
 				FE7DBF601C8D68D5003536BC /* Fountain+log.m in Sources */,
 				FE6DC07D1C8D612B00E93578 /* MBProgressHUD.m in Sources */,
+				FECF1A8F1C9FEDCD00A7A580 /* NewFuturesViewController.m in Sources */,
 				CEECE2061C9AD1AD009D11D8 /* RechargeCell.m in Sources */,
 				FE7DBF4B1C8D6899003536BC /* SDWebImageDecoder.m in Sources */,
 				FEDFA0D51C9127B90010E5E3 /* SearchViewController.m in Sources */,
