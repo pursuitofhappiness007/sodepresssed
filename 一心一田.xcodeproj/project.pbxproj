@@ -41,7 +41,6 @@
 		FE545B171C9015610081DB28 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE545B161C9015610081DB28 /* libBPush.a */; };
 		FE6DC02D1C8D597200E93578 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC02C1C8D597200E93578 /* main.m */; };
 		FE6DC0301C8D597200E93578 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC02F1C8D597200E93578 /* AppDelegate.m */; };
-		FE6DC0381C8D597200E93578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6DC0371C8D597200E93578 /* Assets.xcassets */; };
 		FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6DC0391C8D597200E93578 /* LaunchScreen.storyboard */; };
 		FE6DC04C1C8D5BD700E93578 /* ExinEtianTabbarcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC04A1C8D5BD700E93578 /* ExinEtianTabbarcontroller.m */; };
 		FE6DC0781C8D612B00E93578 /* ClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC0671C8D612B00E93578 /* ClearCacheTool.m */; };
@@ -208,7 +207,6 @@
 		FE6DC02C1C8D597200E93578 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FE6DC02E1C8D597200E93578 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE6DC02F1C8D597200E93578 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FE6DC0371C8D597200E93578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE6DC03A1C8D597200E93578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE6DC03C1C8D597200E93578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE6DC0491C8D5BD700E93578 /* ExinEtianTabbarcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExinEtianTabbarcontroller.h; sourceTree = "<group>"; };
@@ -526,7 +524,6 @@
 				FE6DC0441C8D5B2B00E93578 /* Extensios */,
 				FE6DC0421C8D5B0900E93578 /* Controllers */,
 				FE6DC0811C8D617500E93578 /* others */,
-				FE6DC0371C8D597200E93578 /* Assets.xcassets */,
 				FE6DC0391C8D597200E93578 /* LaunchScreen.storyboard */,
 				FE6DC03C1C8D597200E93578 /* Info.plist */,
 				FE6DC02B1C8D597200E93578 /* Supporting Files */,
@@ -1098,7 +1095,6 @@
 				FEDFA0E11C9129180010E5E3 /* OrderConformationViewController.xib in Resources */,
 				FEDFA0E61C9129640010E5E3 /* SearchResultsViewController.xib in Resources */,
 				FEDFA1071C914C600010E5E3 /* MyOrderViewController.xib in Resources */,
-				FE6DC0381C8D597200E93578 /* Assets.xcassets in Resources */,
 				FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */,
 				FEE1629F1C9D5634006F3511 /* PersonalInfomationViewController.xib in Resources */,
 				FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */,
