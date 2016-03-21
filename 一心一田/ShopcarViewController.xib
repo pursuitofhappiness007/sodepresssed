@@ -36,7 +36,7 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVt-Wj-s2M">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVt-Wj-s2M">
                     <rect key="frame" x="0.0" y="569" width="375" height="49"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVh-Ig-6JV">
@@ -50,6 +50,12 @@
                             <state key="normal" title="去支付(5)">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="payBtnClicked:" destination="-1" eventType="touchUpInside" id="3Fj-Oj-eSh"/>
                             </connections>
@@ -82,7 +88,7 @@
                             <state key="normal" title="全选" image="check">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <state key="selected" image="设为默认"/>
+                            <state key="selected" image="uncheck"/>
                             <state key="highlighted" title="全选" image="choose"/>
                             <connections>
                                 <action selector="chooseallBtnClicked:" destination="-1" eventType="touchUpInside" id="mdY-w5-bCs"/>
@@ -128,8 +134,8 @@
         </view>
     </objects>
     <resources>
-        <image name="check" width="16" height="16"/>
+        <image name="check" width="13" height="13"/>
         <image name="choose" width="12" height="12"/>
-        <image name="设为默认" width="16" height="16"/>
+        <image name="uncheck" width="14" height="14"/>
     </resources>
 </document>

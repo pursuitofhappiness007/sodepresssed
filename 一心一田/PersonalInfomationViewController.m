@@ -65,54 +65,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)exitLoginBtnClicked:(id)sender {
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     [HttpTool post:@"logout" params:paras success:^(id responseObj) {
         NSLog(@"退出帐号%@",responseObj);
-        if([responseObj int32ForKey:@"result"]==0)
-        {
-            [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"tokenfile.txt"];
-            //注销消息推送
-            NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-            paras[@"baidu_user_id"]=[BPush getUserId];
-            paras[@"baidu_channel_id"]=[BPush getChannelId];
-            paras[@"baidu_app_id"]=[BPush getAppId];
-            paras[@"device_type"]=@"4";
-            [HttpTool post:@"msg_push_unregister" params:paras success:^(id responseObj) {
-                NSLog(@"注销推送成功%@",responseObj);
-            } failure:^(NSError *error) {
-                 NSLog(@"注销推送失败%@",error);
-            }];
-            if(self.tabBarController.selectedIndex==0)
-                [self.navigationController popToRootViewControllerAnimated:YES];
-            else{
-                UIView * fromView = self.tabBarController.selectedViewController.view;
-                UIView * toView =[[self.tabBarController.viewControllers objectAtIndex:0] view];
-                [UIView transitionFromView:fromView
-                                    toView:toView
-                                  duration:0.5
-                                   options:(0>self.tabBarController.selectedIndex? UIViewAnimationOptionTransitionCurlUp : UIViewAnimationOptionTransitionCurlDown)
-                                completion:^(BOOL finished) {
-                                    if(finished){
-                                        [self.tabBarController setSelectedIndex:0];
-                                        self.tabBarController.tabBar.hidden=NO;
-                                        [[NSNotificationCenter defaultCenter]postNotificationName:@"logout" object:nil];}
-                                }];
-            }
-            
-            
-        }
+        [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"tokenfile.txt"];
+        //注销消息推送
+        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+        paras[@"baidu_user_id"]=[BPush getUserId];
+        paras[@"baidu_channel_id"]=[BPush getChannelId];
+        paras[@"baidu_app_id"]=[BPush getAppId];
+        paras[@"device_type"]=@"4";
+        [HttpTool post:@"msg_push_unregister" params:paras success:^(id responseObj) {
+            NSLog(@"注销推送成功%@",responseObj);
+        } failure:^(NSError *error) {
+            NSLog(@"注销推送失败%@",error);
+        }];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"logout" object:nil];
+        UIView * fromView = self.tabBarController.selectedViewController.view;
+            UIView * toView =[[self.tabBarController.viewControllers objectAtIndex:0] view];
+            [UIView transitionFromView:fromView
+                                toView:toView
+                              duration:0.5
+                               options:(0>self.tabBarController.selectedIndex? UIViewAnimationOptionTransitionCurlUp : UIViewAnimationOptionTransitionCurlDown)
+                            completion:^(BOOL finished) {
+                                if(finished){
+                                   
+                                    }
+                            }];
+        
+
     } failure:^(NSError *error) {
         NSLog(@"注销失败%@",error);
     }];

@@ -135,12 +135,8 @@
 }
 
 -(void)initparas{
-    LocalAndOnlineFileTool *localtool=[[LocalAndOnlineFileTool alloc]init];
-    NSLog(@"进购物车的数据%@",localtool.localarray);
     tabledata=[NSMutableArray array];
-    for (NSArray *array in localtool.localarray)
-        if ([array[1]intValue]>0)
-            [tabledata addObject:array];
+    tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist]mutableCopy];
     if(tabledata.count==0){
         _emptynoticelab.hidden=NO;
         _optionBar.hidden=YES;
@@ -190,16 +186,19 @@
     
     ShoppingCarTableViewCell *cell=[ShoppingCarTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    NSArray *array=tabledata[indexPath.section];
-    NSDictionary *dict=[DictionaryToJsonStr JsonStrToDict:array[3]];
+    NSDictionary *dict=tabledata[indexPath.section];
+    
     cell.goodsid=[dict stringForKey:@"id"];
     cell.image=[dict stringForKey:@"thumbnailImg"];
     cell.name=[dict stringForKey:@"name"];
-    cell.thecountchoosed=[NSString stringWithFormat:@"已选%@件商品",array[1]];
-    cell.currentcount=array[1];
+    
+    int kcount=[LocalAndOnlineFileTool singlegoodcount:cell.goodsid];
+    cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",kcount];
+    
+    cell.currentcount=[NSString stringWithFormat:@"%d",kcount];
     cell.shortcomment=[dict stringForKey:@"commentary"];
-    cell.singleprice=[array[2] doubleValue];
-    cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.2f", [array[2] doubleValue]*[array[1] intValue]];
+    cell.singleprice=[LocalAndOnlineFileTool singlegoodprice:cell.goodsid];
+    cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.2f", cell.singleprice*kcount];
     cell.minusBtn.tag=indexPath.section;
     cell.addBtn.tag=indexPath.section;
     cell.singleBtn.tag=indexPath.section;
@@ -333,11 +332,8 @@
         
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j]];
         
-        if(!cell.singleBtn.selected){
-            
-            NSMutableDictionary *dict=[[DictionaryToJsonStr JsonStrToDict:tabledata[j][3]] mutableCopy];
-            [temp addObject:dict];
-        }
+        if(!cell.singleBtn.selected)
+            [temp addObject:tabledata[j]];
         vc.tabledata=[temp mutableCopy];
     
     }
@@ -355,29 +351,24 @@
             
             _paybtn.enabled=NO;
             _paylabtext.backgroundColor=[UIColor grayColor];
-                       _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-            _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
+    _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
+            [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
         }
     }
     else{
         sender.selected=NO;
         _paybtn.enabled=YES;
-        _paylabtext.backgroundColor=[UIColor redColor];
-        quantity=0;
-        totaltopay=0;
-        NSLog(@"tabledata=%@",tabledata);
-        for (NSInteger j=0; j<[_shopcartableview numberOfSections];j++)
-        {
-            ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j]];
+        for (int i=0; i<tabledata.count; i++) {
+            ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
             cell.singleBtn.selected=NO;
-            totaltopay+=[cell.countlab.text intValue]*[tabledata[j] doubleForKey:@"salePrice"];
-                        quantity+=[cell.countlab.text intValue];
-
-           
-            _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-            _paylabtext.text=[NSString stringWithFormat:@"去支付(%d)",quantity];
-            
         }
+        
+        _paylabtext.backgroundColor=[UIColor redColor];
+        totaltopay=[LocalAndOnlineFileTool calculatesummoneyinshopcar];
+        quantity=[LocalAndOnlineFileTool refreshcoungnum];
+        NSLog(@"tabledata=%@",tabledata);
+        _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
+        [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
     }
 }
 

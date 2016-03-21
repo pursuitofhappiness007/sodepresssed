@@ -36,7 +36,7 @@
                         <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="FR3-vi-ky3"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-86-F5h">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-86-F5h">
                     <rect key="frame" x="319" y="8" width="46" height="30"/>
                     <state key="normal" title="筛选">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

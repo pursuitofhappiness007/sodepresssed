@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -65,8 +65,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsj-vw-xBw" userLabel="余额">
                     <rect key="frame" x="0.0" y="182" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-Dx-FRF">
-                            <rect key="frame" x="20" y="11" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yue" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-Dx-FRF">
+                            <rect key="frame" x="20" y="15" width="14" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="0Ts-Nr-vUI"/>
                                 <constraint firstAttribute="width" constant="32" id="tD4-gk-4vj"/>
@@ -155,8 +155,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afL-PA-eIJ" userLabel="我的订单">
                     <rect key="frame" x="0.0" y="237" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="rtr-dr-0GI">
-                            <rect key="frame" x="20" y="11" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder" translatesAutoresizingMaskIntoConstraints="NO" id="rtr-dr-0GI">
+                            <rect key="frame" x="20" y="15" width="15" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="Gc0-e4-NRD"/>
                                 <constraint firstAttribute="height" constant="27.5" id="Hk5-P4-rSz"/>
@@ -169,7 +169,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evU-GH-jqH">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="45" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -237,8 +237,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcO-Qk-eLg" userLabel="我的账单">
                     <rect key="frame" x="0.0" y="284" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="BtQ-uF-U57">
-                            <rect key="frame" x="20" y="11" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mybill" translatesAutoresizingMaskIntoConstraints="NO" id="BtQ-uF-U57">
+                            <rect key="frame" x="20" y="15.5" width="17" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="82V-hT-I25"/>
                                 <constraint firstAttribute="width" constant="32" id="KkP-D5-fMr"/>
@@ -251,7 +251,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的账单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAp-Ry-Z14">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="47" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -327,8 +327,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-01-iQN" userLabel="商品收藏">
                     <rect key="frame" x="0.0" y="339" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="tEB-tc-VMm">
-                            <rect key="frame" x="20" y="11" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collection" translatesAutoresizingMaskIntoConstraints="NO" id="tEB-tc-VMm">
+                            <rect key="frame" x="20" y="14.5" width="19" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="T6W-IN-szy"/>
                                 <constraint firstAttribute="width" constant="32" id="aIZ-RX-JOg"/>
@@ -341,7 +341,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品收藏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiU-Z8-nly">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="49" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -407,8 +407,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAy-FY-GAY" userLabel="消息中心">
                     <rect key="frame" x="0.0" y="386" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mycollection" translatesAutoresizingMaskIntoConstraints="NO" id="P6P-ub-F7T">
-                            <rect key="frame" x="20" y="11" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msgcenter" translatesAutoresizingMaskIntoConstraints="NO" id="P6P-ub-F7T">
+                            <rect key="frame" x="20" y="16" width="17" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="5wg-0o-E5T"/>
                                 <constraint firstAttribute="height" constant="27.5" id="Sih-8h-ibe"/>
@@ -421,7 +421,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq0-07-2QY">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="47" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -495,8 +495,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdr-7G-Jhs" userLabel="密码修改">
                     <rect key="frame" x="0.0" y="433" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-At-tYo">
-                            <rect key="frame" x="20" y="9" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changepwd" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-At-tYo">
+                            <rect key="frame" x="20" y="18" width="13" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="9zE-9j-3iq"/>
                                 <constraint firstAttribute="height" constant="27.5" id="j6u-f3-v6e"/>
@@ -509,7 +509,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码修改" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlY-o0-McA">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="43" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -522,7 +522,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改登录密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-N4-KUN">
-                            <rect key="frame" x="277" y="13" width="79" height="16"/>
+                            <rect key="frame" x="277" y="17.5" width="79" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="79" id="T6J-yx-Ome"/>
                             </constraints>
@@ -531,7 +531,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiankuohao" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-BE-2cW">
-                            <rect key="frame" x="359" y="16" width="6" height="9"/>
+                            <rect key="frame" x="359" y="20.5" width="6" height="9"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="9" id="60F-M0-EfI"/>
                                 <constraint firstAttribute="width" constant="6" id="zZi-UQ-ZM5"/>
@@ -587,8 +587,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qM0-ix-6f5" userLabel="关于我们">
                     <rect key="frame" x="0.0" y="488" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addre" translatesAutoresizingMaskIntoConstraints="NO" id="3tk-Lb-ecF">
-                            <rect key="frame" x="20" y="9" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutus" translatesAutoresizingMaskIntoConstraints="NO" id="3tk-Lb-ecF">
+                            <rect key="frame" x="20" y="19" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="82G-EY-JDe"/>
                                 <constraint firstAttribute="height" constant="27.5" id="s9Q-WX-vwG"/>
@@ -601,7 +601,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于我们" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE8-T2-IKO">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="45" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -664,8 +664,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyL-7R-63n" userLabel="当前版本">
                     <rect key="frame" x="0.0" y="535" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock1" translatesAutoresizingMaskIntoConstraints="NO" id="d4U-UH-Ykv">
-                            <rect key="frame" x="20" y="10" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="d4U-UH-Ykv">
+                            <rect key="frame" x="20" y="13.5" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="f3u-AM-MiB"/>
                                 <constraint firstAttribute="width" constant="32" id="pfC-iL-mS3"/>
@@ -678,7 +678,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前版本" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IQ-le-lGT">
-                            <rect key="frame" x="55" y="15" width="52" height="16"/>
+                            <rect key="frame" x="48" y="15" width="52" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -929,11 +929,14 @@
         </view>
     </objects>
     <resources>
-        <image name="addre" width="25" height="25"/>
-        <image name="gift" width="25" height="25"/>
+        <image name="aboutus" width="15" height="15"/>
+        <image name="changepwd" width="13" height="16"/>
+        <image name="collection" width="19" height="18"/>
         <image name="jiankuohao" width="6" height="9"/>
-        <image name="lock1" width="25" height="25"/>
-        <image name="mycollection" width="25" height="25"/>
-        <image name="myorder1" width="25" height="25"/>
+        <image name="msgcenter" width="17" height="15"/>
+        <image name="mybill" width="17" height="16"/>
+        <image name="myorder" width="15" height="17"/>
+        <image name="setting" width="18" height="18"/>
+        <image name="yue" width="14" height="17"/>
     </resources>
 </document>

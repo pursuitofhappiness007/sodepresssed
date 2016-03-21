@@ -179,4 +179,28 @@
     
 
 }
+
++(double)singlegoodprice:(NSString *)goodsid{
+    NSMutableArray *local=[NSMutableArray array];
+    double price=0;
+    local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
+    for (NSArray *array in local){
+        if([array[0] isEqualToString:goodsid]){
+            price=[array[2] doubleValue];
+            break;
+        }
+    }
+    return price;
+   
+}
+
++(NSMutableArray *)getbuyinggoodslist{
+    NSMutableArray *local=[NSMutableArray array];
+    NSMutableArray *goodstobuy=[NSMutableArray array];
+    local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
+    for (NSArray *array in local)
+        if([array[1]intValue]>0)
+           [goodstobuy addObject:[DictionaryToJsonStr JsonStrToDict:array[3]]];
+    return goodstobuy;
+}
 @end

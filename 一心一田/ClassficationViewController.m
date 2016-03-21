@@ -29,7 +29,6 @@
     int totalpage;
     UIView *redline;
     UIView *firstmenu;
-    NSMutableArray *goodscountarray;
 }
 
 
@@ -143,7 +142,6 @@
     subpid=nil;
     mainclassfication=[NSMutableArray array];
     subclassfication=[NSMutableArray array];
-    goodscountarray=[NSMutableArray array];
     sorttype=nil;
     sortfield=nil;
     
@@ -191,9 +189,6 @@
                 NSLog(@"when next can come to here?");
             totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
                 NSLog(@"总页数%d",totalpage);
-                //刷新之前，先取出本地文件
-                goodscountarray=[[[LocalAndOnlineFileTool alloc]init].localarray mutableCopy];
-                NSLog(@"刷新列表之前获得的shuju %@",goodscountarray);
                 [_fenleitableview reloadData];
             }
             else
@@ -358,8 +353,6 @@
             default:
                 break;
         }
-        //到沙盒文件里去取数量
-        NSLog(@"到沙盒文件里去取数量 %@",goodscountarray);
         cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
         
         cell.minusBtn.tag=indexPath.row;
@@ -458,20 +451,20 @@
 
 }
 
-//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"goodslist=%d",goodslist.count);
-//    
-//    if(tableView.tag==22&&(indexPath.row==goodslist.count-1)){
-//       
-//        if(pagenum<totalpage){
-//        pagenum++;
-//        NSLog(@"huadongdi %d",pagenum);
-//    [self getdatafromweb:pagenum mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
-//        }
-//      
-//    }
-//
-//}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"goodslist=%d",goodslist.count);
+    
+    if(tableView.tag==22&&(indexPath.row==goodslist.count-1)){
+       
+        if(pagenum<totalpage){
+        pagenum++;
+        NSLog(@"huadongdi %d",pagenum);
+    [self getdatafromweb:pagenum mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
+        }
+      
+    }
+
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //二级标题
@@ -610,16 +603,8 @@
                          [firstmenu removeFromSuperview];
                      }];}
 - (IBAction)PayBtnClicked:(id)sender {
-    NSMutableArray *orderconfirmtabladata=[NSMutableArray array];
-    for (int i=0; i<goodslist.count; i++) {
-        GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            if([cell.countlab.text intValue]>0)
-           [orderconfirmtabladata addObject:goodslist[i]];
-    }
-  
     OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
-    vc.tabledata=[orderconfirmtabladata mutableCopy];
-      NSLog(@"传到订单确认的rabledata=%@  vc.table=%@",orderconfirmtabladata,vc.tabledata);
+    vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
