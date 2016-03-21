@@ -36,7 +36,7 @@
     _scrollview.contentSize=CGSizeMake(imgW*NewFuturesCount, 0);
     _scrollview.pagingEnabled=YES;
     _scrollview.showsHorizontalScrollIndicator=NO;
-    _forwardimg.image=[UIImage imageNamed:@"11"];
+    _forwardimg.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",11]];
     for (int i=0;i<NewFuturesCount;i++){
         UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(i*imgW, 0, imgW, imgH)];
         imgview.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",i+1]];
@@ -46,19 +46,22 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
-    int pagnum=scrollView.contentOffset.x/scrollView.width;
-    if (pagnum==NewFuturesCount-1){
-        _forwardimg.hidden=YES;
-        _startBtn.hidden=NO;
-        return;
-    }
-    
-    _forwardimg.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",pagnum+11]];
-    NSLog(@"当前滚到第%d页",pagnum);
 
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+    int pagnum=scrollView.contentOffset.x/scrollView.width;
+    _forwardimg.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",pagnum+11]];
+    if (pagnum==NewFuturesCount-1){
+        _forwardimg.hidden=YES;
+        _startBtn.hidden=NO;
+    }
+    else
+    {
+        _forwardimg.hidden=NO;
+        _startBtn.hidden=YES;
+    }
+    NSLog(@"当前滚到第%d页",pagnum);
+
     
 }
 

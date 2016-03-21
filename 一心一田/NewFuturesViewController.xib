@@ -46,8 +46,10 @@
                     </constraints>
                 </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-ew-pQW">
-                    <rect key="frame" x="93" y="568" width="188" height="26"/>
-                    <state key="normal" title="Button" image="starticon"/>
+                    <rect key="frame" x="119.5" y="567.5" width="135" height="27"/>
+                    <state key="normal" backgroundImage="starticon">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="startBtnClicked:" destination="-1" eventType="touchUpInside" id="DGH-Iu-VOU"/>
                     </connections>
@@ -56,13 +58,16 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="iWt-xy-P15" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.2" id="3tm-2o-39j"/>
+                <constraint firstItem="Yc1-ew-pQW" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.041" id="76C-Jd-jFR"/>
                 <constraint firstItem="Yc1-ew-pQW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BAe-nf-aJi"/>
                 <constraint firstItem="iWt-xy-P15" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="DHn-U2-kBW"/>
                 <constraint firstItem="iWt-xy-P15" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.74" id="Ijf-jg-UKL"/>
                 <constraint firstItem="iWt-xy-P15" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="T1Z-LA-Gc5"/>
+                <constraint firstItem="Yc1-ew-pQW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.74" id="Vpe-V8-OuJ"/>
                 <constraint firstItem="iWt-xy-P15" firstAttribute="centerY" secondItem="Yc1-ew-pQW" secondAttribute="centerY" id="XlV-kb-oZK"/>
                 <constraint firstItem="RrZ-2c-JRG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XuP-7w-4c3"/>
                 <constraint firstAttribute="trailing" secondItem="RrZ-2c-JRG" secondAttribute="trailing" id="ihR-Y1-AHi"/>
+                <constraint firstItem="Yc1-ew-pQW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.36" id="lAZ-eq-4q4"/>
                 <constraint firstItem="RrZ-2c-JRG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ngs-N2-YLu"/>
                 <constraint firstAttribute="bottom" secondItem="RrZ-2c-JRG" secondAttribute="bottom" id="raT-B1-O9t"/>
             </constraints>
@@ -70,6 +75,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="DHn-U2-kBW"/>
+                    <exclude reference="XlV-kb-oZK"/>
                 </mask>
             </variation>
         </view>
