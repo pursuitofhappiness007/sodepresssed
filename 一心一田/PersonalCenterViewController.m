@@ -53,7 +53,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshbadgenum) name:@"refreshbadgenum" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateicon) name:@"iconchanged" object:nil];
    
-   // [self setpersoninfo];
+//  [self setpersoninfo];
+    [self getPersonInfo];
     
 }
 
@@ -66,10 +67,9 @@
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     [HttpTool post:@"get_member_by_token" params:paras success:^(id responseObj) {
+        NSLog(@"get_member_by_token=%@",responseObj);
         if([responseObj int32ForKey:@"result"]==0){
-            NSLog(@"---------------------------------------------------------------");
-            NSLog(@"个人信息获取成功%@",responseObj);
-            NSLog(@"---------------------------------------------------------------");
+
             NSDictionary *info = responseObj[@"data"];
             self.userInfo = info;
             self.namelab.text = info[@"name"];
@@ -84,7 +84,7 @@
             _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
             _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
               [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
-           self.amount.text =  [NSString stringWithFormat:@"余额¥%@",info[@"amount"]];
+           self.amount.text = [NSString stringWithFormat:@"余额¥%@",info[@"amount"]];
           self.creditAmount.text = [NSString stringWithFormat:@"信用额度¥%@",info[@"amount"]];
             
         }else{
@@ -238,18 +238,15 @@
         
         [HUD show:YES];
         [HUD hide:YES afterDelay:1.5];
-        
-        
         NSDictionary *tokenfile=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"];
         tokenfile[@"member_info"][@"headPath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:tokenfile filepath:@"tokenfile.txt"];
-        
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
         paras[@"token"]=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"][@"token"];
         paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"headPath":[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]]}];
-        paras[@"app_source"]=@6;
         
       [HttpTool post:@"modify_personal_property" params:paras success:^(id responseObj) {
+          NSLog(@"上传地址后的json＝%@",responseObj);
           if([responseObj int32ForKey:@"result"]==-1){
               MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
               

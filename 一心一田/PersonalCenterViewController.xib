@@ -67,8 +67,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsj-vw-xBw" userLabel="余额">
                     <rect key="frame" x="0.0" y="182" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myorder1" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-Dx-FRF">
-                            <rect key="frame" x="20" y="11" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yue" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-Dx-FRF">
+                            <rect key="frame" x="20" y="15" width="14" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="0Ts-Nr-vUI"/>
                                 <constraint firstAttribute="width" constant="32" id="tD4-gk-4vj"/>
@@ -80,13 +80,13 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余额¥90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUy-rn-w01">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="余额¥90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUy-rn-w01">
                             <rect key="frame" x="55" y="6" width="58.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信用额度¥90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYE-fb-lPU">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="信用额度¥90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYE-fb-lPU">
                             <rect key="frame" x="55" y="26" width="71" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,7 +232,7 @@
                     <rect key="frame" x="0.0" y="284" width="375" height="47"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mybill" translatesAutoresizingMaskIntoConstraints="NO" id="BtQ-uF-U57">
-                            <rect key="frame" x="20" y="15.5" width="17" height="16"/>
+                            <rect key="frame" x="20" y="15" width="17" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="82V-hT-I25"/>
                                 <constraint firstAttribute="width" constant="32" id="KkP-D5-fMr"/>
@@ -322,7 +322,7 @@
                     <rect key="frame" x="0.0" y="339" width="375" height="47"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collection" translatesAutoresizingMaskIntoConstraints="NO" id="tEB-tc-VMm">
-                            <rect key="frame" x="20" y="14.5" width="19" height="18"/>
+                            <rect key="frame" x="20" y="14" width="19" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="T6W-IN-szy"/>
                                 <constraint firstAttribute="width" constant="32" id="aIZ-RX-JOg"/>
@@ -515,8 +515,8 @@
                                 <constraint firstAttribute="height" constant="1" id="rA8-m3-Rxf"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改登录密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-N4-KUN">
-                            <rect key="frame" x="277" y="17.5" width="79" height="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="修改登录密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-N4-KUN">
+                            <rect key="frame" x="277" y="17" width="79" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="79" id="T6J-yx-Ome"/>
                             </constraints>
@@ -524,8 +524,8 @@
                             <color key="textColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiankuohao" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-BE-2cW">
-                            <rect key="frame" x="359" y="20.5" width="6" height="9"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="jiankuohao" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-BE-2cW">
+                            <rect key="frame" x="359" y="20" width="6" height="9"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="9" id="60F-M0-EfI"/>
                                 <constraint firstAttribute="width" constant="6" id="zZi-UQ-ZM5"/>
@@ -658,8 +658,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyL-7R-63n" userLabel="当前版本">
                     <rect key="frame" x="0.0" y="535" width="375" height="47"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="d4U-UH-Ykv">
-                            <rect key="frame" x="20" y="13.5" width="18" height="18"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="d4U-UH-Ykv">
+                            <rect key="frame" x="20" y="13" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="27.5" id="f3u-AM-MiB"/>
                                 <constraint firstAttribute="width" constant="32" id="pfC-iL-mS3"/>
