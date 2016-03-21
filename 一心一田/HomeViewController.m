@@ -136,6 +136,7 @@
                 NSLog(@"when next can come to here?");
                 totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
                 NSLog(@"总页数%d",totalpage);
+                
                 [_tableview reloadData];
             }
             else
