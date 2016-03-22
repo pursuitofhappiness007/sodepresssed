@@ -467,7 +467,7 @@
         </view>
     </objects>
     <resources>
-        <image name="check" width="16" height="16"/>
+        <image name="check" width="13" height="13"/>
         <image name="countbg" width="85" height="21"/>
         <image name="pointer" width="12" height="16"/>
     </resources>

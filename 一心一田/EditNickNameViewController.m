@@ -22,7 +22,7 @@
     self.navigationController.navigationBarHidden=NO;
     [self setnavtitle];
     
-    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     _nametf.text=_stringtobechanged;
 }
 -(void)setnavtitle

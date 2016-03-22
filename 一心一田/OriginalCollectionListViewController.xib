@@ -121,10 +121,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdI-2N-1d1">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Owi-l8-1YG">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancelCollection" translatesAutoresizingMaskIntoConstraints="NO" id="Owi-l8-1YG">
                                     <rect key="frame" x="219" y="4" width="30" height="30"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TqA-H6-d4u">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addtoshop" translatesAutoresizingMaskIntoConstraints="NO" id="TqA-H6-d4u">
                                     <rect key="frame" x="135" y="4" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="TqA-H6-d4u" secondAttribute="height" multiplier="1:1" id="0af-PN-qZY"/>
@@ -219,4 +219,8 @@
             <point key="canvasLocation" x="309.5" y="179.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="addtoshop" width="30" height="28"/>
+        <image name="cancelCollection" width="30" height="28"/>
+    </resources>
 </document>

@@ -52,8 +52,10 @@
     [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"more" highImageName:@"" target:self action:nil];
     self.selectedButton = self.firstbt;
     self.selectedButton.selected = YES;
+    self.tableView.tableFooterView = [UIView new];
     [self getBillData];
 }
 
