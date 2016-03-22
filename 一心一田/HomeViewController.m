@@ -39,6 +39,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *noticeLb;
 
+@property (weak, nonatomic) IBOutlet UIImageView *dynamicpicimg;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *dynamictitlelab;
+
 @end
 
 @implementation HomeViewController
@@ -313,11 +318,20 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+-(void)setdynamicpic{
+    NSDictionary *dict=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"]dictionaryForKey:@"goodsType"];
+    _dynamicpicimg.layer.cornerRadius=_dynamicpicimg.width*0.5;
+    _dynamicpicimg.layer.masksToBounds=YES;
+    [[DownLoadImageTool singletonInstance]imageWithImage:[dict stringForKey:@"icon"] scaledToWidth:_dynamicpicimg.width imageview:_dynamicpicimg];
+    _dynamictitlelab.text=[dict stringForKey:@"name"];
+
+}
+
 //1.加载头部
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-   
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"tableviewheader" owner:self options:nil]firstObject];
     view.frame=CGRectMake(0, 0, MAIN_WIDTH, MAIN_HEIGHT*0.58);
+    [self setdynamicpic];
      [self setUpScrollerView];
       return view;
 }
@@ -438,6 +452,7 @@
 }
 
 - (IBAction)changgouBtnClicked:(id)sender {
-    
+    UsuallyBuyViewController *vc=[[UsuallyBuyViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

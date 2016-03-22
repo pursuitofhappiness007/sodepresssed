@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="dynamicpicimg" destination="xSM-CA-L7V" id="3RE-S9-ZWp"/>
+                <outlet property="dynamictitlelab" destination="C3K-gC-4jb" id="x1e-NI-v8U"/>
                 <outlet property="noticeLb" destination="haH-LA-iqH" id="D8O-vO-dJi"/>
                 <outlet property="scrollview" destination="0hC-Jw-YAP" id="ppC-He-eTG"/>
             </connections>
@@ -86,9 +88,11 @@
                         <action selector="shoucangBtnClicked:" destination="-1" eventType="touchUpInside" id="aqw-Ug-0yK"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSM-CA-L7V">
+                    <rect key="frame" x="302" y="176" width="51" height="51"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6L-pt-kNJ" userLabel="蔬菜水果">
                     <rect key="frame" x="302" y="176" width="51" height="51"/>
-                    <state key="normal" backgroundImage="组-23-拷贝-3"/>
                     <connections>
                         <action selector="shucaishuiguoBtnClicked:" destination="-1" eventType="touchUpInside" id="vAF-jq-RWP"/>
                     </connections>
@@ -265,10 +269,14 @@
                 <constraint firstItem="uex-wK-ZwF" firstAttribute="height" secondItem="guA-5I-xdY" secondAttribute="height" multiplier="0.013" id="QtA-Pu-mN2"/>
                 <constraint firstItem="0hC-Jw-YAP" firstAttribute="top" secondItem="guA-5I-xdY" secondAttribute="top" id="RM6-Om-rmg"/>
                 <constraint firstItem="uex-wK-ZwF" firstAttribute="top" secondItem="Ag7-P9-YNO" secondAttribute="bottom" constant="3" id="T3p-Cr-2db"/>
+                <constraint firstItem="D6L-pt-kNJ" firstAttribute="top" secondItem="xSM-CA-L7V" secondAttribute="top" id="UGX-95-CNg"/>
                 <constraint firstItem="GeM-je-nzK" firstAttribute="leading" secondItem="guA-5I-xdY" secondAttribute="leading" id="VCk-9k-8sa"/>
                 <constraint firstItem="C3K-gC-4jb" firstAttribute="centerX" secondItem="D6L-pt-kNJ" secondAttribute="centerX" id="XAf-9X-7m4"/>
                 <constraint firstItem="Igb-ny-pV4" firstAttribute="width" secondItem="xGE-DN-Fte" secondAttribute="width" id="XGy-Fn-et6"/>
+                <constraint firstItem="D6L-pt-kNJ" firstAttribute="trailing" secondItem="xSM-CA-L7V" secondAttribute="trailing" id="Z40-Q6-HyV"/>
+                <constraint firstItem="D6L-pt-kNJ" firstAttribute="bottom" secondItem="xSM-CA-L7V" secondAttribute="bottom" id="ZKX-Ap-22W"/>
                 <constraint firstItem="rGn-Vl-njK" firstAttribute="leading" secondItem="guA-5I-xdY" secondAttribute="leading" id="ZKv-XM-Zan"/>
+                <constraint firstItem="D6L-pt-kNJ" firstAttribute="leading" secondItem="xSM-CA-L7V" secondAttribute="leading" id="ZW2-WM-kVU"/>
                 <constraint firstItem="13U-Sx-yGV" firstAttribute="height" secondItem="xGE-DN-Fte" secondAttribute="height" id="ZWQ-5f-qAW"/>
                 <constraint firstItem="xGE-DN-Fte" firstAttribute="centerX" secondItem="guA-5I-xdY" secondAttribute="centerX" multiplier="0.24" id="abX-P1-719"/>
                 <constraint firstItem="Ag7-P9-YNO" firstAttribute="centerY" secondItem="guA-5I-xdY" secondAttribute="centerY" multiplier="1.24" id="amq-DF-gAn"/>
@@ -297,6 +305,5 @@
         <image name="组-23" width="51" height="51"/>
         <image name="组-23-拷贝" width="51" height="51"/>
         <image name="组-23-拷贝-2" width="51" height="51"/>
-        <image name="组-23-拷贝-3" width="51" height="51"/>
     </resources>
 </document>

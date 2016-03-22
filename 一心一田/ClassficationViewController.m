@@ -46,6 +46,8 @@
 - (IBAction)PayBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *summoneylab;
 @property (strong, nonatomic) IBOutlet UITableView *firstclassmenutableview;
+//点击了底部购物车小图标
+- (IBAction)carIconClicked:(id)sender;
 
 @end
 
@@ -606,5 +608,8 @@
     OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
     vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];
     [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)carIconClicked:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
 }
 @end

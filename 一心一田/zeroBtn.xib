@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MutipleGoodsViewController">
             <connections>
+                <outlet property="summarylab" destination="cMK-Bc-jpM" id="Onu-4U-93Q"/>
                 <outlet property="totalgoodscountlab" destination="n1e-bL-7SX" id="BXh-xo-N0h"/>
-                <outlet property="totaltopaylab" destination="cMK-Bc-jpM" id="qXZ-uY-xit"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

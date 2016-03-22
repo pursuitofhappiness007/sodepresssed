@@ -1,32 +1,34 @@
-商品详情 参数={
-    supplier_id=26,
-    goods_id=1004,
-    market_id=58,
-    app_source=6,
-    token=ca1dfa3f8e0a4a1f3db49d1bf93edc9c
-},{
+获取订单详情={
     result=0,
     data={
-        status=已上架,
-        goods_detail={
-            id=46,
-            marketId=58,
-            specifications=20斤/筐,
-            maxNum=<null>,
-            thumbnailImg=http://192.168.199.50:8870/images/no_picture.png,
-            typeId=23,
-            minNum=<null>,
-            salePriceType=0,
-            typeName=<null>,
-            price=30,
-            supplierId=26,
-            num=0,
-            showUnit=<null>,
-            goodsId=1004,
-            name=大白菜,
-            goodsRangePrices=[
-            ]
+        wechat_param={
+            error_msg=[Wechat]OUT_TRADE_NO_USED: 商户订单号重复
         },
-        is_favour=0
+        order_detail={
+            orderDetailList=[
+            {
+                goodsPic=http://192.168.199.50:8870/images/no_picture.png,
+                frontPrice=0.01,
+                frontQuantity=1,
+                goodsId=1005,
+                frontWeight=100,
+                goodsName=测试代下单
+            }
+                             ],
+            orderHeader={
+                id=604,
+                buyerRemark=1,
+                orderCode=OD20160322160720,
+                payMode=WC,
+                address=某市某镇某街道某市场,
+                paymentAmount=0.01,
+                buyerReceiveTime=<null>,
+                createTime=2016-03-22 16:28:46,
+                consigneeTel1=13245678912,
+                marketName=A测试市场,
+                businessStatus=0,
+                marketId=58
+            }
+        }
     }
 }
