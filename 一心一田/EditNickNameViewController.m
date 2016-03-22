@@ -125,4 +125,9 @@
         NSLog(@"昵称修改失败%@",error);
     }];
 }
+- (IBAction)textFieldDIdEndOnExist:(UITextField *)sender {
+    
+}
+
+
 @end

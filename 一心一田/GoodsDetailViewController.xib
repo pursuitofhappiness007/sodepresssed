@@ -93,7 +93,7 @@
                                 <constraint firstAttribute="height" constant="28" id="No9-Cl-n5M"/>
                                 <constraint firstAttribute="width" constant="28" id="hul-nL-oQA"/>
                             </constraints>
-                            <state key="normal" image="购物车1">
+                            <state key="normal" image="shopcar">
                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -437,8 +437,8 @@
     </objects>
     <resources>
         <image name="countbg" width="85" height="21"/>
+        <image name="shopcar" width="29" height="30"/>
         <image name="商品收藏" width="15" height="14"/>
         <image name="商品收藏1" width="15" height="15"/>
-        <image name="购物车1" width="29" height="30"/>
     </resources>
 </document>

@@ -13,6 +13,8 @@
 #import "SDCycleScrollView.h"
 #import "GoodsDetailViewController.h"
 #import "SearchViewController.h"
+#import "OriginalCollectionListViewController.h"
+#import "newProductViewController.h"
 #import "UsuallyBuyViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
@@ -344,14 +346,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"goodslist=%d",tablelist.count);
+    NSLog(@"goodslist=%ld",tablelist.count);
         
         if(pagenum<totalpage){
             pagenum++;
             NSLog(@"huadongdi %d",pagenum);
             [self getTableListDataFromSever:pagenum];
         }
-    
 }
 
 
@@ -442,9 +443,13 @@
 }
 
 - (IBAction)shoucangBtnClicked:(id)sender {
+    OriginalCollectionListViewController *colletionVC = [[OriginalCollectionListViewController alloc]init];
+    [self.navigationController pushViewController:colletionVC animated:YES];
 }
 
 - (IBAction)xinpinClicked:(id)sender {
+    newProductViewController *nVC = [[newProductViewController alloc]init];
+    [self.navigationController pushViewController:nVC animated:YES];
 }
 
 - (IBAction)changgouBtnClicked:(id)sender {

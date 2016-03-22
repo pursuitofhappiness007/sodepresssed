@@ -31,6 +31,16 @@
                         <outlet property="delegate" destination="-1" id="yCY-sO-RYF"/>
                     </connections>
                 </tableView>
+                <tableView clipsSubviews="YES" tag="22" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CkX-iO-Fqg" userLabel="fenleitableview">
+                    <rect key="frame" x="94" y="64" width="281" height="554"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="nOi-b9-CaJ"/>
+                        <outlet property="delegate" destination="-1" id="27Z-0B-x2I"/>
+                    </connections>
+                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IU-a7-XDE">
                     <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                     <subviews>
@@ -122,16 +132,6 @@
                         <constraint firstItem="0Kf-7y-QP6" firstAttribute="bottom" secondItem="3eB-9t-a6o" secondAttribute="bottom" id="yvK-6S-72U"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" tag="22" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CkX-iO-Fqg" userLabel="fenleitableview">
-                    <rect key="frame" x="94" y="64" width="281" height="554"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="nOi-b9-CaJ"/>
-                        <outlet property="delegate" destination="-1" id="27Z-0B-x2I"/>
-                    </connections>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
