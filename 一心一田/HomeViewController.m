@@ -15,6 +15,7 @@
 #import "SearchViewController.h"
 #import "OriginalCollectionListViewController.h"
 #import "newProductViewController.h"
+#import "UsuallyBuyViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *tablelist;
