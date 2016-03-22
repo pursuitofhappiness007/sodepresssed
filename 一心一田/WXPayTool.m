@@ -19,10 +19,7 @@
     request.timeStamp=[dict int64ForKey:@"timestamp"];
     request.sign=[dict stringForKey:@"sign"];
     
-    if([WXApi sendReq:request])
-        return YES;
-    else
-        return NO;
+    return [WXApi sendReq:request];
 
 }
 

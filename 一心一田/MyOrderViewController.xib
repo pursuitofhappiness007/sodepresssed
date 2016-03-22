@@ -37,7 +37,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWw-Xn-JkN">
-                            <rect key="frame" x="47" y="7" width="30" height="30"/>
+                            <rect key="frame" x="22.5" y="7" width="30" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="全部">
@@ -51,40 +51,66 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-U4-tfM">
-                            <rect key="frame" x="165" y="7" width="45" height="30"/>
+                            <rect key="frame" x="90" y="7" width="45" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="处理中">
+                            <state key="normal" title="待付款">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected">
                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="showAllOrders:" destination="-1" eventType="touchUpInside" id="SaO-mW-eq2"/>
-                                <action selector="underDealBtnClicked:" destination="-1" eventType="touchUpInside" id="0fB-f7-qbj"/>
+                                <action selector="dfkBtnClicked:" destination="-1" eventType="touchUpInside" id="d1T-a8-Bs6"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2w-jr-XGY">
-                            <rect key="frame" x="0.0" y="42" width="124" height="2"/>
+                            <rect key="frame" x="0.0" y="42" width="75" height="2"/>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="S3W-Zb-3W8"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiO-5a-3bX">
-                            <rect key="frame" x="290.5" y="7" width="45" height="30"/>
+                            <rect key="frame" x="165" y="7" width="45" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="已处理">
+                            <state key="normal" title="待发货">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected">
                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="dealBtnClicked:" destination="-1" eventType="touchUpInside" id="s74-8N-sha"/>
-                                <action selector="showAllOrders:" destination="-1" eventType="touchUpInside" id="9WQ-ku-BCd"/>
+                                <action selector="dfhBtnClicked:" destination="-1" eventType="touchUpInside" id="LxR-AL-VSp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybe-PV-cyY">
+                            <rect key="frame" x="240" y="7" width="45" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="待收货">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="dshBtnClicked:" destination="-1" eventType="touchUpInside" id="owq-nJ-Wm4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUe-im-8D9">
+                            <rect key="frame" x="315" y="7" width="45" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="已完成">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="ywcBtnClicked:" destination="-1" eventType="touchUpInside" id="DXc-f2-CfH"/>
                             </connections>
                         </button>
                     </subviews>
@@ -95,13 +121,17 @@
                         <constraint firstAttribute="bottom" secondItem="QSZ-dU-QNa" secondAttribute="bottom" id="9hB-IK-zek"/>
                         <constraint firstItem="WiO-5a-3bX" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="CBY-nb-zDH"/>
                         <constraint firstItem="cwG-dq-B1g" firstAttribute="top" secondItem="nAm-Rp-p2b" secondAttribute="top" id="CCV-UJ-MPN"/>
-                        <constraint firstItem="a2w-jr-XGY" firstAttribute="width" secondItem="nAm-Rp-p2b" secondAttribute="width" multiplier="0.33" id="Fan-TG-uDy"/>
-                        <constraint firstItem="WiO-5a-3bX" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="1.67" id="I4D-bQ-9aR"/>
+                        <constraint firstItem="fUe-im-8D9" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="EeU-qo-O31"/>
+                        <constraint firstItem="a2w-jr-XGY" firstAttribute="width" secondItem="nAm-Rp-p2b" secondAttribute="width" multiplier="0.2" id="Fan-TG-uDy"/>
+                        <constraint firstItem="WiO-5a-3bX" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" id="I4D-bQ-9aR"/>
                         <constraint firstAttribute="bottom" secondItem="a2w-jr-XGY" secondAttribute="bottom" id="IRr-Ru-Iof"/>
                         <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="Jeo-pY-A9I"/>
-                        <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" id="NMF-S0-B7n"/>
+                        <constraint firstItem="Ybe-PV-cyY" firstAttribute="centerY" secondItem="nAm-Rp-p2b" secondAttribute="centerY" id="KCn-tr-zuF"/>
+                        <constraint firstItem="Ub2-U4-tfM" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="0.6" id="NMF-S0-B7n"/>
+                        <constraint firstItem="Ybe-PV-cyY" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="1.4" id="PXR-9x-JBE"/>
                         <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="a2w-jr-XGY" secondAttribute="centerX" id="VBj-dD-Yz3"/>
                         <constraint firstAttribute="trailing" secondItem="QSZ-dU-QNa" secondAttribute="trailing" id="WBT-fS-P2L"/>
+                        <constraint firstItem="fUe-im-8D9" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="1.8" id="XYl-xH-9Z8"/>
                         <constraint firstAttribute="height" constant="44" id="gyK-OS-PYN"/>
                         <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="nAm-Rp-p2b" secondAttribute="centerX" multiplier="0.2" id="iCf-ma-o9O"/>
                         <constraint firstItem="a2w-jr-XGY" firstAttribute="centerX" secondItem="UWw-Xn-JkN" secondAttribute="centerX" id="ish-Kb-1o0"/>
@@ -114,10 +144,10 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="pUf-rY-PfW"/>
+                            <exclude reference="iCf-ma-o9O"/>
                             <exclude reference="86o-VU-TeP"/>
                             <exclude reference="ish-Kb-1o0"/>
                             <exclude reference="zPI-oB-Wsw"/>
-                            <exclude reference="iCf-ma-o9O"/>
                         </mask>
                     </variation>
                 </view>
@@ -153,14 +183,14 @@
                 <constraint firstAttribute="bottom" secondItem="oHu-oA-R93" secondAttribute="bottom" constant="49" id="URn-Bh-lju"/>
                 <constraint firstAttribute="bottom" secondItem="uAo-4O-9J2" secondAttribute="bottom" id="VW6-Yd-Flc"/>
                 <constraint firstItem="oHu-oA-R93" firstAttribute="top" secondItem="nAm-Rp-p2b" secondAttribute="bottom" constant="5" id="bNg-2K-xCV"/>
-                <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.33" id="bwr-W8-OZ6"/>
+                <constraint firstItem="UWw-Xn-JkN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.2" id="bwr-W8-OZ6"/>
                 <constraint firstItem="nAm-Rp-p2b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="cML-c1-c3k"/>
                 <constraint firstItem="uAo-4O-9J2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iT2-ZR-EJF"/>
                 <constraint firstAttribute="trailing" secondItem="uAo-4O-9J2" secondAttribute="trailing" id="ne6-im-Ofq"/>
                 <constraint firstItem="nAm-Rp-p2b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tQT-hh-aKE"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="41.5" y="296.5"/>
+            <point key="canvasLocation" x="-60.5" y="146.5"/>
         </view>
     </objects>
 </document>

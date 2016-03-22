@@ -70,7 +70,7 @@
     
     self.navigationItem.title=@"订单确认";
     
-    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self initparas];
     [self setbottombar];
     [self setdeliveryaddress];

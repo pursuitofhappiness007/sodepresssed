@@ -98,6 +98,10 @@
 		FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
+		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
+		FE906D1E1CA0F6A80099D786 /* zeroBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */; };
+		FE906D201CA0F6B90099D786 /* oneBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1F1CA0F6B90099D786 /* oneBtn.xib */; };
+		FE906D221CA0F6C30099D786 /* twoBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D211CA0F6C30099D786 /* twoBtn.xib */; };
 		FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9915771C9AE9F900425055 /* sectiontitle.xib */; };
 		FE9B6A211C9AD44D007B6683 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */; };
 		FE9B6A221C9AD44D007B6683 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A141C9AD44D007B6683 /* TAAbstractDotView.m */; };
@@ -118,7 +122,6 @@
 		FECF1A941C9FF84600A7A580 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A931C9FF84600A7A580 /* 2.png */; };
 		FECF1A961C9FF85E00A7A580 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A951C9FF85E00A7A580 /* 3.png */; };
 		FECF1A981C9FFB8900A7A580 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A971C9FFB8900A7A580 /* 1.png */; };
-		FECF1A9E1CA0119E00A7A580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A9D1CA0119E00A7A580 /* Assets.xcassets */; };
 		FEDC9FC41C97B0DC0002FB2F /* EditNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */; };
 		FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */; };
 		FEDC9FC91C97C4710002FB2F /* GoodListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC9FC71C97C4710002FB2F /* GoodListTableViewCell.m */; };
@@ -320,6 +323,10 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FE906D1B1CA0F4220099D786 /* commonfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commonfooter.xib; sourceTree = "<group>"; };
+		FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zeroBtn.xib; sourceTree = "<group>"; };
+		FE906D1F1CA0F6B90099D786 /* oneBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneBtn.xib; sourceTree = "<group>"; };
+		FE906D211CA0F6C30099D786 /* twoBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = twoBtn.xib; sourceTree = "<group>"; };
 		FE9915771C9AE9F900425055 /* sectiontitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitle.xib; sourceTree = "<group>"; };
 		FE9B6A101C9AD44D007B6683 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
@@ -351,7 +358,6 @@
 		FECF1A951C9FF85E00A7A580 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		FECF1A971C9FFB8900A7A580 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		FECF1A991CA00D1100A7A580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FECF1A9D1CA0119E00A7A580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEDC9FC11C97B0DC0002FB2F /* EditNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNickNameViewController.h; sourceTree = "<group>"; };
 		FEDC9FC21C97B0DC0002FB2F /* EditNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNickNameViewController.m; sourceTree = "<group>"; };
 		FEDC9FC31C97B0DC0002FB2F /* EditNickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNickNameViewController.xib; sourceTree = "<group>"; };
@@ -529,7 +535,6 @@
 				FE6DC0811C8D617500E93578 /* others */,
 				FE6DC0391C8D597200E93578 /* LaunchScreen.storyboard */,
 				FE6DC03C1C8D597200E93578 /* Info.plist */,
-				FECF1A9D1CA0119E00A7A580 /* Assets.xcassets */,
 				FE6DC02B1C8D597200E93578 /* Supporting Files */,
 			);
 			path = "一心一田";
@@ -882,6 +887,10 @@
 				FEDFA0B31C9122B00010E5E3 /* OrderllistTableViewCell.h */,
 				FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */,
 				FEDFA0B51C9122B00010E5E3 /* OrderllistTableViewCell.xib */,
+				FE906D1B1CA0F4220099D786 /* commonfooter.xib */,
+				FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */,
+				FE906D1F1CA0F6B90099D786 /* oneBtn.xib */,
+				FE906D211CA0F6C30099D786 /* twoBtn.xib */,
 			);
 			name = "订单详情";
 			sourceTree = "<group>";
@@ -1054,6 +1063,7 @@
 				CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */,
 				FECF1A981C9FFB8900A7A580 /* 1.png in Resources */,
 				FECF1A941C9FF84600A7A580 /* 2.png in Resources */,
+				FE906D1E1CA0F6A80099D786 /* zeroBtn.xib in Resources */,
 				CEECE1E81C9AD17D009D11D8 /* NavBarSearchForHome.xib in Resources */,
 				FE7DBF721C8D6983003536BC /* LoginViewController.xib in Resources */,
 				FE7DBF741C8D6983003536BC /* reSetPwdViewController.xib in Resources */,
@@ -1064,6 +1074,7 @@
 				FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */,
 				FE545B091C8FCDFC0081DB28 /* MessageCenterViewController.xib in Resources */,
 				FEDFA0D01C9127180010E5E3 /* GoodsDetailViewController.xib in Resources */,
+				FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */,
 				FECF1A961C9FF85E00A7A580 /* 3.png in Resources */,
 				FEDC9FCA1C97C4710002FB2F /* GoodListTableViewCell.xib in Resources */,
 				FEDFA0B71C9122B00010E5E3 /* OrderllistTableViewCell.xib in Resources */,
@@ -1083,16 +1094,17 @@
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
-				FECF1A9E1CA0119E00A7A580 /* Assets.xcassets in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
 				FEDFA0C41C9124C70010E5E3 /* deleteview.xib in Resources */,
 				FE545B0E1C8FCE7E0081DB28 /* MessageTableViewCell.xib in Resources */,
 				FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */,
 				CEECE1E71C9AD17D009D11D8 /* NavBarForHome.xib in Resources */,
 				FEDFA0EB1C912A500010E5E3 /* AddInOrderTableViewCell.xib in Resources */,
+				FE906D201CA0F6B90099D786 /* oneBtn.xib in Resources */,
 				CEECE1F81C9AD19F009D11D8 /* AccountRecharge.xib in Resources */,
 				FEB20D9A1C926E2C0018A11C /* NavBar.xib in Resources */,
 				CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */,
+				FE906D221CA0F6C30099D786 /* twoBtn.xib in Resources */,
 				FEDFA0C21C91242C0010E5E3 /* ShoppingCarTableViewCell.xib in Resources */,
 				FEDFA0C01C91242C0010E5E3 /* ShopcarViewController.xib in Resources */,
 				CEECE1E61C9AD17D009D11D8 /* HomeViewController.xib in Resources */,
