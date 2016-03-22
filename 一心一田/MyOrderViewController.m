@@ -33,7 +33,10 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *myordertableview;
+//共几件商品
 @property (weak, nonatomic) IBOutlet UILabel *summarycountlab;
+//合计多少钱
+@property (weak, nonatomic) IBOutlet UILabel *acctuallypaidlab;
 - (IBAction)showAllOrders:(id)sender;
 - (IBAction)dfkBtnClicked:(id)sender;
 - (IBAction)dfhBtnClicked:(id)sender;
@@ -46,13 +49,18 @@
 @property (weak, nonatomic) IBOutlet UIView *blueline;
 
 @property (weak, nonatomic) IBOutlet UIButton *allBtn;
-@property (weak, nonatomic) IBOutlet UILabel *acctuallypaidlab;
-- (IBAction)seeorderBtnClicked:(id)sender;
-- (IBAction)sureReceiverBtnClicked:(id)sender;
+
+
+//查看订单
 @property (weak, nonatomic) IBOutlet UIButton *seeorderBtn;
+- (IBAction)seeorderBtnClicked:(id)sender;
+//确认收货
 @property (weak, nonatomic) IBOutlet UIButton *surereceiveBtn;
+- (IBAction)sureReceiverBtnClicked:(id)sender;
+//取消订单
 @property (weak, nonatomic) IBOutlet UIButton *cancelorderBtn;
 - (IBAction)cancelorderBtnClicked:(UIButton *)sender;
+//去支付
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 - (IBAction)payBtnClicked:(UIButton *)sender;
 
@@ -179,7 +187,8 @@
     if(i==2||i==6||i==8||i<0){
         view=[[[NSBundle mainBundle]loadNibNamed:@"onebtninfooter" owner:self options:nil]firstObject];
         _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
-        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[dict stringForKey:@"totalQuantity"]];
+        
+        _summarycountlab.text=[NSString stringWithFormat:@"共%d件商品",[[orderlist[section] arrayForKey:@"orderDetailList"]count]];
          _seeorderBtn.tag=section;
     }
     //有两个按钮的情况
@@ -187,15 +196,15 @@
     if(i==6){
         view=[[[NSBundle mainBundle]loadNibNamed:@"footerforsection" owner:self options:nil]firstObject];
         _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
-        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[dict stringForKey:@"totalQuantity"]];
+        _summarycountlab.text=[NSString stringWithFormat:@"共%d件商品",[[orderlist[section] arrayForKey:@"orderDetailList"]count]];
         _seeorderBtn.tag=section;
         _surereceiveBtn.tag=section;
     }
     //3个按钮的情况
     if(i==0){
-        view=[[[NSBundle mainBundle]loadNibNamed:@"threebtninfooter" owner:self options:nil]firstObject];
+        view=[[[NSBundle mainBundle]loadNibNamed:@"threeBtninfoot" owner:self options:nil]firstObject];
         _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
-        _summarycountlab.text=[NSString stringWithFormat:@"共%@件商品",[dict stringForKey:@"totalQuantity"]];
+        _summarycountlab.text=[NSString stringWithFormat:@"共%d件商品",[[orderlist[section] arrayForKey:@"orderDetailList"]count]];
         _seeorderBtn.tag=section;
         _cancelorderBtn.tag=section;
         _payBtn.tag=section;

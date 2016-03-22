@@ -26,7 +26,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *automaticalreceivetimelab;
 //共几件商品
 @property (weak, nonatomic) IBOutlet UILabel *totalgoodscountlab;
-//共计多少
+//共计多少钱
+@property (weak, nonatomic) IBOutlet UILabel *summarylab;
+
+//订单金额，含运费
 @property (weak, nonatomic) IBOutlet UILabel *totaltopaylab;
 @property (weak, nonatomic) IBOutlet UILabel *statuslab;
 @property (weak, nonatomic) IBOutlet UIImageView *statusimgview;
@@ -89,31 +92,44 @@
     }];
 }
 -(void)setstatuslabtext:(int)i{
-    UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49)];
+    UIView *view=[[UIView alloc]init];
+    int kcount=[[orderinfo arrayForKey:@"orderDetailList"]count];
+    NSString *payamount=[[orderinfo dictionaryForKey:@"orderHeader"]stringForKey:@"paymentAmount"];
     switch (i) {
         case 0:{
         _statuslab.text=@"待付款";
             view=[[[NSBundle mainBundle]loadNibNamed:@"twoBtn" owner:self options:nil]firstObject];
+            view.frame=CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49);
+            _totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品",kcount];
+            _summarylab.text=[NSString stringWithFormat:@"¥%@",payamount];
             [self.view addSubview:view];
             
         }
             break;
         case 2:{
         _statuslab.text=@"待发货";
-            _statuslab.text=@"待付款";
             view=[[[NSBundle mainBundle]loadNibNamed:@"zeroBtn" owner:self options:nil]firstObject];
+            view.frame=CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49);
+            _totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品",kcount];
+            _summarylab.text=[NSString stringWithFormat:@"¥%@",payamount];
             [self.view addSubview:view];
         }
             break;
         case 6:{
         _statuslab.text=@"待收货";
             view=[[[NSBundle mainBundle]loadNibNamed:@"oneBtn" owner:self options:nil]firstObject];
+            view.frame=CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49);
+            _totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品",kcount];
+            _summarylab.text=[NSString stringWithFormat:@"¥%@",payamount];
             [self.view addSubview:view];
         }
             break;
         case 8:{
         _statuslab.text=@"已完成";
         view=[[[NSBundle mainBundle]loadNibNamed:@"zeroBtn" owner:self options:nil]firstObject];
+            view.frame=CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49);
+            _totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品",kcount];
+            _summarylab.text=[NSString stringWithFormat:@"¥%@",payamount];
             [self.view addSubview:view];
             
         }
@@ -121,6 +137,9 @@
         case -1:{
         _statuslab.text=@"已取消";
         view=[[[NSBundle mainBundle]loadNibNamed:@"zeroBtn" owner:self options:nil]firstObject];
+            view.frame=CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49);
+            _totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品",kcount];
+            _summarylab.text=[NSString stringWithFormat:@"¥%@",payamount];
             [self.view addSubview:view];
 
         }
@@ -128,6 +147,9 @@
         case -2:{
             _statuslab.text=@"无效订单";
             view=[[[NSBundle mainBundle]loadNibNamed:@"zeroBtn" owner:self options:nil]firstObject];
+            view.frame=CGRectMake(0, MAIN_HEIGHT-49, MAIN_WIDTH, 49);
+            _totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品",kcount];
+            _summarylab.text=[NSString stringWithFormat:@"¥%@",payamount];
             [self.view addSubview:view];
 
         }
@@ -193,7 +215,7 @@
         
         cell.count=[NSString stringWithFormat:@"X%@",[dict stringForKey:@"frontQuantity"]];
     
-        cell.toatalmoney=[NSString stringWithFormat:@"商品总价:¥%.1f",[dict doubleForKey:@"frontPrice"]*[dict int32ForKey:@"frontQuantity"]];
+        cell.toatalmoney=[NSString stringWithFormat:@"商品总价:¥%.2f",[dict doubleForKey:@"frontPrice"]*[dict int32ForKey:@"frontQuantity"]];
     
         return cell;
    

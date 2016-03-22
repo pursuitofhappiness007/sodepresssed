@@ -9,8 +9,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MutipleGoodsViewController">
             <connections>
                 <outlet property="receiveBtn" destination="ZtW-Or-t1H" id="v4i-ea-c4e"/>
+                <outlet property="summarylab" destination="B0O-Il-9ky" id="dOl-RM-NQG"/>
                 <outlet property="totalgoodscountlab" destination="Zaj-q5-l9f" id="eEH-GT-rQE"/>
-                <outlet property="totaltopaylab" destination="B0O-Il-9ky" id="SN2-Sn-bpi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

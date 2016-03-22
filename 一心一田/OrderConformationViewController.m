@@ -66,8 +66,6 @@
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
     }
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addaddressrefresh) name:@"newaddresssucceed" object:nil];
-    
     self.navigationItem.title=@"订单确认";
     
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
