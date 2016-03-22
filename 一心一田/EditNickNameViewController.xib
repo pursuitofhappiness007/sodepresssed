@@ -51,6 +51,9 @@
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="textFieldDIdEndOnExist:" destination="-1" eventType="editingDidEndOnExit" id="fKX-Yd-g1w"/>
+                    </connections>
                 </textField>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
