@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MutipleGoodsViewController">
+            <connections>
+                <outlet property="receiveBtn" destination="ZtW-Or-t1H" id="v4i-ea-c4e"/>
+                <outlet property="totalgoodscountlab" destination="Zaj-q5-l9f" id="eEH-GT-rQE"/>
+                <outlet property="totaltopaylab" destination="B0O-Il-9ky" id="SN2-Sn-bpi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Nl0-vc-iua">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共4件商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zaj-q5-l9f">
+                    <rect key="frame" x="10" y="16" width="60.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共计:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUn-lF-vvk">
+                    <rect key="frame" x="85" y="17" width="30" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥228.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0O-Il-9ky">
+                    <rect key="frame" x="125" y="17" width="43.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtW-Or-t1H">
+                    <rect key="frame" x="298" y="12.5" width="61.5" height="24.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="确认收货">
+                        <color key="titleColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="receivegoodBtnClicked:" destination="-1" eventType="touchUpInside" id="nWL-YA-mr3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZtW-Or-t1H" secondAttribute="trailing" constant="15" id="2Ej-Ab-kXL"/>
+                <constraint firstItem="Zaj-q5-l9f" firstAttribute="leading" secondItem="Nl0-vc-iua" secondAttribute="leading" constant="10" id="5Ww-hy-lBq"/>
+                <constraint firstItem="ZtW-Or-t1H" firstAttribute="centerY" secondItem="Nl0-vc-iua" secondAttribute="centerY" id="6Wr-HK-f5X"/>
+                <constraint firstItem="ZtW-Or-t1H" firstAttribute="width" secondItem="Nl0-vc-iua" secondAttribute="width" multiplier="0.164" id="EhD-Ky-ckB"/>
+                <constraint firstItem="B0O-Il-9ky" firstAttribute="leading" secondItem="SUn-lF-vvk" secondAttribute="trailing" constant="10" id="Mb0-QC-JjW"/>
+                <constraint firstItem="SUn-lF-vvk" firstAttribute="centerY" secondItem="Nl0-vc-iua" secondAttribute="centerY" id="aV1-rc-aAC"/>
+                <constraint firstItem="SUn-lF-vvk" firstAttribute="leading" secondItem="Zaj-q5-l9f" secondAttribute="trailing" constant="15" id="cxJ-ar-W6X"/>
+                <constraint firstItem="ZtW-Or-t1H" firstAttribute="height" secondItem="Nl0-vc-iua" secondAttribute="height" multiplier="0.5" id="eqe-vb-TP3"/>
+                <constraint firstItem="Zaj-q5-l9f" firstAttribute="centerY" secondItem="Nl0-vc-iua" secondAttribute="centerY" id="lnT-3u-p3w"/>
+                <constraint firstItem="B0O-Il-9ky" firstAttribute="centerY" secondItem="Nl0-vc-iua" secondAttribute="centerY" id="rDO-yh-6Wb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="228.5" y="235.5"/>
+        </view>
+    </objects>
+</document>

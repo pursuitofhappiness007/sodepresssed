@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MutipleGoodsViewController">
+            <connections>
+                <outlet property="automaticalreceivetimelab" destination="LPo-KM-c7S" id="avF-eF-2xO"/>
+                <outlet property="ordercodelab" destination="oXq-1K-Qu4" id="Du2-6x-2Cy"/>
+                <outlet property="orderdealtimelab" destination="DfT-4A-9YW" id="RlZ-M4-QBs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="uUg-dz-evC">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdH-oA-dML" userLabel="separator">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="11.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-yV-CcG" userLabel="line1">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="e3j-5X-1ze"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tO-65-YZi" userLabel="line2">
+                            <rect key="frame" x="0.0" y="10" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="odk-gZ-veq"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="4tO-65-YZi" firstAttribute="leading" secondItem="cdH-oA-dML" secondAttribute="leading" id="PDe-GH-fcl"/>
+                        <constraint firstAttribute="trailing" secondItem="4tO-65-YZi" secondAttribute="trailing" id="Rgd-N3-OMa"/>
+                        <constraint firstItem="7aI-yV-CcG" firstAttribute="leading" secondItem="cdH-oA-dML" secondAttribute="leading" id="avA-ql-qcV"/>
+                        <constraint firstItem="7aI-yV-CcG" firstAttribute="top" secondItem="cdH-oA-dML" secondAttribute="top" id="inc-hm-ula"/>
+                        <constraint firstAttribute="trailing" secondItem="7aI-yV-CcG" secondAttribute="trailing" id="q19-vL-cuf"/>
+                        <constraint firstAttribute="bottom" secondItem="4tO-65-YZi" secondAttribute="bottom" id="wgi-v8-lo4"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXq-1K-Qu4">
+                    <rect key="frame" x="15" y="18" width="52" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfT-4A-9YW">
+                    <rect key="frame" x="15" y="40.5" width="52" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动收货时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPo-KM-c7S">
+                    <rect key="frame" x="15" y="61" width="78" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cdH-oA-dML" secondAttribute="trailing" id="5sg-kT-d5q"/>
+                <constraint firstItem="oXq-1K-Qu4" firstAttribute="centerY" secondItem="uUg-dz-evC" secondAttribute="centerY" multiplier="0.64" id="BPU-x1-2tQ"/>
+                <constraint firstItem="oXq-1K-Qu4" firstAttribute="leading" secondItem="uUg-dz-evC" secondAttribute="leading" constant="15" id="NQ3-E9-f6G"/>
+                <constraint firstItem="cdH-oA-dML" firstAttribute="height" secondItem="uUg-dz-evC" secondAttribute="height" multiplier="0.14" id="STU-fd-Bfj"/>
+                <constraint firstItem="cdH-oA-dML" firstAttribute="leading" secondItem="uUg-dz-evC" secondAttribute="leading" id="bJE-hb-Lj5"/>
+                <constraint firstItem="DfT-4A-9YW" firstAttribute="centerY" secondItem="uUg-dz-evC" secondAttribute="centerY" multiplier="1.18" id="dY7-pP-nF2"/>
+                <constraint firstItem="LPo-KM-c7S" firstAttribute="centerY" secondItem="uUg-dz-evC" secondAttribute="centerY" multiplier="1.68" id="eYO-D6-ZlO"/>
+                <constraint firstItem="cdH-oA-dML" firstAttribute="top" secondItem="uUg-dz-evC" secondAttribute="top" id="kKh-lw-QpO"/>
+                <constraint firstItem="DfT-4A-9YW" firstAttribute="leading" secondItem="oXq-1K-Qu4" secondAttribute="leading" id="oTW-AG-D7c"/>
+                <constraint firstItem="LPo-KM-c7S" firstAttribute="leading" secondItem="oXq-1K-Qu4" secondAttribute="leading" id="wei-aH-ua5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="29.5" y="-7"/>
+        </view>
+    </objects>
+</document>

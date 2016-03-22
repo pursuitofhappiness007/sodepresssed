@@ -10,5 +10,6 @@
 
 @interface MutipleGoodsViewController : UIViewController
 @property (nonatomic,strong)NSString *order_id;
+@property (nonatomic,strong)NSString *isparent;
 @property (assign,nonatomic)int backtoprevious;
 @end

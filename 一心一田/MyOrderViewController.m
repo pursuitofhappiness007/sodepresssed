@@ -35,8 +35,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *myordertableview;
 @property (weak, nonatomic) IBOutlet UILabel *summarycountlab;
 - (IBAction)showAllOrders:(id)sender;
-- (IBAction)underDealBtnClicked:(id)sender;
-- (IBAction)dealBtnClicked:(id)sender;
+- (IBAction)dfkBtnClicked:(id)sender;
+- (IBAction)dfhBtnClicked:(id)sender;
+- (IBAction)dshBtnClicked:(id)sender;
+- (IBAction)ywcBtnClicked:(id)sender;
+
 
 
 
@@ -249,21 +252,11 @@
     
     
 }
-//处理中
-- (IBAction)underDealBtnClicked:(UIButton *)sender {
-    CGPoint temp=_blueline.center;
-    temp.x=sender.center.x;
-    _blueline.center=temp;
-}
-//已处理完
-- (IBAction)dealBtnClicked:(UIButton *)sender {
-    CGPoint temp=_blueline.center;
-    temp.x=sender.center.x;
-    _blueline.center=temp;
-}
 //待付款
-- (IBAction)showdfkorders:(UIButton *)sender {
-    _blueline.x=sender.x;
+- (IBAction)dfkBtnClicked:(UIButton *)sender {
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
     if(sender.selected)
         sender.selected=NO;
     else
@@ -273,12 +266,14 @@
     }
     [orderlist removeAllObjects];
     pagenum=1;
-    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"1"}];
-    jsondict=@{@"businessStatus":@"1"};
+    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"0"}];
+    jsondict=@{@"businessStatus":@"0"};
 }
-//已付款
-- (IBAction)showpaidorders:(UIButton *)sender {
-    _blueline.x=sender.x;
+//待发货
+- (IBAction)dfhBtnClicked:(UIButton *)sender {
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
     if(sender.selected)
         sender.selected=NO;
     else
@@ -288,27 +283,14 @@
     }
     [orderlist removeAllObjects];
     pagenum=1;
-    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"3"}];
-    jsondict=@{@"businessStatus":@"3"};
+    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"2"}];
+    jsondict=@{@"businessStatus":@"2"};
 }
-//已发货
-- (IBAction)showyfhorders:(UIButton *)sender {
-    _blueline.x=sender.x;
-    if(sender.selected)
-        sender.selected=NO;
-    else
-    {   sender.selected=YES;
-        selectedBtn.selected=NO;
-        selectedBtn=sender;
-    }
-    [orderlist removeAllObjects];
-    pagenum=1;
-    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"4"}];
-    jsondict=@{@"businessStatus":@"4"};
-}
-//已收货
-- (IBAction)showyshorders:(UIButton *)sender {
-    _blueline.x=sender.x;
+//待收货
+- (IBAction)dshBtnClicked:(UIButton *)sender {
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
     if(sender.selected)
         sender.selected=NO;
     else
@@ -321,9 +303,11 @@
     [self getdatafromweb:1 jsondict:@{@"businessStatus":@"6"}];
     jsondict=@{@"businessStatus":@"6"};
 }
-//已取消
-- (IBAction)showyqxorders:(UIButton *)sender {
-    _blueline.x=sender.x;
+//已完成
+- (IBAction)ywcBtnClicked:(UIButton *)sender {
+    CGPoint temp=_blueline.center;
+    temp.x=sender.center.x;
+    _blueline.center=temp;
     if(sender.selected)
         sender.selected=NO;
     else
@@ -333,15 +317,18 @@
     }
     [orderlist removeAllObjects];
     pagenum=1;
-    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"-1"}];
-    jsondict=@{@"businessStatus":@"-1"};
+    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"8"}];
+    jsondict=@{@"businessStatus":@"8"};
 }
+
 
 
 //查看订单
 - (IBAction)seeorderBtnClicked:(UIButton *)sender {
     MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-    vc.order_id=[[orderlist[sender.tag] dictionaryForKey:@"orderHeader"] stringForKey:@"id"];
+    NSDictionary *dict=[orderlist[sender.tag] dictionaryForKey:@"orderHeader"];
+    vc.order_id=[dict stringForKey:@"id"];
+    vc.isparent=[dict stringForKey:@"isParent"];
     vc.backtoprevious=1;
     [self.navigationController pushViewController:vc animated:YES];
 }
