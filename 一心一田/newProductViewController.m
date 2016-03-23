@@ -9,7 +9,7 @@
 #import "newProductViewController.h"
 #import "HomeTableViewCell.h"
 #import "GoodsDetailViewController.h"
-
+#import "OrderConformationViewController.h"
 @interface newProductViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     int pagenum;
@@ -18,8 +18,12 @@
 }
 @property (strong, nonatomic) NSMutableArray *productArr;
 @property (weak, nonatomic) IBOutlet UITableView *tabelView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (strong, nonatomic)UIImageView *nodataImageView;
+@property (weak, nonatomic) IBOutlet UILabel *numofgoodskindlab;
+@property (weak, nonatomic) IBOutlet UILabel *summoneylab;
+@property (weak, nonatomic) IBOutlet UIButton *payBtn;
+
+
 @end
 
 @implementation newProductViewController
@@ -124,6 +128,8 @@
     cell.shortcomment = good[@"commentary"];
     cell.specific = good[@"specifications"];
     cell.goodimg = good[@"thumbnailImg"];
+    cell.detailBtn.tag = indexPath.row;
+    [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {
         case 0:
@@ -200,15 +206,67 @@
     return cell;
 }
 
-//代理方法
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *good = self.productArr[indexPath.row];
+-(void)setbottombar{
+    //设置种类
+    _numofgoodskindlab.text=[NSString stringWithFormat:@"%d种商品",[LocalAndOnlineFileTool refreshkindnum:self.tabBarController]];
+    //设置商品数量
+    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",[LocalAndOnlineFileTool refreshcoungnum]] forState:UIControlStateNormal];
+    //设置参考价格
+    _summoneylab.text=[NSString stringWithFormat:@"¥%.2f",[LocalAndOnlineFileTool calculatesummoneyinshopcar]];
+}
+
+
+-(void)addBtnClicked:(UIButton *)sender{
+    HomeTableViewCell *cell=[self.tabelView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    int i=[cell.countlab.text intValue];
+    cell.count=[NSString stringWithFormat:@"%d",i+1];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+    
+}
+
+-(void)minusBtnClicked:(UIButton *)sender{
+    HomeTableViewCell *cell=[self.tabelView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
+    int i=[cell.countlab.text intValue];
+    if(i>0){
+        if(i==1)
+            [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
+        cell.count=[NSString stringWithFormat:@"%d",i-1];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+    }
+}
+
+
+- (void)goToDetailVC:(UIButton *)send{
+    NSDictionary *good = self.productArr[send.tag];
     GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
     detailVC.goodsid = good[@"goodsId"];
     detailVC.supplierid = good[@"supplierId"];
     detailVC.marketid = good[@"marketId"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
+
+
+//代理方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSDictionary *good = self.productArr[indexPath.row];
+//    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
+//    detailVC.goodsid = good[@"goodsId"];
+//    detailVC.supplierid = good[@"supplierId"];
+//    detailVC.marketid = good[@"marketId"];
+//    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+- (IBAction)carClicked:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
+}
+
+- (IBAction)payBtnClicked:(id)sender {
+    OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
+    vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -8,7 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="newProductViewController">
             <connections>
-                <outlet property="activity" destination="AEB-Is-je7" id="qqx-x0-qjz"/>
+                <outlet property="numofgoodskindlab" destination="L5Z-vu-mmd" id="pIb-mm-btQ"/>
+                <outlet property="payBtn" destination="okT-Sh-9CW" id="igI-YP-UxS"/>
+                <outlet property="summoneylab" destination="lDm-Gt-7VK" id="iL9-pS-noy"/>
                 <outlet property="tabelView" destination="6eJ-Nd-fD3" id="hRg-ai-hOm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -37,6 +39,9 @@
                             <state key="normal" backgroundImage="shopcar">
                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="carClicked:" destination="-1" eventType="touchUpInside" id="kZr-Uj-HaW"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11种商品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-vu-mmd">
                             <rect key="frame" x="45" y="10" width="56.5" height="14.5"/>
@@ -73,6 +78,9 @@
                                     <real key="value" value="4"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="payBtnClicked:" destination="-1" eventType="touchUpInside" id="VJp-QN-NsB"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（不含运费）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCm-e6-6Oj">
                             <rect key="frame" x="196" y="23" width="72" height="14.5"/>
@@ -104,9 +112,6 @@
                         <constraint firstItem="lDm-Gt-7VK" firstAttribute="leading" secondItem="tqe-Rg-fsK" secondAttribute="trailing" constant="3" id="x8E-pV-Bcs"/>
                     </constraints>
                 </view>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AEB-Is-je7">
-                    <rect key="frame" x="177" y="323.5" width="20" height="20"/>
-                </activityIndicatorView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-Nd-fD3">
                     <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,8 +125,6 @@
             <constraints>
                 <constraint firstItem="ykD-Tc-8DP" firstAttribute="top" secondItem="6eJ-Nd-fD3" secondAttribute="bottom" id="0tU-ED-vO5"/>
                 <constraint firstItem="6eJ-Nd-fD3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="1EG-Ar-VW7"/>
-                <constraint firstItem="AEB-Is-je7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8j2-Ia-tkV"/>
-                <constraint firstItem="AEB-Is-je7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Igw-MB-Dq2"/>
                 <constraint firstAttribute="trailing" secondItem="6eJ-Nd-fD3" secondAttribute="trailing" id="PGf-dU-Xhi"/>
                 <constraint firstItem="6eJ-Nd-fD3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YMr-Cl-dqC"/>
                 <constraint firstItem="ykD-Tc-8DP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YXv-w6-cOC"/>

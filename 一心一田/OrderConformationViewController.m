@@ -206,10 +206,10 @@
     NSMutableArray *deliverlist=[NSMutableArray array];
     NSMutableArray *willberesetids=[NSMutableArray array];
     for (NSDictionary *dict in _tabledata) {
-        int kcount=[LocalAndOnlineFileTool singlegoodcount:[dict stringForKey:@"goodsId"]];
+        int kcount=[LocalAndOnlineFileTool singlegoodcount:[dict stringForKey:@"id"]];
         
-        [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount],@"weight":@"2",@"calculation":[dict stringForKey:@"billUnit"]}]];
-        [willberesetids addObject:[dict stringForKey:@"goodsId"]];
+        [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount]}]];
+        [willberesetids addObject:[dict stringForKey:@"id"]];
     }
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
