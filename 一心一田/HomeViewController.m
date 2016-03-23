@@ -231,6 +231,8 @@
     cell.goodsid=[good stringForKey:@"id"];
     cell.goodname = good[@"name"];
     cell.shortcomment = good[@"commentary"];
+    cell.detailBtn.tag = indexPath.row;
+    [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
     cell.specific = good[@"specifications"];
     cell.goodimg = good[@"thumbnailImg"];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
@@ -309,14 +311,24 @@
     return cell;
 }
 
-//代理方法
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *good = tablelist[indexPath.row];
+
+
+- (void)goToDetailVC:(UIButton *)send{
+    NSDictionary *good = tablelist[send.tag];
     GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
     detailVC.goodsid = good[@"goodsId"];
     detailVC.supplierid = good[@"supplierId"];
     detailVC.marketid = good[@"marketId"];
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+//代理方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSDictionary *good = tablelist[indexPath.row];
+//    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
+//    detailVC.goodsid = good[@"goodsId"];
+//    detailVC.supplierid = good[@"supplierId"];
+//    detailVC.marketid = good[@"marketId"];
+//    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 -(void)setdynamicpic{
@@ -348,7 +360,7 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"goodslist=%ld",tablelist.count);
         
-        if(pagenum<totalpage){
+        if(pagenum<totalpage&&indexPath.row==tablelist.count-1){
             pagenum++;
             NSLog(@"huadongdi %d",pagenum);
             [self getTableListDataFromSever:pagenum];

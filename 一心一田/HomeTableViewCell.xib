@@ -82,7 +82,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-uA-jHl">
-                        <rect key="frame" x="293.5" y="108" width="36.5" height="22.5"/>
+                        <rect key="frame" x="293" y="108" width="36.5" height="22.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -168,6 +168,9 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBA-mQ-tuA">
+                        <rect key="frame" x="11" y="9" width="344.5" height="90"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="So2-5D-t0f" firstAttribute="bottom" secondItem="GxQ-oN-O55" secondAttribute="bottom" id="39x-Sc-07q"/>
@@ -182,9 +185,13 @@
                     <constraint firstItem="ahv-jm-g0C" firstAttribute="trailing" secondItem="Ti2-Uk-N5J" secondAttribute="trailing" id="I8d-2b-gK6"/>
                     <constraint firstItem="GxQ-oN-O55" firstAttribute="top" secondItem="zes-n4-dGd" secondAttribute="top" id="NiO-oJ-fD5"/>
                     <constraint firstItem="zes-n4-dGd" firstAttribute="leading" secondItem="OvM-uA-jHl" secondAttribute="trailing" id="P36-Wr-2Ew"/>
+                    <constraint firstItem="lst-3D-RJG" firstAttribute="leading" secondItem="lBA-mQ-tuA" secondAttribute="leading" id="PVy-ZM-uGU"/>
                     <constraint firstItem="DXm-lE-5XK" firstAttribute="trailing" secondItem="iKf-PT-ud7" secondAttribute="trailing" id="SEE-b3-baI"/>
                     <constraint firstItem="aHe-te-7vL" firstAttribute="trailing" secondItem="gfS-Ry-5Ck" secondAttribute="trailing" id="Sfo-bF-JI4"/>
                     <constraint firstItem="qfz-j9-7Nx" firstAttribute="leading" secondItem="lst-3D-RJG" secondAttribute="trailing" constant="4" id="WaC-hh-9eo"/>
+                    <constraint firstItem="lst-3D-RJG" firstAttribute="top" secondItem="lBA-mQ-tuA" secondAttribute="top" id="Xvx-Pd-PXe"/>
+                    <constraint firstItem="lst-3D-RJG" firstAttribute="bottom" secondItem="lBA-mQ-tuA" secondAttribute="bottom" id="YcG-uZ-yKs"/>
+                    <constraint firstItem="gfS-Ry-5Ck" firstAttribute="trailing" secondItem="lBA-mQ-tuA" secondAttribute="trailing" id="b20-nC-4Oc"/>
                     <constraint firstItem="qfz-j9-7Nx" firstAttribute="top" secondItem="lst-3D-RJG" secondAttribute="top" id="chl-To-jXz"/>
                     <constraint firstItem="7Aa-fz-Uz2" firstAttribute="top" secondItem="qfz-j9-7Nx" secondAttribute="bottom" constant="3" id="d9r-uh-ceT"/>
                     <constraint firstItem="ahv-jm-g0C" firstAttribute="top" secondItem="iKf-PT-ud7" secondAttribute="top" id="e9i-0P-ZYt"/>
@@ -223,6 +230,7 @@
             <connections>
                 <outlet property="addBtn" destination="zes-n4-dGd" id="aPc-ON-K0V"/>
                 <outlet property="countlab" destination="OvM-uA-jHl" id="Srt-h2-C3o"/>
+                <outlet property="detailBtn" destination="lBA-mQ-tuA" id="SaT-b8-UmX"/>
                 <outlet property="goodnamelab" destination="qfz-j9-7Nx" id="yCE-Fn-72r"/>
                 <outlet property="goodsimageview" destination="lst-3D-RJG" id="zDj-MG-Agv"/>
                 <outlet property="minusBtn" destination="So2-5D-t0f" id="ZY1-j1-s4n"/>
@@ -237,7 +245,7 @@
                 <outlet property="shortcommentlab" destination="7Aa-fz-Uz2" id="k6A-FO-WE1"/>
                 <outlet property="specificlab" destination="JQT-gL-NNH" id="JuY-F8-ocQ"/>
             </connections>
-            <point key="canvasLocation" x="339.5" y="267.5"/>
+            <point key="canvasLocation" x="320.5" y="378.5"/>
         </tableViewCell>
     </objects>
     <resources>
