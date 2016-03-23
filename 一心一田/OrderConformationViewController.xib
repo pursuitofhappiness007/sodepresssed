@@ -106,7 +106,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户余额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54H-ux-few">
-                            <rect key="frame" x="125" y="42" width="68" height="20.5"/>
+                            <rect key="frame" x="123.5" y="42" width="68" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -126,47 +126,59 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-ih-ohl">
-                            <rect key="frame" x="39" y="45" width="16" height="16"/>
+                            <rect key="frame" x="40.5" y="46.5" width="13" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="qLD-Vl-qiH"/>
                                 <constraint firstAttribute="height" constant="16" id="xlW-6a-oEG"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="qLD-Vl-qiH"/>
+                                    <exclude reference="xlW-6a-oEG"/>
+                                </mask>
+                            </variation>
                         </imageView>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx2-j0-XSd">
-                            <rect key="frame" x="39" y="45" width="16" height="16"/>
+                            <rect key="frame" x="0.0" y="38" width="375" height="30"/>
                             <connections>
                                 <action selector="payModeBtnClicked:" destination="-1" eventType="touchUpInside" id="syd-Mu-slk"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pe4-SB-OS2">
-                            <rect key="frame" x="39" y="83" width="16" height="16"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="pe4-SB-OS2">
+                            <rect key="frame" x="40.5" y="84" width="14" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="X8i-Uu-qqV"/>
                                 <constraint firstAttribute="width" constant="16" id="hwp-C0-l4b"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="X8i-Uu-qqV"/>
+                                    <exclude reference="hwp-C0-l4b"/>
+                                </mask>
+                            </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x5b-Vo-9re" userLabel="wechaticon">
-                            <rect key="frame" x="75" y="38" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BA" translatesAutoresizingMaskIntoConstraints="NO" id="x5b-Vo-9re" userLabel="yueicon">
+                            <rect key="frame" x="73.5" y="38" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="2jw-EA-P7C"/>
                                 <constraint firstAttribute="height" constant="30" id="xQ7-fF-Cqt"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WpQ-CK-Y9m" userLabel="wechaticon">
-                            <rect key="frame" x="75" y="76" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wc" translatesAutoresizingMaskIntoConstraints="NO" id="WpQ-CK-Y9m" userLabel="wechaticon">
+                            <rect key="frame" x="73.5" y="76" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="CcJ-mK-cw4"/>
                                 <constraint firstAttribute="height" constant="30" id="djO-64-3HI"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ch-jU-ZmE">
-                            <rect key="frame" x="125" y="80" width="68" height="20.5"/>
+                            <rect key="frame" x="123.5" y="80" width="68" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmp-CA-oAl">
-                            <rect key="frame" x="39" y="83" width="16" height="16"/>
+                            <rect key="frame" x="0.0" y="76" width="375" height="31"/>
                             <connections>
                                 <action selector="payModeBtnClicked:" destination="-1" eventType="touchUpInside" id="VV9-nO-m9z"/>
                             </connections>
@@ -175,12 +187,15 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="WpQ-CK-Y9m" firstAttribute="centerY" secondItem="pe4-SB-OS2" secondAttribute="centerY" id="02w-3P-La3"/>
+                        <constraint firstAttribute="trailing" secondItem="gmp-CA-oAl" secondAttribute="trailing" id="3aE-K8-uBV"/>
                         <constraint firstItem="P8d-ib-xtQ" firstAttribute="top" secondItem="fPG-Ql-NTX" secondAttribute="top" constant="8" id="5aE-1g-SPg"/>
                         <constraint firstItem="pe4-SB-OS2" firstAttribute="leading" secondItem="Ycc-ih-ohl" secondAttribute="leading" id="AF5-2b-ZK7"/>
-                        <constraint firstItem="pe4-SB-OS2" firstAttribute="top" secondItem="gmp-CA-oAl" secondAttribute="top" id="AjH-wZ-uCq"/>
                         <constraint firstItem="Evv-wA-9UA" firstAttribute="trailing" secondItem="sal-Ln-nJi" secondAttribute="trailing" id="DUZ-4S-ceO"/>
+                        <constraint firstAttribute="trailing" secondItem="rx2-j0-XSd" secondAttribute="trailing" id="EQR-3p-wa2"/>
                         <constraint firstItem="5Ch-jU-ZmE" firstAttribute="centerY" secondItem="pe4-SB-OS2" secondAttribute="centerY" id="F2X-iw-MNv"/>
                         <constraint firstItem="Ycc-ih-ohl" firstAttribute="centerY" secondItem="fPG-Ql-NTX" secondAttribute="centerY" id="Fu4-P6-Elm"/>
+                        <constraint firstItem="Ycc-ih-ohl" firstAttribute="bottom" secondItem="rx2-j0-XSd" secondAttribute="bottom" id="HQJ-zS-5o6"/>
+                        <constraint firstItem="Ycc-ih-ohl" firstAttribute="top" secondItem="rx2-j0-XSd" secondAttribute="top" id="KGY-PP-OoZ"/>
                         <constraint firstItem="pe4-SB-OS2" firstAttribute="centerY" secondItem="fPG-Ql-NTX" secondAttribute="centerY" multiplier="1.7" id="Kpt-GZ-mlY"/>
                         <constraint firstItem="Evv-wA-9UA" firstAttribute="height" secondItem="sal-Ln-nJi" secondAttribute="height" id="NSf-ad-eM7"/>
                         <constraint firstItem="Evv-wA-9UA" firstAttribute="centerY" secondItem="fPG-Ql-NTX" secondAttribute="centerY" multiplier="1.33" id="RvC-yF-Ho5"/>
@@ -190,25 +205,34 @@
                         <constraint firstItem="54H-ux-few" firstAttribute="leading" secondItem="x5b-Vo-9re" secondAttribute="trailing" constant="20" id="X21-kA-mQP"/>
                         <constraint firstAttribute="trailing" secondItem="sal-Ln-nJi" secondAttribute="trailing" id="XHM-ht-wYb"/>
                         <constraint firstItem="sal-Ln-nJi" firstAttribute="centerY" secondItem="fPG-Ql-NTX" secondAttribute="centerY" multiplier="0.67" id="akI-D8-2jN"/>
-                        <constraint firstItem="pe4-SB-OS2" firstAttribute="leading" secondItem="gmp-CA-oAl" secondAttribute="leading" id="anI-gE-3uz"/>
                         <constraint firstItem="rx2-j0-XSd" firstAttribute="top" secondItem="Ycc-ih-ohl" secondAttribute="top" id="bNm-4g-nhR"/>
                         <constraint firstItem="x5b-Vo-9re" firstAttribute="leading" secondItem="Ycc-ih-ohl" secondAttribute="trailing" constant="20" id="bXv-Gb-Nqe"/>
                         <constraint firstItem="x5b-Vo-9re" firstAttribute="leading" secondItem="Ycc-ih-ohl" secondAttribute="trailing" constant="20" id="e4D-bC-iOK"/>
                         <constraint firstItem="Ycc-ih-ohl" firstAttribute="leading" secondItem="fPG-Ql-NTX" secondAttribute="leading" id="ean-r7-3j7"/>
+                        <constraint firstItem="rx2-j0-XSd" firstAttribute="leading" secondItem="fPG-Ql-NTX" secondAttribute="leading" id="fGL-mv-7qM"/>
+                        <constraint firstItem="gmp-CA-oAl" firstAttribute="leading" secondItem="fPG-Ql-NTX" secondAttribute="leading" id="g4N-Q7-vgi"/>
+                        <constraint firstAttribute="bottom" secondItem="gmp-CA-oAl" secondAttribute="bottom" id="g4P-fn-0Ma"/>
                         <constraint firstItem="sal-Ln-nJi" firstAttribute="leading" secondItem="fPG-Ql-NTX" secondAttribute="leading" id="gsX-Kx-tU9"/>
                         <constraint firstItem="Evv-wA-9UA" firstAttribute="leading" secondItem="sal-Ln-nJi" secondAttribute="leading" id="jf6-P1-4ik"/>
                         <constraint firstItem="5Ch-jU-ZmE" firstAttribute="leading" secondItem="54H-ux-few" secondAttribute="leading" id="lWO-DY-N13"/>
                         <constraint firstItem="WpQ-CK-Y9m" firstAttribute="leading" secondItem="x5b-Vo-9re" secondAttribute="leading" id="nFK-cu-EOd"/>
                         <constraint firstItem="54H-ux-few" firstAttribute="centerY" secondItem="x5b-Vo-9re" secondAttribute="centerY" id="qKv-Ku-Wft"/>
                         <constraint firstItem="rx2-j0-XSd" firstAttribute="trailing" secondItem="Ycc-ih-ohl" secondAttribute="trailing" id="sDX-ii-xLH"/>
-                        <constraint firstItem="pe4-SB-OS2" firstAttribute="trailing" secondItem="gmp-CA-oAl" secondAttribute="trailing" id="trJ-pS-Jan"/>
+                        <constraint firstItem="x5b-Vo-9re" firstAttribute="top" secondItem="rx2-j0-XSd" secondAttribute="top" id="tgf-zK-bdR"/>
                         <constraint firstItem="Ycc-ih-ohl" firstAttribute="centerX" secondItem="fPG-Ql-NTX" secondAttribute="centerX" multiplier="0.25" id="uth-I1-g0o"/>
-                        <constraint firstItem="pe4-SB-OS2" firstAttribute="bottom" secondItem="gmp-CA-oAl" secondAttribute="bottom" id="xkd-GF-8Fw"/>
+                        <constraint firstItem="WpQ-CK-Y9m" firstAttribute="top" secondItem="gmp-CA-oAl" secondAttribute="top" id="vGg-Of-RVO"/>
+                        <constraint firstItem="x5b-Vo-9re" firstAttribute="bottom" secondItem="rx2-j0-XSd" secondAttribute="bottom" id="vx9-1m-oby"/>
                         <constraint firstItem="x5b-Vo-9re" firstAttribute="centerY" secondItem="Ycc-ih-ohl" secondAttribute="centerY" id="yyB-lM-TOo"/>
-                        <constraint firstItem="rx2-j0-XSd" firstAttribute="leading" secondItem="Ycc-ih-ohl" secondAttribute="leading" id="zhs-iO-d3s"/>
+                        <constraint firstItem="rx2-j0-XSd" firstAttribute="centerX" secondItem="Ycc-ih-ohl" secondAttribute="centerX" id="zhs-iO-d3s"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="WYS-XR-sr0"/>
+                            <exclude reference="bNm-4g-nhR"/>
+                            <exclude reference="sDX-ii-xLH"/>
+                            <exclude reference="zhs-iO-d3s"/>
+                            <exclude reference="HQJ-zS-5o6"/>
+                            <exclude reference="KGY-PP-OoZ"/>
                             <exclude reference="Tvu-U5-aed"/>
                             <exclude reference="ean-r7-3j7"/>
                             <exclude reference="e4D-bC-iOK"/>
@@ -383,6 +407,9 @@
         </view>
     </objects>
     <resources>
-        <image name="check" width="16" height="16"/>
+        <image name="BA" width="18" height="16"/>
+        <image name="check" width="13" height="13"/>
+        <image name="uncheck" width="14" height="14"/>
+        <image name="wc" width="20" height="17"/>
     </resources>
 </document>

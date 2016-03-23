@@ -28,7 +28,6 @@
     return self;
 }
 -(void)viewWillAppear:(BOOL)animated{
-    NSLog(@"bubeidaioyongda");
    
 }
 - (void)viewDidLoad {

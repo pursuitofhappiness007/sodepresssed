@@ -235,6 +235,7 @@
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
     cell.specific = good[@"specifications"];
     cell.goodimg = good[@"thumbnailImg"];
+    cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {
         case 0:
@@ -302,7 +303,9 @@
             break;
     }
     //到沙盒文件里去取数量
-    cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
+    int kcount=[LocalAndOnlineFileTool singlegoodcount:cell.goodsid];
+    cell.count=[NSString stringWithFormat:@"%d",kcount];
+   
     cell.addBtn.tag=indexPath.row;
     cell.minusBtn.tag=indexPath.row;
     [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -354,7 +357,7 @@
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return MAIN_HEIGHT*0.58;
+    return MAIN_HEIGHT*0.43;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -362,7 +365,6 @@
         
         if(pagenum<totalpage&&indexPath.row==tablelist.count-1){
             pagenum++;
-            NSLog(@"huadongdi %d",pagenum);
             [self getTableListDataFromSever:pagenum];
         }
 }

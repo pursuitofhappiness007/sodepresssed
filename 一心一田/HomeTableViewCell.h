@@ -42,7 +42,10 @@
 //加减按钮
 @property (weak, nonatomic) IBOutlet UIButton *minusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
+//详情按钮
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
+//当天销售
+@property (nonatomic,copy)NSString *dailysales;
 
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 @end

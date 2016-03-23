@@ -330,14 +330,14 @@
         {
          paymode=@"BA";
             _yueimg.image=[UIImage imageNamed:@"check"];
-            _wechatimg.image=[UIImage imageNamed:@""];
+            _wechatimg.image=[UIImage imageNamed:@"uncheck"];
         
         }
             break;
         case 2:
         {
             paymode=@"WC";
-            _yueimg.image=[UIImage imageNamed:@""];
+            _yueimg.image=[UIImage imageNamed:@"uncheck"];
             _wechatimg.image=[UIImage imageNamed:@"check"];
         }
             break;

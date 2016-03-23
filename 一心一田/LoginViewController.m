@@ -19,7 +19,7 @@
 @implementation LoginViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-  self.navigationController.navigationBarHidden=NO;
+  self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=YES;
 }
 - (void)viewDidLoad {
@@ -148,6 +148,7 @@
             paras[@"baidu_channel_id"]=[BPush getChannelId];
             paras[@"baidu_app_id"]=[BPush getAppId];
             paras[@"device_type"]=@"4";
+            paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
             [HttpTool post:@"msg_push_register" params:paras success:^(id responseObj) {
                 NSLog(@"注册推送接口成功%@",responseObj);
             } failure:^(NSError *error) {

@@ -59,7 +59,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
     [self initparas];
     [self setnavbar];
     [self setbottombar];
@@ -80,8 +80,16 @@
 }
 
 -(void)setbottombar{
-    quantity=[LocalAndOnlineFileTool refreshcoungnum];
-    totaltopay=[LocalAndOnlineFileTool calculatesummoneyinshopcar];
+    quantity=0;
+    totaltopay=0;
+    for (int i=0; i<[_shopcartableview numberOfSections]; i++) {
+        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+        if(!cell.singleBtn.selected)
+        {
+            quantity++;
+            totaltopay+=cell.singleprice*[cell.countlab.text intValue];
+        }
+    }
     _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
     
     [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];

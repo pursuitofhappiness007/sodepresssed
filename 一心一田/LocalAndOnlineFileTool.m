@@ -96,7 +96,7 @@
             kindcount++;
     }
     [[tabbarvc.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d种商品",kindcount]];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil];
+    
     
 
     return kindcount;
@@ -169,7 +169,7 @@
                 if([array[1]intValue]>0)
                     kindcount++;
             }
-            
+//            [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil];
             [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:[@{@"goodscount":local} mutableCopy] filepath:@"goodscount.txt"];
             [self refreshkindnum:tabbarvc];
             

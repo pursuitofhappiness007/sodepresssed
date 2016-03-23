@@ -30,7 +30,7 @@
     
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self initparas];
-    [self getdataformweb];
+    [self getdataformweb:1];
     [self setbottombar];
 }
 
@@ -45,10 +45,8 @@
 -(void)setbottombar{
 
 }
--(void)getdataformweb{
-    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"token"]=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"];
-    
+-(void)getdataformweb:(int)pageno{
+        
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 //    return tablelist.count;
