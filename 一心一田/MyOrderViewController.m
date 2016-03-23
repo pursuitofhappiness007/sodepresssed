@@ -23,9 +23,9 @@
     int totalrows;
     UIView *dimview;
     MBProgressHUD *hud1;
-    int paybtntag;
     int sectioncount;
     NSMutableArray *rowinsecionsarray;
+   
     
    
 }
@@ -82,7 +82,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its 
+    // Do any additional setup after loading the view from its
+    if([WXApi isWXAppInstalled]){
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
+    }
     _allBtn.selected=YES;
     selectedBtn=_allBtn;
     self.navigationController.navigationBarHidden=NO;
@@ -373,7 +377,6 @@
                 
                 [hud hide:YES afterDelay:1.2];
                 UIView *v=[_myordertableview viewWithTag:50+sender.tag];
-                
                 NSLog(@"所有子集 %@",v.subviews);
                 for (UIView *subs in v.subviews) {
                     if([subs isKindOfClass:[UILabel class]]){
@@ -411,48 +414,39 @@
         [hud hide:YES afterDelay:1.2];
         return;
     }
-    //2.安装了微信，进入支付
-    dimview=[[UIView alloc]initWithFrame:self.view.bounds];
-    dimview.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:0.6];
-    [self.view addSubview:dimview];
-    
-    hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    
-    hud1.labelText = NSLocalizedString(@"正在支付...", @"HUD loading title");
     //现获取支付信息
+    
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
-    paras[@"order_id"]=[[orderlist[sender.tag] dictionaryForKey:@"orderHeadVOs"] stringForKey:@"id"];
+    NSDictionary *tempdict=[orderlist[sender.tag]dictionaryForKey:@"orderHeader"];
+    paras[@"order_id"]=[tempdict stringForKey:@"id"];
+    paras[@"isParent"]=[tempdict stringForKey:@"isParent"];
     [HttpTool post:@"get_order_detail" params:paras success:^(id responseObj) {
-        if([responseObj int32ForKey:@"result"]==0){
-            NSLog(@"获取商品详情的参数＝%@ json＝%@",paras,responseObj);
-            NSDictionary *paydicparas=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"wechat_param"];
-            if([WXPayTool wxpaywithdict:paydicparas]){
-                [hud1 removeFromSuperview];
-                [dimview removeFromSuperview];
-                
-            }
+        NSLog(@"获取订单详情=%@ 参数＝%@",responseObj,paras);
+        if([responseObj int32ForKey:@"result"]==0)
+            
+            dimview=[[UIView alloc]initWithFrame:self.view.bounds];
+        dimview.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:0.6];
+        [self.view addSubview:dimview];
+        
+        hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        
+        hud1.labelText = NSLocalizedString(@"正在支付...", @"HUD loading title");
+        
+        if([WXPayTool wxpaywithdict:[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"wechat_param"]]){
+            [hud1 removeFromSuperview];
+            [dimview removeFromSuperview];
+            
+        }
 
-            
-        }
-        else{
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            
-            // Configure for text only and offset down
-            hud.mode = MBProgressHUDModeText;
-            
-            hud.labelText =@"支付失败!";
-            hud.margin = 10.f;
-            hud.removeFromSuperViewOnHide = YES;
-            
-            [hud hide:YES afterDelay:1.2];
-            
-        }
+        
+        
     } failure:^(NSError *error) {
-        NSLog(@"获取订单详情失败 %@",error);
+        NSLog(@"获取详情失败%@",error);
     }];
     
 }
+
 //确认收货
 - (IBAction)sureReceiverBtnClicked:(UIButton *)sender {
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
@@ -543,7 +537,7 @@ paras[@"order_id"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeader"] strin
     hud.removeFromSuperViewOnHide = YES;
     
     [hud hide:YES afterDelay:1.0];
-    UIView *v=[_myordertableview viewWithTag:50+paybtntag];
+    UIView *v=[_myordertableview viewWithTag:50+_payBtn.tag];
     
     NSLog(@"所有子集 %@",v.subviews);
       for (UIView *subs in v.subviews) {
@@ -559,6 +553,8 @@ paras[@"order_id"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeader"] strin
             }
         }
     }
+    [_payBtn removeFromSuperview];
+    [_cancelorderBtn removeFromSuperview];
 }
 -(void)payfailedoption{
     [dimview removeFromSuperview];

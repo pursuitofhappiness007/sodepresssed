@@ -2,38 +2,193 @@
     result=0,
     data={
         wechat_param={
-            a=b
+            partnerid=1320624401,
+            total_fee=0.01,
+            package=Sign=WXPay,
+            noncestr=ChRBqZMMUqqgJ8JX,
+            timestamp=1458739580,
+            prepayid=wx20160323212620181876ee4a0274103199,
+            sign=C8467BF164749148112D6152811AFD6C
         },
         order_detail={
             orderDetailList=[
             {
-                goodsPic=http://static.exinetian.com/${psh}/b2v/goods/image/source/2016322/1458643537459409.jpg,
-                frontPrice=20,
-                frontQuantity=11,
-                goodsId=1008,
-                frontWeight=220,
-                goodsName=大白菜
+                goodsPic=http://static.exinetian.com/b2v/goods/image/source/2016322/1458631506539023.jpg,
+                frontPrice=0.01,
+                frontQuantity=1,
+                goodsId=1005,
+                frontWeight=100,
+                goodsName=测试代下单
             }
                              ],
             orderHeader={
-                id=720,
+                id=849,
                 buyerRemark=1,
-                orderCode=OD20160323090836,
-                payMode=BA,
+                orderCode=OD20160323210965,
+                payMode=WC,
                 address=某市某镇某街道某市场,
-                paymentAmount=220,
+                paymentAmount=0.01,
                 buyerReceiveTime=<null>,
-                createTime=2016-03-23 09:36:35,
+                createTime=2016-03-23 21:15:04,
                 consigneeTel1=13245678912,
                 marketName=A测试市场,
-                businessStatus=2,
+                businessStatus=0,
                 marketId=58
             }
         }
     }
-} 参数＝{
-    isParent=0,
-    app_source=6,
-    order_id=720,
-    token=b2ec2d94a6a940dfdd2c80d2ba76ee89
 }
+
+
+获取所有订单为 {
+    result=0,
+    data={
+        order_list=[
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://static.exinetian.com/b2v/goods/image/source/2016322/1458631506539023.jpg,
+                frontPrice=0.01,
+                frontQuantity=1,
+                goodsId=1005,
+                frontWeight=100,
+                goodsName=测试代下单
+            }
+                             ],
+            orderHeader={
+                id=849,
+                parentId=-1,
+                businessStatusName=待付款,
+                buyerRemark=1,
+                orderCode=OD20160323210965,
+                payMode=WC,
+                address=某市某镇某街道某市场,
+                paymentAmount=0.01,
+                consigneeTel1=13245678912,
+                marketName=A测测试代下单
+            }
+            ],
+            orderHeader={
+                id=849,
+                parentId=-1,
+                businessStatusName=待付款,
+                buyerRemark=1,
+                orderCode=OD20160323210965,
+                payMode=WC,
+                address=某市某镇某街道某市场,
+                paymentAmount=0.01,
+                consigneeTel1=13245678912,
+                marketName=A测\350试市场,
+                isParent=1,
+                businessStatus=0,
+                marketId=58
+            }
+        },
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://static.exinetian.com/b2v/goods/image/source/2016323/1458715606488057.jpg,
+                frontPrice=57,
+                frontQuantity=1,
+                goodsId=1009,
+                frontWeight=23,
+                goodsName=测试代下单
+            }
+                             ],
+            orderHeader={
+                id=849,
+                parentId=-1,
+                businessStatusName=待付款,
+                buyerRemark=1,
+                orderCode=OD20160323210965,
+                payMode=WC,
+                address=某市某镇某街道某市场,
+                paymentAmount=0.01,
+                consigneeTel1=13245678912,
+                marketName=A测\350试市场,
+                isParent=1,
+                businessStatus=0,
+                marketId=58
+            }
+        },
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://static.exinetian.com/b2v/goods/image/source/2016323/1458715606488057.jpg,
+                frontPrice=57,
+                frontQuantity=1,
+                goodsId=1009,
+                frontWeight=23,
+                goodsName=\345小白兔a 
+            }
+                             ],
+            orderHeader={
+                id=848,
+                parentId=847,
+                businessStatusName=待发货,
+                buyerRemark=1,
+                orderCode=OD20160323200964,
+                payMode=BA,
+                address=某市某镇某街道某市场,
+                paymentAmount=57,
+                consigneeTel1=13245678912,
+                marketName=A测试市场,
+                isParent=0,
+                businessStatus=2,
+                marketId=58
+            }
+        },
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://static.exinetian.com/b2v/goods/image/source/2016323/1458715606488057.jpg,
+                frontPrice=57,
+                frontQuantity=1,
+                goodsId=1009,
+                frontWeight=23,
+                goodsName=小白兔a 
+            }
+                             ],
+            orderHeader={
+                id=846,
+                parentId=845,
+                businessStatusName=待发货,
+                buyerRemark=1,
+                orderCode=OD20160323200962,
+                payMode=BA,
+                address=某市某镇某街道某市场,
+                paymentAmount=57,
+                consigneeTel1=13245678912,
+                marketName=A测试市场,
+                isParent=0,
+                businessStatus=2,
+                marketId=58
+            }
+        },
+        {
+            orderDetailList=[
+            {
+                goodsPic=http://static.exinetian.com/b2v/goods/image/source/2016323/1458715606488057.jpg,
+                frontPrice=57,
+                frontQuantity=1,
+                goodsId=1009,
+                frontWeight=23,
+                goodsName=小白兔a 
+            }
+                             ],
+            orderHeader={
+                id=844,
+                parentId=843,
+                businessStatusName=待发货,
+                buyerRemark=1,
+                orderCode=OD20160323200960,
+                payMode=BA,
+                address=某市某镇某街道某市场,
+                paymentAmount=57,
+                consigneeTel1=13245678912,
+                marketName=A测试市场,
+                isParent=0,
+                businessStatus=2,
+                marketId=58
+            }
+        },
