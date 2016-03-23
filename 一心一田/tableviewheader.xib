@@ -21,20 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hC-Jw-YAP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="157.5"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjK-7E-MPt">
-                            <rect key="frame" x="0.0" y="0.0" width="750" height="157.5"/>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="yjK-7E-MPt" firstAttribute="width" secondItem="0hC-Jw-YAP" secondAttribute="width" multiplier="2" id="2Sh-0X-l6d"/>
-                        <constraint firstAttribute="trailing" secondItem="yjK-7E-MPt" secondAttribute="trailing" id="3b9-zx-Rwp"/>
-                        <constraint firstItem="yjK-7E-MPt" firstAttribute="leading" secondItem="0hC-Jw-YAP" secondAttribute="leading" id="AEf-JQ-P8K"/>
-                        <constraint firstAttribute="bottom" secondItem="yjK-7E-MPt" secondAttribute="bottom" id="J8C-0R-EhZ"/>
-                        <constraint firstItem="yjK-7E-MPt" firstAttribute="top" secondItem="0hC-Jw-YAP" secondAttribute="top" id="XXa-Ae-fZ7"/>
-                        <constraint firstItem="yjK-7E-MPt" firstAttribute="height" secondItem="0hC-Jw-YAP" secondAttribute="height" id="tPC-6z-tKU"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-Vl-njK" userLabel="SeparatorView">
                     <rect key="frame" x="0.0" y="157.5" width="375" height="4.5"/>
