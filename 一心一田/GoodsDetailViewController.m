@@ -62,7 +62,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  self.navigationItem.title = @"商品详情";
-   self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
+   self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
       [self getdatafromweb];
     
 }
@@ -86,7 +86,7 @@
       NSLog(@"商品详情 参数=%@,%@",paras,responseObj);
          if([responseObj int32ForKey:@"result"]==0){
       goodsdetail=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"goods_detail"];
-    self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
+      self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
              [self setlocalcontent];
          }
        } failure:^(NSError *error) {

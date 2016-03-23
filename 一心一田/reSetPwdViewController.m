@@ -75,6 +75,7 @@
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.2];
+            [self.navigationController popViewControllerAnimated:YES];
         }
         else{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];

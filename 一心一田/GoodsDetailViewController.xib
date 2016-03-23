@@ -13,7 +13,7 @@
                 <outlet property="countlab" destination="sld-SN-j8A" id="TBZ-zi-6g0"/>
                 <outlet property="goodImg" destination="SQs-sY-dpz" id="2sk-cu-XPx"/>
                 <outlet property="nameLb" destination="W5d-8x-PXy" id="9E5-7p-OtS"/>
-                <outlet property="payBtn" destination="Md1-2G-tak" id="g2l-Jt-V66"/>
+                <outlet property="payBtn" destination="Md1-2G-tak" id="lvx-Dv-1yS"/>
                 <outlet property="price1" destination="L22-cB-uui" id="Mmb-Fm-PJS"/>
                 <outlet property="price2" destination="fcX-I4-DoB" id="NBB-0M-Upx"/>
                 <outlet property="price3" destination="PZE-Un-h8g" id="gGF-6a-jWx"/>
@@ -26,6 +26,8 @@
                 <outlet property="redlineleadingconstant" destination="oCu-ce-XVc" id="5XT-Hq-aBM"/>
                 <outlet property="shortComment" destination="zB2-b5-JiV" id="mCc-df-GZi"/>
                 <outlet property="specification" destination="UzV-28-Wkg" id="OoE-QA-HTV"/>
+                <outlet property="sumkindlab" destination="NYH-H9-Rrh" id="6y0-Cm-faf"/>
+                <outlet property="summoneylab" destination="MmH-nL-d1J" id="Ejr-uU-NUU"/>
                 <outlet property="textArea" destination="inE-J3-cvU" id="QSR-6T-Jw0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
