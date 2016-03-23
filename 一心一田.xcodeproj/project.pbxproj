@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE596B0C1CA131F100B3F82E /* newProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE596B0A1CA131F100B3F82E /* newProductViewController.m */; };
 		CE596B0D1CA131F100B3F82E /* newProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE596B0B1CA131F100B3F82E /* newProductViewController.xib */; };
-		CE5F99521CA23717008FE494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5F99511CA23717008FE494 /* Assets.xcassets */; };
 		CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */; };
 		CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */; };
 		CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */; };
@@ -172,7 +171,6 @@
 		CE596B091CA131F100B3F82E /* newProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newProductViewController.h; sourceTree = "<group>"; };
 		CE596B0A1CA131F100B3F82E /* newProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newProductViewController.m; sourceTree = "<group>"; };
 		CE596B0B1CA131F100B3F82E /* newProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newProductViewController.xib; sourceTree = "<group>"; };
-		CE5F99511CA23717008FE494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEECE1D51C9AD173009D11D8 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterViewController.xib; sourceTree = "<group>"; };
@@ -729,7 +727,6 @@
 		FE6DC0811C8D617500E93578 /* others */ = {
 			isa = PBXGroup;
 			children = (
-				CE5F99511CA23717008FE494 /* Assets.xcassets */,
 				FE6DC04E1C8D5BEB00E93578 /* 版本新特性 */,
 				FE6DC02E1C8D597200E93578 /* AppDelegate.h */,
 				FE6DC02F1C8D597200E93578 /* AppDelegate.m */,
@@ -1131,7 +1128,6 @@
 				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
-				CE5F99521CA23717008FE494 /* Assets.xcassets in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
 				FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
