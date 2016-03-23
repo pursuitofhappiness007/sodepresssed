@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE596B041CA1280C00B3F82E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE596B031CA1280C00B3F82E /* Assets.xcassets */; };
 		CE596B0C1CA131F100B3F82E /* newProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE596B0A1CA131F100B3F82E /* newProductViewController.m */; };
 		CE596B0D1CA131F100B3F82E /* newProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE596B0B1CA131F100B3F82E /* newProductViewController.xib */; };
 		CE596B0F1CA14C1500B3F82E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE596B0E1CA14C1500B3F82E /* Assets.xcassets */; };
