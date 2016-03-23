@@ -208,8 +208,9 @@
     for (NSDictionary *dict in _tabledata) {
         int kcount=[LocalAndOnlineFileTool singlegoodcount:[dict stringForKey:@"id"]];
         
-        [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount]}]];
-        [willberesetids addObject:[dict stringForKey:@"id"]];
+//        [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount],@"weight":@"2",@"calculation":[dict stringForKey:@"billUnit"]}]];
+         [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount]}]];
+        [willberesetids addObject:[dict stringForKey:@"goodsId"]];
     }
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
@@ -329,14 +330,14 @@
         {
          paymode=@"BA";
             _yueimg.image=[UIImage imageNamed:@"check"];
-            _wechatimg.image=[UIImage imageNamed:@""];
+            _wechatimg.image=[UIImage imageNamed:@"uncheck"];
         
         }
             break;
         case 2:
         {
             paymode=@"WC";
-            _yueimg.image=[UIImage imageNamed:@""];
+            _yueimg.image=[UIImage imageNamed:@"uncheck"];
             _wechatimg.image=[UIImage imageNamed:@"check"];
         }
             break;

@@ -171,12 +171,7 @@
     _phonelab.text=[dict stringForKey:@"consigneeTel1"];
     _ordercodelab.text=[dict stringForKey:@"orderCode"];
     
-    _orderdealtimelab.text=[NSString stringWithFormat:@"订单时间:%@",[dict stringForKey:@"createTime"]];
-    //设置底部的字段
-    //_totalgoodscountlab.text=[NSString stringWithFormat:@"共%d件商品"];
-
-    
-    
+   
     
     
 }
@@ -229,6 +224,13 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"commonfooter" owner:self options:nil]firstObject];
     view.frame=CGRectMake(0, 0, MAIN_WIDTH, MAIN_HEIGHT*0.12);
+    NSDictionary *dict=[orderinfo dictionaryForKey:@"orderHeader"];
+    //支付编号
+    _ordercodelab.text=[NSString stringWithFormat:@"支付编号:%@",[dict stringForKey:@"orderCode"]];
+    //订单时间啊
+    _orderdealtimelab.text=[NSString stringWithFormat:@"订单时间:%@",[dict stringForKey:@"createTime"]];
+    //自动收货时间
+    _automaticalreceivetimelab.text=[NSString stringWithFormat:@"自动收货时间:%@",[dict stringForKey:@"buyerReceiveTime"]];
     return view;
     
     
@@ -380,6 +382,7 @@
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:.8];
+    _statuslab.text=@"已完成";
     [UIView animateWithDuration:.3 animations:^{
         _payBtn.x+=MAIN_WIDTH-_payBtn.x;
         _cancelorderBtn.x+=MAIN_WIDTH-_payBtn.x;

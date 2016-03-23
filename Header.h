@@ -2,33 +2,38 @@
     result=0,
     data={
         wechat_param={
-            error_msg=[Wechat]OUT_TRADE_NO_USED: 商户订单号重复
+            a=b
         },
         order_detail={
             orderDetailList=[
             {
-                goodsPic=http://192.168.199.50:8870/images/no_picture.png,
-                frontPrice=0.01,
-                frontQuantity=1,
-                goodsId=1005,
-                frontWeight=100,
-                goodsName=测试代下单
+                goodsPic=http://static.exinetian.com/${psh}/b2v/goods/image/source/2016322/1458643537459409.jpg,
+                frontPrice=20,
+                frontQuantity=11,
+                goodsId=1008,
+                frontWeight=220,
+                goodsName=大白菜
             }
                              ],
             orderHeader={
-                id=604,
+                id=720,
                 buyerRemark=1,
-                orderCode=OD20160322160720,
-                payMode=WC,
+                orderCode=OD20160323090836,
+                payMode=BA,
                 address=某市某镇某街道某市场,
-                paymentAmount=0.01,
+                paymentAmount=220,
                 buyerReceiveTime=<null>,
-                createTime=2016-03-22 16:28:46,
+                createTime=2016-03-23 09:36:35,
                 consigneeTel1=13245678912,
                 marketName=A测试市场,
-                businessStatus=0,
+                businessStatus=2,
                 marketId=58
             }
         }
     }
+} 参数＝{
+    isParent=0,
+    app_source=6,
+    order_id=720,
+    token=b2ec2d94a6a940dfdd2c80d2ba76ee89
 }

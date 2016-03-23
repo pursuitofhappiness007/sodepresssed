@@ -107,7 +107,7 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"goodslist=%ld",self.productArr.count);
     
-    if(pagenum<totalpage){
+    if(pagenum<totalpage&&indexPath.row==_productArr.count-1){
         pagenum++;
         NSLog(@"huadongdi %d",pagenum);
         [self getProductDataFromSever:pagenum];
@@ -130,6 +130,7 @@
     cell.specific = good[@"specifications"];
     cell.goodimg = good[@"thumbnailImg"];
     cell.detailBtn.tag = indexPath.row;
+    cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {

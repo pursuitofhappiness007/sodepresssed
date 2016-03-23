@@ -60,7 +60,11 @@
 
 -(void)setCurrentcount:(NSString *)currentcount{
     _countlab.text=currentcount;
-    int i=[currentcount intValue];
+    [_addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    if([currentcount intValue]>0)
+        [_minusBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    else
+        [_minusBtn setTitleColor:[UIColor colorWithRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1.0] forState:UIControlStateNormal];
 
 }
 

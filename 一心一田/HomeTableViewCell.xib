@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -171,10 +171,17 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBA-mQ-tuA">
                         <rect key="frame" x="11" y="9" width="344.5" height="90"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7I-94-jIc">
+                        <rect key="frame" x="322" y="133.5" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.61176470588235299" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="So2-5D-t0f" firstAttribute="bottom" secondItem="GxQ-oN-O55" secondAttribute="bottom" id="39x-Sc-07q"/>
                     <constraint firstItem="GxQ-oN-O55" firstAttribute="trailing" secondItem="zes-n4-dGd" secondAttribute="trailing" id="65a-eh-Ydo"/>
+                    <constraint firstItem="n7I-94-jIc" firstAttribute="trailing" secondItem="GxQ-oN-O55" secondAttribute="trailing" id="7Ja-FT-CDD"/>
                     <constraint firstItem="So2-5D-t0f" firstAttribute="width" secondItem="zes-n4-dGd" secondAttribute="width" id="8Ls-hX-4mS"/>
                     <constraint firstItem="aHe-te-7vL" firstAttribute="trailing" secondItem="GxQ-oN-O55" secondAttribute="trailing" id="AaJ-hk-8ss"/>
                     <constraint firstItem="Gni-Hg-4Ag" firstAttribute="trailing" secondItem="IxB-g8-abE" secondAttribute="trailing" id="BQI-t8-64W"/>
@@ -200,6 +207,7 @@
                     <constraint firstItem="Gni-Hg-4Ag" firstAttribute="top" secondItem="iKf-PT-ud7" secondAttribute="top" id="hyb-PD-irT"/>
                     <constraint firstItem="aHe-te-7vL" firstAttribute="top" secondItem="iKf-PT-ud7" secondAttribute="top" id="irF-PG-NjQ"/>
                     <constraint firstItem="OvM-uA-jHl" firstAttribute="bottom" secondItem="GxQ-oN-O55" secondAttribute="bottom" id="m7f-zO-typ"/>
+                    <constraint firstItem="n7I-94-jIc" firstAttribute="top" secondItem="GxQ-oN-O55" secondAttribute="bottom" constant="3" id="miE-42-MIt"/>
                     <constraint firstItem="JQT-gL-NNH" firstAttribute="leading" secondItem="7Aa-fz-Uz2" secondAttribute="leading" id="oT1-ku-uw5"/>
                     <constraint firstItem="OvM-uA-jHl" firstAttribute="top" secondItem="GxQ-oN-O55" secondAttribute="top" id="qTE-EE-gFL"/>
                     <constraint firstItem="OvM-uA-jHl" firstAttribute="leading" secondItem="So2-5D-t0f" secondAttribute="trailing" id="qVw-Ov-3Xe"/>
@@ -230,6 +238,7 @@
             <connections>
                 <outlet property="addBtn" destination="zes-n4-dGd" id="aPc-ON-K0V"/>
                 <outlet property="countlab" destination="OvM-uA-jHl" id="Srt-h2-C3o"/>
+                <outlet property="dailysaleslab" destination="n7I-94-jIc" id="pyK-59-mcP"/>
                 <outlet property="detailBtn" destination="lBA-mQ-tuA" id="SaT-b8-UmX"/>
                 <outlet property="goodnamelab" destination="qfz-j9-7Nx" id="yCE-Fn-72r"/>
                 <outlet property="goodsimageview" destination="lst-3D-RJG" id="zDj-MG-Agv"/>

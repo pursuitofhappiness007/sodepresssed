@@ -12,10 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *goodnamelab;
 @property (weak, nonatomic) IBOutlet UILabel *shortcommentlab;
 @property (weak, nonatomic) IBOutlet UILabel *specificlab;
-
-
-
-
+@property (weak, nonatomic) IBOutlet UILabel *dailysaleslab;
 @end
 @implementation HomeTableViewCell
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -40,6 +37,11 @@
 
 - (void)awakeFromNib {
     // Initialization code
+}
+
+//当日销售量
+-(void)setDailysales:(NSString *)dailysales{
+    _dailysaleslab.text=dailysales;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -85,5 +87,10 @@
 }
 -(void)setCount:(NSString *)count{
     _countlab.text=count;
+    [_addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    if([count intValue]>0)
+        [_minusBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    else
+        [_minusBtn setTitleColor:[UIColor colorWithRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1.0] forState:UIControlStateNormal];
 }
 @end

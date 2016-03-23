@@ -73,15 +73,18 @@
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     [HttpTool post:@"logout" params:paras success:^(id responseObj) {
         NSLog(@"退出帐号%@",responseObj);
-        [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"tokenfile.txt"];
+       
         //注销消息推送
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+         paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
         paras[@"baidu_user_id"]=[BPush getUserId];
         paras[@"baidu_channel_id"]=[BPush getChannelId];
         paras[@"baidu_app_id"]=[BPush getAppId];
         paras[@"device_type"]=@"4";
+       
         [HttpTool post:@"msg_push_unregister" params:paras success:^(id responseObj) {
-            NSLog(@"注销推送成功%@",responseObj);
+            NSLog(@"注销推送成功%@  参数＝%@",responseObj,paras);
+             [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"tokenfile.txt"];
         } failure:^(NSError *error) {
             NSLog(@"注销推送失败%@",error);
         }];

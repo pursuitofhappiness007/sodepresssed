@@ -12,7 +12,9 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "BPush.h"
-@interface AppDelegate ()<UIAlertViewDelegate,WXApiDelegate>
+@interface AppDelegate ()<UIAlertViewDelegate,WXApiDelegate>{
+    NSString *trackViewUrl;
+}
 
 @end
 
@@ -45,7 +47,6 @@
     }
     else {
         if([[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"] floatValue]){
-            
             
         }
         self.window.rootViewController = [[NewFuturesViewController alloc] init];
@@ -82,8 +83,91 @@
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[[[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"pushinfo.txt"] count]];
         NSLog(@"fjoqwierie");
     }
+//    [self VersionUpdate];
     return YES;
 }
+
+-(void)VersionUpdate{
+    NSError *error;
+    NSString *urlStr=[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=1076231575"];
+    if(urlStr.length==0){
+        NSLog(@"没有地址");
+        return;
+    }
+    NSURL *url=[NSURL URLWithString:urlStr];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    NSData *response=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *appInDict=[NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    NSLog(@"appindict=%@",appInDict);
+    if(error){
+        NSLog(@"errorooooo :%@",[error description]);
+        return ;
+        
+    }
+    
+    NSArray *resultsArray=[appInDict objectForKey:@"results"];
+    if(![resultsArray count])
+    {
+        NSLog(@"error :resultsArray==nil");
+        return ;
+    }
+    //app store中的最新版本信息
+    NSDictionary *infoDic=resultsArray[0];
+    NSString *lastestversion=infoDic[@"version"];
+    NSLog(@"商店中的版本＝＝%@",lastestversion);
+    trackViewUrl=infoDic[@"trackViewUrl"];
+    NSString *trackname=infoDic[@"trackName"];
+    //当前版本信息
+    NSDictionary *currentinfoDict=[[NSBundle mainBundle]infoDictionary];
+    NSString *currentVersion=currentinfoDict[@"CFBundleVersion"];
+    NSArray *currentnums=[currentVersion componentsSeparatedByString:@"."];
+    NSArray *lastestnums=[lastestversion componentsSeparatedByString:@"."];
+    if([[currentnums objectAtIndex:0] intValue]<[[lastestnums objectAtIndex:0]  intValue]){
+        NSString *titleStr=[NSString stringWithFormat:@"检查更新:%@",trackname];
+        NSString *messageStr=[NSString stringWithFormat:@"发现新版本(%@),是否升级?",lastestversion];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:titleStr message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+        alert.tag=100;
+        [alert show];
+        
+        
+    }
+    
+    else if ([[currentnums objectAtIndex:0] intValue]==[[lastestnums objectAtIndex:0]  intValue]){
+        if([currentnums[1] intValue]<[lastestnums[1] intValue]){
+            NSString *titleStr=[NSString stringWithFormat:@"检查更新:%@",trackname];
+            NSString *messageStr=[NSString stringWithFormat:@"发现新版本(%@),是否升级?",lastestversion];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:titleStr message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+            alert.tag=100;
+            [alert show];
+            
+        }
+        
+        if([currentnums[1] intValue]==[lastestnums[1] intValue]){
+            if([currentnums[2] intValue]<[lastestnums[2] intValue]){
+                NSString *titleStr=[NSString stringWithFormat:@"检查更新:%@",trackname];
+                NSString *messageStr=[NSString stringWithFormat:@"发现新版本(%@),是否升级?",lastestversion];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:titleStr message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"升级", nil];
+                alert.tag=100;
+                [alert show];
+                
+            }
+            if([currentnums[2] intValue]>[lastestnums[2] intValue]){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"已经是最新版本" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                [alert show];
+                
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
+}
+
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {

@@ -12,6 +12,7 @@
 #import "MutipleGoodsViewController.h"
 #import "WXApiManager.h"
 #define  singlesize @"6"
+#import "WXPayTool.h"
 @interface MyOrderViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSMutableArray *orderlist;
     int pagenum;
@@ -108,7 +109,7 @@
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
      paras[@"page_no"]=[NSString stringWithFormat:@"%d",pagenum];
     paras[@"page_size"]=singlesize;
-//    paras[@"order_conditions"]=[DictionaryToJsonStr dictToJsonStr:dict];
+    paras[@"order_conditions"]=[DictionaryToJsonStr dictToJsonStr:dict];
     [HttpTool post:@"get_order_list" params:paras success:^(id responseObj) {
         NSLog(@"获取所有订单为 %@",responseObj);
         NSLog(@"获取订单参数%@",paras);
@@ -165,16 +166,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     if(indexPath.section==orderlist.count-1){
         if(pagenum*[singlesize intValue]<totalrows){
         pagenum++;
         NSLog(@"huadongdi %d",pagenum);
         [self getdatafromweb:pagenum jsondict:jsondict];
         }
-        
     }
-    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -275,8 +273,9 @@
     }
     [orderlist removeAllObjects];
     pagenum=1;
-    [self getdatafromweb:1 jsondict:@{@"businessStatus":@"0"}];
     jsondict=@{@"businessStatus":@"0"};
+    [self getdatafromweb:1 jsondict:jsondict];
+    
 }
 //待发货
 - (IBAction)dfhBtnClicked:(UIButton *)sender {
@@ -346,7 +345,7 @@
     
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
         paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
-        paras[@"orderId"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeadVOs"] stringForKey:@"id"];
+    paras[@"order_id"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeader"] stringForKey:@"id"];
         [HttpTool post:@"cancel_order" params:paras success:^(id responseObj) {
             if([responseObj int32ForKey:@"result"]==-1){
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
@@ -382,9 +381,8 @@
                         if(lab.tag==22){
                             lab.textColor=[UIColor redColor];
                             lab.text=@"已取消";
-                            _cancelorderBtn.hidden=YES;
-                            _payBtn.hidden=YES;
-                            _seeorderBtn.x=_payBtn.x;
+                            [_payBtn removeFromSuperview];
+                            [_cancelorderBtn removeFromSuperview];
                             
                         }
                     }
@@ -429,16 +427,7 @@
         if([responseObj int32ForKey:@"result"]==0){
             NSLog(@"获取商品详情的参数＝%@ json＝%@",paras,responseObj);
             NSDictionary *paydicparas=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"wechat_param"];
-            PayReq *request=[[PayReq alloc]init];
-            
-            request.partnerId=[paydicparas stringForKey:@"partnerid"];
-            request.package =@"Sign=WXPay";
-            request.prepayId=[paydicparas stringForKey:@"prepayid"];
-            request.nonceStr=[paydicparas stringForKey:@"noncestr"];
-            request.timeStamp=[paydicparas int64ForKey:@"timestamp"];
-            request.sign=[paydicparas stringForKey:@"sign"];
-           
-            if([WXApi sendReq:request]){
+            if([WXPayTool wxpaywithdict:paydicparas]){
                 [hud1 removeFromSuperview];
                 [dimview removeFromSuperview];
                 
@@ -468,8 +457,8 @@
 - (IBAction)sureReceiverBtnClicked:(UIButton *)sender {
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
-    paras[@"orderId"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeadVOs"] stringForKey:@"id"];
-    [HttpTool post:@"confirm_order" params:paras success:^(id responseObj) {
+paras[@"order_id"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeader"] stringForKey:@"id"];
+    [HttpTool post:@"order_confirm" params:paras success:^(id responseObj) {
         if([responseObj int32ForKey:@"result"]==-1){
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             
@@ -493,17 +482,13 @@
             UIView *v=[_myordertableview viewWithTag:50+sender.tag];
             
             NSLog(@"所有子集 %@",v.subviews);
-            
-            
-            
             for (UIView *subs in v.subviews) {
                 if([subs isKindOfClass:[UILabel class]]){
                     UILabel *lab=(UILabel *)subs;
                     if(lab.tag==22){
                         lab.textColor=[UIColor redColor];
                         lab.text=@"已收货";
-                        _surereceiveBtn.hidden=YES;
-                        _seeorderBtn.x=_surereceiveBtn.x;
+                        [_surereceiveBtn removeFromSuperview];
                         
                     }
                 }
@@ -566,7 +551,7 @@
             UILabel *lab=(UILabel *)subs;
             if(lab.tag==22){
                 lab.textColor=[UIColor redColor];
-                lab.text=@"已付款";
+                lab.text=@"已完成";
                 _cancelorderBtn.hidden=YES;
                 _payBtn.hidden=YES;
                 _seeorderBtn.x=_payBtn.x;

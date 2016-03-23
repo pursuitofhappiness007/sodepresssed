@@ -19,7 +19,7 @@
 @implementation LoginViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-  self.navigationController.navigationBarHidden=NO;
+  self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=YES;
 }
 - (void)viewDidLoad {
