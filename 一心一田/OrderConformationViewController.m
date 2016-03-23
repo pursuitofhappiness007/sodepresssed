@@ -207,10 +207,8 @@
     NSMutableArray *willberesetids=[NSMutableArray array];
     for (NSDictionary *dict in _tabledata) {
         int kcount=[LocalAndOnlineFileTool singlegoodcount:[dict stringForKey:@"id"]];
-        
-//        [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount],@"weight":@"2",@"calculation":[dict stringForKey:@"billUnit"]}]];
          [deliverlist addObject:[DictionaryToJsonStr dictToJsonStr:@{@"goodsRelativeId":[dict stringForKey:@"id"],@"quantity":[NSString stringWithFormat:@"%d",kcount]}]];
-        [willberesetids addObject:[dict stringForKey:@"goodsId"]];
+        [willberesetids addObject:[dict stringForKey:@"id"]];
     }
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
@@ -234,8 +232,7 @@
         }
         //订单提交成功
         else {
-            
-            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
+            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids isshopcar:NO];
             
             [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             //如果是微信支付
@@ -280,7 +277,13 @@
             else {
                 //跳到订单详情
                 MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-                vc.order_id=[[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_info"]stringForKey:@"id"];
+                NSLog(@"余额支付成功后的json＝%@",responseObj);
+                NSDictionary *dict=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_info"];
+                vc.order_id=[dict stringForKey:@"id"];
+                vc.isparent=@"1";
+                //重置购物车
+                [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids isshopcar:NO];
+                [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
                 [self.navigationController pushViewController:vc animated:YES];
               
             }

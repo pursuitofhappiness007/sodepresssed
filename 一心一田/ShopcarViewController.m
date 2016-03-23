@@ -49,6 +49,8 @@
 -(void)viewWillDisappear:(BOOL)animated{
         [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
         rightBtn.selected=NO;
+    
+    rightBtn.hidden=NO;
         _shopcartableview.editing=NO;
         for(int i=0;i<[_shopcartableview numberOfSections];i++){
             ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
@@ -59,7 +61,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
     [self initparas];
     [self setnavbar];
     [self setbottombar];
@@ -75,7 +77,6 @@
     [rightBtn setTitleColor:[UIColor colorWithRed:186.0/255 green:184.0/255 blue:184.0/255 alpha:1.0] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(editBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    rightBtn.hidden=YES;
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:rightBtn];
 }
 
@@ -93,6 +94,7 @@
     _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
     
     [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
+    [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
 }
 
 -(void)backBtnClicked{
@@ -143,8 +145,11 @@
 }
 
 -(void)initparas{
+    
     tabledata=[NSMutableArray array];
+    NSLog(@"余额支付陈工后的tabledata=%@",tabledata);
     tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist]mutableCopy];
+    
     if(tabledata.count==0){
         _emptynoticelab.hidden=NO;
         _optionBar.hidden=YES;
@@ -304,7 +309,7 @@
         if(i==1)
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.currentcount=[NSString stringWithFormat:@"%d",i-1];
-        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController isinshopcar:YES];
         [self setbottombar];
     }
 }
@@ -321,7 +326,7 @@
     if(cell.singleBtn.selected)return;
     int i=[cell.countlab.text intValue];
     cell.currentcount=[NSString stringWithFormat:@"%d",i+1];
-    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController isinshopcar:YES];
     [self setbottombar];
 }
 
@@ -382,14 +387,6 @@
 
 - (IBAction)suredeletedBtnClicked:(UIButton *)sender {
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
-        if(!cell.singleBtn.selected){
-            quantity-=[cell.countlab.text intValue];
-            totaltopay-=[cell.countlab.text intValue]*cell.singleprice;
-            _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
-            [_paybtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
-            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:@[cell.goodsid]];
-        }
-        
         [tabledata removeObjectAtIndex:sender.tag];
     cell.singleBtn.hidden=NO;
         if(tabledata.count==0){
@@ -403,7 +400,8 @@
         [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag]
                          withRowAnimation:UITableViewRowAnimationAutomatic];
     [_shopcartableview endUpdates];
-        
+    [LocalAndOnlineFileTool resetaftersuccessfulsubmit:@[cell.goodsid] isshopcar:YES];
+    [self setbottombar];
         [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
         rightBtn.selected=NO;
         _shopcartableview.editing=NO;

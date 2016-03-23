@@ -108,7 +108,6 @@
 		FE906D2A1CA130280099D786 /* UsuallyBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE906D281CA130280099D786 /* UsuallyBuyViewController.m */; };
 		FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D291CA130280099D786 /* UsuallyBuyViewController.xib */; };
 		FE906D2F1CA13A780099D786 /* threeBtninfoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D2E1CA13A780099D786 /* threeBtninfoot.xib */; };
-		FE906D311CA14BFE0099D786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE906D301CA14BFE0099D786 /* Assets.xcassets */; };
 		FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9915771C9AE9F900425055 /* sectiontitle.xib */; };
 		FE9B6A211C9AD44D007B6683 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */; };
 		FE9B6A221C9AD44D007B6683 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9B6A141C9AD44D007B6683 /* TAAbstractDotView.m */; };
@@ -123,6 +122,7 @@
 		FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9D1C929C860018A11C /* filterwindow.xib */; };
 		FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA11C929F670018A11C /* footerforsection.xib */; };
 		FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA21C929F670018A11C /* onebtninfooter.xib */; };
+		FEC96E821CA2A4F40056E3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC96E811CA2A4F40056E3B7 /* Assets.xcassets */; };
 		FECF1A8F1C9FEDCD00A7A580 /* NewFuturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */; };
 		FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */; };
 		FECF1A921C9FF7BB00A7A580 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A911C9FF7BB00A7A580 /* 4.png */; };
@@ -342,7 +342,6 @@
 		FE906D281CA130280099D786 /* UsuallyBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsuallyBuyViewController.m; sourceTree = "<group>"; };
 		FE906D291CA130280099D786 /* UsuallyBuyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsuallyBuyViewController.xib; sourceTree = "<group>"; };
 		FE906D2E1CA13A780099D786 /* threeBtninfoot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = threeBtninfoot.xib; sourceTree = "<group>"; };
-		FE906D301CA14BFE0099D786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE9915771C9AE9F900425055 /* sectiontitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sectiontitle.xib; sourceTree = "<group>"; };
 		FE9B6A101C9AD44D007B6683 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
 		FE9B6A111C9AD44D007B6683 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
@@ -365,6 +364,7 @@
 		FEB20D9D1C929C860018A11C /* filterwindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filterwindow.xib; sourceTree = "<group>"; };
 		FEB20DA11C929F670018A11C /* footerforsection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = footerforsection.xib; sourceTree = "<group>"; };
 		FEB20DA21C929F670018A11C /* onebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onebtninfooter.xib; sourceTree = "<group>"; };
+		FEC96E811CA2A4F40056E3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FECF1A8C1C9FEDCD00A7A580 /* NewFuturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFuturesViewController.h; sourceTree = "<group>"; };
 		FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFuturesViewController.m; sourceTree = "<group>"; };
 		FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFuturesViewController.xib; sourceTree = "<group>"; };
@@ -568,7 +568,7 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE906D301CA14BFE0099D786 /* Assets.xcassets */,
+				FEC96E811CA2A4F40056E3B7 /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1132,12 +1132,12 @@
 				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
+				FEC96E821CA2A4F40056E3B7 /* Assets.xcassets in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
 				FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
 				FEDFA0C41C9124C70010E5E3 /* deleteview.xib in Resources */,
 				FE545B0E1C8FCE7E0081DB28 /* MessageTableViewCell.xib in Resources */,
-				FE906D311CA14BFE0099D786 /* Assets.xcassets in Resources */,
 				FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */,
 				CEECE1E71C9AD17D009D11D8 /* NavBarForHome.xib in Resources */,
 				FEDFA0EB1C912A500010E5E3 /* AddInOrderTableViewCell.xib in Resources */,

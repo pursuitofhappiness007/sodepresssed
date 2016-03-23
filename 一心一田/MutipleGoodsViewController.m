@@ -16,6 +16,7 @@
     int statusoforder;
     UIView *dimview;
     MBProgressHUD *hud1;
+    NSDictionary *wxpaydict;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *receiverlab;
@@ -73,6 +74,7 @@
 }
 -(void)initparas{
     orderinfo=[NSDictionary dictionary];
+    wxpaydict=[NSDictionary dictionary];
 }
 
 -(void)getdatafromweb{
@@ -85,6 +87,7 @@
         NSLog(@"获取订单详情=%@ 参数＝%@",responseObj,paras);
         if([responseObj int32ForKey:@"result"]==0&&([[[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_detail"]arrayForKey:@"orderDetailList"]count]>0))
         orderinfo=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_detail"];
+        wxpaydict=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"wechat_param"];
         [self setlocalcontent];
         [_orderdetailtableview reloadData];
     } failure:^(NSError *error) {
@@ -359,9 +362,8 @@
     hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
     hud1.labelText = NSLocalizedString(@"正在支付...", @"HUD loading title");
-    //现获取支付信息
-    NSDictionary *paydict=[orderinfo dictionaryForKey:@"wechat_param"];
-    if([WXPayTool wxpaywithdict:paydict]){
+    
+    if([WXPayTool wxpaywithdict:wxpaydict]){
         [hud1 removeFromSuperview];
         [dimview removeFromSuperview];
         
@@ -378,7 +380,6 @@
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
     hud.labelText =@"支付成功！";
-    _statuslab.text=@"待发货";
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:.8];

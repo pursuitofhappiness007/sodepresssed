@@ -184,7 +184,7 @@
     GoodListTableViewCell *cell=[table cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
     int i=[cell.countlab.text intValue];
     cell.count=[NSString stringWithFormat:@"%d",i+1];
-    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController isinshopcar:NO];
 }
 -(void)minusBtnClicked:(UIButton *)sender{
     GoodListTableViewCell *cell=[table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
@@ -194,7 +194,7 @@
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.count=[NSString stringWithFormat:@"%d",i-1];
         
-        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController isinshopcar:NO];
         
         
     }
