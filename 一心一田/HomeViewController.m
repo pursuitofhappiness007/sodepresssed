@@ -98,7 +98,7 @@
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
          noticeArr = [noArr mutableCopy];
          navigationArr = [naArr mutableCopy];
-         [self setUpScrollerView];
+        [self setUpScrollerView];
      }
  } failure:^(NSError *error) {
        NSLog(@"---------------------------------------------------------------");
@@ -164,12 +164,11 @@
     NSMutableArray *arry = [NSMutableArray array];
     for (int i = 0; i<navigationArr.count; i++) {
         NSDictionary *pollImg = navigationArr[i];
-        NSURL *image = pollImg[@"adCode"];
+        NSURL *image =  [pollImg stringForKey:@"adCode"];
         [arry addObject:image];
     }
-    SDCycleScrollView *scrollView =[[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, self.scrollview.bounds.size.width, self.scrollview.frame.size.height)];
+    SDCycleScrollView *scrollView =[[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height*0.58*0.4)];
     [self.scrollview addSubview:scrollView];
-  
     scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     scrollView.delegate = self;
     scrollView.dotColor = [UIColor whiteColor];
@@ -345,7 +344,7 @@
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"tableviewheader" owner:self options:nil]firstObject];
     view.frame=CGRectMake(0, 0, MAIN_WIDTH, MAIN_HEIGHT*0.58);
     [self setdynamicpic];
-     [self setUpScrollerView];
+    [self setUpScrollerView];
       return view;
 }
 //2.每行的高度

@@ -45,6 +45,7 @@
     self.navigationItem.title=@"新品";
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     pagenum = 1;
+     [self setbottombar];
     [self getProductDataFromSever:1];
     
 }
@@ -221,6 +222,7 @@
     int i=[cell.countlab.text intValue];
     cell.count=[NSString stringWithFormat:@"%d",i+1];
     [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
+     [self setbottombar];
     
 }
 
@@ -232,6 +234,7 @@
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.count=[NSString stringWithFormat:@"%d",i-1];
         [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
+         [self setbottombar];
     }
 }
 
@@ -243,17 +246,6 @@
     detailVC.supplierid = good[@"supplierId"];
     detailVC.marketid = good[@"marketId"];
     [self.navigationController pushViewController:detailVC animated:YES];
-}
-
-
-//代理方法
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSDictionary *good = self.productArr[indexPath.row];
-//    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
-//    detailVC.goodsid = good[@"goodsId"];
-//    detailVC.supplierid = good[@"supplierId"];
-//    detailVC.marketid = good[@"marketId"];
-//    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (IBAction)carClicked:(id)sender {

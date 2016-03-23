@@ -100,8 +100,7 @@
     if([UIApplication sharedApplication].applicationState==UIApplicationStateActive){
        NSLog(@"通知栏点击了消息");
     completionHandler(UIBackgroundFetchResultNewData);
-    
-}
+  }
 }
 
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{

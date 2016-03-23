@@ -148,6 +148,7 @@
             paras[@"baidu_channel_id"]=[BPush getChannelId];
             paras[@"baidu_app_id"]=[BPush getAppId];
             paras[@"device_type"]=@"4";
+            NSLog(@"%@", paras);
             [HttpTool post:@"msg_push_register" params:paras success:^(id responseObj) {
                 NSLog(@"注册推送接口成功%@",responseObj);
             } failure:^(NSError *error) {
@@ -155,12 +156,9 @@
             }];
             [[NSNotificationCenter defaultCenter]postNotificationName:@"login" object:nil];
             if([_source isEqualToString:@"back"]){
-                
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
-            
             }
-                        
 }
         else{
             
