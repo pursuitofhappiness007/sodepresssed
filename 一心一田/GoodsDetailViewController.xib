@@ -18,12 +18,14 @@
                 <outlet property="price2" destination="fcX-I4-DoB" id="NBB-0M-Upx"/>
                 <outlet property="price3" destination="PZE-Un-h8g" id="gGF-6a-jWx"/>
                 <outlet property="price4" destination="A8N-7Y-Jtj" id="Evg-5f-wU2"/>
+                <outlet property="pricelab" destination="dpH-UL-1Fq" id="TDQ-by-Wpl"/>
                 <outlet property="productInstuctionBt" destination="PJC-TR-K6L" id="zKd-5e-Lho"/>
                 <outlet property="range1" destination="moc-DS-WX1" id="cKY-aD-oap"/>
                 <outlet property="range2" destination="nph-i0-UvP" id="FfZ-bs-Ju7"/>
                 <outlet property="range3" destination="v91-Ye-Eup" id="6BV-Ru-FEg"/>
                 <outlet property="range4" destination="Vza-zr-Gtp" id="ijD-YO-xij"/>
                 <outlet property="redlineleadingconstant" destination="oCu-ce-XVc" id="5XT-Hq-aBM"/>
+                <outlet property="saleNumber" destination="laP-tK-aSK" id="EXY-QR-lCf"/>
                 <outlet property="shortComment" destination="zB2-b5-JiV" id="mCc-df-GZi"/>
                 <outlet property="specification" destination="UzV-28-Wkg" id="OoE-QA-HTV"/>
                 <outlet property="sumkindlab" destination="NYH-H9-Rrh" id="6y0-Cm-faf"/>
@@ -251,8 +253,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本市场现已销售13399瓶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-tK-aSK">
-                            <rect key="frame" x="223" y="144" width="132" height="14.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本市场现已销售0件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-tK-aSK">
+                            <rect key="frame" x="251" y="144" width="104" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -328,6 +330,12 @@
                                 <action selector="minusBtnClicked:" destination="-1" eventType="touchUpInside" id="rqk-6f-MfH"/>
                             </connections>
                         </button>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpH-UL-1Fq">
+                            <rect key="frame" x="269" y="19" width="47" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.98431372549999996" green="0.0" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -336,6 +344,7 @@
                         <constraint firstItem="pa1-Yf-5QE" firstAttribute="trailing" secondItem="3Sq-9K-8A6" secondAttribute="trailing" id="7B4-Z1-tWM"/>
                         <constraint firstItem="laP-tK-aSK" firstAttribute="centerY" secondItem="Ipp-XD-Wi1" secondAttribute="centerY" multiplier="1.73" id="9bL-eJ-kvD"/>
                         <constraint firstItem="A8N-7Y-Jtj" firstAttribute="top" secondItem="PZE-Un-h8g" secondAttribute="top" id="9lG-rq-GVV"/>
+                        <constraint firstItem="3bV-xC-ep6" firstAttribute="leading" secondItem="dpH-UL-1Fq" secondAttribute="leading" id="Byb-VH-Si7"/>
                         <constraint firstItem="v91-Ye-Eup" firstAttribute="top" secondItem="moc-DS-WX1" secondAttribute="top" id="C9o-03-ndp"/>
                         <constraint firstItem="Vza-zr-Gtp" firstAttribute="top" secondItem="moc-DS-WX1" secondAttribute="top" id="Gg0-eB-6jb"/>
                         <constraint firstItem="GWN-EC-8Yi" firstAttribute="bottom" secondItem="qme-gT-fkl" secondAttribute="bottom" id="GgB-wc-acP"/>
@@ -345,6 +354,7 @@
                         <constraint firstItem="LIe-sQ-mrW" firstAttribute="top" secondItem="g9B-ox-2mn" secondAttribute="bottom" id="IMM-tT-hw0"/>
                         <constraint firstItem="zB2-b5-JiV" firstAttribute="height" secondItem="W5d-8x-PXy" secondAttribute="height" id="IVC-cf-t1K"/>
                         <constraint firstItem="PZE-Un-h8g" firstAttribute="trailing" secondItem="v91-Ye-Eup" secondAttribute="trailing" id="K73-sj-mMC"/>
+                        <constraint firstItem="dpH-UL-1Fq" firstAttribute="top" secondItem="W5d-8x-PXy" secondAttribute="top" id="Lgu-dd-W1j"/>
                         <constraint firstItem="LIe-sQ-mrW" firstAttribute="leading" secondItem="Ipp-XD-Wi1" secondAttribute="leading" id="MQi-wf-Ait"/>
                         <constraint firstItem="W5d-8x-PXy" firstAttribute="top" secondItem="SQs-sY-dpz" secondAttribute="top" id="MTQ-7F-kwk"/>
                         <constraint firstItem="zB2-b5-JiV" firstAttribute="top" secondItem="W5d-8x-PXy" secondAttribute="bottom" constant="3" id="NCh-Wc-Pff"/>

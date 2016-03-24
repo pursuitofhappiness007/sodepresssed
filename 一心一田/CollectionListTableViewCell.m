@@ -9,10 +9,11 @@
 
 #import "CollectionListTableViewCell.h"
 @interface CollectionListTableViewCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *goodsimageview;
 @property (weak, nonatomic) IBOutlet UILabel *goodnamelab;
 @property (weak, nonatomic) IBOutlet UILabel *shortcommentlab;
 @property (weak, nonatomic) IBOutlet UILabel *specificlab;
+
+@property (weak, nonatomic) IBOutlet UIImageView *goodimageview;
 
 
 
@@ -43,14 +44,16 @@
     // Initialization code
 }
 
+-(void)setGoodimg:(NSString *)goodimg{
+    [[DownLoadImageTool singletonInstance]imageWithImage:goodimg scaledToWidth:_goodimageview.width imageview:_goodimageview];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
--(void)setGoodimg:(NSString *)goodimg{
-    [[DownLoadImageTool singletonInstance]imageWithImage:goodimg scaledToWidth:_goodsimageview.width imageview:_goodsimageview];
-}
+
 -(void)setGoodname:(NSString *)goodname{
     _goodnamelab.text=goodname;
 }

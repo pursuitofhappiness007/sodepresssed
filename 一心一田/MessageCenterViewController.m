@@ -42,6 +42,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageTableViewCell *cell=[MessageTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

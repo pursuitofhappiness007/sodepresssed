@@ -34,7 +34,7 @@
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rCz-7r-atv">
                     <rect key="frame" x="19" y="80" width="337.5" height="44"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Vph-yW-BVp"/>
                     </constraints>
@@ -56,7 +56,7 @@
                     </connections>
                 </textField>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="rCz-7r-atv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="0VJ-dq-wGY"/>
                 <constraint firstItem="AOI-bo-FRL" firstAttribute="leading" secondItem="rCz-7r-atv" secondAttribute="leading" id="9E0-Zf-Qnw"/>

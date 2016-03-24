@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OriginalCollectionListViewController">
             <connections>
-                <outlet property="addToShopCarBt" destination="qTo-NV-hck" id="tX6-wr-hu1"/>
+                <outlet property="addToShopCarBt" destination="qTo-NV-hck" id="5fh-sT-LM9"/>
                 <outlet property="bottomView" destination="8Ce-2W-ph3" id="ECI-bw-PBs"/>
                 <outlet property="cancelCollectBt" destination="iy6-RC-uym" id="IGf-gd-cLg"/>
                 <outlet property="coverView" destination="icF-jY-2EC" id="h9F-sq-Ur8"/>
@@ -145,7 +145,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-NV-hck">
                                     <rect key="frame" x="120" y="0.0" width="60" height="65.5"/>
                                     <connections>
-                                        <action selector="addToShoppingCar:" destination="-1" eventType="touchUpInside" id="cxu-1H-gNB"/>
+                                        <action selector="addToShoppingCar:" destination="-1" eventType="touchUpInside" id="UPV-wN-eu3"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy6-RC-uym">

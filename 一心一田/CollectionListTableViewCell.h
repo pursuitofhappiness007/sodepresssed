@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionListTableViewCell : UITableViewCell
-@property (nonatomic,copy)NSString *goodimg;
+@property (nonatomic,copy)NSString *goodimage;
 @property (nonatomic,copy)NSString *goodname;
 @property (nonatomic,copy)NSString *shortcomment;
 @property (weak, nonatomic) IBOutlet UIButton *actionBt;
@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *price2lab;
 @property (weak, nonatomic) IBOutlet UILabel *price3lab;
 @property (weak, nonatomic) IBOutlet UILabel *price4lab;
+@property (weak, nonatomic) IBOutlet UILabel *pricelab;
+
+
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 
 @end
