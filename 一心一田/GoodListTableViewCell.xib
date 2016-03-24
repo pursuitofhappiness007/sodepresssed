@@ -25,7 +25,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ2-sT-1cd">
                         <rect key="frame" x="82" y="19" width="150.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="短评短评短评短评" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2v-Eo-dc2">
@@ -152,6 +152,12 @@
                         <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXh-7y-B8S">
+                        <rect key="frame" x="221.5" y="37.5" width="47" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.98431372549999996" green="0.0" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kwv-2y-GQF" firstAttribute="width" secondItem="J4Y-nd-fdt" secondAttribute="width" id="05h-jg-N1a"/>
@@ -165,6 +171,7 @@
                     <constraint firstItem="Y71-Fl-3Ni" firstAttribute="top" secondItem="Mb8-UQ-CbU" secondAttribute="top" id="BMB-vO-NdQ"/>
                     <constraint firstItem="J4Y-nd-fdt" firstAttribute="leading" secondItem="Q16-er-QK6" secondAttribute="trailing" id="DUo-Ry-Ekh"/>
                     <constraint firstItem="kwv-2y-GQF" firstAttribute="top" secondItem="3Th-oW-87k" secondAttribute="top" id="DZp-jd-sOi"/>
+                    <constraint firstItem="KXh-7y-B8S" firstAttribute="centerY" secondItem="E2v-Eo-dc2" secondAttribute="centerY" id="E6s-Cg-pKy"/>
                     <constraint firstItem="lsl-St-diJ" firstAttribute="top" secondItem="E2v-Eo-dc2" secondAttribute="bottom" constant="2" id="Fvu-4L-3UT"/>
                     <constraint firstItem="Q16-er-QK6" firstAttribute="leading" secondItem="kwv-2y-GQF" secondAttribute="trailing" id="GJF-EQ-FxL"/>
                     <constraint firstItem="3Th-oW-87k" firstAttribute="top" secondItem="J4Y-nd-fdt" secondAttribute="top" id="HzY-zQ-Ggs"/>
@@ -182,6 +189,7 @@
                     <constraint firstItem="ams-cb-VUo" firstAttribute="top" secondItem="Ivd-W7-g38" secondAttribute="top" id="ZbG-uW-lMs"/>
                     <constraint firstItem="fwT-Bg-Aeu" firstAttribute="top" secondItem="KES-Dz-ioc" secondAttribute="bottom" id="amx-lX-xCZ"/>
                     <constraint firstItem="kwv-2y-GQF" firstAttribute="leading" secondItem="3Th-oW-87k" secondAttribute="leading" id="bS2-hA-SXC"/>
+                    <constraint firstItem="Q16-er-QK6" firstAttribute="centerX" secondItem="KXh-7y-B8S" secondAttribute="centerX" id="cas-Aa-uCc"/>
                     <constraint firstItem="nJ2-sT-1cd" firstAttribute="leading" secondItem="mBM-Hm-3Hh" secondAttribute="trailing" constant="4" id="eks-QY-bYA"/>
                     <constraint firstItem="tPU-O2-yDl" firstAttribute="trailing" secondItem="ams-cb-VUo" secondAttribute="trailing" id="hTY-go-Qax"/>
                     <constraint firstItem="3Th-oW-87k" firstAttribute="bottom" secondItem="J4Y-nd-fdt" secondAttribute="bottom" id="oPf-7E-rSH"/>
@@ -223,6 +231,7 @@
                 <outlet property="price2lab" destination="0a3-9p-0HY" id="tVq-WZ-vva"/>
                 <outlet property="price3lab" destination="ams-cb-VUo" id="76i-Kq-DiV"/>
                 <outlet property="price4lab" destination="fwT-Bg-Aeu" id="AuC-oy-Fsb"/>
+                <outlet property="pricelab" destination="KXh-7y-B8S" id="Wbn-JP-KtC"/>
                 <outlet property="range1lab" destination="Mb8-UQ-CbU" id="tLL-6a-9dv"/>
                 <outlet property="range2lab" destination="mEG-cn-zNN" id="asd-Wp-KTZ"/>
                 <outlet property="range3lab" destination="tPU-O2-yDl" id="4S2-WX-OZq"/>

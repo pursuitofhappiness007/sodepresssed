@@ -139,7 +139,7 @@
                          cell.acBalLb.text = [NSString stringWithFormat:@"%@.00",[dic stringForKey:@"acBal"]];
                          cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@.00",[dic stringForKey:@"amount"]];
                      }
-                    
+                    cell.selectionStyle=UITableViewCellSelectionStyleNone;
                     return cell;
                 } else{
                         static NSString *CellIdentifier = @"recharge";
@@ -151,7 +151,7 @@
                             cell.timeLb.text = [dic stringForKey:@"addTime"];
                             cell.acBalLb.text = [NSString stringWithFormat:@"+%@.00",[dic stringForKey:@"acBal"]];
                         }
-                    
+                    cell.selectionStyle=UITableViewCellSelectionStyleNone;
                     return cell;
                     }
             }
@@ -168,6 +168,7 @@
                 cell.timeLb.text = [dic stringForKey:@"addTime"];
                  cell.acBalLb.text = [NSString stringWithFormat:@"+%@.00",[dic stringForKey:@"acBal"]];
             }
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
         }
             break;
@@ -184,6 +185,7 @@
                 cell.acBalLb.text = [NSString stringWithFormat:@"%@.00",[dic stringForKey:@"acBal"]];
                 cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@.00",[dic stringForKey:@"amount"]];
             }
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
         }
             break;

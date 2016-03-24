@@ -147,6 +147,8 @@
     switch (array.count) {
         case 0:
         {
+             cell.pricelab.hidden = NO;
+             cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [good stringForKey:@"price"]];
         }
             break;
         case 1:

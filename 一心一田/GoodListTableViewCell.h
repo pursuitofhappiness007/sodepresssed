@@ -43,5 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *price3lab;
 @property (weak, nonatomic) IBOutlet UILabel *price4lab;
 @property (weak, nonatomic) IBOutlet UILabel *countlab;
+@property (weak, nonatomic) IBOutlet UILabel *pricelab;
+
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 @end

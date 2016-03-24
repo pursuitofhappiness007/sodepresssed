@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -81,6 +81,12 @@
                             <color key="titleColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msc-rK-Suz">
+                        <rect key="frame" x="288" y="27.5" width="47" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.98431372549999996" green="0.0" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-uA-jHl">
                         <rect key="frame" x="293" y="108" width="36.5" height="22.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -168,15 +174,15 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBA-mQ-tuA">
-                        <rect key="frame" x="11" y="9" width="344.5" height="90"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7I-94-jIc">
-                        <rect key="frame" x="322" y="133.5" width="33" height="16"/>
+                        <rect key="frame" x="322" y="133" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.61176470588235299" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBA-mQ-tuA">
+                        <rect key="frame" x="11" y="9" width="344.5" height="90"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="So2-5D-t0f" firstAttribute="bottom" secondItem="GxQ-oN-O55" secondAttribute="bottom" id="39x-Sc-07q"/>
@@ -199,8 +205,10 @@
                     <constraint firstItem="lst-3D-RJG" firstAttribute="top" secondItem="lBA-mQ-tuA" secondAttribute="top" id="Xvx-Pd-PXe"/>
                     <constraint firstItem="lst-3D-RJG" firstAttribute="bottom" secondItem="lBA-mQ-tuA" secondAttribute="bottom" id="YcG-uZ-yKs"/>
                     <constraint firstItem="gfS-Ry-5Ck" firstAttribute="trailing" secondItem="lBA-mQ-tuA" secondAttribute="trailing" id="b20-nC-4Oc"/>
+                    <constraint firstItem="msc-rK-Suz" firstAttribute="centerY" secondItem="7Aa-fz-Uz2" secondAttribute="centerY" id="bOG-3j-ec2"/>
                     <constraint firstItem="qfz-j9-7Nx" firstAttribute="top" secondItem="lst-3D-RJG" secondAttribute="top" id="chl-To-jXz"/>
                     <constraint firstItem="7Aa-fz-Uz2" firstAttribute="top" secondItem="qfz-j9-7Nx" secondAttribute="bottom" constant="3" id="d9r-uh-ceT"/>
+                    <constraint firstItem="OvM-uA-jHl" firstAttribute="centerX" secondItem="msc-rK-Suz" secondAttribute="centerX" id="dBD-6q-tFS"/>
                     <constraint firstItem="ahv-jm-g0C" firstAttribute="top" secondItem="iKf-PT-ud7" secondAttribute="top" id="e9i-0P-ZYt"/>
                     <constraint firstItem="7Aa-fz-Uz2" firstAttribute="leading" secondItem="qfz-j9-7Nx" secondAttribute="leading" id="eTz-hJ-pYf"/>
                     <constraint firstItem="Ti2-Uk-N5J" firstAttribute="top" secondItem="DXm-lE-5XK" secondAttribute="top" id="hlN-2Z-Zdv"/>
@@ -247,6 +255,7 @@
                 <outlet property="price2lab" destination="Ti2-Uk-N5J" id="Yx1-e6-GBr"/>
                 <outlet property="price3lab" destination="IxB-g8-abE" id="gq3-Ty-pmf"/>
                 <outlet property="price4lab" destination="gfS-Ry-5Ck" id="D6P-dN-2A2"/>
+                <outlet property="pricelab" destination="msc-rK-Suz" id="Dab-2c-2Me"/>
                 <outlet property="range1lab" destination="iKf-PT-ud7" id="FVi-Ok-uoy"/>
                 <outlet property="range2lab" destination="ahv-jm-g0C" id="2z4-18-3fg"/>
                 <outlet property="range3lab" destination="Gni-Hg-4Ag" id="Zys-oY-bhe"/>

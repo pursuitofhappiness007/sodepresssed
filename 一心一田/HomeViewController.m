@@ -237,6 +237,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeTableViewCell *cell=[HomeTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     NSDictionary *good = tablelist[indexPath.row];
+    NSLog(@"%@",good);
     cell.goodsid=[good stringForKey:@"id"];
     cell.goodname = good[@"name"];
     cell.shortcomment = good[@"commentary"];
@@ -249,6 +250,8 @@
     switch (array.count) {
         case 0:
         {
+            cell.pricelab.hidden = NO;
+            cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [good stringForKey:@"price"]];
         }
             break;
         case 1:

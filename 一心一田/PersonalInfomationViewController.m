@@ -268,6 +268,10 @@
 
 - (void)updateInfo{
 self.usernamelab.text = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];
+    NSArray *phoneArr = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] arrayForKey:@"phones"];
+    self.phone1lab.text = phoneArr[0];
+    self.phone2lab.text = phoneArr[1];
+    self.phone3lab.text = phoneArr[2];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -34,25 +34,25 @@
                         <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1-19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-PT-ud7" userLabel="区间1">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1-19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-PT-ud7" userLabel="区间1">
                         <rect key="frame" x="113" y="65" width="24.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20-29" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahv-jm-g0C" userLabel="区间2">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20-29" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahv-jm-g0C" userLabel="区间2">
                         <rect key="frame" x="179" y="65" width="35.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30-39" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gni-Hg-4Ag" userLabel="区间3">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30-39" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gni-Hg-4Ag" userLabel="区间3">
                         <rect key="frame" x="250" y="65" width="36" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40-49" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHe-te-7vL" userLabel="区间4">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40-49" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHe-te-7vL" userLabel="区间4">
                         <rect key="frame" x="319" y="65" width="36.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +87,7 @@
                             <constraint firstItem="Pyg-nv-4qO" firstAttribute="leading" secondItem="mqV-lv-dqR" secondAttribute="leading" id="rg3-tN-rvr"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXm-lE-5XK" userLabel="价格1">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXm-lE-5XK" userLabel="价格1">
                         <rect key="frame" x="107" y="83" width="30.5" height="14"/>
                         <attributedString key="attributedText">
                             <fragment content="¥12.0">
@@ -100,7 +100,7 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti2-Uk-N5J" userLabel="价格2">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti2-Uk-N5J" userLabel="价格2">
                         <rect key="frame" x="184" y="83" width="30.5" height="14"/>
                         <attributedString key="attributedText">
                             <fragment content="¥12.0">
@@ -113,7 +113,7 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-g8-abE" userLabel="价格3">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-g8-abE" userLabel="价格3">
                         <rect key="frame" x="255" y="83" width="30.5" height="14"/>
                         <attributedString key="attributedText">
                             <fragment content="¥12.0">
@@ -126,7 +126,7 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-Ry-5Ck" userLabel="价格4">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-Ry-5Ck" userLabel="价格4">
                         <rect key="frame" x="325" y="83" width="30.5" height="14"/>
                         <attributedString key="attributedText">
                             <fragment content="¥12.0">
@@ -146,7 +146,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhg-uC-yrT">
-                        <rect key="frame" x="302.5" y="132.5" width="35" height="18"/>
+                        <rect key="frame" x="302" y="132" width="35" height="18"/>
                         <attributedString key="attributedText">
                             <fragment content="失效">
                                 <attributes>
@@ -170,12 +170,18 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7q-Z9-Nov">
-                        <rect key="frame" x="347.5" y="120" width="17.5" height="30"/>
+                        <rect key="frame" x="347" y="120" width="17.5" height="30"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <state key="normal" title="...">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8q-d4-HqL">
+                        <rect key="frame" x="302" y="27.5" width="47" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.98431372549999996" green="0.0" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Lhg-uC-yrT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.093" id="54w-Cn-95U"/>
@@ -195,10 +201,12 @@
                     <constraint firstItem="Ti2-Uk-N5J" firstAttribute="top" secondItem="DXm-lE-5XK" secondAttribute="top" id="hlN-2Z-Zdv"/>
                     <constraint firstItem="Gni-Hg-4Ag" firstAttribute="top" secondItem="iKf-PT-ud7" secondAttribute="top" id="hyb-PD-irT"/>
                     <constraint firstItem="Lhg-uC-yrT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.706" id="iTg-4U-mtu"/>
+                    <constraint firstItem="Lhg-uC-yrT" firstAttribute="leading" secondItem="N8q-d4-HqL" secondAttribute="leading" id="iX1-Ho-UaB"/>
                     <constraint firstItem="aHe-te-7vL" firstAttribute="top" secondItem="iKf-PT-ud7" secondAttribute="top" id="irF-PG-NjQ"/>
                     <constraint firstItem="Lhg-uC-yrT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="1.74" id="kN5-60-vkg"/>
                     <constraint firstItem="Lhg-uC-yrT" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.11" id="nmP-GG-XzB"/>
                     <constraint firstItem="JQT-gL-NNH" firstAttribute="leading" secondItem="7Aa-fz-Uz2" secondAttribute="leading" id="oT1-ku-uw5"/>
+                    <constraint firstItem="N8q-d4-HqL" firstAttribute="centerY" secondItem="7Aa-fz-Uz2" secondAttribute="centerY" id="u7M-JD-GpG"/>
                     <constraint firstItem="IxB-g8-abE" firstAttribute="top" secondItem="DXm-lE-5XK" secondAttribute="top" id="uBG-eN-sOE"/>
                     <constraint firstAttribute="trailing" secondItem="N7q-Z9-Nov" secondAttribute="trailing" constant="10" id="uBj-Gh-TF3"/>
                     <constraint firstItem="gfS-Ry-5Ck" firstAttribute="top" secondItem="DXm-lE-5XK" secondAttribute="top" id="xm2-ff-pC7"/>
@@ -221,16 +229,17 @@
             </constraints>
             <connections>
                 <outlet property="actionBt" destination="N7q-Z9-Nov" id="0hh-zu-HEt"/>
+                <outlet property="goodimageview" destination="lst-3D-RJG" id="BRL-Gj-DP5"/>
                 <outlet property="goodnamelab" destination="qfz-j9-7Nx" id="yCE-Fn-72r"/>
-                <outlet property="goodsimageview" destination="lst-3D-RJG" id="zDj-MG-Agv"/>
-                <outlet property="price1lab" destination="DXm-lE-5XK" id="xmL-eU-d4J"/>
-                <outlet property="price2lab" destination="Ti2-Uk-N5J" id="Yx1-e6-GBr"/>
-                <outlet property="price3lab" destination="IxB-g8-abE" id="gq3-Ty-pmf"/>
-                <outlet property="price4lab" destination="gfS-Ry-5Ck" id="D6P-dN-2A2"/>
-                <outlet property="range1lab" destination="iKf-PT-ud7" id="FVi-Ok-uoy"/>
-                <outlet property="range2lab" destination="ahv-jm-g0C" id="2z4-18-3fg"/>
-                <outlet property="range3lab" destination="Gni-Hg-4Ag" id="Zys-oY-bhe"/>
-                <outlet property="range4lab" destination="aHe-te-7vL" id="a55-ps-ix5"/>
+                <outlet property="price1lab" destination="DXm-lE-5XK" id="cTI-ot-SwZ"/>
+                <outlet property="price2lab" destination="Ti2-Uk-N5J" id="qyK-EM-CHb"/>
+                <outlet property="price3lab" destination="IxB-g8-abE" id="ALB-Ga-Eb1"/>
+                <outlet property="price4lab" destination="gfS-Ry-5Ck" id="KH4-0b-ch5"/>
+                <outlet property="pricelab" destination="N8q-d4-HqL" id="ruB-0v-W4g"/>
+                <outlet property="range1lab" destination="iKf-PT-ud7" id="Un3-9c-0x2"/>
+                <outlet property="range2lab" destination="ahv-jm-g0C" id="kul-rb-6UE"/>
+                <outlet property="range3lab" destination="Gni-Hg-4Ag" id="dze-Zt-yx5"/>
+                <outlet property="range4lab" destination="aHe-te-7vL" id="59M-mx-oCd"/>
                 <outlet property="shortcommentlab" destination="7Aa-fz-Uz2" id="k6A-FO-WE1"/>
                 <outlet property="specificlab" destination="JQT-gL-NNH" id="JuY-F8-ocQ"/>
             </connections>

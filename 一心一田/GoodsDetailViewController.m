@@ -31,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 @property (assign, nonatomic)BOOL  isFavour;
 @property (weak, nonatomic) IBOutlet UITextView *textArea;
+@property (weak, nonatomic) IBOutlet UILabel *saleNumber;
+@property (weak, nonatomic) IBOutlet UILabel *pricelab;
 
 @property (weak, nonatomic) IBOutlet UIButton *productInstuctionBt;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redlineleadingconstant;
@@ -62,9 +64,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  self.navigationItem.title = @"商品详情";
-   self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"back" highImageName:@"" target:self action:@selector(backBtnClicked)];
+   self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
       [self getdatafromweb];
-    
 }
 
 - (void)backBtnClicked{
@@ -86,7 +87,7 @@
       NSLog(@"商品详情 参数=%@,%@",paras,responseObj);
          if([responseObj int32ForKey:@"result"]==0){
       goodsdetail=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"goods_detail"];
-    self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
+      self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
              [self setlocalcontent];
          }
        } failure:^(NSError *error) {
@@ -99,10 +100,14 @@
     self.specification.text = goodsdetail[@"specifications"];
     self.collectionButton.selected = self.isFavour;
     [[DownLoadImageTool singletonInstance]imageWithImage:goodsdetail[@"thumbnailImg"] scaledToWidth:self.goodImg.width imageview:self.goodImg];
+    //self.saleNumber.text = [NSString stringWithFormat:@"本市场已销售%@件", [goodsdetail stringForKey:@"dailySales"]];
+    NSLog(@"%@",goodsdetail);
     NSArray *array=[goodsdetail arrayForKey:@"goodsRangePrices"];
     switch (array.count) {
         case 0:
         {
+            _pricelab.hidden = NO;
+            _pricelab.text = [NSString stringWithFormat:@"¥%@",[goodsdetail stringForKey:@"price"]];
         }
             break;
         case 1:
@@ -178,19 +183,26 @@
     _summoneylab.text=[NSString stringWithFormat:@"¥%.2f",[LocalAndOnlineFileTool calculatesummoneyinshopcar]];
 }
 - (IBAction)collectionButtonClicked:(UIButton *)sender {
-    self.isFavour = !self.isFavour;
-    self.collectionButton.selected = self.isFavour;
+    
     [self.collectionButton setBackgroundImage:[UIImage imageNamed:@"商品收藏1"] forState:UIControlStateSelected];
-    if (self.isFavour) {
+    if (!self.isFavour) {
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
         paras[@"goods_id"]= self.goodsid;
-        paras[@"supplier_id"] = self.supplierid;
+        paras[@"supplierId"] = self.supplierid;
         if([[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"])
             paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
         [HttpTool post:@"add_favour" params:paras success:^(id responseObj) {
             NSLog(@"收藏商品 参数=%@,%@",paras,responseObj);
             if([responseObj int32ForKey:@"result"]==0){
                 NSLog(@"已收藏");
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText =@"商品收藏成功！";
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1.0];
+                self.isFavour = YES;
+                self.collectionButton.selected = self.isFavour;
             }else{
                 NSLog(@"收藏商品失败 %@", responseObj);
                 self.isFavour = NO;
@@ -217,6 +229,38 @@
         }];
 
     }else{
+        //取消收藏
+        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+        NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
+        NSLog(@"dic%@", dic);
+        paras[@"token"] = [dic stringForKey:@"token"];
+        paras[@"goodsId"] = [goodsdetail stringForKey:@"goodsId"];
+        paras[@"supplierId"] = [goodsdetail stringForKey:@"supplierId"];
+        paras[@"marketId"] = [goodsdetail stringForKey:@"marketId"];
+        [HttpTool post:@"delete_favour_by_id" params:paras success:^(id responseObj) {
+            NSLog(@"recharge message:%@",responseObj);
+            if([responseObj int32ForKey:@"result"]==0){
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText= @"已取消收藏";
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1.2];
+                self.isFavour = NO;
+                self.collectionButton.selected = self.isFavour;
+            } else{
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1.2];
+            }
+        } failure:^(NSError *error) {
+            NSLog(@"获取数据失败");
+            NSLog(@"%@", error);
+        }];
+
     }
     
 }

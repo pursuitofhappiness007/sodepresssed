@@ -111,11 +111,10 @@
             hud.removeFromSuperViewOnHide = YES;
             
             [hud hide:YES afterDelay:1.2];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"nameAndPhoneChanged" object:@{@"name":_nametf.text}];
             //个人信息修改成功后，及时修改沙河里面的文件，更新前面控制器的信息
-           
             NSDictionary *infodic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
             [infodic setValue:_nametf.text forKey:@"name"];
+            [infodic setValue:phonesArr forKey:@"phones"];
             [[SaveFileAndWriteFileToSandBox singletonInstance] savefiletosandbox:infodic filepath:@"tokenfile.txt"];
              [[NSNotificationCenter defaultCenter]postNotificationName:@"personinfochanged" object:nil];
             [self.navigationController popViewControllerAnimated:YES];
