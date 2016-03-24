@@ -373,8 +373,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"goodslist=%ld",tablelist.count);
-        
         if(pagenum<totalpage&&indexPath.row==tablelist.count-1){
             pagenum++;
             [self getTableListDataFromSever:pagenum];

@@ -139,6 +139,7 @@
         
         if([responseObj int32ForKey:@"result"]==0){
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:[responseObj dictionaryForKey:@"data"] filepath:@"tokenfile.txt"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"login" object:nil];
             NSDictionary *userandpassword=@{@"user":_accounttextfield.text,@"password":_pwdtextfield.text};
             [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:userandpassword filepath:@"userpassword.txt"];
             [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
@@ -154,7 +155,7 @@
             } failure:^(NSError *error) {
                 NSLog(@"注册推送接口失败%@",error);
             }];
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"login" object:nil];
+            
             if([_source isEqualToString:@"back"]){
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;

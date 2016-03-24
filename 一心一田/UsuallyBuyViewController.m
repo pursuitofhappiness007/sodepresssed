@@ -219,7 +219,7 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"goodslist=%lu",(unsigned long)tablelist.count);
     
-    if(pagenum<totalpage){
+    if(pagenum<totalpage&&indexPath.row==tablelist.count-1){
         pagenum++;
         NSLog(@"huadongdi %d",pagenum);
        [self getdataformweb:pagenum];

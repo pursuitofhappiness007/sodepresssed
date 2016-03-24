@@ -246,7 +246,7 @@
                 hud1 = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 
                 hud1.labelText = NSLocalizedString(@"正在支付...", @"HUD loading title");
-                [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:responseObj filepath:@"detailbasedinfo.txt"];
+                [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_info"] filepath:@"jumptoorderdetail.txt"];
                 //获得支付请求参数
                 NSDictionary *tempdict=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"wechat_param"];
                 NSLog(@"fuch tepdic=%@",tempdict);
@@ -270,9 +270,9 @@
                 NSDictionary *dict=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_info"];
                 vc.order_id=[dict stringForKey:@"id"];
                 vc.isparent=@"1";
-                //重置购物车
-                [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
-                [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
+//                //重置购物车
+//                [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
+//                [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
                 [self.navigationController pushViewController:vc animated:YES];
               
             }
@@ -296,9 +296,11 @@
     hud.removeFromSuperViewOnHide = YES;
     
     [hud hide:YES afterDelay:1.0];
+    
     //跳到订单详情
-    MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-    vc.order_id=[[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"detailbasedinfo.txt"]dictionaryForKey:@"data"]dictionaryForKey:@"order_info"]stringForKey:@"id"];
+   MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
+vc.order_id=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"jumptoorderdetail.txt"] stringForKey:@"id"];
+    vc.isparent=@"1";
     [self.navigationController pushViewController:vc animated:YES];}
 
 -(void)payfailedoption{
