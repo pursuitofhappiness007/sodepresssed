@@ -219,8 +219,30 @@
         }];
 
     }else{
-        //取消收藏
-        
+//        //取消收藏
+//        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+//        NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
+//        NSString *str = [dic stringForKey:@"token"];
+//        NSLog(@"token:%@", str);
+//        paras[@"token"] = [dic stringForKey:@"token"];
+//        paras[@"favour_id"] = [goodsdetail stringForKey:@"favour_id"];
+//        [HttpTool post:@"delete_favour_by_id" params:paras success:^(id responseObj) {
+//            NSLog(@"recharge message:%@",responseObj);
+//            if([responseObj int32ForKey:@"result"]==0){
+//                
+//            } else{
+//                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//                hud.mode = MBProgressHUDModeText;
+//                hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
+//                hud.margin = 10.f;
+//                hud.removeFromSuperViewOnHide = YES;
+//                [hud hide:YES afterDelay:1.2];
+//            }
+//        } failure:^(NSError *error) {
+//            NSLog(@"获取数据失败");
+//            NSLog(@"%@", error);
+//        }];
+
     }
     
 }
