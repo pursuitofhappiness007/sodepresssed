@@ -44,7 +44,7 @@
     [super viewDidLoad];
     self.navigationItem.title=@"新品";
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum:) name:@"addorminusClick" object:nil];
     pagenum = 1;
      [self setbottombar];
     [self getProductDataFromSever:1];
