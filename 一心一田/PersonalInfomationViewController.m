@@ -73,23 +73,13 @@
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     [HttpTool post:@"logout" params:paras success:^(id responseObj) {
         NSLog(@"退出帐号%@",responseObj);
-       
-        //注销消息推送
-        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-         paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
-        paras[@"baidu_user_id"]=[BPush getUserId];
-        paras[@"baidu_channel_id"]=[BPush getChannelId];
-        paras[@"baidu_app_id"]=[BPush getAppId];
-        paras[@"device_type"]=@"4";
-       
-        [HttpTool post:@"msg_push_unregister" params:paras success:^(id responseObj) {
-            NSLog(@"注销推送成功%@  参数＝%@",responseObj,paras);
+        if ([responseObj int32ForKey:@"result"]==0) {
+            //注销消息推送
+            NSMutableDictionary *paras=[NSMutableDictionary dictionary];
+            paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]stringForKey:@"token"];
              [[SaveFileAndWriteFileToSandBox singletonInstance]removefile:@"tokenfile.txt"];
-        } failure:^(NSError *error) {
-            NSLog(@"注销推送失败%@",error);
-        }];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"logout" object:nil];
-        UIView * fromView = self.tabBarController.selectedViewController.view;
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"logout" object:nil];
+            UIView * fromView = self.tabBarController.selectedViewController.view;
             UIView * toView =[[self.tabBarController.viewControllers objectAtIndex:0] view];
             [UIView transitionFromView:fromView
                                 toView:toView
@@ -97,9 +87,32 @@
                                options:(0>self.tabBarController.selectedIndex? UIViewAnimationOptionTransitionCurlUp : UIViewAnimationOptionTransitionCurlDown)
                             completion:^(BOOL finished) {
                                 if(finished){
-                                   
-                                    }
+                                    
+                                }
                             }];
+
+            paras[@"baidu_user_id"]=[BPush getUserId];
+            paras[@"baidu_channel_id"]=[BPush getChannelId];
+            paras[@"baidu_app_id"]=[BPush getAppId];
+            paras[@"device_type"]=@"4";
+            
+            [HttpTool post:@"msg_push_unregister" params:paras success:^(id responseObj) {
+                NSLog(@"注销推送成功%@  参数＝%@",responseObj,paras);
+                            } failure:^(NSError *error) {
+                NSLog(@"注销推送失败%@",error);
+            }];
+        }
+        else{
+            
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
+            hud.margin = 10.f;
+            hud.removeFromSuperViewOnHide = YES;
+            
+            [hud hide:YES afterDelay:1.2];
+        
+        }
         
 
     } failure:^(NSError *error) {

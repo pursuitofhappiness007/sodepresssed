@@ -32,9 +32,9 @@
 		CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */; };
 		FE06ABBC1C9BFAF30072F2BB /* pricechooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */; };
 		FE1897221CA3A7D300310488 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1897211CA3A7D300310488 /* 2.png */; };
-		FE1897261CA3AC8C00310488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1897251CA3AC8C00310488 /* Assets.xcassets */; };
 		FE1897291CA3B29700310488 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1897271CA3B29700310488 /* Default-568h.png */; };
 		FE18972A1CA3B29700310488 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1897281CA3B29700310488 /* Default-568h@2x.png */; };
+		FE1897811CA3E7DD00310488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1897801CA3E7DD00310488 /* Assets.xcassets */; };
 		FE2E110D1C9A59D000916CAD /* LocalAndOnlineFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */; };
 		FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2E110E1C9A924000916CAD /* popaddresschooser.xib */; };
 		FE3F31841C8EC43400A7026D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F31831C8EC43400A7026D /* CoreTelephony.framework */; };
@@ -205,9 +205,9 @@
 		CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
 		FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pricechooser.xib; sourceTree = "<group>"; };
 		FE1897211CA3A7D300310488 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		FE1897251CA3AC8C00310488 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE1897271CA3B29700310488 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		FE1897281CA3B29700310488 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FE1897801CA3E7DD00310488 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE2E110B1C9A59D000916CAD /* LocalAndOnlineFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalAndOnlineFileTool.h; sourceTree = "<group>"; };
 		FE2E110C1C9A59D000916CAD /* LocalAndOnlineFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalAndOnlineFileTool.m; sourceTree = "<group>"; };
 		FE2E110E1C9A924000916CAD /* popaddresschooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = popaddresschooser.xib; sourceTree = "<group>"; };
@@ -571,7 +571,7 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE1897251CA3AC8C00310488 /* Assets.xcassets */,
+				FE1897801CA3E7DD00310488 /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1124,6 +1124,7 @@
 				FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */,
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
 				CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */,
+				FE1897811CA3E7DD00310488 /* Assets.xcassets in Resources */,
 				FEDFA0F11C9149C70010E5E3 /* NewAddressViewController.xib in Resources */,
 				FEDC9FCF1C9839980002FB2F /* popfirstclassficationmenu.xib in Resources */,
 				FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */,
@@ -1136,7 +1137,6 @@
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FE1897291CA3B29700310488 /* Default-568h.png in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
-				FE1897261CA3AC8C00310488 /* Assets.xcassets in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
 				FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
