@@ -69,7 +69,7 @@
     UIView *v=[[[NSBundle mainBundle]loadNibNamed:@"NavBar" owner:self options:nil]firstObject];
     v.frame=CGRectMake(0, 0, MAIN_WIDTH, 64);
     [self.view addSubview:v];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum:) name:@"addorminusClick" object:nil];
     redline=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 2, MAIN_HEIGHT*0.07)];
     redline.backgroundColor=[UIColor redColor];
     
