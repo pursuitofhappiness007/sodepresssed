@@ -349,7 +349,7 @@
         [goodslist removeAllObjects];
         [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
 }
-
+//最新
 - (IBAction)lastestBtnClicked:(UIButton *)sender {
     [self removepricechooser:nil];
     CGPoint temp=_redline.center;
@@ -385,6 +385,7 @@
         selectedBtn=sender;
     }
 }
+//价格从低到高
 - (IBAction)shenxuBtnClicked:(id)sender {
     [self removepricechooser:nil];
     pagenum=1;
@@ -396,7 +397,7 @@
     [goodslist removeAllObjects];
     [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
 }
-
+//价格从高到低
 - (IBAction)jiangxuBtnClicked:(id)sender {
     [self removepricechooser:nil];
     pagenum=1;
@@ -411,7 +412,7 @@
 - (IBAction)removepricechooser:(id)sender {
     [pricechooserview removeFromSuperview];
 }
-
+//销量优先
 - (IBAction)amountpirorityBtnClicked:(UIButton *)sender {
     [self removepricechooser:nil];
     CGPoint temp=_redline.center;
@@ -426,11 +427,12 @@
     }
    [goodslist removeAllObjects];
     pagenum=1;
-    sortorder=@"asc";
+    sortorder=@"desc";
     sortfield=@"daily_sales";
     _pricelab.text=@"价格";
     [self getdatafromweb:1 keywords:_keywords minprice:minprice maxprice:maxprice sortorder:sortorder sortfield:sortfield];
 }
+//综合排序
 - (IBAction)zongheBtnClicked:(UIButton *)sender {
     [self removepricechooser:nil];
     CGPoint temp=_redline.center;

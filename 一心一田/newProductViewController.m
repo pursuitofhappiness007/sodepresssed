@@ -53,7 +53,7 @@
 
 -(void)refreshgoodnum:(NSNotification *)anote{
     NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
-    for (int i=0; i<[_tabelView numberOfRowsInSection:0]; i++) {
+    for (int i=0; i<_productArr.count; i++) {
         HomeTableViewCell *cell=[_tabelView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         if([idsneedtorefresh containsObject:cell.goodsid])
             cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
@@ -69,6 +69,7 @@
     paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     paras[@"page_size"]=@10;
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
+    paras[@"sortField"]=@"edit_time";
     [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
         if(self.productArr.count>0){
             previouscount=self.productArr.count;
@@ -120,7 +121,6 @@
     
     if(pagenum<totalpage&&indexPath.row==_productArr.count-1){
         pagenum++;
-        NSLog(@"huadongdi %d",pagenum);
         [self getProductDataFromSever:pagenum];
     }
 }

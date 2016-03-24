@@ -1364,7 +1364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Guangdong Xinnong Supply-chain Co., Ltd. (5U6PVK92VM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1379,7 +1379,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xipin.exinetiannewplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "265ce187-c302-4d6e-9c2c-8dc1600bed56";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1402,7 +1402,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xipin.exinetiannewplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "265ce187-c302-4d6e-9c2c-8dc1600bed56";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

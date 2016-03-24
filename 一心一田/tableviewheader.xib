@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hC-Jw-YAP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="157.5"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-Vl-njK" userLabel="SeparatorView">
                     <rect key="frame" x="0.0" y="157.5" width="375" height="4.5"/>
