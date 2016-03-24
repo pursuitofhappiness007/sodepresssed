@@ -1375,7 +1375,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xipin.exinetiannewplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ef141c36-e8a8-4bce-8910-993638f48dba";
 			};
 			name = Debug;
 		};
@@ -1398,7 +1398,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xipin.exinetiannewplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ef141c36-e8a8-4bce-8910-993638f48dba";
 			};
 			name = Release;
 		};

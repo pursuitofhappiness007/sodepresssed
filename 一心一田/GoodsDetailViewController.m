@@ -103,6 +103,8 @@
     switch (array.count) {
         case 0:
         {
+            _price1.hidden = NO;
+            _price1.text = [NSString stringWithFormat:@"¥%@",[goodsdetail stringForKey:@"price"]];
         }
             break;
         case 1:
@@ -217,6 +219,8 @@
         }];
 
     }else{
+        //取消收藏
+        
     }
     
 }
