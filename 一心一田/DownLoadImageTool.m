@@ -37,8 +37,6 @@ static DownLoadImageTool  *_singletonInstance = nil;
     
     return nil;
 }
-
-
 -(void)imageWithImage: (NSString *) urlstr scaledToWidth: (float) i_width imageview:(UIImageView *)imageview
 {
    
