@@ -66,9 +66,17 @@
     [self setnavbar];
     [self setbottombar];
 }
--(void)refreshgoodnum{
-    [self initparas];
+
+-(void)refreshgoodnum:(NSNotification *)anote{
+    NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
+    for (int i=0; i<[_shopcartableview numberOfSections]; i++) {
+        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if([idsneedtorefresh containsObject:cell.goodsid])
+            cell.countlab.text=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
+    }
+    [self setbottombar];
 }
+
 -(void)setnavbar{
     self.navigationItem.title=@"购物车";
     rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
@@ -309,7 +317,7 @@
         if(i==1)
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.currentcount=[NSString stringWithFormat:@"%d",i-1];
-        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController isinshopcar:YES];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
         [self setbottombar];
     }
 }
@@ -326,7 +334,7 @@
     if(cell.singleBtn.selected)return;
     int i=[cell.countlab.text intValue];
     cell.currentcount=[NSString stringWithFormat:@"%d",i+1];
-    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController isinshopcar:YES];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
 }
 
@@ -400,7 +408,7 @@
         [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag]
                          withRowAnimation:UITableViewRowAnimationAutomatic];
     [_shopcartableview endUpdates];
-    [LocalAndOnlineFileTool resetaftersuccessfulsubmit:@[cell.goodsid] isshopcar:YES];
+    [LocalAndOnlineFileTool resetaftersuccessfulsubmit:@[cell.goodsid]];
     [self setbottombar];
         [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
         rightBtn.selected=NO;

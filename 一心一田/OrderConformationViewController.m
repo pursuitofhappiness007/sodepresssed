@@ -191,17 +191,6 @@
 
 
 
--(NSString *) randomStringWithLength: (int) len {
-    
-    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    
-    for (int i=0; i<len; i++) {
-        
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
-    }
-    
-    return randomString;
-}
 - (IBAction)payBtn:(id)sender {
     NSMutableArray *deliverlist=[NSMutableArray array];
     NSMutableArray *willberesetids=[NSMutableArray array];
@@ -232,7 +221,7 @@
         }
         //订单提交成功
         else {
-            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids isshopcar:NO];
+            [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
             
             [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             //如果是微信支付
@@ -282,7 +271,7 @@
                 vc.order_id=[dict stringForKey:@"id"];
                 vc.isparent=@"1";
                 //重置购物车
-                [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids isshopcar:NO];
+                [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
                 [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
                 [self.navigationController pushViewController:vc animated:YES];
               

@@ -35,8 +35,19 @@
     self.navigationItem.title=@"常购";
     
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum) name:@"addorminusClick" object:nil];
+
     [self initparas];
     [self getdataformweb:1];
+    [self setbottombar];
+}
+-(void)refreshgoodnum:(NSNotification *)anote{
+    NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
+    for (int i=0; i<tablelist.count; i++) {
+        HomeTableViewCell *cell=[_tableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if([idsneedtorefresh containsObject:cell.goodsid])
+            cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
+    }
     [self setbottombar];
 }
 
@@ -219,7 +230,7 @@
     HomeTableViewCell *cell=[self.tableview cellForRowAtIndexPath:[NSIndexPath indexPathForItem:sender.tag inSection:0]];
     int i=[cell.countlab.text intValue];
     cell.count=[NSString stringWithFormat:@"%d",i+1];
-    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController isinshopcar:NO];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
     
 }
@@ -231,7 +242,7 @@
         if(i==1)
             [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.count=[NSString stringWithFormat:@"%d",i-1];
-        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController isinshopcar:NO];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
         [self setbottombar];
     }
 }
