@@ -582,6 +582,7 @@
 }
 //弹出一级菜单
 - (IBAction)showMenuBtnClicked:(id)sender {
+    _menuArrow.image=[UIImage imageNamed:@"clickarrow"];
     firstmenu=[[[NSBundle mainBundle]loadNibNamed:@"popfirstclassficationmenu" owner:self options:nil]firstObject];
      firstmenu.frame=CGRectMake(0, 64, MAIN_WIDTH, MAIN_HEIGHT-64);
     _heightconstraint.active=NO;
@@ -612,6 +613,7 @@
                          firstmenu.alpha = 0;
                      }completion:^(BOOL finished){
                          [firstmenu removeFromSuperview];
+                         _menuArrow.image=[UIImage imageNamed:@"defaultarrow"];
                      }];}
 - (IBAction)PayBtnClicked:(id)sender {
     OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
