@@ -133,7 +133,7 @@
     }
     return count;
 }
-+(void)resetaftersuccessfulsubmit:(NSArray *)idstodedelete isshopcar:(BOOL)mark{
++(void)resetaftersuccessfulsubmit:(NSArray *)idstodedelete{
     NSMutableArray *local=[NSMutableArray array];
     NSMutableArray *localids=[NSMutableArray array];
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
@@ -150,10 +150,9 @@
             }
     //重置数据后再次写入沙盒
     [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":local} filepath:@"goodscount.txt"];
-    if(!mark)
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil userInfo:@{@"id":idstodedelete}];
 }
-+(void)addOrMinusBtnClickedToRefreshlocal:(NSString *)goodsid withcount:(int)i tabbar:(UITabBarController *)tabbarvc isinshopcar:(BOOL)mark{
++(void)addOrMinusBtnClickedToRefreshlocal:(NSString *)goodsid withcount:(int)i tabbar:(UITabBarController *)tabbarvc{
     
     NSMutableArray *local=[NSMutableArray array];
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
@@ -174,9 +173,7 @@
 
             [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:[@{@"goodscount":local} mutableCopy] filepath:@"goodscount.txt"];
             [self refreshkindnum:tabbarvc];
-            if(!mark)
-                 [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil];
-                
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"addorminusClick" object:nil userInfo:@{@"id":@[goodsid]}];
             break;
         }
     }

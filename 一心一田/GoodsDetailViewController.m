@@ -249,7 +249,7 @@
     int i=[_countlab.text intValue];
     if(i>0){
         _countlab.text=[NSString stringWithFormat:@"%d",i-1];
-        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i-1 tabbar:self.tabBarController isinshopcar:NO];
+        [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i-1 tabbar:self.tabBarController];
         [self setbottombar];
     }
 
@@ -258,7 +258,7 @@
 - (IBAction)addBtnClicked:(id)sender {
     int i=[_countlab.text intValue];
     _countlab.text=[NSString stringWithFormat:@"%d",i+1];
-    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i+1 tabbar:self.tabBarController isinshopcar:NO];
+    [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
 }
 - (IBAction)payBtnClicked:(id)sender {
