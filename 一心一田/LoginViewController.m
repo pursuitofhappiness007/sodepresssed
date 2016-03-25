@@ -35,7 +35,6 @@
     if([[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"]){
     _accounttextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"user"];
     _pwdtextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"password"];
-        _pwdtextfield.font=[UIFont systemFontOfSize:13.0*(MAIN_WIDTH/375.0)];
     }
 }
 
@@ -96,12 +95,25 @@
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if([textField.text isEqualToString:@"输入密码"]||[textField.text isEqualToString:@"输入账号"]){
-    textField.text=nil;
-        if (textField.tag==90) {
-            textField.secureTextEntry=YES;
+    //用户名
+    if(textField.tag==88){
+        if([textField.text isEqualToString:@"输入账号"])
+            textField.text=nil;
+        if (_pwdtextfield.text.length==0) {
+            _pwdtextfield.text=@"输入密码";
+            _pwdtextfield.secureTextEntry=NO;
         }
     }
+    //密码
+    else{
+        if([textField.text isEqualToString:@"输入密码"])
+            textField.text=nil;
+        _pwdtextfield.secureTextEntry=YES;
+        if (_accounttextfield.text.length==0) {
+            _accounttextfield.text=@"输入账号";
+        }
+    }
+    
     return YES;
 }
 
