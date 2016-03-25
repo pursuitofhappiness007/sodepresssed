@@ -296,7 +296,7 @@
         cell.goodimg=[dict stringForKey:@"thumbnailImg"];
         cell.goodname=[dict stringForKey:@"name"];
         cell.specific=[dict stringForKey:@"specifications"];
-        cell.counthasbeensaled=[NSString stringWithFormat:@"本市场今日已销售%@瓶",[dict stringForKey:@"dailySales"]];
+        cell.counthasbeensaled=[NSString stringWithFormat:@"本市场今日已销售%@件",[dict stringForKey:@"dailySales"]];
         cell.shortcomment=[dict stringForKey:@"commentary"];
         NSArray *array=[dict arrayForKey:@"goodsRangePrice"];
         switch (array.count) {

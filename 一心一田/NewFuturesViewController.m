@@ -21,24 +21,29 @@
 @end
 
 @implementation NewFuturesViewController
+-(instancetype)init{
+  if(self=[super init])
+      self.automaticallyAdjustsScrollViewInsets=NO;
+    return self;
+}
 -(void)viewWillAppear:(BOOL)animated{
     _startBtn.hidden=YES;
+    [self setupScrollView];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setupScrollView];
+    
 }
 
 -(void)setupScrollView{
-    CGFloat imgW=_scrollview.width;
-    CGFloat imgH=_scrollview.height;
-    _scrollview.contentSize=CGSizeMake(imgW*NewFuturesCount, 0);
+
+    _scrollview.contentSize=CGSizeMake(MAIN_WIDTH*NewFuturesCount, 0);
     _scrollview.pagingEnabled=YES;
     _scrollview.showsHorizontalScrollIndicator=NO;
     _forwardimg.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",11]];
     for (int i=0;i<NewFuturesCount;i++){
-        UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(i*imgW, 0, imgW, imgH)];
+        UIImageView *imgview=[[UIImageView alloc]initWithFrame:CGRectMake(i*MAIN_WIDTH, 0,MAIN_WIDTH,MAIN_HEIGHT)];
         imgview.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d",i+1]];
         [_scrollview addSubview:imgview];
     }
