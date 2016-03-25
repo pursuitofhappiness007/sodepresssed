@@ -19,7 +19,7 @@
     UIButton *rightBtn;
     UIView *v;
     int tableviewdidfinishloadcount;
-
+    BOOL needrefresh;
 }
 @property (weak, nonatomic) IBOutlet UITableView *shopcartableview;
 @property (weak, nonatomic) IBOutlet UILabel *allmoneytopaylab;
@@ -62,12 +62,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum:) name:@"addorminusClick" object:nil];
+    needrefresh=YES;
     [self initparas];
     [self setnavbar];
     [self setbottombar];
 }
 
 -(void)refreshgoodnum:(NSNotification *)anote{
+    if (needrefresh) {
+        [self initparas];
+    }
+    
     NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
     for (int i=0; i<[_shopcartableview numberOfSections]; i++) {
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -309,6 +314,7 @@
 }
 
 -(void)minusBtnClicked:(UIButton *)sender{
+    needrefresh=NO;
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
     
@@ -330,6 +336,7 @@
 }
 
 -(void)addBtnClicked:(UIButton *)sender{
+    needrefresh=NO;
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
     int i=[cell.countlab.text intValue];

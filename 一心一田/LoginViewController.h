@@ -10,10 +10,7 @@
 
 @interface LoginViewController : UIViewController
 @property (nonatomic,weak)NSString *source;
-@property (weak, nonatomic) IBOutlet UIView *container;
 - (IBAction)loginBtnClicked:(id)sender;
-- (IBAction)forgetpwdBtnClicked:(id)sender;
-- (IBAction)registerAccount:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *accounttextfield;
 @property (weak, nonatomic) IBOutlet UITextField *pwdtextfield;
 

@@ -16,7 +16,6 @@
 #import "Fountain+log.m"
 #import "NSDictionary+SafeAccess.h"
 #import "UIView+Extension.h"
-#import "DownLoadImageTool.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
 #import "UIBarButtonItem+Extension.h"

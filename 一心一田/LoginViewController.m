@@ -10,9 +10,7 @@
 #import "RegisterVC.h"
 #import "PersonalCenterViewController.h"
 #import "BPush.h"
-@interface LoginViewController ()<UITextFieldDelegate>{
-    CGFloat originalYofcontainer;
-}
+@interface LoginViewController ()<UITextFieldDelegate>@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 
@@ -34,16 +32,11 @@
     _accounttextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"user"];
     _pwdtextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"password"];
     }
-    [self initparas];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)initparas{
-    originalYofcontainer=_container.y;
 }
 
 -(void)backBtnClicked{
@@ -75,8 +68,8 @@
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     
-       if(MAIN_HEIGHT-_container.height-_container.y<keyboardFrameBeginRect.size.height){
-       CGFloat detlaHeight=keyboardFrameBeginRect.size.height-(MAIN_HEIGHT-_container.height-_container.y);
+       if(MAIN_HEIGHT-_loginBtn.height-_loginBtn.y<keyboardFrameBeginRect.size.height){
+       CGFloat detlaHeight=keyboardFrameBeginRect.size.height-(MAIN_HEIGHT-_loginBtn.height-_loginBtn.y);
         
         self.view.y=-detlaHeight-5;
     }

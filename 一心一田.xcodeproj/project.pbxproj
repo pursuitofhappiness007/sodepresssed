@@ -52,7 +52,6 @@
 		FE6DC0781C8D612B00E93578 /* ClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC0671C8D612B00E93578 /* ClearCacheTool.m */; };
 		FE6DC0791C8D612B00E93578 /* DataBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC0691C8D612B00E93578 /* DataBaseTool.m */; };
 		FE6DC07A1C8D612B00E93578 /* DictionaryToJsonStr.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC06B1C8D612B00E93578 /* DictionaryToJsonStr.m */; };
-		FE6DC07B1C8D612B00E93578 /* DownLoadImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC06D1C8D612B00E93578 /* DownLoadImageTool.m */; };
 		FE6DC07C1C8D612B00E93578 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC06F1C8D612B00E93578 /* HttpTool.m */; };
 		FE6DC07D1C8D612B00E93578 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC0711C8D612B00E93578 /* MBProgressHUD.m */; };
 		FE6DC07F1C8D612B00E93578 /* SaveFileAndWriteFileToSandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6DC0751C8D612B00E93578 /* SaveFileAndWriteFileToSandBox.m */; };
@@ -236,8 +235,6 @@
 		FE6DC0691C8D612B00E93578 /* DataBaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseTool.m; sourceTree = "<group>"; };
 		FE6DC06A1C8D612B00E93578 /* DictionaryToJsonStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryToJsonStr.h; sourceTree = "<group>"; };
 		FE6DC06B1C8D612B00E93578 /* DictionaryToJsonStr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryToJsonStr.m; sourceTree = "<group>"; };
-		FE6DC06C1C8D612B00E93578 /* DownLoadImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadImageTool.h; sourceTree = "<group>"; };
-		FE6DC06D1C8D612B00E93578 /* DownLoadImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadImageTool.m; sourceTree = "<group>"; };
 		FE6DC06E1C8D612B00E93578 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		FE6DC06F1C8D612B00E93578 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		FE6DC0701C8D612B00E93578 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -649,8 +646,6 @@
 				FE6DC0691C8D612B00E93578 /* DataBaseTool.m */,
 				FE6DC06A1C8D612B00E93578 /* DictionaryToJsonStr.h */,
 				FE6DC06B1C8D612B00E93578 /* DictionaryToJsonStr.m */,
-				FE6DC06C1C8D612B00E93578 /* DownLoadImageTool.h */,
-				FE6DC06D1C8D612B00E93578 /* DownLoadImageTool.m */,
 				FE6DC06E1C8D612B00E93578 /* HttpTool.h */,
 				FE6DC06F1C8D612B00E93578 /* HttpTool.m */,
 				FE6DC0701C8D612B00E93578 /* MBProgressHUD.h */,
@@ -1245,7 +1240,6 @@
 				FEDFA0D51C9127B90010E5E3 /* SearchViewController.m in Sources */,
 				FE7DBF201C8D6873003536BC /* AFSecurityPolicy.m in Sources */,
 				FE545B0D1C8FCE7E0081DB28 /* MessageTableViewCell.m in Sources */,
-				FE6DC07B1C8D612B00E93578 /* DownLoadImageTool.m in Sources */,
 				FEDFA0BF1C91242C0010E5E3 /* ShopcarViewController.m in Sources */,
 				FEDFA0DB1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.m in Sources */,
 				CEECE1F71C9AD19F009D11D8 /* AccountRecharge.m in Sources */,
