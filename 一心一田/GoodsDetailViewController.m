@@ -210,7 +210,7 @@
                 self.collectionButton.selected = self.isFavour;
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 hud.mode = MBProgressHUDModeText;
-                hud.labelText =@"收藏失败，请检查网络连接!";
+                hud.labelText =@"网络繁忙，请稍后再试!";
                 hud.margin = 10.f;
                 hud.removeFromSuperViewOnHide = YES;
                 [hud hide:YES afterDelay:1.0];
@@ -222,7 +222,7 @@
             self.collectionButton.selected = self.isFavour;
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeText;
-            hud.labelText =@"收藏失败，请检查网络连接";
+            hud.labelText =@"网络繁忙，请稍后再试";
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.0];
@@ -307,4 +307,9 @@
     vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)shopCarClicked:(id)sender {
+     [self.tabBarController setSelectedIndex:1];
+}
+
+
 @end
