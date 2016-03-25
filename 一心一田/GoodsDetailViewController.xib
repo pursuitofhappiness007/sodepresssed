@@ -100,6 +100,9 @@
                             <state key="normal" image="shopcar">
                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="shopCarClicked:" destination="-1" eventType="touchUpInside" id="mlc-Qd-4zp"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11种商品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYH-H9-Rrh">
                             <rect key="frame" x="45" y="10" width="56.5" height="14.5"/>

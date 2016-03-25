@@ -44,7 +44,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *dynamictitlelab;
-
+@property (strong, nonatomic) UIActivityIndicatorView *activit;
 @end
 
 @implementation HomeViewController
@@ -136,6 +136,7 @@
                 [indexs addObject:index];
                 //每次从线上请求新的数据都要喝本地同步
                 [LocalAndOnlineFileTool keepthesamewithonline:tablelist];
+                
             }
             [_tableview beginUpdates];
             [_tableview insertRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -154,17 +155,18 @@
                 NSLog(@"when next can come to here?");
                 totalpage=[[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"page"] doubleForKey:@"total_page"];
                 NSLog(@"总页数%d",totalpage);
-                
                 [_tableview reloadData];
             }
             else
             {
 //                _tableview.hidden=YES;
+                
             }
             
         }
 
 } failure:^(NSError *error) {
+
 }];
 
 }

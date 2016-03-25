@@ -144,28 +144,28 @@
         case 1:
         {
         //修改电话1
-            EditNickNameViewController *vc=[[EditNickNameViewController alloc]init];
-            vc.stringtobechanged=_phone1lab.text;
-            vc.type=Phone1;
-            [self.navigationController pushViewController:vc animated:YES];
+//            EditNickNameViewController *vc=[[EditNickNameViewController alloc]init];
+//            vc.stringtobechanged=_phone1lab.text;
+//            vc.type=Phone1;
+//            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 2:
         {
-        //修改电话2
-            EditNickNameViewController *vc=[[EditNickNameViewController alloc]init];
-            vc.stringtobechanged=_phone2lab.text;
-            vc.type=Phone2;
-            [self.navigationController pushViewController:vc animated:YES];
+//        //修改电话2
+//            EditNickNameViewController *vc=[[EditNickNameViewController alloc]init];
+//            vc.stringtobechanged=_phone2lab.text;
+//            vc.type=Phone2;
+//            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3:
         {
-        //修改电话3
-            EditNickNameViewController *vc=[[EditNickNameViewController alloc]init];
-            vc.stringtobechanged=_phone3lab.text;
-            vc.type=Phone3;
-            [self.navigationController pushViewController:vc animated:YES];
+//        //修改电话3
+//            EditNickNameViewController *vc=[[EditNickNameViewController alloc]init];
+//            vc.stringtobechanged=_phone3lab.text;
+//            vc.type=Phone3;
+//            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             

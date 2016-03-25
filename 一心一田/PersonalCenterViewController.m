@@ -88,8 +88,8 @@
             _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
             [_backgroundimage sd_setImageWithURL:[NSURL URLWithString:[info stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
             // [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
-           self.amount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"amount"]];
-          self.creditAmount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"acBal"]];
+           self.amount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"acBal"]];
+          self.creditAmount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"amount"]];
             
         }else{
             NSLog(@"个人信息获取失败%@", responseObj);

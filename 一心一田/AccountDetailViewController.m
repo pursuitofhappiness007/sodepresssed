@@ -84,7 +84,7 @@
         } else{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeText;
-            hud.labelText=[[responseObj dictionaryForKey:@"data"] stringForKey:@"error_msg"];
+            hud.labelText=@"数据获取失败";
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.2];
