@@ -122,6 +122,7 @@
     //每次请求的数量
     paras[@"page_size"]=@10;
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
+    
     [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
         if(tablelist.count>0){
             previouscount=tablelist.count;
