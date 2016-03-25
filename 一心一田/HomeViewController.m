@@ -350,7 +350,8 @@
     NSDictionary *dict=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"]dictionaryForKey:@"goodsType"];
     _dynamicpicimg.layer.cornerRadius=_dynamicpicimg.width*0.5;
     _dynamicpicimg.layer.masksToBounds=YES;
-    [[DownLoadImageTool singletonInstance]imageWithImage:[dict stringForKey:@"icon"] scaledToWidth:_dynamicpicimg.width imageview:_dynamicpicimg];
+    [_dynamicpicimg sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"icon"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+   // [[DownLoadImageTool singletonInstance]imageWithImage:[dict stringForKey:@"icon"] scaledToWidth:_dynamicpicimg.width imageview:_dynamicpicimg];
     _dynamictitlelab.text=[dict stringForKey:@"name"];
 
 }

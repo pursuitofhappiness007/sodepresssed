@@ -34,7 +34,8 @@
     
 }
 -(void)setIcon:(NSString *)icon{
-    [[DownLoadImageTool singletonInstance]imageWithImage:icon scaledToWidth:_iconimg.width imageview:_iconimg];
+    [_iconimg sd_setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"defualt"]];
+ //   [[DownLoadImageTool singletonInstance]imageWithImage:icon scaledToWidth:_iconimg.width imageview:_iconimg];
 }
 -(void)setTime:(NSString *)time{
     _timelab.text=time;

@@ -53,7 +53,8 @@
     _personalIcon.layer.cornerRadius=_personalIcon.width/2.0;
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
-     [[DownLoadImageTool singletonInstance] imageWithImage:self.icon  scaledToWidth:_personalIcon.width imageview:_personalIcon];
+    [_personalIcon sd_setImageWithURL:[NSURL URLWithString:self.icon] placeholderImage:[UIImage imageNamed:@"defualt"]];
+    // [[DownLoadImageTool singletonInstance] imageWithImage:self.icon  scaledToWidth:_personalIcon.width imageview:_personalIcon];
     _usernamelab.text= self.name;
     _phone1lab.text = self.phoneArr[0];
     _phone2lab.text = self.phoneArr[1];

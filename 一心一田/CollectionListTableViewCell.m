@@ -45,7 +45,8 @@
 }
 
 -(void)setGoodimg:(NSString *)goodimg{
-    [[DownLoadImageTool singletonInstance]imageWithImage:goodimg scaledToWidth:_goodimageview.width imageview:_goodimageview];
+    [_goodimageview sd_setImageWithURL:[NSURL URLWithString:goodimg] placeholderImage:[UIImage imageNamed:@"defualt"]];
+  //  [[DownLoadImageTool singletonInstance]imageWithImage:goodimg scaledToWidth:_goodimageview.width imageview:_goodimageview];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

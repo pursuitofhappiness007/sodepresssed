@@ -157,7 +157,8 @@
     [self setdeliveryaddress];
 }
 -(void)setseckillcontent{
-  [[DownLoadImageTool singletonInstance]imageWithImage:_imageurl  scaledToWidth:_goodsimgview.width imageview:_goodsimgview];
+    [_goodsimgview sd_setImageWithURL:[NSURL URLWithString:_imageurl] placeholderImage:[UIImage imageNamed:@"defualt"]];
+  //[[DownLoadImageTool singletonInstance]imageWithImage:_imageurl  scaledToWidth:_goodsimgview.width imageview:_goodsimgview];
     _goodsnamelab.text=_namestr;
     _goodspricelab.text=[NSString stringWithFormat:@"¥%.2f",_singleprice];
     
@@ -170,7 +171,8 @@
 }
 
 -(void)setlocalcontent{
-    [[DownLoadImageTool singletonInstance]imageWithImage:_imageurl  scaledToWidth:_goodsimgview.width imageview:_goodsimgview];
+    [_goodsimgview sd_setImageWithURL:[NSURL URLWithString:_imageurl] placeholderImage:[UIImage imageNamed:@"defualt"]];
+    //[[DownLoadImageTool singletonInstance]imageWithImage:_imageurl  scaledToWidth:_goodsimgview.width imageview:_goodsimgview];
     _goodsnamelab.text=_namestr;
     _goodspricelab.text=[NSString stringWithFormat:@"¥%.2f",_singleprice];
     totalcount=1;

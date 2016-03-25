@@ -49,7 +49,8 @@
 }
 
 -(void)setImage:(NSString *)image{
-    [[DownLoadImageTool singletonInstance]imageWithImage:image scaledToWidth:_goodsimage.width imageview:_goodsimage];
+    [_goodsimage sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:@"defualt"]];
+   // [[DownLoadImageTool singletonInstance]imageWithImage:image scaledToWidth:_goodsimage.width imageview:_goodsimage];
 }
 
 -(void)setName:(NSString *)name{
