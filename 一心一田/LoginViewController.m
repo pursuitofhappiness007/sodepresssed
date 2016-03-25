@@ -7,10 +7,13 @@
 //
 
 #import "LoginViewController.h"
-#import "RegisterVC.h"
 #import "PersonalCenterViewController.h"
 #import "BPush.h"
-@interface LoginViewController ()<UITextFieldDelegate>@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@interface LoginViewController ()<UITextFieldDelegate>{
+   
+}
+
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 
@@ -19,6 +22,7 @@
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=YES;
+    [[UITextField appearance] setTintColor:[UIColor colorWithRed:34.0/255 green:127.0/255 blue:223.0/255 alpha:1.0]];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,8 +35,11 @@
     if([[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"]){
     _accounttextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"user"];
     _pwdtextfield.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"userpassword.txt"] stringForKey:@"password"];
+        _pwdtextfield.font=[UIFont systemFontOfSize:13.0*(MAIN_WIDTH/375.0)];
     }
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -89,7 +96,12 @@
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if([textField.text isEqualToString:@"输入密码"]||[textField.text isEqualToString:@"输入账号"]){
     textField.text=nil;
+        if (textField.tag==90) {
+            textField.secureTextEntry=YES;
+        }
+    }
     return YES;
 }
 
@@ -152,7 +164,7 @@
                 NSLog(@"注册推送接口成功%@",responseObj);
             } failure:^(NSError *error) {
                 NSLog(@"注册推送接口失败%@",error);
-            }];
+            }controler:self];
             
             if([_source isEqualToString:@"back"]){
                 [self.navigationController popViewControllerAnimated:YES];
@@ -172,7 +184,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"未能登录陈宫%@",error);
-    }];
+    }controler:self];
     
 }
 

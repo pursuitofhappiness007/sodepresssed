@@ -100,9 +100,7 @@
    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
  [HttpTool post:@"index" params:paras success:^(id responseObj) {
      if([responseObj int32ForKey:@"result"]==0){
-         NSLog(@"---------------------------------------------------------------");
-         NSLog(@"首页数据%@",responseObj);
-         NSLog(@"---------------------------------------------------------------");
+         
          phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
@@ -114,7 +112,7 @@
        NSLog(@"---------------------------------------------------------------");
      NSLog(@"请求首页数据失败%@",error);
        NSLog(@"---------------------------------------------------------------");
- }];
+ } controler:self];
 }
 
 - (void)getTableListDataFromSever:(int)pageno{
@@ -165,7 +163,7 @@
         }
 
 } failure:^(NSError *error) {
-}];
+} controler:self];
 
 }
 
@@ -218,7 +216,7 @@
             NSLog(@"---------------------------------------------------------------");
             NSLog(@"请求商品详情数据失败%@",error);
             NSLog(@"---------------------------------------------------------------");
-        }];
+        } controler:self];
 
     }else{
         NSLog(@"2");

@@ -29,7 +29,7 @@
 #define StatusBarH 20
 #define NaviBarH 44
 
-#define HOST @"http://192.168.199.50:8870/api/"
+#define HOST @"http://192.168.199.50:8810/api/"
 //#define HOST @"http://testb2v.exinetian.com/api/"
 
 //博文

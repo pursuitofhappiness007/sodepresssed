@@ -103,7 +103,7 @@
                 NSLog(@"注销推送成功%@  参数＝%@",responseObj,paras);
                             } failure:^(NSError *error) {
                 NSLog(@"注销推送失败%@",error);
-            }];
+            } controler:self];
         }
         else{
             
@@ -120,7 +120,7 @@
 
     } failure:^(NSError *error) {
         NSLog(@"注销失败%@",error);
-    }];
+    } controler:self];
 
     
 }
@@ -257,7 +257,7 @@
             }
         } failure:^(NSError *error) {
             NSLog(@"头像上传失败%@",error);
-        }];
+        } controler:self];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"图像上传失败  %@",error);

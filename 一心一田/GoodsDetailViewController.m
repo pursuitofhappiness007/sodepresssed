@@ -92,7 +92,7 @@
          }
        } failure:^(NSError *error) {
       NSLog(@"获取商品详情失败 %@",error);
-  }];
+  } controler:self];
 }
 
 -(void)setlocalcontent{
@@ -227,7 +227,7 @@
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.0];
 
-        }];
+        } controler:self];
 
     }else{
         //取消收藏
@@ -260,7 +260,7 @@
         } failure:^(NSError *error) {
             NSLog(@"获取数据失败");
             NSLog(@"%@", error);
-        }];
+        } controler:self];
 
     }
     

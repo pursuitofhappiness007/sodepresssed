@@ -99,8 +99,6 @@
 		FE7DBF841C8D6AC2003536BC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF7D1C8D6AC2003536BC /* FMDatabaseQueue.m */; };
 		FE7DBF851C8D6AC2003536BC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF801C8D6AC2003536BC /* FMResultSet.m */; };
 		FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF871C8D6B51003536BC /* chooseprovince.xib */; };
-		FE7DBF8C1C8D6B51003536BC /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF891C8D6B51003536BC /* RegisterVC.m */; };
-		FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
 		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
@@ -158,8 +156,6 @@
 		FEDFA0E61C9129640010E5E3 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0E41C9129640010E5E3 /* SearchResultsViewController.xib */; };
 		FEDFA0EA1C912A500010E5E3 /* AddInOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0E81C912A500010E5E3 /* AddInOrderTableViewCell.m */; };
 		FEDFA0EB1C912A500010E5E3 /* AddInOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0E91C912A500010E5E3 /* AddInOrderTableViewCell.xib */; };
-		FEDFA0F01C9149C70010E5E3 /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0EE1C9149C70010E5E3 /* NewAddressViewController.m */; };
-		FEDFA0F11C9149C70010E5E3 /* NewAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0EF1C9149C70010E5E3 /* NewAddressViewController.xib */; };
 		FEDFA1041C914C600010E5E3 /* MyOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0FF1C914C600010E5E3 /* MyOrderTableViewCell.m */; };
 		FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA1001C914C600010E5E3 /* MyOrderTableViewCell.xib */; };
 		FEDFA1061C914C600010E5E3 /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA1021C914C600010E5E3 /* MyOrderViewController.m */; };
@@ -329,9 +325,6 @@
 		FE7DBF7F1C8D6AC2003536BC /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		FE7DBF801C8D6AC2003536BC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		FE7DBF871C8D6B51003536BC /* chooseprovince.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = chooseprovince.xib; sourceTree = "<group>"; };
-		FE7DBF881C8D6B51003536BC /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
-		FE7DBF891C8D6B51003536BC /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
-		FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -414,9 +407,6 @@
 		FEDFA0E71C912A500010E5E3 /* AddInOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddInOrderTableViewCell.h; sourceTree = "<group>"; };
 		FEDFA0E81C912A500010E5E3 /* AddInOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddInOrderTableViewCell.m; sourceTree = "<group>"; };
 		FEDFA0E91C912A500010E5E3 /* AddInOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddInOrderTableViewCell.xib; sourceTree = "<group>"; };
-		FEDFA0ED1C9149C70010E5E3 /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
-		FEDFA0EE1C9149C70010E5E3 /* NewAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAddressViewController.m; sourceTree = "<group>"; };
-		FEDFA0EF1C9149C70010E5E3 /* NewAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewAddressViewController.xib; sourceTree = "<group>"; };
 		FEDFA0FE1C914C600010E5E3 /* MyOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderTableViewCell.h; sourceTree = "<group>"; };
 		FEDFA0FF1C914C600010E5E3 /* MyOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderTableViewCell.m; sourceTree = "<group>"; };
 		FEDFA1001C914C600010E5E3 /* MyOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -846,9 +836,6 @@
 			isa = PBXGroup;
 			children = (
 				FE7DBF871C8D6B51003536BC /* chooseprovince.xib */,
-				FE7DBF881C8D6B51003536BC /* RegisterVC.h */,
-				FE7DBF891C8D6B51003536BC /* RegisterVC.m */,
-				FE7DBF8A1C8D6B51003536BC /* RegisterVC.xib */,
 			);
 			name = "注册";
 			sourceTree = "<group>";
@@ -992,9 +979,6 @@
 		FEDFA0EC1C9149B20010E5E3 /* 新增收货地址 */ = {
 			isa = PBXGroup;
 			children = (
-				FEDFA0ED1C9149C70010E5E3 /* NewAddressViewController.h */,
-				FEDFA0EE1C9149C70010E5E3 /* NewAddressViewController.m */,
-				FEDFA0EF1C9149C70010E5E3 /* NewAddressViewController.xib */,
 			);
 			name = "新增收货地址";
 			sourceTree = "<group>";
@@ -1120,11 +1104,9 @@
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
 				CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */,
 				FE1897831CA4E19B00310488 /* Assets.xcassets in Resources */,
-				FEDFA0F11C9149C70010E5E3 /* NewAddressViewController.xib in Resources */,
 				FEDC9FCF1C9839980002FB2F /* popfirstclassficationmenu.xib in Resources */,
 				FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */,
 				FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */,
-				FE7DBF8D1C8D6B51003536BC /* RegisterVC.xib in Resources */,
 				CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */,
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
 				FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */,
@@ -1193,7 +1175,6 @@
 				FE7DBF1F1C8D6873003536BC /* AFNetworkReachabilityManager.m in Sources */,
 				FEDFA0C11C91242C0010E5E3 /* ShoppingCarTableViewCell.m in Sources */,
 				FEDC9FC41C97B0DC0002FB2F /* EditNickNameViewController.m in Sources */,
-				FE7DBF8C1C8D6B51003536BC /* RegisterVC.m in Sources */,
 				FE545B081C8FCDFC0081DB28 /* MessageCenterViewController.m in Sources */,
 				FE906D2A1CA130280099D786 /* UsuallyBuyViewController.m in Sources */,
 				FEDFA0E51C9129640010E5E3 /* SearchResultsViewController.m in Sources */,
@@ -1205,7 +1186,6 @@
 				FE7DBF841C8D6AC2003536BC /* FMDatabaseQueue.m in Sources */,
 				FE7DBF561C8D6899003536BC /* UIView+WebCacheOperation.m in Sources */,
 				FEDFA0EA1C912A500010E5E3 /* AddInOrderTableViewCell.m in Sources */,
-				FEDFA0F01C9149C70010E5E3 /* NewAddressViewController.m in Sources */,
 				FE7734B41C8D8B4400397142 /* WXApiManager.m in Sources */,
 				FE7DBF731C8D6983003536BC /* reSetPwdViewController.m in Sources */,
 				FE7DBF211C8D6873003536BC /* AFURLConnectionOperation.m in Sources */,

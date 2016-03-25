@@ -92,7 +92,7 @@
     } failure:^(NSError *error) {
         NSLog(@"获取数据失败");
         NSLog(@"%@", error);
-    }];
+    } controler:self];
 
 }
 
