@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="accounttextfield" destination="pu4-C4-eDp" id="F5g-iO-55s"/>
+                <outlet property="loginBtn" destination="qsD-TI-ZNK" id="wu1-N7-3Og"/>
                 <outlet property="pwdtextfield" destination="OGT-jn-aWH" id="yQA-iE-SZl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,35 +57,18 @@
                         <outlet property="delegate" destination="-1" id="04O-Cu-15a"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsD-TI-ZNK">
-                    <rect key="frame" x="75" y="390" width="225" height="40"/>
-                    <color key="backgroundColor" red="0.3411764705882353" green="0.61960784313725492" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="o4R-ai-W9u"/>
-                    </constraints>
-                    <state key="normal" title="登录">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="o4R-ai-W9u"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="loginBtnClicked:" destination="-1" eventType="touchUpInside" id="w1e-HV-a4O"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9x4-qp-DsK" userLabel="line1">
                     <rect key="frame" x="75" y="309" width="225" height="1"/>
                     <color key="backgroundColor" red="0.13333333333333333" green="0.49803921568627452" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1.2" id="hAC-D4-o02"/>
+                        <constraint firstAttribute="height" constant="1" id="f43-l9-35r"/>
+                        <constraint firstAttribute="height" constant="1" id="hAC-D4-o02"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="hAC-D4-o02"/>
+                        </mask>
+                    </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJr-k7-vga" userLabel="line2">
                     <rect key="frame" x="75" y="363" width="225" height="1"/>
@@ -120,6 +104,29 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-wO-Lf0">
                     <rect key="frame" x="75" y="287" width="14" height="18"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsD-TI-ZNK">
+                    <rect key="frame" x="75" y="390" width="225" height="40"/>
+                    <color key="backgroundColor" red="0.3411764705882353" green="0.61960784313725492" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="o4R-ai-W9u"/>
+                    </constraints>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="o4R-ai-W9u"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="loginBtnClicked:" destination="-1" eventType="touchUpInside" id="w1e-HV-a4O"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

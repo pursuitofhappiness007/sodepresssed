@@ -99,7 +99,8 @@
     self.nameLb.text = goodsdetail[@"name"];
     self.specification.text = goodsdetail[@"specifications"];
     self.collectionButton.selected = self.isFavour;
-    [[DownLoadImageTool singletonInstance]imageWithImage:goodsdetail[@"thumbnailImg"] scaledToWidth:self.goodImg.width imageview:self.goodImg];
+    [_goodImg sd_setImageWithURL:[NSURL URLWithString:[goodsdetail stringForKey:@"thumbnailImg"]] placeholderImage:[UIImage imageNamed:@"default"]];
+    
     //self.saleNumber.text = [NSString stringWithFormat:@"本市场已销售%@件", [goodsdetail stringForKey:@"dailySales"]];
     NSLog(@"%@",goodsdetail);
     NSArray *array=[goodsdetail arrayForKey:@"goodsRangePrices"];

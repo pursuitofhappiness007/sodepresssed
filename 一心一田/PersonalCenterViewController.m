@@ -84,8 +84,8 @@
             _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
             _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
               [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
-           self.amount.text = [NSString stringWithFormat:@"余额¥%@",info[@"amount"]];
-          self.creditAmount.text = [NSString stringWithFormat:@"信用额度¥%@",info[@"amount"]];
+           self.amount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"amount"]];
+          self.creditAmount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"acBal"]];
             
         }else{
             NSLog(@"个人信息获取失败%@", responseObj);
