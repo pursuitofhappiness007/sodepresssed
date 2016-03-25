@@ -100,9 +100,7 @@
    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
  [HttpTool post:@"index" params:paras success:^(id responseObj) {
      if([responseObj int32ForKey:@"result"]==0){
-         NSLog(@"---------------------------------------------------------------");
-         NSLog(@"首页数据%@",responseObj);
-         NSLog(@"---------------------------------------------------------------");
+         
          phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
@@ -114,7 +112,7 @@
        NSLog(@"---------------------------------------------------------------");
      NSLog(@"请求首页数据失败%@",error);
        NSLog(@"---------------------------------------------------------------");
- }];
+ } controler:self];
 }
 
 - (void)getTableListDataFromSever:(int)pageno{
@@ -220,7 +218,7 @@
             NSLog(@"---------------------------------------------------------------");
             NSLog(@"请求商品详情数据失败%@",error);
             NSLog(@"---------------------------------------------------------------");
-        }];
+        } controler:self];
 
     }else{
         NSLog(@"2");
@@ -353,7 +351,7 @@
     _dynamicpicimg.layer.cornerRadius=_dynamicpicimg.width*0.5;
     _dynamicpicimg.layer.masksToBounds=YES;
     [_dynamicpicimg sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"icon"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
-   // [[DownLoadImageTool singletonInstance]imageWithImage:[dict stringForKey:@"icon"] scaledToWidth:_dynamicpicimg.width imageview:_dynamicpicimg];
+    
     _dynamictitlelab.text=[dict stringForKey:@"name"];
 
 }
@@ -409,6 +407,18 @@
 
 
 - (IBAction)phoneBtnClicked:(id)sender {
+    if (phonenum.length==0) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        
+        // Configure for text only and offset down
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"暂未提供客服电话";
+        hud.margin = 10.f;
+        hud.removeFromSuperViewOnHide = YES;
+        
+        [hud hide:YES afterDelay:1.0];
+        return;
+    }
     NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",phonenum]];
     
     if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {

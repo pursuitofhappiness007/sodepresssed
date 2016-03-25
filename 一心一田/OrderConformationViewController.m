@@ -12,7 +12,6 @@
 #import "AddInOrderTableViewCell.h"
 #import "WXApi.h"
 #import "MutipleGoodsViewController.h"
-#import "NewAddressViewController.h"
 #import "WXPayTool.h"
 @interface OrderConformationViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>{
    
@@ -102,7 +101,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"获取收货地址失败 %@",error);
-    }];
+    }controler:self];
 
 }
 
@@ -265,6 +264,17 @@
             //余额支付
             else {
                 //跳到订单详情
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                
+                // Configure for text only and offset down
+                hud.mode = MBProgressHUDModeCustomView;
+                
+                hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+                hud.labelFont=[UIFont systemFontOfSize:12.5];
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                
+                [hud hide:YES afterDelay:1.0];
                 MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
                 NSLog(@"余额支付成功后的json＝%@",responseObj);
                 NSDictionary *dict=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_info"];
@@ -281,7 +291,7 @@
     }
     failure:^(NSError *error) {
         NSLog(@"提交订单shibai%@",error);
-    }];
+    }controler:self];
 }
 
 -(void)paysucceedoption{

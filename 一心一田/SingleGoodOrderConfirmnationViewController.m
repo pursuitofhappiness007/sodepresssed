@@ -10,7 +10,6 @@
 #import "AddInOrderTableViewCell.h"
 #import "MutipleGoodsViewController.h"
 #import "WXApiManager.h"
-#import "NewAddressViewController.h"
 @interface SingleGoodOrderConfirmnationViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,WXApiDelegate>{
     NSMutableArray *addlistarray;
     UIView *v;
@@ -94,7 +93,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"获取收货地址失败 %@",error);
-    }];
+    } controler:self];
     
 }
 
@@ -233,14 +232,6 @@
 }
 
 - (IBAction)changedeliveryaddressBtnClicked:(id)sender {
-    if(addlistarray.count<2){
-
-        NewAddressViewController *vc=[[NewAddressViewController alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-     
-    }
-        
         
     v=[[[NSBundle mainBundle]loadNibNamed:@"popaddressdeliverylist" owner:self options:nil]firstObject];
     v.frame=self.view.bounds;
@@ -356,7 +347,7 @@
 
     } failure:^(NSError *error) {
         NSLog(@"提交订单shibai%@",error);
-    }];
+    } controler:self];
 }
 
 

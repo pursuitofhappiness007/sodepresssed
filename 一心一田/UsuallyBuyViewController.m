@@ -115,7 +115,7 @@
         
     } failure:^(NSError *error) {
         NSLog(@"hhhhhhhhhhh%@",error);
-    }];
+    } controler:self];
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

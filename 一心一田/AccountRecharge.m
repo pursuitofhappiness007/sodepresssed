@@ -129,7 +129,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"网络繁忙，请稍后再试");
-    }];
+    } controler:self];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

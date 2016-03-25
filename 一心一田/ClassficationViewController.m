@@ -116,7 +116,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"获取一级分类失败%@",error);
-    }];
+    } controler:self];
 }
 //获取二级分类
 -(void)getsubclassfication:(NSString *)firstpids {
@@ -136,7 +136,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"获取一级分类失败%@",error);
-    }];
+    }controler:self];
 
 }
 -(void)refreshfenleivc{
@@ -212,7 +212,7 @@
         
     } failure:^(NSError *error) {
         NSLog(@"获取分类失败 %@",error);
-    }];
+    }controler:self];
     
 }
 
@@ -457,7 +457,7 @@
             }
         } failure:^(NSError *error) {
             
-        }];
+        }controler:self];
         
         
     }

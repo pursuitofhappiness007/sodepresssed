@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface HttpTool : NSObject
-+ (void)get:(NSString *)api params:(NSMutableDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *error))failure;
++ (void)get:(NSString *)api params:(NSMutableDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *error))failure controler:(UIViewController *)vc;
 
-+ (void)post:(NSString *)api params:(NSMutableDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure;
++ (void)post:(NSString *)api params:(NSMutableDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure controler:(UIViewController *)vc;
+
 @end

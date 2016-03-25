@@ -95,10 +95,7 @@
             NSLog(@"个人信息获取失败%@", responseObj);
         }
     } failure:^(NSError *error) {
-        NSLog(@"---------------------------------------------------------------");
-        NSLog(@"个人信息获取失败%@",error);
-        NSLog(@"---------------------------------------------------------------");
-    }];
+           }controler:self];
 
         //返回的json中无此字段
         //    _phone1lab.text=;
@@ -236,14 +233,6 @@
         [formData appendPartWithFileData:imgdata name:@"image" fileName:@"avator.jpeg" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"图片上船Success: %@", responseObject);
-        MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        [self.navigationController.view addSubview:HUD];
-        HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-        HUD.mode = MBProgressHUDModeCustomView;
-        HUD.labelText = @"修改成功";
-        
-        [HUD show:YES];
-        [HUD hide:YES afterDelay:1.5];
         NSDictionary *tokenfile=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"];
         tokenfile[@"member_info"][@"headPath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:tokenfile filepath:@"tokenfile.txt"];
@@ -279,7 +268,7 @@
           }
       } failure:^(NSError *error) {
           NSLog(@"头像上传失败%@",error);
-      }];
+      } controler:self];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"图像上传失败  %@",error);

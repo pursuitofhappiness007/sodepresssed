@@ -265,7 +265,7 @@
         
     } failure:^(NSError *error) {
         NSLog(@"获得促销失败%@",error);
-    }];
+    } controler:self];
 }
 
 -(void)initparas{

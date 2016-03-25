@@ -122,7 +122,7 @@
 
     } failure:^(NSError *error) {
         NSLog(@"昵称修改失败%@",error);
-    }];
+    } controler:self];
 }
 - (IBAction)textFieldDIdEndOnExist:(UITextField *)sender {
     

@@ -138,7 +138,7 @@
         
     } failure:^(NSError *error) {
         NSLog(@"获取订单详情shibai %@",error);
-    }];
+    } controler:self];
 
 }
 
@@ -395,7 +395,7 @@
             }
         } failure:^(NSError *error) {
             NSLog(@"发送取消失败%@",error);
-        }];
+        } controler:self];
 }
 //去支付
 - (IBAction)payBtnClicked:(UIButton *)sender {
@@ -443,7 +443,7 @@
         
     } failure:^(NSError *error) {
         NSLog(@"获取详情失败%@",error);
-    }];
+    }controler:self];
     
 }
 
@@ -496,7 +496,7 @@ paras[@"order_id"]=[[orderlist[sender.tag]dictionaryForKey:@"orderHeader"] strin
         }
     } failure:^(NSError *error) {
         NSLog(@"确认收货失败%@",error);
-    }];
+    } controler:self];
     
     
     

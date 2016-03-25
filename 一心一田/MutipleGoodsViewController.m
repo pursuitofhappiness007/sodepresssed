@@ -92,7 +92,7 @@
         [_orderdetailtableview reloadData];
     } failure:^(NSError *error) {
         NSLog(@"获取详情失败%@",error);
-    }];
+    } controler:self];
 }
 -(void)setstatuslabtext:(int)i{
     UIView *view=[[UIView alloc]init];
@@ -290,7 +290,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"确认收货失败%@",error);
-    }];
+    } controler:self];
 
 }
 //取消订单
@@ -334,7 +334,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"发送取消失败%@",error);
-    }];
+    } controler:self];
 
 }
 //去支付

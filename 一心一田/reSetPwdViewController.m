@@ -87,6 +87,6 @@
         }
     } failure:^(NSError *error) {
          NSLog(@"修改失败%@",error);
-    }];
+    } controler:self];
 }
 @end
