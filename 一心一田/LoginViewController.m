@@ -88,6 +88,11 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"tokenfilechanged" object:nil];
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    textField.text=nil;
+    return YES;
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if([string isEqualToString:@"\n"]) {

@@ -350,7 +350,8 @@
     NSDictionary *dict=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"]dictionaryForKey:@"goodsType"];
     _dynamicpicimg.layer.cornerRadius=_dynamicpicimg.width*0.5;
     _dynamicpicimg.layer.masksToBounds=YES;
-    [[DownLoadImageTool singletonInstance]imageWithImage:[dict stringForKey:@"icon"] scaledToWidth:_dynamicpicimg.width imageview:_dynamicpicimg];
+    [_dynamicpicimg sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"icon"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+    
     _dynamictitlelab.text=[dict stringForKey:@"name"];
 
 }
@@ -406,6 +407,18 @@
 
 
 - (IBAction)phoneBtnClicked:(id)sender {
+    if (phonenum.length==0) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        
+        // Configure for text only and offset down
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"暂未提供客服电话";
+        hud.margin = 10.f;
+        hud.removeFromSuperViewOnHide = YES;
+        
+        [hud hide:YES afterDelay:1.0];
+        return;
+    }
     NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",phonenum]];
     
     if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {

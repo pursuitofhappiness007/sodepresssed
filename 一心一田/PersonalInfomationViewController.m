@@ -53,11 +53,14 @@
     _personalIcon.layer.cornerRadius=_personalIcon.width/2.0;
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
-     [[DownLoadImageTool singletonInstance] imageWithImage:self.icon  scaledToWidth:_personalIcon.width imageview:_personalIcon];
+    
     _usernamelab.text= self.name;
-    _phone1lab.text = self.phoneArr[0];
-    _phone2lab.text = self.phoneArr[1];
-    _phone3lab.text = self.phoneArr[2];
+   [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    [_phoneArr[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    [_phoneArr[2] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+    _phone1lab.text =_phoneArr[0];
+    _phone2lab.text =_phoneArr[1];
+    _phone3lab.text =_phoneArr[2];
 
     
     
