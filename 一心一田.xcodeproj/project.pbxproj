@@ -30,6 +30,7 @@
 		CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1FE1C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib */; };
 		CEECE2061C9AD1AD009D11D8 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */; };
 		CEECE2071C9AD1AD009D11D8 /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */; };
+		CEF2B2791CA52E7C00669894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2B2781CA52E7C00669894 /* Assets.xcassets */; };
 		FE06ABBC1C9BFAF30072F2BB /* pricechooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */; };
 		FE1897221CA3A7D300310488 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1897211CA3A7D300310488 /* 2.png */; };
 		FE1897291CA3B29700310488 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = FE1897271CA3B29700310488 /* Default-568h.png */; };
@@ -197,6 +198,7 @@
 		CEECE1FF1C9AD1AD009D11D8 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
 		CEECE2001C9AD1AD009D11D8 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
 		CEECE2011C9AD1AD009D11D8 /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
+		CEF2B2781CA52E7C00669894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE06ABBB1C9BFAF30072F2BB /* pricechooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pricechooser.xib; sourceTree = "<group>"; };
 		FE1897211CA3A7D300310488 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		FE1897271CA3B29700310488 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 				FE6DC0441C8D5B2B00E93578 /* Extensios */,
 				FE6DC0421C8D5B0900E93578 /* Controllers */,
 				FE6DC0811C8D617500E93578 /* others */,
+				CEF2B2781CA52E7C00669894 /* Assets.xcassets */,
 				FE6DC0391C8D597200E93578 /* LaunchScreen.storyboard */,
 				FE6DC03C1C8D597200E93578 /* Info.plist */,
 				FE6DC02B1C8D597200E93578 /* Supporting Files */,
@@ -1112,6 +1115,7 @@
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FE1897291CA3B29700310488 /* Default-568h.png in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
+				CEF2B2791CA52E7C00669894 /* Assets.xcassets in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
 				FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,

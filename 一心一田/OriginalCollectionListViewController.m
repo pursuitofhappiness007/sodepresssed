@@ -65,7 +65,8 @@
         if([responseObj int32ForKey:@"result"]==0){
         NSMutableArray *arr = [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour"] ;
             self.collectionListArr = [arr mutableCopy] ;
-            [self.tableview reloadData];
+            [self.firstbt setTitle:[NSString stringWithFormat:@"全部商品(%ld)",self.collectionListArr.count] forState:UIControlStateNormal];
+             [self.tableview reloadData];
             NSLog(@"获取数据成功");
             return;
         } else{
