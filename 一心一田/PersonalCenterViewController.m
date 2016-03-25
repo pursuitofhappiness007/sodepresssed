@@ -14,6 +14,7 @@
 #import "MyOrderViewController.h"
 #import "MessageCenterViewController.h"
 #import "reSetPwdViewController.h"
+
 @interface PersonalCenterViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
    UIImagePickerController *imagePicker;
     UIImage *usericonimg;
@@ -77,13 +78,16 @@
             _usericon.clipsToBounds=YES;
             _usericon.layer.masksToBounds =YES;
             _usericon.layer.borderWidth=3.0;
-          [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"]  scaledToWidth:self.usericon.width imageview:self.usericon];
+           [self.usericon sd_setImageWithURL:[NSURL URLWithString:[info stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+         // [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"]  scaledToWidth:self.usericon.width imageview:self.usericon];
+           
             _shadowoficon.layer.shadowOffset = CGSizeMake(0, 0);
             _shadowoficon.layer.shadowOpacity = 0.6;
             _shadowoficon.layer.shadowRadius =_usericon.width/2.0;
             _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
             _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
-              [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
+            [_backgroundimage sd_setImageWithURL:[NSURL URLWithString:[info stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+            // [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
            self.amount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"amount"]];
           self.creditAmount.text = [NSString stringWithFormat:@"¥%@",[info stringForKey:@"acBal"]];
             
@@ -110,7 +114,8 @@
     _usericon.clipsToBounds=YES;
     _usericon.layer.masksToBounds =YES;
     _usericon.layer.borderWidth=3.0;
-        [[DownLoadImageTool singletonInstance]imageWithImage:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"] scaledToWidth:_usericon.width imageview:_usericon];
+    [_usericon sd_setImageWithURL:[NSURL URLWithString:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+      //  [[DownLoadImageTool singletonInstance]imageWithImage:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"] scaledToWidth:_usericon.width imageview:_usericon];
     
    
     _shadowoficon.layer.shadowOffset = CGSizeMake(0, 0);
@@ -118,7 +123,8 @@
     _shadowoficon.layer.shadowRadius =_usericon.width/2.0;
     _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
     _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
-    [[DownLoadImageTool singletonInstance]imageWithImage:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
+    [_backgroundimage sd_setImageWithURL:[NSURL URLWithString:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+   // [[DownLoadImageTool singletonInstance]imageWithImage:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
 }
 
 -(void)namechangedrefresh{
