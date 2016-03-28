@@ -101,6 +101,7 @@
 		FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF871C8D6B51003536BC /* chooseprovince.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
+		FE89EFB61CA9956400C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFB51CA9956400C898CB /* Assets.xcassets */; };
 		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
 		FE906D1E1CA0F6A80099D786 /* zeroBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */; };
 		FE906D201CA0F6B90099D786 /* oneBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1F1CA0F6B90099D786 /* oneBtn.xib */; };
@@ -328,6 +329,7 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FE89EFB51CA9956400C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE906D1B1CA0F4220099D786 /* commonfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commonfooter.xib; sourceTree = "<group>"; };
 		FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zeroBtn.xib; sourceTree = "<group>"; };
 		FE906D1F1CA0F6B90099D786 /* oneBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneBtn.xib; sourceTree = "<group>"; };
