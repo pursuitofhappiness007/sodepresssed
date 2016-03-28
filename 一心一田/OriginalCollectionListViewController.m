@@ -257,15 +257,15 @@
     self.bottomView.hidden = YES;
     self.coverView.hidden = YES;
     NSLog(@"%@",_collectionListArr[self.addToShopCarBt.tag]);
-    if ([LocalAndOnlineFileTool singlegoodcount:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"]] == 0) {
-          [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
-    }
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText= @"已加入购物车";
-    hud.margin = 10.f;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:1.2];
+//    if ([LocalAndOnlineFileTool singlegoodcount:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"]] == 0) {
+//          [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
+//    }
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//    hud.mode = MBProgressHUDModeText;
+//    hud.labelText= @"已加入购物车";
+//    hud.margin = 10.f;
+//    hud.removeFromSuperViewOnHide = YES;
+//    [hud hide:YES afterDelay:1.2];
 }
 
 //取消收藏按钮
