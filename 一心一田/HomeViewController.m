@@ -12,11 +12,11 @@
 #import "LoginViewController.h"
 #import "SDCycleScrollView.h"
 #import "GoodsDetailViewController.h"
-#import "SearchViewController.h"
+#import "SearchResultsViewController.h"
 #import "OriginalCollectionListViewController.h"
 #import "newProductViewController.h"
 #import "UsuallyBuyViewController.h"
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UISearchBarDelegate>
 {
     NSMutableArray *tablelist;
     NSMutableArray *navigationArr;
@@ -45,6 +45,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dynamictitlelab;
 @property (strong, nonatomic) UIActivityIndicatorView *activit;
+//searchbar
+@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+
 @end
 
 @implementation HomeViewController
@@ -57,7 +60,9 @@
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
+    
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -81,8 +86,9 @@
 -(void)customernavbar{
     
     UIView *v=[[[NSBundle mainBundle]loadNibNamed:@"NavBarForHome" owner:self options:nil] firstObject];
-    v.frame=CGRectMake(0, 0, MAIN_WIDTH, 64);
+    v.frame=CGRectMake(0, StatusBarH, MAIN_WIDTH, 44);
     [self.view addSubview:v];
+    [self.view bringSubviewToFront:v];
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -449,10 +455,13 @@
         searchview.x=MAIN_WIDTH*0.16;
         
     } completion:^(BOOL finished) {
+        [_searchbar becomeFirstResponder];
         
     }];
     
 }
+
+
 
 - (IBAction)cancelBtnClicked:(id)sender {
     [UIView animateWithDuration:.4 animations:^{
@@ -463,10 +472,12 @@
     }];
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    SearchViewController *vc=[[SearchViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:NO];
-    return NO;
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    SearchResultsViewController *vc=[[SearchResultsViewController alloc]init];
+    vc.keywords=searchBar.text;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+
 }
 
 - (IBAction)shucaishuiguoBtnClicked:(id)sender {

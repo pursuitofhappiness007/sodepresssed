@@ -16,6 +16,8 @@
     BOOL inventeroy;
     UIView *navbar;
     BOOL issmall;
+    CGRect originalframeofbtn;
+    CGRect originalframeofimg;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *goodImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
@@ -48,6 +50,7 @@
 - (IBAction)payBtnClicked:(id)sender;
 //点击查看大图
 - (IBAction)taptoseebig:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *tabBtn;
 
 
 @end
@@ -77,6 +80,8 @@
 -(void)initparas{
     goodsdetail=[NSDictionary dictionary];
     issmall=YES;
+    originalframeofbtn=_tabBtn.frame;
+    originalframeofimg=_goodImg.frame;
 }
 
 -(void)getdatafromweb{
@@ -317,5 +322,21 @@
 
 
 - (IBAction)taptoseebig:(id)sender {
+    if(issmall)
+    [UIView animateWithDuration:.2 animations:^{
+        _goodImg.frame=CGRectMake(_goodImg.x, _goodImg.y, MAIN_WIDTH*0.8, MAIN_WIDTH*0.8);
+        _tabBtn.frame=CGRectMake(_goodImg.x, _goodImg.y, MAIN_WIDTH*0.8, MAIN_WIDTH*0.8);
+    } completion:^(BOOL finished) {
+        issmall=NO;
+    }];
+    else
+        [UIView animateWithDuration:.2 animations:^{
+            _goodImg.frame=originalframeofimg;
+            _tabBtn.frame=originalframeofbtn;
+        } completion:^(BOOL finished) {
+            issmall=YES;
+        }];
+
+        
 }
 @end

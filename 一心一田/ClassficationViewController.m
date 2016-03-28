@@ -10,7 +10,7 @@
 #import "GoodListTableViewCell.h"
 #import "GoodsDetailViewController.h"
 #import "LoginViewController.h"
-#import "SearchViewController.h"
+#import "SearchResultsViewController.h"
 #import "ShopcarViewController.h"
 #import "OrderConformationViewController.h"
 @interface ClassficationViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIGestureRecognizerDelegate>{
@@ -228,17 +228,6 @@
     
     
 }
-
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    NSLog(@"点击了搜索框");
-
-    SearchViewController *vc=[[SearchViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:NO];
-    
-    
-    return NO;
-}
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -579,7 +568,8 @@
 }
 
 - (IBAction)searchIconClicked:(id)sender {
-    SearchViewController *vc=[[SearchViewController alloc]init];
+    SearchResultsViewController *vc=[[SearchResultsViewController alloc]init];
+    vc.keywords=nil;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //弹出一级菜单
