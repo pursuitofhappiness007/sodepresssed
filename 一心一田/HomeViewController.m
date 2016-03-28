@@ -183,6 +183,8 @@
     scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     scrollView.delegate = self;
     scrollView.dotColor = [UIColor whiteColor];
+    scrollView.autoScrollTimeInterval = 4;
+    scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         scrollView.imageURLStringsGroup = arry;
     });

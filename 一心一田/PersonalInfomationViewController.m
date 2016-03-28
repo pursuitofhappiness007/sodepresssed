@@ -53,7 +53,8 @@
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
     
-    _usernamelab.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];;
+    _usernamelab.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];
+    NSLog(@"%@", [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"]);
     _phoneArr = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] arrayForKey:@"phones"];
     switch (_phoneArr.count) {
         case 0:
