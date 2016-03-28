@@ -66,6 +66,14 @@
         NSMutableArray *arr = [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour"] ;
             self.collectionListArr = [arr mutableCopy] ;
             [self.firstbt setTitle:[NSString stringWithFormat:@"全部商品(%ld)",self.collectionListArr.count] forState:UIControlStateNormal];
+            if (!self.collectionListArr.count) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText=@"暂无收藏商品";
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1.2];
+            }
              [self.tableview reloadData];
             NSLog(@"获取数据成功");
             return;
@@ -93,6 +101,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (self.selectedButton.tag) {
         case 0:{
+            self.tableview.hidden = NO;
             CollectionListTableViewCell    *cell=[CollectionListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
             NSDictionary *dic = self.collectionListArr[indexPath.row];
             NSLog(@"%@",[dic dictionaryForKey:@"goods"]);
@@ -177,8 +186,20 @@
             return cell;
         }
             break;
-         case 1:
-            return nil;
+        case 1:{
+            CollectionListTableViewCell    *cell=[CollectionListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
+            NSDictionary *dic = self.collectionListArr[indexPath.row];
+            NSLog(@"%@",[dic dictionaryForKey:@"goods"]);
+            self.tableview.hidden = YES;
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText=@"暂无降价／失效宝贝！";
+            hud.margin = 10.f;
+            hud.removeFromSuperViewOnHide = YES;
+            [hud hide:YES afterDelay:1.2];
+            
+            return cell;
+        }
             break;
         default:
             break;
@@ -217,6 +238,7 @@
     self.cancelCollectBt.tag = sender.tag;
 }
 
+//全部商品和降价宝贝按钮的点击
 - (IBAction)buttonClicked:(UIButton *)sender {
     self.selectedButton.selected = NO;
     self.selectedButton = sender;
@@ -246,6 +268,8 @@
     hud.removeFromSuperViewOnHide = YES;
     [hud hide:YES afterDelay:1.2];
 }
+
+//取消收藏按钮
 - (IBAction)cancelCollection:(id)sender {
     NSLog(@"取消收藏");
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];

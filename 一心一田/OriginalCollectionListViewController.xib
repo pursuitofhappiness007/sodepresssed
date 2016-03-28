@@ -102,8 +102,12 @@
                         <outlet property="delegate" destination="-1" id="Tcd-9f-R1e"/>
                     </connections>
                 </tableView>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icF-jY-2EC" userLabel="遮盖">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ce-2W-ph3" userLabel="弹出视图">
-                    <rect key="frame" x="0.0" y="551" width="375" height="115.5"/>
+                    <rect key="frame" x="0.0" y="551.5" width="375" height="115.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXU-HV-Smc">
                             <rect key="frame" x="0.0" y="65" width="375" height="50"/>
@@ -187,10 +191,6 @@
                         <constraint firstItem="XdI-2N-1d1" firstAttribute="top" secondItem="8Ce-2W-ph3" secondAttribute="top" id="lJL-DD-r3Q"/>
                         <constraint firstAttribute="bottom" secondItem="dXU-HV-Smc" secondAttribute="bottom" id="sgz-wc-O4h"/>
                     </constraints>
-                </view>
-                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icF-jY-2EC" userLabel="遮盖">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
