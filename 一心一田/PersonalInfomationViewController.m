@@ -49,18 +49,51 @@
 }
 
 -(void)setlocalcontent{
-//    NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"];
     _personalIcon.layer.cornerRadius=_personalIcon.width/2.0;
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
     
-    _usernamelab.text= self.name;
-   [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-    [_phoneArr[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-    [_phoneArr[2] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-    _phone1lab.text =_phoneArr[0];
-    _phone2lab.text =_phoneArr[1];
-    _phone3lab.text =_phoneArr[2];
+    _usernamelab.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];;
+    _phoneArr = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] arrayForKey:@"phones"];
+    switch (_phoneArr.count) {
+        case 0:
+        {
+        
+        }
+            break;
+        case 1:
+        {
+          [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+             _phone1lab.text =_phoneArr[0];
+        }
+            break;
+        case 2:
+        {
+            [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone1lab.text =_phoneArr[0];
+            [_phoneArr[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone2lab.text =_phoneArr[1];
+        }
+            break;
+        case 3:
+        {
+            [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone1lab.text =_phoneArr[0];
+            [_phoneArr[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone2lab.text =_phoneArr[1];
+            [_phoneArr[2] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone3lab.text =_phoneArr[2];
+        }
+            break;
+        default:
+            break;
+    }
+   
+    
+    
+   
+    
+    
 
     
     
@@ -270,11 +303,7 @@
 }
 
 - (void)updateInfo{
-self.usernamelab.text = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];
-    NSArray *phoneArr = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] arrayForKey:@"phones"];
-    self.phone1lab.text = phoneArr[0];
-    self.phone2lab.text = phoneArr[1];
-    self.phone3lab.text = phoneArr[2];
+    [self setlocalcontent];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
