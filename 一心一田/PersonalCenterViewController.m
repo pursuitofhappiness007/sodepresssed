@@ -79,7 +79,6 @@
             _usericon.layer.masksToBounds =YES;
             _usericon.layer.borderWidth=3.0;
            [self.usericon sd_setImageWithURL:[NSURL URLWithString:[info stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
-         // [[DownLoadImageTool singletonInstance] imageWithImage:[info stringForKey:@"imagePath"]  scaledToWidth:self.usericon.width imageview:self.usericon];
            
             _shadowoficon.layer.shadowOffset = CGSizeMake(0, 0);
             _shadowoficon.layer.shadowOpacity = 0.6;
@@ -174,21 +173,7 @@
 
 - (IBAction)seePersonInfoClicked:(id)sender {
     PersonalInfomationViewController *vc=[[PersonalInfomationViewController alloc]init];
-    vc.name = self.userInfo[@"name"];
-    vc.icon = [self.userInfo stringForKey:@"imagePath"];
     NSArray *phoneArr = self.userInfo[@"phones"];
-    if (phoneArr.count == 0) {
-        vc.phoneArr = @[@"",@"",@""];
-     }
-    if (phoneArr.count == 1) {
-         vc.phoneArr = @[phoneArr[0],@"",@""];
-    }
-    if (phoneArr.count == 2) {
-         vc.phoneArr = @[phoneArr[0],phoneArr[1],@""];
-    }
-    if (phoneArr.count == 3) {
-        vc.phoneArr = @[phoneArr[0],phoneArr[1],phoneArr[2]];
-        }
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -15,6 +15,7 @@
     NSDictionary *goodsdetail;
     BOOL inventeroy;
     UIView *navbar;
+    BOOL issmall;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *goodImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
@@ -45,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *summoneylab;
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 - (IBAction)payBtnClicked:(id)sender;
+//点击查看大图
+- (IBAction)taptoseebig:(id)sender;
 
 
 @end
@@ -73,6 +76,7 @@
 }
 -(void)initparas{
     goodsdetail=[NSDictionary dictionary];
+    issmall=YES;
 }
 
 -(void)getdatafromweb{
@@ -312,4 +316,6 @@
 }
 
 
+- (IBAction)taptoseebig:(id)sender {
+}
 @end

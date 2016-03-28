@@ -109,9 +109,6 @@
         [self setUpScrollerView];
      }
  } failure:^(NSError *error) {
-       NSLog(@"---------------------------------------------------------------");
-     NSLog(@"请求首页数据失败%@",error);
-       NSLog(@"---------------------------------------------------------------");
  } controler:self];
 }
 
@@ -124,6 +121,7 @@
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
     
     [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
+        NSLog(@"首页的json=%@",responseObj);
         if(tablelist.count>0){
             previouscount=tablelist.count;
             if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count]>0)

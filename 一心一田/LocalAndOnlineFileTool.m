@@ -70,20 +70,13 @@
         for (NSDictionary *dict in onlinegoodlist){
             [sum addObject:@[[dict stringForKey:@"id"],@"0",[dict stringForKey:@"price"],[DictionaryToJsonStr dictToJsonStr:dict]]];
         }
-        
-        
-        //最后再将更新的文件存入沙盒
+         //最后再将更新的文件存入沙盒
         NSLog(@"第一次存到沙盒之前的数组%@",sum);
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:@{@"goodscount":sum} filepath:@"goodscount.txt"];
         
         
     }
-    
-    
-    
-    
-    
-}
+ }
 +(int)refreshkindnum:(UITabBarController *)tabbarvc{
     //统计最新的种类数量
     
@@ -117,7 +110,7 @@
     float sum=0.00;
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
     for (NSArray *array in local) {
-        sum+=[array[1] doubleValue]*[array[2]doubleValue];
+        sum+=[array[1] doubleValue]*[self singlegoodprice:array[0]];
     }
     return sum;
 }
@@ -184,10 +177,24 @@
 +(double)singlegoodprice:(NSString *)goodsid{
     NSMutableArray *local=[NSMutableArray array];
     double price=0;
+    int kcount=[self singlegoodcount:goodsid];
     local=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"goodscount.txt"]mutableArrayValueForKey:@"goodscount"]mutableCopy];
     for (NSArray *array in local){
         if([array[0] isEqualToString:goodsid]){
-            price=[array[2] doubleValue];
+            NSDictionary *dict=[DictionaryToJsonStr JsonStrToDict:array[3]];
+            NSArray *temparray=[dict arrayForKey:@"goodsRangePrices"];
+            if (temparray.count==0) {
+                price=[array[2]doubleValue];
+            }
+            else{
+                for (NSDictionary *tempdict in temparray) {
+                    int maxnum=[tempdict int32ForKey:@"maxNum"];
+                    int minunm=[tempdict int32ForKey:@"minNum"];
+                    if (kcount>=minunm&&kcount<=maxnum)
+                        price=[tempdict doubleForKey:@"price"];
+                    break;
+                }
+            }
             break;
         }
     }
