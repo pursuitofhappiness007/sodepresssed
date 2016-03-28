@@ -105,8 +105,8 @@
 }
 
 -(void)setlocalcontent{
-    self.nameLb.text = goodsdetail[@"name"];
-    self.specification.text = goodsdetail[@"specifications"];
+    self.nameLb.text = [goodsdetail stringForKey:@"name"];
+    self.specification.text = [goodsdetail stringForKey:@"specification"];
     self.collectionButton.selected = self.isFavour;
     [_goodImg sd_setImageWithURL:[NSURL URLWithString:[goodsdetail stringForKey:@"thumbnailImg"]] placeholderImage:[UIImage imageNamed:@"default"]];
     
@@ -311,6 +311,7 @@
     [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
 }
+
 - (IBAction)payBtnClicked:(id)sender {
     OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
     vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];
@@ -322,20 +323,20 @@
 
 
 - (IBAction)taptoseebig:(id)sender {
-    if(issmall)
-    [UIView animateWithDuration:.2 animations:^{
-        _goodImg.frame=CGRectMake(_goodImg.x, _goodImg.y, MAIN_WIDTH*0.8, MAIN_WIDTH*0.8);
-        _tabBtn.frame=CGRectMake(_goodImg.x, _goodImg.y, MAIN_WIDTH*0.8, MAIN_WIDTH*0.8);
-    } completion:^(BOOL finished) {
-        issmall=NO;
-    }];
-    else
-        [UIView animateWithDuration:.2 animations:^{
-            _goodImg.frame=originalframeofimg;
-            _tabBtn.frame=originalframeofbtn;
-        } completion:^(BOOL finished) {
-            issmall=YES;
-        }];
+  //  if(issmall)
+//    [UIView animateWithDuration:.2 animations:^{
+//        _goodImg.frame=CGRectMake(_goodImg.x, _goodImg.y, MAIN_WIDTH*0.8, MAIN_WIDTH*0.8);
+//        _tabBtn.frame=CGRectMake(_goodImg.x, _goodImg.y, MAIN_WIDTH*0.8, MAIN_WIDTH*0.8);
+//    } completion:^(BOOL finished) {
+//        issmall=NO;
+//    }];
+//    else
+//        [UIView animateWithDuration:.2 animations:^{
+//            _goodImg.frame=originalframeofimg;
+//            _tabBtn.frame=originalframeofbtn;
+//        } completion:^(BOOL finished) {
+//            issmall=YES;
+//        }];
 
         
 }

@@ -72,11 +72,22 @@
            self.billArr = [arr mutableCopy];
             for (int i = 0; i < self.billArr.count; i ++) {
                 NSDictionary *dic = self.billArr[i];
-                if ([dic int32ForKey:@"acBal"] < 0) {
+                NSLog(@"%@",dic);
+                if ([dic doubleForKey:@"acBal"] < 0) {
+                    NSLog(@"%f", [dic doubleForKey:@"acBal"]);
                     [self.expenditureArr addObject:dic];
                 }else{
                     [self.icomeArr addObject:dic];
+                      NSLog(@"%f", [dic doubleForKey:@"acBal"]);
                 }
+            }
+            if (!self.billArr.count) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText=@"暂无账单！";
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                [hud hide:YES afterDelay:1.2];
             }
             [self.tableView reloadData];
             NSLog(@"获取数据成功");
@@ -84,13 +95,13 @@
         } else{
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             hud.mode = MBProgressHUDModeText;
-            hud.labelText=@"数据获取失败";
+            hud.labelText=@"网络繁忙，请稍后再试";
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.2];
         }
     } failure:^(NSError *error) {
-        NSLog(@"获取数据失败");
+        NSLog(@"网络繁忙，请稍后再试");
         NSLog(@"%@", error);
     } controler:self];
 
@@ -127,6 +138,7 @@
     switch (self.selectedButton.tag) {
         case 0:
         {
+            
                 NSDictionary *dic = self.billArr[indexPath.row];
                 if ([dic int32ForKey:@"acBal"] < 0) {
                       static NSString *CellIdentifier = @"businessdeal";
@@ -149,32 +161,18 @@
                             cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
                             cell.remarkLb.text = [dic stringForKey:@"remark"];
                             cell.timeLb.text = [dic stringForKey:@"addTime"];
-                            cell.acBalLb.text = [NSString stringWithFormat:@"+%@",[dic stringForKey:@"acBal"]];
+                            cell.acBalLb.text = [NSString stringWithFormat:@"%@",[dic stringForKey:@"acBal"]];
                         }
                     cell.selectionStyle=UITableViewCellSelectionStyleNone;
                     return cell;
                     }
             }
             break;
+            
         case 1:
         {
+            
             NSDictionary *dic = self.icomeArr[indexPath.row];
-            static NSString *CellIdentifier = @"recharge";
-            RechargeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (cell == nil)
-            {
-                cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
-                cell.remarkLb.text = [dic stringForKey:@"remark"];
-                cell.timeLb.text = [dic stringForKey:@"addTime"];
-                 cell.acBalLb.text = [NSString stringWithFormat:@"+%@",[dic stringForKey:@"acBal"]];
-            }
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-            return cell;
-        }
-            break;
-        case 2:
-        {
-             NSDictionary *dic = self.expenditureArr[indexPath.row];
             static NSString *CellIdentifier = @"businessdeal";
             AcountDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil)
@@ -189,7 +187,24 @@
             return cell;
         }
             break;
-               default:
+
+        case 2:
+        {
+            NSDictionary *dic = self.expenditureArr[indexPath.row];
+            static NSString *CellIdentifier = @"recharge";
+            RechargeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil)
+            {
+                cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
+                cell.remarkLb.text = [dic stringForKey:@"remark"];
+                cell.timeLb.text = [dic stringForKey:@"addTime"];
+                 cell.acBalLb.text = [NSString stringWithFormat:@"%@",[dic stringForKey:@"acBal"]];
+            }
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+                      default:
             return 0;
             break;
     }

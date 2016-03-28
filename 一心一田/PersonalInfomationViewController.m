@@ -31,12 +31,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(personinfochangedupdate) name:@"tokenfilechanged" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInfo) name:@"personinfochanged" object:nil];
     self.navigationItem.title=@"个人资料";
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
-    [self initparas];
     [self setlocalcontent];
 }
 

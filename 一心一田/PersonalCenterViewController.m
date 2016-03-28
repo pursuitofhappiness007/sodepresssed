@@ -71,9 +71,9 @@
         NSLog(@"get_member_by_token=%@",responseObj);
         if([responseObj int32ForKey:@"result"]==0){
 
-            NSDictionary *info = responseObj[@"data"];
+            NSDictionary *info = [responseObj dictionaryForKey:@"data"];//responseObj[@"data"];
             self.userInfo = info;
-            self.namelab.text = info[@"name"];
+            self.namelab.text = [info stringForKey:@"name"];//info[@"name"];
             _usericon.layer.cornerRadius=_usericon.width/2.0;
             _usericon.clipsToBounds=YES;
             _usericon.layer.masksToBounds =YES;
@@ -104,16 +104,13 @@
     _usericon.layer.masksToBounds =YES;
     _usericon.layer.borderWidth=3.0;
     [_usericon sd_setImageWithURL:[NSURL URLWithString:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
-      //  [[DownLoadImageTool singletonInstance]imageWithImage:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"] scaledToWidth:_usericon.width imageview:_usericon];
     
-   
     _shadowoficon.layer.shadowOffset = CGSizeMake(0, 0);
     _shadowoficon.layer.shadowOpacity = 0.6;
     _shadowoficon.layer.shadowRadius =_usericon.width/2.0;
     _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
     _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
     [_backgroundimage sd_setImageWithURL:[NSURL URLWithString:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
-   // [[DownLoadImageTool singletonInstance]imageWithImage:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"] scaledToWidth:_backgroundimage.width imageview:_backgroundimage];
 }
 
 -(void)namechangedrefresh{

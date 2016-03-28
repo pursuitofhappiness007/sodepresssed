@@ -37,10 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"商品收藏";
-    UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(goBack)];
     self.selectedButton = self.firstbt;
     self.selectedButton.selected = YES;
     self.coverView.hidden = YES;
@@ -73,6 +70,7 @@
                 hud.margin = 10.f;
                 hud.removeFromSuperViewOnHide = YES;
                 [hud hide:YES afterDelay:1.2];
+               // self.noticeLab.hidden = NO;
             }
              [self.tableview reloadData];
             NSLog(@"获取数据成功");
@@ -109,6 +107,7 @@
             cell.shortcomment = [[dic dictionaryForKey:@"goods"]stringForKey:@"commentary"];
             cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
             cell.goodimage = [[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"];
+            //cell.goodimage = @"http://static.exinetian.com/b2v/goods/image/source/2016328/1459159512201771.jpg";
             cell.actionBt.tag = indexPath.row;
             [cell.actionBt addTarget:self action:@selector(function:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;
@@ -117,6 +116,7 @@
             switch (array.count) {
                 case 0:
                 {
+                   
                     cell.pricelab.hidden = NO;
                     cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [[dic dictionaryForKey:@"goods"] stringForKey:@"price"]];
                 }
@@ -197,7 +197,6 @@
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.2];
-            
             return cell;
         }
             break;
@@ -258,15 +257,15 @@
     self.bottomView.hidden = YES;
     self.coverView.hidden = YES;
     NSLog(@"%@",_collectionListArr[self.addToShopCarBt.tag]);
-    if ([LocalAndOnlineFileTool singlegoodcount:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"]] == 0) {
-          [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
-    }
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText= @"已加入购物车";
-    hud.margin = 10.f;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:1.2];
+//    if ([LocalAndOnlineFileTool singlegoodcount:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"]] == 0) {
+//          [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
+//    }
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//    hud.mode = MBProgressHUDModeText;
+//    hud.labelText= @"已加入购物车";
+//    hud.margin = 10.f;
+//    hud.removeFromSuperViewOnHide = YES;
+//    [hud hide:YES afterDelay:1.2];
 }
 
 //取消收藏按钮

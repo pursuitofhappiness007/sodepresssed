@@ -49,7 +49,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
         [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
         rightBtn.selected=NO;
-    
     rightBtn.hidden=NO;
         _shopcartableview.editing=NO;
     needrefresh=YES;

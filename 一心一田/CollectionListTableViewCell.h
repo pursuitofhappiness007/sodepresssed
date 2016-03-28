@@ -13,6 +13,7 @@
 @property (nonatomic,copy)NSString *goodname;
 @property (nonatomic,copy)NSString *shortcomment;
 @property (weak, nonatomic) IBOutlet UIButton *actionBt;
+
 //规格
 @property (nonatomic,copy)NSString *specific;
 //购买数量

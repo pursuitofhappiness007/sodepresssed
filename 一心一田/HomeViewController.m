@@ -16,7 +16,9 @@
 #import "OriginalCollectionListViewController.h"
 #import "newProductViewController.h"
 #import "UsuallyBuyViewController.h"
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UISearchBarDelegate>
+#import  "UsuallyBuyViewController.h"
+#import "SearchViewController.h"
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *tablelist;
     NSMutableArray *navigationArr;
@@ -194,42 +196,45 @@
     
 }
 
+#pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     NSDictionary *pollImg = navigationArr[index];
-    NSString *responsType = pollImg[@"type"];
-     NSInteger responsTypeNum = [responsType intValue];
-    NSString *constent = pollImg[@"goodsId"];
-     [self  responsType:responsTypeNum responsContent:constent];
+    NSString *responsType = [pollImg stringForKey:@"type"];
+    NSInteger responsTypeNum = [responsType intValue];
+     [self  responsType:responsTypeNum];
     
 }
-- (void)responsType:(NSInteger)responsTypeNum responsContent:(NSString *)content{
-    if (responsTypeNum == 1) {
-        NSLog(@"1");
-        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-        NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
-        paras[@"token"] = [dic stringForKey:@"token"];
-        paras[@"goods_id"] = @"1002";
-        paras[@"market_id"] = @"58";
-        paras[@"supplier_id"] = @"25";
-        [HttpTool post:@"get_goods_detail" params:paras success:^(id responseObj) {
-            if([responseObj int32ForKey:@"result"]==0){
-                NSLog(@"---------------------------------------------------------------");
-                NSLog(@"%@",responseObj);
-                 NSLog(@"1");
-                NSLog(@"---------------------------------------------------------------");
-            }else{
-                NSLog(@"%@",responseObj);
-            }
-        } failure:^(NSError *error) {
-            NSLog(@"---------------------------------------------------------------");
-            NSLog(@"请求商品详情数据失败%@",error);
-            NSLog(@"---------------------------------------------------------------");
-        } controler:self];
-
-    }else{
-        NSLog(@"2");
+- (void)responsType:(NSInteger)responsTypeNum{
+    NSLog(@"%ld",responsTypeNum);
+    switch (responsTypeNum) {
+        case 1:{
+            ClassficationViewController *classVC = [[ClassficationViewController alloc] init];
+            [self.navigationController pushViewController:classVC animated:YES];
+        }
+            break;
+        case 2:{
+            SearchViewController *searchVC = [[SearchViewController alloc]init];
+            [self.navigationController pushViewController:searchVC animated:YES];
+        }
+            break;
+        case 3:{
+            newProductViewController *newVC = [[newProductViewController alloc]init];
+            [self.navigationController pushViewController:newVC animated:YES];
+        }
+            break;
+        case 4:{
+            UsuallyBuyViewController *usuallyVC = [[UsuallyBuyViewController alloc]init];
+            [self.navigationController pushViewController:usuallyVC animated:YES];
+                    }
+            break;
+        case 5:{
+            OriginalCollectionListViewController *collectionVC = [[OriginalCollectionListViewController alloc]init];
+            [self.navigationController pushViewController:collectionVC animated:YES];
+        }
+            break;
+        default:
+            break;
     }
-
 }
 
 //数据源方法
@@ -245,23 +250,38 @@
     NSDictionary *good = tablelist[indexPath.row];
     NSLog(@"%@",good);
     cell.goodsid=[good stringForKey:@"id"];
-    cell.goodname = good[@"name"];
-    cell.shortcomment = good[@"commentary"];
+    cell.goodname = [good stringForKey:@"name"];//good[@"name"];
+    cell.shortcomment =  [good stringForKey:@"commentary"];//good[@"commentary"];
     cell.detailBtn.tag = indexPath.row;
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
-    cell.specific = good[@"specifications"];
-    cell.goodimg = good[@"thumbnailImg"];
+    cell.specific = [good stringForKey:@"specification"];//good[@"specifications"];
+    cell.goodimg = [good stringForKey:@"thumbnaillmg"];//good[@"thumbnailImg"];
     cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {
         case 0:
         {
+            cell.range1lab.hidden = YES;
+            cell.range2lab.hidden = YES;
+            cell.range3lab.hidden = YES;
+            cell.range4lab.hidden = YES;
+            cell.price1lab.hidden = YES;
+            cell.price2lab.hidden = YES;
+            cell.price3lab.hidden = YES;
+            cell.price4lab.hidden = YES;
             cell.pricelab.hidden = NO;
             cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [good stringForKey:@"price"]];
         }
             break;
         case 1:
         {
+            cell.range2lab.hidden = YES;
+            cell.range3lab.hidden = YES;
+            cell.range4lab.hidden = YES;
+            cell.price2lab.hidden = YES;
+            cell.price3lab.hidden = YES;
+            cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
@@ -271,6 +291,11 @@
             break;
         case 2:
         {
+            cell.range3lab.hidden = YES;
+            cell.range4lab.hidden = YES;
+            cell.price3lab.hidden = YES;
+            cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range2lab.hidden=NO;
@@ -283,6 +308,9 @@
             break;
         case 3:
         {
+            cell.range4lab.hidden = YES;
+             cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range2lab.hidden=NO;
@@ -299,6 +327,7 @@
             break;
         case 4:
         {
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range2lab.hidden=NO;
@@ -337,19 +366,14 @@
 - (void)goToDetailVC:(UIButton *)send{
     NSDictionary *good = tablelist[send.tag];
     GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
-    detailVC.goodsid = good[@"goodsId"];
-    detailVC.supplierid = good[@"supplierId"];
-    detailVC.marketid = good[@"marketId"];
+    detailVC.goodsid = [good stringForKey:@"goodsId"];//good[@"goodsId"];
+    detailVC.supplierid = [good stringForKey:@"supplierId"];//good[@"supplierId"];
+    detailVC.marketid = [good stringForKey:@"marketId"];//good[@"marketId"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 //代理方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSDictionary *good = tablelist[indexPath.row];
-//    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
-//    detailVC.goodsid = good[@"goodsId"];
-//    detailVC.supplierid = good[@"supplierId"];
-//    detailVC.marketid = good[@"marketId"];
-//    [self.navigationController pushViewController:detailVC animated:YES];
+
 }
 
 -(void)setdynamicpic{
