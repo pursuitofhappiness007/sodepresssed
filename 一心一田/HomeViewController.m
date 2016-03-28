@@ -16,6 +16,7 @@
 #import "OriginalCollectionListViewController.h"
 #import "newProductViewController.h"
 #import "UsuallyBuyViewController.h"
+#import  "UsuallyBuyViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *tablelist;
@@ -100,8 +101,7 @@
    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
  [HttpTool post:@"index" params:paras success:^(id responseObj) {
      if([responseObj int32ForKey:@"result"]==0){
-         NSLog(@"%@",responseObj);
-         phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
+     phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
          noticeArr = [noArr mutableCopy];
@@ -191,42 +191,45 @@
     
 }
 
+#pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     NSDictionary *pollImg = navigationArr[index];
     NSString *responsType = pollImg[@"type"];
      NSInteger responsTypeNum = [responsType intValue];
-    NSString *constent = pollImg[@"goodsId"];
-     [self  responsType:responsTypeNum responsContent:constent];
+     [self  responsType:responsTypeNum];
     
 }
-- (void)responsType:(NSInteger)responsTypeNum responsContent:(NSString *)content{
-    if (responsTypeNum == 1) {
-        NSLog(@"1");
-        NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-        NSDictionary *dic = [[SaveFileAndWriteFileToSandBox singletonInstance] getfilefromsandbox:@"tokenfile.txt"];
-        paras[@"token"] = [dic stringForKey:@"token"];
-        paras[@"goods_id"] = @"1002";
-        paras[@"market_id"] = @"58";
-        paras[@"supplier_id"] = @"25";
-        [HttpTool post:@"get_goods_detail" params:paras success:^(id responseObj) {
-            if([responseObj int32ForKey:@"result"]==0){
-                NSLog(@"---------------------------------------------------------------");
-                NSLog(@"%@",responseObj);
-                 NSLog(@"1");
-                NSLog(@"---------------------------------------------------------------");
-            }else{
-                NSLog(@"%@",responseObj);
-            }
-        } failure:^(NSError *error) {
-            NSLog(@"---------------------------------------------------------------");
-            NSLog(@"请求商品详情数据失败%@",error);
-            NSLog(@"---------------------------------------------------------------");
-        } controler:self];
-
-    }else{
-        NSLog(@"2");
+- (void)responsType:(NSInteger)responsTypeNum{
+    NSLog(@"%ld",responsTypeNum);
+    switch (responsTypeNum) {
+        case 1:{
+            ClassficationViewController *classVC = [[ClassficationViewController alloc] init];
+            [self.navigationController pushViewController:classVC animated:YES];
+        }
+            break;
+        case 2:{
+            SearchViewController *searchVC = [[SearchViewController alloc]init];
+            [self.navigationController pushViewController:searchVC animated:YES];
+        }
+            break;
+        case 3:{
+            newProductViewController *newVC = [[newProductViewController alloc]init];
+            [self.navigationController pushViewController:newVC animated:YES];
+        }
+            break;
+        case 4:{
+            UsuallyBuyViewController *usuallyVC = [[UsuallyBuyViewController alloc]init];
+            [self.navigationController pushViewController:usuallyVC animated:YES];
+                    }
+            break;
+        case 5:{
+            OriginalCollectionListViewController *collectionVC = [[OriginalCollectionListViewController alloc]init];
+            [self.navigationController pushViewController:collectionVC animated:YES];
+        }
+            break;
+        default:
+            break;
     }
-
 }
 
 //数据源方法

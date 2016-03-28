@@ -96,8 +96,8 @@
 }
 
 -(void)setlocalcontent{
-    self.nameLb.text = goodsdetail[@"name"];
-    self.specification.text = goodsdetail[@"specifications"];
+    self.nameLb.text = [goodsdetail stringForKey:@"name"];
+    self.specification.text = [goodsdetail stringForKey:@"specification"];
     self.collectionButton.selected = self.isFavour;
     [_goodImg sd_setImageWithURL:[NSURL URLWithString:[goodsdetail stringForKey:@"thumbnailImg"]] placeholderImage:[UIImage imageNamed:@"default"]];
     
