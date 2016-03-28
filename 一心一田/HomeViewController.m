@@ -100,7 +100,7 @@
    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
  [HttpTool post:@"index" params:paras success:^(id responseObj) {
      if([responseObj int32ForKey:@"result"]==0){
-         
+         NSLog(@"%@",responseObj);
          phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
