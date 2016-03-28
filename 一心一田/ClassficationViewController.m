@@ -129,7 +129,7 @@
                 subclassfication=[[responseObj arrayForKey:@"data"]mutableCopy];
                 NSLog(@"打印二级fenlei%@",subclassfication);
                 [_titletableview reloadData];
-                subpid=[subclassfication[0]stringForKey:@"id"];
+                subpid=[subclassfication[0] stringForKey:@"id"];
                 [self getdatafromweb:1 mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
             }
             

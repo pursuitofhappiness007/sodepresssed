@@ -164,6 +164,7 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"login" object:nil];
             NSDictionary *userandpassword=@{@"user":_accounttextfield.text,@"password":_pwdtextfield.text};
             [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:userandpassword filepath:@"userpassword.txt"];
+            
             [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
             //注册推送接口
             NSMutableDictionary *paras=[NSMutableDictionary dictionary];
