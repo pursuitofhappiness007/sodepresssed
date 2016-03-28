@@ -117,7 +117,7 @@
                 <constraint firstItem="DXG-nb-VBX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vkv-qg-wh7"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="537.5" y="434.5"/>
+            <point key="canvasLocation" x="381.5" y="396.5"/>
         </view>
     </objects>
 </document>
