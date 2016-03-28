@@ -17,6 +17,7 @@
 #import "newProductViewController.h"
 #import "UsuallyBuyViewController.h"
 #import  "UsuallyBuyViewController.h"
+#import "SearchViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *tablelist;
@@ -107,7 +108,8 @@
    NSMutableDictionary *paras=[NSMutableDictionary dictionary];
  [HttpTool post:@"index" params:paras success:^(id responseObj) {
      if([responseObj int32ForKey:@"result"]==0){
-     phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
+         NSLog(@"%@",responseObj);
+     phonenum=[[responseObj dictionaryForKey:@"data"] stringForKey:@"tel_phone"];
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
          noticeArr = [noArr mutableCopy];
@@ -198,8 +200,8 @@
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     NSDictionary *pollImg = navigationArr[index];
-    NSString *responsType = pollImg[@"type"];
-     NSInteger responsTypeNum = [responsType intValue];
+    NSString *responsType = [pollImg stringForKey:@"type"];
+    NSInteger responsTypeNum = [responsType intValue];
      [self  responsType:responsTypeNum];
     
 }
@@ -249,12 +251,12 @@
     NSDictionary *good = tablelist[indexPath.row];
     NSLog(@"%@",good);
     cell.goodsid=[good stringForKey:@"id"];
-    cell.goodname = good[@"name"];
-    cell.shortcomment = good[@"commentary"];
+    cell.goodname = [good stringForKey:@"name"];//good[@"name"];
+    cell.shortcomment =  [good stringForKey:@"commentary"];//good[@"commentary"];
     cell.detailBtn.tag = indexPath.row;
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
-    cell.specific = good[@"specifications"];
-    cell.goodimg = good[@"thumbnailImg"];
+    cell.specific = [good stringForKey:@"specification"];//good[@"specifications"];
+    cell.goodimg = [good stringForKey:@"thumbnaillmg"];//good[@"thumbnailImg"];
     cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {
@@ -365,19 +367,14 @@
 - (void)goToDetailVC:(UIButton *)send{
     NSDictionary *good = tablelist[send.tag];
     GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
-    detailVC.goodsid = good[@"goodsId"];
-    detailVC.supplierid = good[@"supplierId"];
-    detailVC.marketid = good[@"marketId"];
+    detailVC.goodsid = [good stringForKey:@"goodsId"];//good[@"goodsId"];
+    detailVC.supplierid = [good stringForKey:@"supplierId"];//good[@"supplierId"];
+    detailVC.marketid = [good stringForKey:@"marketId"];//good[@"marketId"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 //代理方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSDictionary *good = tablelist[indexPath.row];
-//    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
-//    detailVC.goodsid = good[@"goodsId"];
-//    detailVC.supplierid = good[@"supplierId"];
-//    detailVC.marketid = good[@"marketId"];
-//    [self.navigationController pushViewController:detailVC animated:YES];
+
 }
 
 -(void)setdynamicpic{

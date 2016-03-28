@@ -70,6 +70,7 @@
                 hud.margin = 10.f;
                 hud.removeFromSuperViewOnHide = YES;
                 [hud hide:YES afterDelay:1.2];
+               // self.noticeLab.hidden = NO;
             }
              [self.tableview reloadData];
             NSLog(@"获取数据成功");
@@ -115,6 +116,7 @@
             switch (array.count) {
                 case 0:
                 {
+                   
                     cell.pricelab.hidden = NO;
                     cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [[dic dictionaryForKey:@"goods"] stringForKey:@"price"]];
                 }
@@ -195,7 +197,6 @@
             hud.margin = 10.f;
             hud.removeFromSuperViewOnHide = YES;
             [hud hide:YES afterDelay:1.2];
-            
             return cell;
         }
             break;

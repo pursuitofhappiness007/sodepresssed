@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *summoneylab;
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *noticeLab;
 
 @end
 
@@ -103,6 +104,10 @@
             else
             {
                 //                self.tabelView.hidden=YES;
+                if (!self.productArr.count) {
+                    self.noticeLab.hidden = NO;
+                }
+        
             }
         }
     } failure:^(NSError *error) {

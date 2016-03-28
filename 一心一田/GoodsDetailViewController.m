@@ -311,6 +311,7 @@
     [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[goodsdetail stringForKey:@"id"] withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
 }
+
 - (IBAction)payBtnClicked:(id)sender {
     OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];
     vc.tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist] mutableCopy];

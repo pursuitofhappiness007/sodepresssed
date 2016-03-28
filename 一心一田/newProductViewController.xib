@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="newProductViewController">
             <connections>
+                <outlet property="noticeLab" destination="JC1-kp-zDZ" id="Doo-at-IHW"/>
                 <outlet property="numofgoodskindlab" destination="L5Z-vu-mmd" id="pIb-mm-btQ"/>
                 <outlet property="payBtn" destination="okT-Sh-9CW" id="igI-YP-UxS"/>
                 <outlet property="summoneylab" destination="lDm-Gt-7VK" id="iL9-pS-noy"/>
@@ -120,16 +121,24 @@
                         <outlet property="delegate" destination="-1" id="jlI-0P-XJD"/>
                     </connections>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无新品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC1-kp-zDZ">
+                    <rect key="frame" x="153.5" y="323.5" width="68" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.188013335" blue="0.065656855599999994" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ykD-Tc-8DP" firstAttribute="top" secondItem="6eJ-Nd-fD3" secondAttribute="bottom" id="0tU-ED-vO5"/>
                 <constraint firstItem="6eJ-Nd-fD3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="1EG-Ar-VW7"/>
                 <constraint firstAttribute="trailing" secondItem="6eJ-Nd-fD3" secondAttribute="trailing" id="PGf-dU-Xhi"/>
+                <constraint firstItem="JC1-kp-zDZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PTZ-Y1-tN7"/>
                 <constraint firstItem="6eJ-Nd-fD3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YMr-Cl-dqC"/>
                 <constraint firstItem="ykD-Tc-8DP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YXv-w6-cOC"/>
                 <constraint firstAttribute="bottom" secondItem="ykD-Tc-8DP" secondAttribute="bottom" id="Yyk-2Y-JMw"/>
                 <constraint firstAttribute="trailing" secondItem="ykD-Tc-8DP" secondAttribute="trailing" id="p6N-9d-IvP"/>
+                <constraint firstItem="JC1-kp-zDZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yVH-K3-9gy"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="574.5" y="268.5"/>

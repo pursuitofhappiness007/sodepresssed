@@ -107,7 +107,7 @@
                     <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ce-2W-ph3" userLabel="弹出视图">
-                    <rect key="frame" x="0.0" y="551.5" width="375" height="115.5"/>
+                    <rect key="frame" x="0.0" y="551" width="375" height="115.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXU-HV-Smc">
                             <rect key="frame" x="0.0" y="65" width="375" height="50"/>

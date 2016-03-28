@@ -71,9 +71,9 @@
         NSLog(@"get_member_by_token=%@",responseObj);
         if([responseObj int32ForKey:@"result"]==0){
 
-            NSDictionary *info = responseObj[@"data"];
+            NSDictionary *info = [responseObj dictionaryForKey:@"data"];//responseObj[@"data"];
             self.userInfo = info;
-            self.namelab.text = info[@"name"];
+            self.namelab.text = [info stringForKey:@"name"];//info[@"name"];
             _usericon.layer.cornerRadius=_usericon.width/2.0;
             _usericon.clipsToBounds=YES;
             _usericon.layer.masksToBounds =YES;

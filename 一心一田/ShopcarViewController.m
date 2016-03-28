@@ -49,7 +49,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
         [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
         rightBtn.selected=NO;
-    
     rightBtn.hidden=NO;
         _shopcartableview.editing=NO;
         for(int i=0;i<[_shopcartableview numberOfSections];i++){
@@ -87,9 +86,10 @@
     rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
     rightBtn.titleLabel.font=[UIFont systemFontOfSize:14.0];
-    [rightBtn setTitleColor:[UIColor colorWithRed:186.0/255 green:184.0/255 blue:184.0/255 alpha:1.0] forState:UIControlStateNormal];
+   // [rightBtn setTitleColor:[UIColor colorWithRed:186.0/255 green:184.0/255 blue:184.0/255 alpha:1.0] forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(editBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [rightBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+   // [rightBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:rightBtn];
 }
 

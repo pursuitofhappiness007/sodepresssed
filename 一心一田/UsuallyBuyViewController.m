@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numofgoodskindlab;
 @property (weak, nonatomic) IBOutlet UILabel *summoneylab;
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
+@property (weak, nonatomic) IBOutlet UILabel *noticeLab;
 
 @end
 
@@ -74,6 +75,7 @@
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
     [HttpTool post:@"query_always_buy_goods" params:paras success:^(id responseObj) {
         NSLog(@"wwwwwwwwww%@", responseObj);
+     
         if(tablelist.count>0){
             previouscount=tablelist.count;
             if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count]>0)
@@ -98,6 +100,7 @@
                _tableview.hidden=NO;
                 
                 tablelist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"goods_list"] mutableCopy];
+              
                 //每次从线上请求新的数据都要喝本地同步
                 [LocalAndOnlineFileTool keepthesamewithonline:tablelist];
                 NSLog(@"when next can come to here?");
@@ -109,6 +112,10 @@
             else
             {
                 //                _tableview.hidden=YES;
+                if (!tablelist.count) {
+                    self.noticeLab.hidden = NO;
+                    return ;
+                }
             }
             
         }

@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsuallyBuyViewController">
             <connections>
+                <outlet property="noticeLab" destination="JwR-Ei-ccx" id="c4g-rA-7cV"/>
                 <outlet property="numofgoodskindlab" destination="fYE-IX-bhY" id="4RU-pL-jV2"/>
                 <outlet property="payBtn" destination="IVY-V3-ngZ" id="YHg-Ef-izd"/>
                 <outlet property="summoneylab" destination="7eK-AA-vw4" id="Mei-ny-P7l"/>
@@ -121,6 +122,12 @@
                         <constraint firstItem="tFJ-6H-t4s" firstAttribute="top" secondItem="63a-aG-F0g" secondAttribute="top" id="vLg-jm-nTB"/>
                     </constraints>
                 </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无常购商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwR-Ei-ccx">
+                    <rect key="frame" x="136" y="323" width="102" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.188013335" blue="0.065656855599999994" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -129,7 +136,9 @@
                 <constraint firstAttribute="trailing" secondItem="mCM-60-9Tq" secondAttribute="trailing" id="fLR-zM-tca"/>
                 <constraint firstAttribute="bottom" secondItem="63a-aG-F0g" secondAttribute="bottom" id="ihu-dO-IMe"/>
                 <constraint firstAttribute="trailing" secondItem="63a-aG-F0g" secondAttribute="trailing" id="lWq-xm-74q"/>
+                <constraint firstItem="JwR-Ei-ccx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pZq-iK-X0S"/>
                 <constraint firstItem="63a-aG-F0g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yYJ-WC-zA0"/>
+                <constraint firstItem="JwR-Ei-ccx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zWB-Be-aHg"/>
                 <constraint firstAttribute="bottom" secondItem="mCM-60-9Tq" secondAttribute="bottom" constant="49" id="zgM-m4-BPy"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
