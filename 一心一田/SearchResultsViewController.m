@@ -215,7 +215,7 @@
     }}
 
 -(void)creattableview{
-    table=[[UITableView alloc]initWithFrame:CGRectMake(0, 108, MAIN_WIDTH, MAIN_HEIGHT-108-49) style:UITableViewStylePlain];
+    table=[[UITableView alloc]initWithFrame:CGRectMake(0, 108, MAIN_WIDTH, MAIN_HEIGHT-108) style:UITableViewStylePlain];
     table.separatorStyle=UITableViewCellSeparatorStyleNone;
     table.dataSource=self;
     table.delegate = self;
@@ -297,13 +297,11 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
-
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    [self backBtnClicked:nil];
-    return NO;
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self initparas];
+    _keywords=searchBar.text;
+    [self getdatafromweb:1 keywords:_keywords minprice:nil maxprice:nil sortorder:nil sortfield:nil];
 }
-
-
 
 - (IBAction)filterBtnClicked:(UIButton *)sender {
     

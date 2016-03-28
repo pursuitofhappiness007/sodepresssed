@@ -12,7 +12,7 @@
 #import "LoginViewController.h"
 #import "SDCycleScrollView.h"
 #import "GoodsDetailViewController.h"
-#import "SearchViewController.h"
+#import "SearchResultsViewController.h"
 #import "OriginalCollectionListViewController.h"
 #import "newProductViewController.h"
 #import "UsuallyBuyViewController.h"
@@ -46,6 +46,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dynamictitlelab;
 @property (strong, nonatomic) UIActivityIndicatorView *activit;
+//searchbar
+@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+
 @end
 
 @implementation HomeViewController
@@ -58,7 +61,9 @@
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
+    
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -82,8 +87,9 @@
 -(void)customernavbar{
     
     UIView *v=[[[NSBundle mainBundle]loadNibNamed:@"NavBarForHome" owner:self options:nil] firstObject];
-    v.frame=CGRectMake(0, 0, MAIN_WIDTH, 64);
+    v.frame=CGRectMake(0, StatusBarH, MAIN_WIDTH, 44);
     [self.view addSubview:v];
+    [self.view bringSubviewToFront:v];
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -109,9 +115,6 @@
         [self setUpScrollerView];
      }
  } failure:^(NSError *error) {
-       NSLog(@"---------------------------------------------------------------");
-     NSLog(@"请求首页数据失败%@",error);
-       NSLog(@"---------------------------------------------------------------");
  } controler:self];
 }
 
@@ -124,6 +127,7 @@
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
     
     [HttpTool post:@"get_goods_list" params:paras success:^(id responseObj) {
+        NSLog(@"首页的json=%@",responseObj);
         if(tablelist.count>0){
             previouscount=tablelist.count;
             if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"goods_list"] count]>0)
@@ -478,10 +482,13 @@
         searchview.x=MAIN_WIDTH*0.16;
         
     } completion:^(BOOL finished) {
+        [_searchbar becomeFirstResponder];
         
     }];
     
 }
+
+
 
 - (IBAction)cancelBtnClicked:(id)sender {
     [UIView animateWithDuration:.4 animations:^{
@@ -492,10 +499,12 @@
     }];
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    SearchViewController *vc=[[SearchViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:NO];
-    return NO;
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    SearchResultsViewController *vc=[[SearchResultsViewController alloc]init];
+    vc.keywords=searchBar.text;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+
 }
 
 - (IBAction)shucaishuiguoBtnClicked:(id)sender {

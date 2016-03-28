@@ -169,21 +169,7 @@
 
 - (IBAction)seePersonInfoClicked:(id)sender {
     PersonalInfomationViewController *vc=[[PersonalInfomationViewController alloc]init];
-    vc.name = self.userInfo[@"name"];
-    vc.icon = [self.userInfo stringForKey:@"imagePath"];
     NSArray *phoneArr = self.userInfo[@"phones"];
-    if (phoneArr.count == 0) {
-        vc.phoneArr = @[@"",@"",@""];
-     }
-    if (phoneArr.count == 1) {
-         vc.phoneArr = @[phoneArr[0],@"",@""];
-    }
-    if (phoneArr.count == 2) {
-         vc.phoneArr = @[phoneArr[0],phoneArr[1],@""];
-    }
-    if (phoneArr.count == 3) {
-        vc.phoneArr = @[phoneArr[0],phoneArr[1],phoneArr[2]];
-        }
     [self.navigationController pushViewController:vc animated:YES];
 }
 

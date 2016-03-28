@@ -30,6 +30,7 @@
                 <outlet property="specification" destination="UzV-28-Wkg" id="OoE-QA-HTV"/>
                 <outlet property="sumkindlab" destination="NYH-H9-Rrh" id="6y0-Cm-faf"/>
                 <outlet property="summoneylab" destination="MmH-nL-d1J" id="Ejr-uU-NUU"/>
+                <outlet property="tabBtn" destination="qme-gT-fkl" id="Wpu-xS-wdx"/>
                 <outlet property="textArea" destination="inE-J3-cvU" id="QSR-6T-Jw0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

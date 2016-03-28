@@ -161,7 +161,6 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 #pragma mark - Lifecycle
-
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
@@ -170,8 +169,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.mode = MBProgressHUDModeIndeterminate;
 		self.labelText = nil;
 		self.detailsLabelText = nil;
-		self.opacity = 0.8f;
-		self.color = nil;
+		self.opacity = 0.6f;
+		self.color = [UIColor colorWithRed:136.0/255 green:136.0/255 blue:136.0/255 alpha:1.0];
 		self.labelFont = [UIFont boldSystemFontOfSize:kLabelFontSize];
 		self.labelColor = [UIColor whiteColor];
 		self.detailsLabelFont = [UIFont boldSystemFontOfSize:kDetailsLabelFontSize];

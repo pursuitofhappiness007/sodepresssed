@@ -12,6 +12,7 @@
 @interface PersonalInfomationViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     UIImagePickerController *imagePicker;
     UIImage *usericonimg;
+    NSMutableArray *phonesArray;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *personalIcon;
 @property (weak, nonatomic) IBOutlet UILabel *usernamelab;
@@ -37,6 +38,10 @@
     [self setlocalcontent];
 }
 
+-(void)initparas{
+    phonesArray=[NSMutableArray array];
+}
+
 -(void)backBtnClicked{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -50,11 +55,15 @@
     _personalIcon.layer.cornerRadius=_personalIcon.width/2.0;
     _personalIcon.clipsToBounds=YES;
     _personalIcon.layer.masksToBounds =YES;
-    
-    _usernamelab.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];
-    NSLog(@"%@", [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"]);
-    _phoneArr = [[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] arrayForKey:@"phones"];
-    switch (_phoneArr.count) {
+    NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"];
+    [_personalIcon sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+    _usernamelab.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];;
+    NSArray *temp= [dict arrayForKey:@"phones"];
+    for (NSString *str in temp) {
+        NSMutableString *string=[str mutableCopy];
+        [phonesArray addObject:string];
+    }
+    switch (phonesArray.count) {
         case 0:
         {
         
@@ -62,26 +71,26 @@
             break;
         case 1:
         {
-          [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-             _phone1lab.text =_phoneArr[0];
+          [phonesArray[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+             _phone1lab.text =phonesArray[0];
         }
             break;
         case 2:
         {
-            [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-            _phone1lab.text =_phoneArr[0];
-            [_phoneArr[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-            _phone2lab.text =_phoneArr[1];
+            [phonesArray[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone1lab.text =phonesArray[0];
+            [phonesArray[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone2lab.text =phonesArray[1];
         }
             break;
         case 3:
         {
-            [_phoneArr[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-            _phone1lab.text =_phoneArr[0];
-            [_phoneArr[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-            _phone2lab.text =_phoneArr[1];
-            [_phoneArr[2] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
-            _phone3lab.text =_phoneArr[2];
+            [phonesArray[0] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone1lab.text =phonesArray[0];
+            [phonesArray[1] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone2lab.text =phonesArray[1];
+            [phonesArray[2] replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+            _phone3lab.text =phonesArray[2];
         }
             break;
         default:
