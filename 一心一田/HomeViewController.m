@@ -61,7 +61,7 @@
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
-    
+    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor grayColor]];    
 }
 
 - (void)viewDidLoad {
@@ -250,12 +250,12 @@
     NSDictionary *good = tablelist[indexPath.row];
     NSLog(@"%@",good);
     cell.goodsid=[good stringForKey:@"id"];
-    cell.goodname = [good stringForKey:@"name"];//good[@"name"];
-    cell.shortcomment =  [good stringForKey:@"commentary"];//good[@"commentary"];
+    cell.goodname = [good stringForKey:@"name"];
+    cell.shortcomment =  [good stringForKey:@"commentary"];
     cell.detailBtn.tag = indexPath.row;
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
-    cell.specific = [good stringForKey:@"specification"];//good[@"specifications"];
-    cell.goodimg = [good stringForKey:@"thumbnaillmg"];//good[@"thumbnailImg"];
+    cell.specific = [good stringForKey:@"specification"];
+    cell.goodimg = [good stringForKey:@"thumbnailImg"];
     cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {

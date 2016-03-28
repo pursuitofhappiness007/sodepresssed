@@ -378,14 +378,12 @@
     NSMutableArray *temp=[NSMutableArray array];
     for (NSInteger j=0; j<[_shopcartableview numberOfSections];j++)
     {
-        
-        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j]];
+    ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:j]];
         
         if(!cell.singleBtn.selected)
             [temp addObject:tabledata[j]];
-        vc.tabledata=[temp mutableCopy];
-    
     }
+    vc.tabledata=[temp mutableCopy];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)chooseallBtnClicked:(UIButton *)sender {

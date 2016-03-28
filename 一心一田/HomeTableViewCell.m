@@ -51,7 +51,7 @@
 }
 -(void)setGoodimg:(NSString *)goodimg{
     [_goodsimageview sd_setImageWithURL:[NSURL URLWithString:goodimg] placeholderImage:[UIImage imageNamed:@"defualt"]];
-   // [[DownLoadImageTool singletonInstance]imageWithImage:goodimg scaledToWidth:_goodsimageview.width imageview:_goodsimageview];
+   
 }
 -(void)setGoodname:(NSString *)goodname{
     _goodnamelab.text=goodname;
