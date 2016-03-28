@@ -65,7 +65,8 @@
         if([responseObj int32ForKey:@"result"]==0){
         NSMutableArray *arr = [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour"] ;
             self.collectionListArr = [arr mutableCopy] ;
-            [self.tableview reloadData];
+            [self.firstbt setTitle:[NSString stringWithFormat:@"全部商品(%ld)",self.collectionListArr.count] forState:UIControlStateNormal];
+             [self.tableview reloadData];
             NSLog(@"获取数据成功");
             return;
         } else{
@@ -235,7 +236,15 @@
     self.bottomView.hidden = YES;
     self.coverView.hidden = YES;
     NSLog(@"%@",_collectionListArr[self.addToShopCarBt.tag]);
-   // [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
+    if ([LocalAndOnlineFileTool singlegoodcount:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"]] == 0) {
+          [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
+    }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText= @"已加入购物车";
+    hud.margin = 10.f;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hide:YES afterDelay:1.2];
 }
 - (IBAction)cancelCollection:(id)sender {
     NSLog(@"取消收藏");

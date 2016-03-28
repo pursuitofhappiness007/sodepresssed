@@ -136,8 +136,8 @@
                         cell= [[[NSBundle  mainBundle] loadNibNamed:@"AcountDetailTableViewCell" owner:self options:nil]  lastObject];
                          cell.remarkLb.text = [dic stringForKey:@"remark"];
                          cell.timeLb.text = [dic stringForKey:@"addTime"];
-                         cell.acBalLb.text = [NSString stringWithFormat:@"%@.00",[dic stringForKey:@"acBal"]];
-                         cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@.00",[dic stringForKey:@"amount"]];
+                         cell.acBalLb.text = [NSString stringWithFormat:@"%@",[dic stringForKey:@"acBal"]];
+                         cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@",[dic stringForKey:@"amount"]];
                      }
                     cell.selectionStyle=UITableViewCellSelectionStyleNone;
                     return cell;
@@ -149,7 +149,7 @@
                             cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
                             cell.remarkLb.text = [dic stringForKey:@"remark"];
                             cell.timeLb.text = [dic stringForKey:@"addTime"];
-                            cell.acBalLb.text = [NSString stringWithFormat:@"+%@.00",[dic stringForKey:@"acBal"]];
+                            cell.acBalLb.text = [NSString stringWithFormat:@"+%@",[dic stringForKey:@"acBal"]];
                         }
                     cell.selectionStyle=UITableViewCellSelectionStyleNone;
                     return cell;
@@ -166,7 +166,7 @@
                 cell= [[[NSBundle  mainBundle] loadNibNamed:@"RechargeCell" owner:self options:nil]  lastObject];
                 cell.remarkLb.text = [dic stringForKey:@"remark"];
                 cell.timeLb.text = [dic stringForKey:@"addTime"];
-                 cell.acBalLb.text = [NSString stringWithFormat:@"+%@.00",[dic stringForKey:@"acBal"]];
+                 cell.acBalLb.text = [NSString stringWithFormat:@"+%@",[dic stringForKey:@"acBal"]];
             }
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
@@ -182,8 +182,8 @@
                 cell= [[[NSBundle  mainBundle] loadNibNamed:@"AcountDetailTableViewCell" owner:self options:nil]  lastObject];
                 cell.remarkLb.text = [dic stringForKey:@"remark"];
                 cell.timeLb.text = [dic stringForKey:@"addTime"];
-                cell.acBalLb.text = [NSString stringWithFormat:@"%@.00",[dic stringForKey:@"acBal"]];
-                cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@.00",[dic stringForKey:@"amount"]];
+                cell.acBalLb.text = [NSString stringWithFormat:@"%@",[dic stringForKey:@"acBal"]];
+                cell.amountLb.text = [NSString stringWithFormat:@"账户余额: %@",[dic stringForKey:@"amount"]];
             }
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;

@@ -1351,6 +1351,7 @@
 					"$(PROJECT_DIR)/一心一田",
 					"$(PROJECT_DIR)/一心一田/LibBPush",
 				);
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xipin.exinetiannewplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1374,6 +1375,7 @@
 					"$(PROJECT_DIR)/一心一田",
 					"$(PROJECT_DIR)/一心一田/LibBPush",
 				);
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xipin.exinetiannewplatform;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
