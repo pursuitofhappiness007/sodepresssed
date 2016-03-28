@@ -106,7 +106,8 @@
             cell.goodname = [[dic dictionaryForKey:@"goods"]stringForKey:@"name"];
             cell.shortcomment = [[dic dictionaryForKey:@"goods"]stringForKey:@"commentary"];
             cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
-            cell.goodimage = [[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"];
+            cell.goodimage = [NSString stringWithFormat:@"http://static.exinetian.com%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]];
+            NSLog(@"%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]);
             //cell.goodimage = @"http://static.exinetian.com/b2v/goods/image/source/2016328/1459159512201771.jpg";
             cell.actionBt.tag = indexPath.row;
             [cell.actionBt addTarget:self action:@selector(function:) forControlEvents:UIControlEventTouchUpInside];
