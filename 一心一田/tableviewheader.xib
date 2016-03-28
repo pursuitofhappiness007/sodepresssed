@@ -40,7 +40,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-Vl-njK" userLabel="SeparatorView">
                     <rect key="frame" x="0.0" y="340" width="375" height="9.5"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Fy-jL-lRk" userLabel="line">
+                        <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Fy-jL-lRk" userLabel="line">
                             <rect key="frame" x="0.0" y="8" width="375" height="1"/>
                             <color key="backgroundColor" red="0.81270072684246109" green="0.81353585615280333" blue="0.81116516649763093" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -125,14 +125,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uex-wK-ZwF" userLabel="SeparatorView2">
                     <rect key="frame" x="0.0" y="531" width="375" height="9"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIV-ig-7c6" userLabel="line">
+                        <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIV-ig-7c6" userLabel="line">
                             <rect key="frame" x="0.0" y="8" width="375" height="1"/>
                             <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Vui-KW-drn"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEN-sq-SqZ" userLabel="lineup">
+                        <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEN-sq-SqZ" userLabel="lineup">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                             <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -208,14 +208,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-hw-tfz" userLabel="SeparatorView3">
                     <rect key="frame" x="0.0" y="662" width="375" height="5"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KM4-WH-Ug2" userLabel="line">
+                        <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KM4-WH-Ug2" userLabel="line">
                             <rect key="frame" x="0.0" y="5" width="375" height="1"/>
                             <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="h4e-Bu-fWJ"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-J3-e1A" userLabel="lineup">
+                        <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-J3-e1A" userLabel="lineup">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                             <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
