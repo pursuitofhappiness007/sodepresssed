@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE0D8EAF1CA98CD7002629A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0D8EAE1CA98CD7002629A0 /* Assets.xcassets */; };
 		CE596B0C1CA131F100B3F82E /* newProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE596B0A1CA131F100B3F82E /* newProductViewController.m */; };
 		CE596B0D1CA131F100B3F82E /* newProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE596B0B1CA131F100B3F82E /* newProductViewController.xib */; };
 		CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */; };
@@ -165,7 +164,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE0D8EAE1CA98CD7002629A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE596B091CA131F100B3F82E /* newProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newProductViewController.h; sourceTree = "<group>"; };
 		CE596B0A1CA131F100B3F82E /* newProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newProductViewController.m; sourceTree = "<group>"; };
 		CE596B0B1CA131F100B3F82E /* newProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newProductViewController.xib; sourceTree = "<group>"; };
@@ -558,7 +556,6 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE0D8EAE1CA98CD7002629A0 /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1113,7 +1110,6 @@
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FE1897291CA3B29700310488 /* Default-568h.png in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
-				CE0D8EAF1CA98CD7002629A0 /* Assets.xcassets in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
 				FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
