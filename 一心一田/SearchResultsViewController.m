@@ -51,6 +51,7 @@
 - (IBAction)zongheBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *amountpriorityBtn;
 @property (weak, nonatomic) IBOutlet UIView *redline;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
 
 @end
@@ -75,11 +76,16 @@
     v.frame=CGRectMake(0, StatusBarH, MAIN_WIDTH, NaviBarH);
     [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor grayColor]];
     [self.view addSubview:v];
+    [_searchbar becomeFirstResponder];
 
     [self initparas];
     [self creattableview];
     [self getdatafromweb:1 keywords:_keywords minprice:nil maxprice:nil sortorder:nil sortfield:nil];
     
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -39,7 +39,10 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *deliverylisttableview;
 - (IBAction)dismissview:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *addressnoticelab;
+//账户余额
+@property (weak, nonatomic) IBOutlet UILabel *qiankuanlab;
+//静态提示lab
+@property (weak, nonatomic) IBOutlet UILabel *stasticlab;
 
 @end
 
@@ -83,6 +86,9 @@
     deliveryaddindex=0;
     orderinfo=[NSDictionary dictionary];
     paymode=@"BA";
+    double temp=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"]dictionaryForKey:@"member_info"]doubleForKey:@"acBal"];
+    _qiankuanlab.text=[NSString stringWithFormat:@"¥%.2f",temp];
+    _stasticlab.text=temp>=0?@"账号余额":@"账户欠款";
 
 }
 

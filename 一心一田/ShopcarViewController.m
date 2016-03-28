@@ -52,6 +52,7 @@
     
     rightBtn.hidden=NO;
         _shopcartableview.editing=NO;
+    needrefresh=YES;
         for(int i=0;i<[_shopcartableview numberOfSections];i++){
             ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
             cell.singleBtn.hidden=NO;
@@ -75,7 +76,7 @@
     
     NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
     for (int i=0; i<[_shopcartableview numberOfSections]; i++) {
-        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
         if([idsneedtorefresh containsObject:cell.goodsid])
             cell.countlab.text=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
     }
@@ -87,9 +88,8 @@
     rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
     rightBtn.titleLabel.font=[UIFont systemFontOfSize:14.0];
-    [rightBtn setTitleColor:[UIColor colorWithRed:186.0/255 green:184.0/255 blue:184.0/255 alpha:1.0] forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[UIColor colorWithRed:107.0/255 green:103.0/255 blue:103.0/255 alpha:1.0] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(editBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [rightBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:rightBtn];
 }
 
@@ -100,7 +100,7 @@
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
         if(!cell.singleBtn.selected)
         {
-            quantity++;
+            quantity+=[cell.countlab.text intValue];
             totaltopay+=cell.singleprice*[cell.countlab.text intValue];
         }
     }
@@ -160,7 +160,7 @@
 -(void)initparas{
     
     tabledata=[NSMutableArray array];
-    NSLog(@"余额支付陈工后的tabledata=%@",tabledata);
+   
     tabledata=[[LocalAndOnlineFileTool getbuyinggoodslist]mutableCopy];
     
     if(tabledata.count==0){
@@ -209,6 +209,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     
     ShoppingCarTableViewCell *cell=[ShoppingCarTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -253,7 +254,7 @@
         
         _allmoneytopaylab.text=[_allmoneytopaylab.text stringByReplacingOccurrencesOfString:@"¥" withString:@""];
         totaltopay=[_allmoneytopaylab.text doubleValue]-[cell.countlab.text intValue]*cell.singleprice;
-       _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.1f",totaltopay];
+       _allmoneytopaylab.text=[NSString stringWithFormat:@"¥%.2f",totaltopay];
         quantity-=[cell.countlab.text intValue];
         if(quantity==0)
         {
@@ -314,15 +315,36 @@
 }
 
 -(void)minusBtnClicked:(UIButton *)sender{
+    NSLog(@"点了见好 cell=%d",sender.tag);
     needrefresh=NO;
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
     
     int i=[cell.countlab.text intValue];
     if(i>0){
-        if(i==1)
-            [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.currentcount=[NSString stringWithFormat:@"%d",i-1];
+        if(i==1){
+            cell.singleBtn.hidden=NO;
+            [tabledata removeObjectAtIndex:sender.tag];
+            [_shopcartableview beginUpdates];
+            [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+          
+            [_shopcartableview endUpdates];
+            NSInteger sectionCount = [tabledata count];
+            NSIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, sectionCount)];
+            [_shopcartableview reloadSections:indexes withRowAnimation:UITableViewRowAnimationNone];
+            if(tabledata.count==0){
+                rightBtn.hidden=YES;
+                _emptynoticelab.hidden=NO;
+                [_shopcartableview setEditing:NO];
+                _optionBar.hidden=YES;
+                _chooseallBtn.selected=NO;
+            }
+           
+            
+
+        }
+        
         [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
         [self setbottombar];
     }
@@ -412,9 +434,12 @@
             _chooseallBtn.selected=NO;
         }
     [_shopcartableview beginUpdates];
-        [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag]
-                         withRowAnimation:UITableViewRowAnimationAutomatic];
-    [_shopcartableview endUpdates];
+        [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+       [_shopcartableview endUpdates];
+    NSInteger sectionCount = [tabledata count];
+    NSIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, sectionCount)];
+    [_shopcartableview reloadSections:indexes withRowAnimation:UITableViewRowAnimationNone];
+
     [LocalAndOnlineFileTool resetaftersuccessfulsubmit:@[cell.goodsid]];
     [self setbottombar];
         [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];

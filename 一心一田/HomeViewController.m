@@ -22,7 +22,6 @@
     NSMutableArray *navigationArr;
     NSMutableArray *noticeArr;
     UIView *searchview;
-    NSString *phonenum;
     int previouscount;
     int totalpage;
     int pagenum;
@@ -107,7 +106,7 @@
  [HttpTool post:@"index" params:paras success:^(id responseObj) {
      if([responseObj int32ForKey:@"result"]==0){
          NSLog(@"%@",responseObj);
-         phonenum=[[responseObj dictionaryForKey:@"data"]stringForKey:@"tel_phone"];
+        
          NSMutableArray *naArr= responseObj[@"data"][@"navigation"];
          NSMutableArray *noArr = responseObj[@"data"][@"notice"];
          noticeArr = [noArr mutableCopy];
@@ -363,6 +362,10 @@
 
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
 //1.加载头部
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"tableviewheader" owner:self options:nil]firstObject];
@@ -373,7 +376,7 @@
 }
 //2.每行的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MAIN_HEIGHT*0.25;
+    return MAIN_HEIGHT*0.2;
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -414,19 +417,7 @@
 
 
 - (IBAction)phoneBtnClicked:(id)sender {
-    if (phonenum.length==0) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        
-        // Configure for text only and offset down
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"暂未提供客服电话";
-        hud.margin = 10.f;
-        hud.removeFromSuperViewOnHide = YES;
-        
-        [hud hide:YES afterDelay:1.0];
-        return;
-    }
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",phonenum]];
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",@"400123123"]];
     
     if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
         [[UIApplication sharedApplication] openURL:phoneUrl];

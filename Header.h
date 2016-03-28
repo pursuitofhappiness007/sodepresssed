@@ -1,74 +1,29 @@
 登录后的{
     result=0,
     data={
-        token=86daa16384d62b4d990d937dd2a8ec34,
+        token=e7c297c497c1eedac80343d515973797,
         member_info={
-            amount=8000,
+            amount=100000,
             login_name=test3,
-            acBal=-4480.22,
-            id=36,
+            acBal=-0.35,
+            id=1003,
             phones=[
-                    13245678912
+                    13588888888,
+                    13566666666,
+                    13168168168
                     ],
-            marketplaceId=58,
+            marketplaceId=1,
             imagePath=<null>,
-            name=嘿嘿,
+            name=rrr,
             goodsType={
                 pid=0,
                 status=0,
-                pids=22,
-                id=22,
+                pids=1,
+                id=1,
                 level=1,
-                icon=http://192.168.199.50:8870/images/no_picture.png,
-                name=一级测试分类
+                icon=http://static.exinetian.com/b2v/goods/image/source/2016328/1459161105564472.png,
+                name=干货调料
             }
         }
     }
-    }
-    
-    
-    
-    {
-        id=60,
-        commentary=66666666666666,
-        thumbnailImg=http://static.exinetian.com/b2v/goods/image/source/2016324/1458808552710619.jpg,
-        marketId=58,
-        specifications=,
-        status=0,
-        salePriceType=1,
-        minNum=<null>,
-        maxNum=<null>,
-        startTime=<null>,
-        price=2,
-        dailySales=0,
-        num=0,
-        endTime=<null>,
-        supplierId=28,
-        billUnit=0,
-        goodsId=1012,
-        name=支付测试,
-        goodsRangePrices=[
-        {
-            addWho=<null>,
-            maxNum=3,
-            editWho=<null>,
-            id=1,
-            editTime=<null>,
-            minNum=1,
-            price=2,
-            goodsRelationId=60,
-            addTime=<null>
-        },
-        {
-            addWho=<null>,
-            maxNum=4,
-            editWho=<null>,
-            id=2,
-            editTime=<null>,
-            minNum=4,
-            price=5,
-            goodsRelationId=60,
-            addTime=<null>
-        }
-                          ]
-    }
+}
