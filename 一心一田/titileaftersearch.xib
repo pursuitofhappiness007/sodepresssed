@@ -24,16 +24,18 @@
                     </connections>
                 </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThJ-OP-pTH">
-                    <rect key="frame" x="15" y="13" width="10" height="18"/>
+                    <rect key="frame" x="15" y="11" width="19" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="HVr-1v-mzy"/>
                         <constraint firstAttribute="width" constant="10" id="fec-JC-oAY"/>
                         <constraint firstAttribute="height" constant="18" id="v6o-Fj-zxS"/>
                     </constraints>
-                    <state key="normal" title="Button" image="backpretty"/>
+                    <state key="normal" image="backpretty"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="HVr-1v-mzy"/>
+                            <exclude reference="fec-JC-oAY"/>
+                            <exclude reference="v6o-Fj-zxS"/>
                         </mask>
                     </variation>
                     <connections>
