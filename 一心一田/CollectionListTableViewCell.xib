@@ -237,7 +237,7 @@
             <connections>
                 <outlet property="actionBt" destination="N7q-Z9-Nov" id="0hh-zu-HEt"/>
                 <outlet property="detailBtn" destination="ni9-5O-hMr" id="IYU-2E-qDY"/>
-                <outlet property="goodimageview" destination="lst-3D-RJG" id="BRL-Gj-DP5"/>
+                <outlet property="goodimageview" destination="lst-3D-RJG" id="yS6-DF-S6k"/>
                 <outlet property="goodnamelab" destination="qfz-j9-7Nx" id="yCE-Fn-72r"/>
                 <outlet property="price1lab" destination="DXm-lE-5XK" id="cTI-ot-SwZ"/>
                 <outlet property="price2lab" destination="Ti2-Uk-N5J" id="qyK-EM-CHb"/>

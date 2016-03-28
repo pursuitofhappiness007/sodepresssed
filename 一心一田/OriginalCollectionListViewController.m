@@ -37,10 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"商品收藏";
-    UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(goBack)];
     self.selectedButton = self.firstbt;
     self.selectedButton.selected = YES;
     self.coverView.hidden = YES;
@@ -109,6 +106,7 @@
             cell.shortcomment = [[dic dictionaryForKey:@"goods"]stringForKey:@"commentary"];
             cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
             cell.goodimage = [[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"];
+            //cell.goodimage = @"http://static.exinetian.com/b2v/goods/image/source/2016328/1459159512201771.jpg";
             cell.actionBt.tag = indexPath.row;
             [cell.actionBt addTarget:self action:@selector(function:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;

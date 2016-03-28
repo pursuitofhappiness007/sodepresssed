@@ -18,6 +18,7 @@
 
 
 
+
 @end
 @implementation CollectionListTableViewCell
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -44,9 +45,8 @@
     // Initialization code
 }
 
--(void)setGoodimg:(NSString *)goodimg{
-    [_goodimageview sd_setImageWithURL:[NSURL URLWithString:goodimg] placeholderImage:[UIImage imageNamed:@"defualt"]];
-  //  [[DownLoadImageTool singletonInstance]imageWithImage:goodimg scaledToWidth:_goodimageview.width imageview:_goodimageview];
+-(void)setGoodimage:(NSString *)goodimage{
+   [_goodimageview sd_setImageWithURL:[NSURL URLWithString:goodimage] placeholderImage:[UIImage imageNamed:@"defualt"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
