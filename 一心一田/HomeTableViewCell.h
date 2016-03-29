@@ -30,6 +30,7 @@
 //购买数量
 @property (nonatomic,copy)NSString *count;
 //区间价格
+
 @property (weak, nonatomic) IBOutlet UILabel *range1lab;
 @property (weak, nonatomic) IBOutlet UILabel *range2lab;
 @property (weak, nonatomic) IBOutlet UILabel *range3lab;
