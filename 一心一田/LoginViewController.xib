@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pwd" translatesAutoresizingMaskIntoConstraints="NO" id="gLS-Kd-bEJ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pwd" translatesAutoresizingMaskIntoConstraints="NO" id="gLS-Kd-bEJ">
                     <rect key="frame" x="75" y="340" width="12" height="18"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" tag="88" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="输入账号" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="pu4-C4-eDp" userLabel="inputphonenum">
-                    <rect key="frame" x="95" y="281" width="205" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" tag="88" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入账号" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="pu4-C4-eDp" userLabel="inputphonenum">
+                    <rect key="frame" x="95" y="285" width="205" height="30"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="hR0-qt-vgp"/>
@@ -44,12 +44,12 @@
                         <outlet property="delegate" destination="-1" id="91U-Sq-Dcr"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="90" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="输入密码" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-jn-aWH" userLabel="inputpassword">
+                <textField opaque="NO" clipsSubviews="YES" tag="90" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-jn-aWH" userLabel="inputpassword">
                     <rect key="frame" x="95" y="333.5" width="205" height="30"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.1333333333" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="6"/>
@@ -63,7 +63,7 @@
                     </connections>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9x4-qp-DsK" userLabel="line1">
-                    <rect key="frame" x="75" y="309" width="225" height="1"/>
+                    <rect key="frame" x="75" y="313" width="225" height="1"/>
                     <color key="backgroundColor" red="0.13333333333333333" green="0.49803921568627452" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="f43-l9-35r"/>
@@ -107,7 +107,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-wO-Lf0">
-                    <rect key="frame" x="75" y="287" width="14" height="18"/>
+                    <rect key="frame" x="75" y="291" width="14" height="18"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsD-TI-ZNK">
                     <rect key="frame" x="75" y="390" width="225" height="40"/>
@@ -134,7 +134,7 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="hwe-mm-zkZ" firstAttribute="leading" secondItem="am4-n4-j1K" secondAttribute="leading" id="1Om-1p-JiD"/>
                 <constraint firstItem="pu4-C4-eDp" firstAttribute="trailing" secondItem="9x4-qp-DsK" secondAttribute="trailing" id="6T8-Db-AJQ"/>
@@ -152,7 +152,7 @@
                 <constraint firstItem="tJr-k7-vga" firstAttribute="top" secondItem="gLS-Kd-bEJ" secondAttribute="bottom" constant="5" id="OXs-WO-7bc"/>
                 <constraint firstItem="pu4-C4-eDp" firstAttribute="leading" secondItem="Ofu-wO-Lf0" secondAttribute="trailing" constant="6" id="WOl-J0-kMN"/>
                 <constraint firstItem="DuL-uN-NMh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.4" id="Wqg-K3-gWK"/>
-                <constraint firstItem="9x4-qp-DsK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.93" id="XzQ-kE-0SD"/>
+                <constraint firstItem="9x4-qp-DsK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.94" id="XzQ-kE-0SD"/>
                 <constraint firstItem="hwe-mm-zkZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YS6-Dg-aGi"/>
                 <constraint firstItem="9x4-qp-DsK" firstAttribute="leading" secondItem="Ofu-wO-Lf0" secondAttribute="leading" id="Yd9-HN-99f"/>
                 <constraint firstItem="hwe-mm-zkZ" firstAttribute="top" secondItem="am4-n4-j1K" secondAttribute="bottom" constant="10" id="Z8f-EE-Hwo"/>
