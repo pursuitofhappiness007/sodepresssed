@@ -44,7 +44,7 @@
                         <action selector="seePersonInfoClicked:" destination="-1" eventType="touchUpInside" id="As8-29-4eI"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteforward" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-E3-XXI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="whiteforward" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-E3-XXI">
                     <rect key="frame" x="338" y="101" width="7" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="7" id="7Rg-yZ-gCA"/>
