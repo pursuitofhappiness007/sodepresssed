@@ -11,6 +11,7 @@
 @interface MessageCenterViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSMutableArray *tablelist;
 }
+@property (weak, nonatomic) IBOutlet UILabel *emptynoticeLab;
 
 @end
 
@@ -28,6 +29,12 @@
 }
 -(void)initdata{
     tablelist=[NSMutableArray array];
+    if(tablelist.count>0){
+        _emptynoticeLab.hidden=YES;
+    }
+    else{
+        _emptynoticeLab.hidden=NO;
+    }
 }
 - (void)backBtnClicked{
     [self.navigationController popViewControllerAnimated:YES];
@@ -37,8 +44,8 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return tablelist.count;
-    return 5;
+    return tablelist.count;
+  
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MessageTableViewCell *cell=[MessageTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];

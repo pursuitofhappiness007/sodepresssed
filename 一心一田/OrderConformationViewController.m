@@ -13,6 +13,7 @@
 #import "WXApi.h"
 #import "MutipleGoodsViewController.h"
 #import "WXPayTool.h"
+#import "CommitPayViewController.h"
 @interface OrderConformationViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>{
    
     int quantity;
@@ -119,9 +120,14 @@
         return NO;
 }
 -(void)setbottombar{
-    
-    _allmoneytopay.text=[NSString stringWithFormat:@"¥%.2f",[LocalAndOnlineFileTool calculatesummoneyinshopcar]];
-    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",[LocalAndOnlineFileTool refreshcoungnum]] forState:UIControlStateNormal];
+    int quantity=0;
+    double sum=0;
+    for (int i=0; i<_tabledata.count; i++) {
+        quantity+=[LocalAndOnlineFileTool singlegoodcount:[_tabledata[i] stringForKey:@"id"]];
+        sum+=[LocalAndOnlineFileTool singlegoodcount:[_tabledata[i] stringForKey:@"id"]]*[LocalAndOnlineFileTool singlegoodprice:[_tabledata[i] stringForKey:@"id"]];
+    }
+    _allmoneytopay.text=[NSString stringWithFormat:@"¥%.2f",sum];
+    [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",quantity] forState:UIControlStateNormal];
  
 }
 
@@ -158,8 +164,6 @@
     cell.count=[NSString stringWithFormat:@"X%d",kcount];
     
     cell.toatalmoney=[NSString stringWithFormat:@"总价:¥%.2f",[dict doubleForKey:@"price"]*kcount];
-    cell.goodspicBtn.tag=indexPath.row;
-    [cell.goodspicBtn addTarget:self action:@selector(goodspicBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
       return cell;
     }
 }
@@ -173,15 +177,6 @@
     else
     return  MAIN_HEIGHT*0.16;
 }
-
--(void)goodspicBtnClicked:(UIButton *)sender{
-    GoodsDetailViewController *vc=[[GoodsDetailViewController alloc]init];
-    vc.goodsid=[_tabledata[sender.tag] stringForKey:@"goodsId"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-
-
 
 
 -(void)backBtnClicked{
@@ -269,27 +264,13 @@
             }
             //余额支付
             else {
-                //跳到订单详情
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-                
-                // Configure for text only and offset down
-                hud.mode = MBProgressHUDModeCustomView;
-                
-                hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-                hud.labelFont=[UIFont systemFontOfSize:12.5];
-                hud.margin = 10.f;
-                hud.removeFromSuperViewOnHide = YES;
-                
-                [hud hide:YES afterDelay:1.0];
-                MutipleGoodsViewController *vc=[[MutipleGoodsViewController alloc]init];
-                NSLog(@"余额支付成功后的json＝%@",responseObj);
+                //跳到确认支付
+                CommitPayViewController *payVC=[[CommitPayViewController alloc]init];
+                payVC.summoney=_allmoneytopay.text;
                 NSDictionary *dict=[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"order_info"];
-                vc.order_id=[dict stringForKey:@"id"];
-                vc.isparent=@"1";
-//                //重置购物车
-//                [LocalAndOnlineFileTool resetaftersuccessfulsubmit:willberesetids];
-//                [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
-                [self.navigationController pushViewController:vc animated:YES];
+                payVC.order_id=[dict stringForKey:@"id"];
+                
+                [self.navigationController pushViewController:payVC animated:YES];
               
             }
             

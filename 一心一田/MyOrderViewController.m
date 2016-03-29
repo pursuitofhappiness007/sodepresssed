@@ -65,6 +65,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 - (IBAction)payBtnClicked:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *emptyNoticelab;
 
 @end
 
@@ -76,6 +77,7 @@
     }
     [super viewWillAppear:animated];
 }
+
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -118,6 +120,7 @@
         NSLog(@"获取所有订单为 %@",responseObj);
         NSLog(@"获取订单参数%@",paras);
         if(orderlist.count>0){
+            _emptyNoticelab.hidden=YES;
             if ([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"]count]==0)
                 return ;
             previouscount=orderlist.count;
@@ -130,8 +133,12 @@
         }
         else
         {
-        if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"]count]>0)
+            if([[[responseObj dictionaryForKey:@"data"] arrayForKey:@"order_list"]count]>0){
+                _emptyNoticelab.hidden=YES;
         orderlist=[[[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"order_list"] mutableCopy];
+            }
+            else
+                _emptyNoticelab.hidden=NO;
         totalrows=[[[responseObj dictionaryForKey:@"data"]dictionaryForKey:@"page"]int32ForKey:@"totalRows"];
             [_myordertableview reloadData];
         }
@@ -245,6 +252,7 @@
 
 //所有订单
 - (IBAction)showAllOrders:(UIButton *)sender {
+    _emptyNoticelab.hidden=YES;
     CGPoint temp=_blueline.center;
     temp.x=sender.center.x;
     _blueline.center=temp;
@@ -265,6 +273,7 @@
 }
 //待付款
 - (IBAction)dfkBtnClicked:(UIButton *)sender {
+    _emptyNoticelab.hidden=YES;
     CGPoint temp=_blueline.center;
     temp.x=sender.center.x;
     _blueline.center=temp;
@@ -283,6 +292,7 @@
 }
 //待发货
 - (IBAction)dfhBtnClicked:(UIButton *)sender {
+    _emptyNoticelab.hidden=YES;
     CGPoint temp=_blueline.center;
     temp.x=sender.center.x;
     _blueline.center=temp;
@@ -300,6 +310,7 @@
 }
 //待收货
 - (IBAction)dshBtnClicked:(UIButton *)sender {
+    _emptyNoticelab.hidden=YES;
     CGPoint temp=_blueline.center;
     temp.x=sender.center.x;
     _blueline.center=temp;
@@ -317,6 +328,7 @@
 }
 //已完成
 - (IBAction)ywcBtnClicked:(UIButton *)sender {
+    _emptyNoticelab.hidden=YES;
     CGPoint temp=_blueline.center;
     temp.x=sender.center.x;
     _blueline.center=temp;

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommitPayViewController">
+            <connections>
+                <outlet property="summoneylab" destination="lTA-m2-MkY" id="O6c-Gk-e5D"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已成功支付:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZS-pV-tGj">
+                    <rect key="frame" x="116" y="371" width="94.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTA-m2-MkY">
+                    <rect key="frame" x="218.5" y="371" width="37.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chb-lU-Erx">
+                    <rect key="frame" x="74.5" y="421.5" width="225" height="50.5"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sureBtnClicked:" destination="-1" eventType="touchUpInside" id="tyM-62-35j"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3g6-4Q-g9f">
+                    <rect key="frame" x="118" y="214" width="139" height="139"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3g6-4Q-g9f" secondAttribute="height" multiplier="1:1" id="9aB-mM-wTB"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="chb-lU-Erx" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.076" id="5jP-cf-rd5"/>
+                <constraint firstItem="chb-lU-Erx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.34" id="7zO-uj-nTK"/>
+                <constraint firstItem="3g6-4Q-g9f" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.37" id="WwF-YC-3br"/>
+                <constraint firstItem="KZS-pV-tGj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.87" id="YxD-Qz-3qt"/>
+                <constraint firstItem="3g6-4Q-g9f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yyr-UE-qI2"/>
+                <constraint firstItem="chb-lU-Erx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bbj-uX-zbE"/>
+                <constraint firstItem="chb-lU-Erx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="hhn-bM-Kah"/>
+                <constraint firstItem="3g6-4Q-g9f" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.85" id="jqO-lm-9fl"/>
+                <constraint firstItem="lTA-m2-MkY" firstAttribute="leading" secondItem="KZS-pV-tGj" secondAttribute="trailing" constant="8" id="ptn-RI-khd"/>
+                <constraint firstItem="lTA-m2-MkY" firstAttribute="top" secondItem="KZS-pV-tGj" secondAttribute="top" id="u9A-IB-q5Y"/>
+                <constraint firstItem="KZS-pV-tGj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.14" id="vfX-FY-rCT"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

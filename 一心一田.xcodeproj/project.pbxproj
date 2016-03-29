@@ -100,7 +100,10 @@
 		FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF871C8D6B51003536BC /* chooseprovince.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
-		FE89EFB61CA9956400C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFB51CA9956400C898CB /* Assets.xcassets */; };
+		FE89EFB81CA9971700C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFB71CA9971700C898CB /* Assets.xcassets */; };
+		FE89EFBD1CAA40EA00C898CB /* CommitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE89EFBB1CAA40EA00C898CB /* CommitPayViewController.m */; };
+		FE89EFBE1CAA40EA00C898CB /* CommitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFBC1CAA40EA00C898CB /* CommitPayViewController.xib */; };
+		FE89EFC01CAA606B00C898CB /* headerfortableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFBF1CAA606B00C898CB /* headerfortableview.xib */; };
 		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
 		FE906D1E1CA0F6A80099D786 /* zeroBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */; };
 		FE906D201CA0F6B90099D786 /* oneBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1F1CA0F6B90099D786 /* oneBtn.xib */; };
@@ -327,7 +330,11 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		FE89EFB51CA9956400C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE89EFB71CA9971700C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE89EFBA1CAA40EA00C898CB /* CommitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitPayViewController.h; sourceTree = "<group>"; };
+		FE89EFBB1CAA40EA00C898CB /* CommitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitPayViewController.m; sourceTree = "<group>"; };
+		FE89EFBC1CAA40EA00C898CB /* CommitPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommitPayViewController.xib; sourceTree = "<group>"; };
+		FE89EFBF1CAA606B00C898CB /* headerfortableview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerfortableview.xib; sourceTree = "<group>"; };
 		FE906D1B1CA0F4220099D786 /* commonfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commonfooter.xib; sourceTree = "<group>"; };
 		FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zeroBtn.xib; sourceTree = "<group>"; };
 		FE906D1F1CA0F6B90099D786 /* oneBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneBtn.xib; sourceTree = "<group>"; };
@@ -558,7 +565,7 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE89EFB51CA9956400C898CB /* Assets.xcassets */,
+				FE89EFB71CA9971700C898CB /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -567,6 +574,7 @@
 		FE6DC0421C8D5B0900E93578 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FE89EFB91CAA40C100C898CB /* 余额支付确认界面 */,
 				CE596B051CA1308200B3F82E /* 新品 */,
 				FEDC9FBB1C97AEE40002FB2F /* 修改昵称和电话 */,
 				CEADD1691C9170A100E13421 /* 账单详情 */,
@@ -849,6 +857,16 @@
 			name = TabBar;
 			sourceTree = "<group>";
 		};
+		FE89EFB91CAA40C100C898CB /* 余额支付确认界面 */ = {
+			isa = PBXGroup;
+			children = (
+				FE89EFBA1CAA40EA00C898CB /* CommitPayViewController.h */,
+				FE89EFBB1CAA40EA00C898CB /* CommitPayViewController.m */,
+				FE89EFBC1CAA40EA00C898CB /* CommitPayViewController.xib */,
+			);
+			name = "余额支付确认界面";
+			sourceTree = "<group>";
+		};
 		FE906D2D1CA1304B0099D786 /* 常购 */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,6 +931,7 @@
 				FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */,
 				FE906D1F1CA0F6B90099D786 /* oneBtn.xib */,
 				FE906D211CA0F6C30099D786 /* twoBtn.xib */,
+				FE89EFBF1CAA606B00C898CB /* headerfortableview.xib */,
 			);
 			name = "订单详情";
 			sourceTree = "<group>";
@@ -1089,6 +1108,7 @@
 				FE06ABBC1C9BFAF30072F2BB /* pricechooser.xib in Resources */,
 				FEDC9FCD1C97FA660002FB2F /* titileForSearchVC.xib in Resources */,
 				FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */,
+				FE89EFBE1CAA40EA00C898CB /* CommitPayViewController.xib in Resources */,
 				CEECE1F31C9AD18F009D11D8 /* OriginalCollectionListViewController.xib in Resources */,
 				FE1897221CA3A7D300310488 /* 2.png in Resources */,
 				FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */,
@@ -1110,10 +1130,11 @@
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
 				FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */,
 				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
+				FE89EFC01CAA606B00C898CB /* headerfortableview.xib in Resources */,
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FE1897291CA3B29700310488 /* Default-568h.png in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
-				FE89EFB61CA9956400C898CB /* Assets.xcassets in Resources */,
+				FE89EFB81CA9971700C898CB /* Assets.xcassets in Resources */,
 				FE6DC03B1C8D597200E93578 /* LaunchScreen.storyboard in Resources */,
 				FE906D2B1CA130280099D786 /* UsuallyBuyViewController.xib in Resources */,
 				CEECE2031C9AD1AD009D11D8 /* AccountDetailViewController.xib in Resources */,
@@ -1192,6 +1213,7 @@
 				CEECE2041C9AD1AD009D11D8 /* AcountDetailTableViewCell.m in Sources */,
 				FE7DBF241C8D6873003536BC /* AFURLSessionManager.m in Sources */,
 				FE7DBF551C8D6899003536BC /* UIImageView+WebCache.m in Sources */,
+				FE89EFBD1CAA40EA00C898CB /* CommitPayViewController.m in Sources */,
 				FE7DBF531C8D6899003536BC /* UIImage+WebP.m in Sources */,
 				FE7DBF491C8D6899003536BC /* SDImageCache.m in Sources */,
 				CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */,

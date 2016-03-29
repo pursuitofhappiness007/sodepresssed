@@ -116,7 +116,7 @@
             [infodic setValue:_nametf.text forKey:@"name"];
             [infodic setValue:phonesArr forKey:@"phones"];
             [[SaveFileAndWriteFileToSandBox singletonInstance] savefiletosandbox:infodic filepath:@"tokenfile.txt"];
-             [[NSNotificationCenter defaultCenter]postNotificationName:@"personinfochanged" object:nil];
+             [[NSNotificationCenter defaultCenter]postNotificationName:@"namechanged" object:nil];
             [self.navigationController popViewControllerAnimated:YES];
         }
 

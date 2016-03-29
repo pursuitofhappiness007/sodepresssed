@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageCenterViewController">
             <connections>
+                <outlet property="emptynoticeLab" destination="aME-ZC-6N5" id="mf7-Ks-hfJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,11 +24,19 @@
                         <outlet property="delegate" destination="-1" id="beh-wz-pnl"/>
                     </connections>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无推送消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aME-ZC-6N5">
+                    <rect key="frame" x="142" y="324.5" width="90" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="09s-hr-Ud2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QNP-E9-a2R"/>
+                <constraint firstItem="aME-ZC-6N5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Tt5-6v-yJi"/>
                 <constraint firstAttribute="trailing" secondItem="09s-hr-Ud2" secondAttribute="trailing" id="Vex-ba-YI5"/>
+                <constraint firstItem="aME-ZC-6N5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Zdi-vr-9RH"/>
                 <constraint firstItem="09s-hr-Ud2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lmy-gj-BMu"/>
                 <constraint firstAttribute="bottom" secondItem="09s-hr-Ud2" secondAttribute="bottom" id="pIg-o7-MC0"/>
             </constraints>
