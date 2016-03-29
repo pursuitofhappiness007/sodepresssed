@@ -350,9 +350,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(MAIN_HEIGHT==480)
-        return MAIN_HEIGHT*0.37;
+        return MAIN_HEIGHT*0.39;
     else
-    return  MAIN_HEIGHT*0.19;
+    return  MAIN_HEIGHT*0.22;
 }
 
 -(void)addBtnClicked:(UIButton *)sender{

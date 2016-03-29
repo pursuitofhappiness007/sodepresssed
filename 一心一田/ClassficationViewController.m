@@ -303,8 +303,14 @@
                 cell.price2lab.hidden = YES;
                 cell.price3lab.hidden = YES;
                 cell.price4lab.hidden = YES;
-                cell.pricelab.hidden = NO;
-                cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [dict stringForKey:@"price"]];
+                if ([NSString stringWithFormat:@"¥%@", [dict stringForKey:@"price"]].length) {
+                    cell.pricelab.hidden = NO;
+                   cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [dict stringForKey:@"price"]];
+                }else{
+                    cell.pricelab.hidden = YES;
+                }
+
+                
             }
                 break;
             case 1:
