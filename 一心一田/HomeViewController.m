@@ -182,7 +182,7 @@
 }controler:self];
 
 }
-
+#pragma mark - scrollviewset
 - (void)setUpScrollerView{
     if (noticeArr.count == 0) {
         self.noticeLb.text = @"暂无公告!";
@@ -195,7 +195,7 @@
         NSURL *image =  [pollImg stringForKey:@"adCode"];
         [arry addObject:image];
     }
-    SDCycleScrollView *scrollView =[[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height*0.58*0.4)];
+    SDCycleScrollView *scrollView =[[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height*0.58*0.55)];
     [self.scrollview addSubview:scrollView];
     scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     scrollView.delegate = self;
@@ -442,7 +442,7 @@
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return MAIN_HEIGHT*0.57;
+    return MAIN_HEIGHT*0.58;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

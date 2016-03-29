@@ -187,7 +187,7 @@
                 </constraints>
             </tableViewCellContentView>
             <constraints>
-                <constraint firstItem="qfz-j9-7Nx" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.52" id="1cP-yh-awH"/>
+                <constraint firstItem="qfz-j9-7Nx" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.7" id="1cP-yh-awH"/>
                 <constraint firstItem="iKf-PT-ud7" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" id="1d7-Mt-N2H"/>
                 <constraint firstItem="GxQ-oN-O55" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="0.136" id="4BV-3c-Chi"/>
                 <constraint firstItem="GxQ-oN-O55" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" multiplier="1.55" id="8Gq-hs-wLS"/>

@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfz-j9-7Nx">
-                        <rect key="frame" x="105" y="9" width="195" height="17"/>
+                        <rect key="frame" x="105" y="9" width="262.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="短评短评短评短评" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Aa-fz-Uz2">
-                        <rect key="frame" x="105" y="29" width="195" height="14.5"/>
+                        <rect key="frame" x="105" y="29" width="262.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -211,7 +211,7 @@
             </tableViewCellContentView>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="mqV-lv-dqR" secondAttribute="bottom" id="017-ae-zc8"/>
-                <constraint firstItem="qfz-j9-7Nx" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.52" id="1cP-yh-awH"/>
+                <constraint firstItem="qfz-j9-7Nx" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.7" id="1cP-yh-awH"/>
                 <constraint firstItem="iKf-PT-ud7" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" multiplier="0.89" id="1d7-Mt-N2H"/>
                 <constraint firstItem="lst-3D-RJG" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.24" id="DBl-IX-1gj"/>
                 <constraint firstItem="lst-3D-RJG" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" multiplier="0.67" id="E1c-qW-g8W"/>
@@ -240,7 +240,7 @@
                 <outlet property="shortcommentlab" destination="7Aa-fz-Uz2" id="k6A-FO-WE1"/>
                 <outlet property="specificlab" destination="JQT-gL-NNH" id="JuY-F8-ocQ"/>
             </connections>
-            <point key="canvasLocation" x="339.5" y="267.5"/>
+            <point key="canvasLocation" x="291.5" y="287.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -17,6 +17,7 @@
 @property (nonatomic,strong)UIButton *selectedButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) NSMutableArray *collectionListArr;
+@property (strong, nonatomic) NSMutableArray *disableListArr;
 @property (weak, nonatomic) IBOutlet UIButton *cancelCollectBt;
 
 @end
@@ -28,6 +29,12 @@
         _collectionListArr = [[NSMutableArray alloc]init];
     }
     return _collectionListArr;
+}
+- (NSMutableArray *)disableListArr{
+    if (!_disableListArr) {
+        _disableListArr = [[NSMutableArray alloc]init];
+    }
+    return _disableListArr;
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden=NO;
@@ -72,6 +79,15 @@
                 [hud hide:YES afterDelay:1.2];
             }
              [self.tableview reloadData];
+            for (int i = 0; i < self.collectionListArr.count; i ++) {
+                NSDictionary *data = self.collectionListArr[i];
+                NSLog(@"%@", data);
+                NSLog(@"%d",[[data dictionaryForKey:@"goods"] int32ForKey:@"status"]);
+                if ([[data dictionaryForKey:@"goods"] int32ForKey:@"status"] == 1) {
+                    [self.disableListArr addObject:data];
+                }
+            }
+
             NSLog(@"获取数据成功");
             return;
         } else{
@@ -89,7 +105,11 @@
 }
 #pragma mark - UITableViewataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return  self.collectionListArr.count;
+    if (self.selectedButton.tag == 0) {
+         return  self.collectionListArr.count;
+    }else
+        return self.disableListArr.count;
+   
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -107,7 +127,6 @@
             cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
             cell.goodimage = [NSString stringWithFormat:@"http://static.exinetian.com%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]];
             NSLog(@"%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]);
-            //cell.goodimage = @"http://static.exinetian.com/b2v/goods/image/source/2016328/1459159512201771.jpg";
             cell.detailBtn.tag = indexPath.row;
             [cell.detailBtn addTarget:self action:@selector(goToDetailVC:) forControlEvents:UIControlEventTouchUpInside];
             NSArray *array=[[dic dictionaryForKey:@"goods"] arrayForKey:@"goodsRangePrices"];
@@ -122,9 +141,13 @@
                     cell.price2lab.hidden = YES;
                     cell.price3lab.hidden = YES;
                     cell.price4lab.hidden = YES;
-                    cell.pricelab.hidden = NO;
-
-                    cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [[dic dictionaryForKey:@"goods"] stringForKey:@"price"]];
+                    if ([[dic dictionaryForKey:@"goods"] stringForKey:@"price"].length) {
+                        cell.pricelab.hidden = NO;
+                         cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [[dic dictionaryForKey:@"goods"] stringForKey:@"price"]];
+                    }else{
+                    cell.pricelab.hidden = YES;
+                    }
+                   
                 }
                     break;
                 case 1:
@@ -211,23 +234,123 @@
             break;
         case 1:{
             CollectionListTableViewCell    *cell=[CollectionListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
-            NSDictionary *dic = self.collectionListArr[indexPath.row];
-            NSLog(@"%@",[dic dictionaryForKey:@"goods"]);
-            self.tableview.hidden = YES;
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-            hud.mode = MBProgressHUDModeText;
-            hud.labelText=@"暂无降价／失效宝贝！";
-            hud.margin = 10.f;
-            hud.removeFromSuperViewOnHide = YES;
-            [hud hide:YES afterDelay:1.2];
+            NSDictionary *dic = self.disableListArr[indexPath.row];
+            cell.goodname = [[dic dictionaryForKey:@"goods"]stringForKey:@"name"];
+            cell.shortcomment = [[dic dictionaryForKey:@"goods"]stringForKey:@"commentary"];
+            cell.specific = [[dic dictionaryForKey:@"goods"]stringForKey:@"specifications"];
+            cell.goodimage = [NSString stringWithFormat:@"http://static.exinetian.com%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]];
+            NSLog(@"%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]);
+            cell.detailBtn.tag = indexPath.row;
+            [cell.detailBtn addTarget:self action:@selector(goToDetailVC:) forControlEvents:UIControlEventTouchUpInside];
+            NSArray *array=[[dic dictionaryForKey:@"goods"] arrayForKey:@"goodsRangePrices"];
+            switch (array.count) {
+                case 0:
+                {
+                    cell.range1lab.hidden = YES;
+                    cell.range2lab.hidden = YES;
+                    cell.range3lab.hidden = YES;
+                    cell.range4lab.hidden = YES;
+                    cell.price1lab.hidden = YES;
+                    cell.price2lab.hidden = YES;
+                    cell.price3lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    if ([[dic dictionaryForKey:@"goods"] stringForKey:@"price"].length) {
+                        cell.pricelab.hidden = NO;
+                        cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [[dic dictionaryForKey:@"goods"] stringForKey:@"price"]];
+                    }else{
+                        cell.pricelab.hidden = YES;
+                    }
+                    
+                }
+                    break;
+                case 1:
+                {
+                    cell.range2lab.hidden = YES;
+                    cell.range3lab.hidden = YES;
+                    cell.range4lab.hidden = YES;
+                    cell.price2lab.hidden = YES;
+                    cell.price3lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    cell.pricelab.hidden = YES;
+                    cell.range1lab.hidden=NO;
+                    cell.price1lab.hidden=NO;
+                    
+                    cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                    cell.price1lab.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                    
+                }
+                    break;
+                case 2:
+                {
+                    cell.range3lab.hidden = YES;
+                    cell.range4lab.hidden = YES;
+                    cell.price3lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    cell.pricelab.hidden = YES;
+                    cell.range1lab.hidden=NO;
+                    cell.price1lab.hidden=NO;
+                    cell.range2lab.hidden=NO;
+                    cell.price2lab.hidden=NO;
+                    
+                    cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                    cell.price1lab.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                    cell.range2lab.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                    cell.price2lab.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                }
+                    break;
+                case 3:
+                {
+                    cell.range4lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    cell.pricelab.hidden = YES;
+                    cell.range1lab.hidden=NO;
+                    cell.price1lab.hidden=NO;
+                    cell.range2lab.hidden=NO;
+                    cell.price2lab.hidden=NO;
+                    cell.range3lab.hidden=NO;
+                    cell.price3lab.hidden=NO;
+                    cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                    cell.price1lab.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                    cell.range2lab.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                    cell.price2lab.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                    cell.range3lab.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                    cell.price3lab.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                }
+                    break;
+                case 4:
+                {
+                    cell.pricelab.hidden = YES;
+                    cell.range1lab.hidden=NO;
+                    cell.price1lab.hidden=NO;
+                    cell.range2lab.hidden=NO;
+                    cell.price2lab.hidden=NO;
+                    cell.range3lab.hidden=NO;
+                    cell.price3lab.hidden=NO;
+                    cell.range4lab.hidden=NO;
+                    cell.price4lab.hidden=NO;                    cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                    cell.range2lab.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
+                    cell.range3lab.text=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
+                    cell.range4lab.text=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
+                    cell.price1lab.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
+                    cell.price2lab.text=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
+                    cell.price3lab.text=[NSString stringWithFormat:@"¥%@",[array[2] stringForKey:@"price"]];
+                    cell.price4lab.text=[NSString stringWithFormat:@"¥%@",[array[3] stringForKey:@"price"]];
+                }
+                    break;
+                default:
+                    break;
+            }
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
-        }
+           }
             break;
         default:
             break;
       }
     return nil;
 }
+
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return MAIN_HEIGHT*0.25;

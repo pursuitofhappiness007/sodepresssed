@@ -102,11 +102,6 @@
 		FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE7DBF871C8D6B51003536BC /* chooseprovince.xib */; };
 		FE7DBF901C8D6BD9003536BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */; };
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
-		FE89EFB81CA9971700C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFB71CA9971700C898CB /* Assets.xcassets */; };
-		FE89EFBD1CAA40EA00C898CB /* CommitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE89EFBB1CAA40EA00C898CB /* CommitPayViewController.m */; };
-		FE89EFBE1CAA40EA00C898CB /* CommitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFBC1CAA40EA00C898CB /* CommitPayViewController.xib */; };
-		FE89EFC01CAA606B00C898CB /* headerfortableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFBF1CAA606B00C898CB /* headerfortableview.xib */; };
-		FE89EFC21CAA6D1D00C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFC11CAA6D1D00C898CB /* Assets.xcassets */; };
 		FE89EFC61CAA900E00C898CB /* SubtitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE89EFC41CAA900E00C898CB /* SubtitleTableViewCell.m */; };
 		FE89EFC71CAA900E00C898CB /* SubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFC51CAA900E00C898CB /* SubtitleTableViewCell.xib */; };
 		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
@@ -338,12 +333,6 @@
 		FE7DBF8E1C8D6BD9003536BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		FE7DBF8F1C8D6BD9003536BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		FE89EFB71CA9971700C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FE89EFBA1CAA40EA00C898CB /* CommitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitPayViewController.h; sourceTree = "<group>"; };
-		FE89EFBB1CAA40EA00C898CB /* CommitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitPayViewController.m; sourceTree = "<group>"; };
-		FE89EFBC1CAA40EA00C898CB /* CommitPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommitPayViewController.xib; sourceTree = "<group>"; };
-		FE89EFBF1CAA606B00C898CB /* headerfortableview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerfortableview.xib; sourceTree = "<group>"; };
-		FE89EFC11CAA6D1D00C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE89EFC31CAA900E00C898CB /* SubtitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtitleTableViewCell.h; sourceTree = "<group>"; };
 		FE89EFC41CAA900E00C898CB /* SubtitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtitleTableViewCell.m; sourceTree = "<group>"; };
 		FE89EFC51CAA900E00C898CB /* SubtitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -587,8 +576,6 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE89EFC11CAA6D1D00C898CB /* Assets.xcassets */,
-				FE89EFB71CA9971700C898CB /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1147,7 +1134,6 @@
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
 				CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */,
 				FE89EFC71CAA900E00C898CB /* SubtitleTableViewCell.xib in Resources */,
-				FE89EFC21CAA6D1D00C898CB /* Assets.xcassets in Resources */,
 				FEDC9FCF1C9839980002FB2F /* popfirstclassficationmenu.xib in Resources */,
 				FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */,
 				FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */,

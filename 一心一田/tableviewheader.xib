@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hC-Jw-YAP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="385.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-Vl-njK" userLabel="SeparatorView">
-                    <rect key="frame" x="0.0" y="385" width="375" height="9.5"/>
+                    <rect key="frame" x="0.0" y="366.5" width="375" height="9.5"/>
                     <subviews>
                         <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Fy-jL-lRk" userLabel="line">
                             <rect key="frame" x="0.0" y="8" width="375" height="1"/>
@@ -247,7 +247,7 @@
                 <constraint firstItem="Igb-ny-pV4" firstAttribute="top" secondItem="xGE-DN-Fte" secondAttribute="top" id="CVQ-ZF-K07"/>
                 <constraint firstAttribute="trailing" secondItem="rGn-Vl-njK" secondAttribute="trailing" id="EJY-1U-nip"/>
                 <constraint firstItem="fOA-jV-KSj" firstAttribute="leading" secondItem="guA-5I-xdY" secondAttribute="leading" id="FJI-XK-9T3"/>
-                <constraint firstItem="0hC-Jw-YAP" firstAttribute="height" secondItem="guA-5I-xdY" secondAttribute="height" multiplier="0.578" id="ImL-mJ-EBZ"/>
+                <constraint firstItem="0hC-Jw-YAP" firstAttribute="height" secondItem="guA-5I-xdY" secondAttribute="height" multiplier="0.55" id="ImL-mJ-EBZ"/>
                 <constraint firstItem="uex-wK-ZwF" firstAttribute="leading" secondItem="guA-5I-xdY" secondAttribute="leading" id="JVf-8E-jr5"/>
                 <constraint firstItem="xGE-DN-Fte" firstAttribute="centerY" secondItem="guA-5I-xdY" secondAttribute="centerY" multiplier="1.3" id="KPn-0S-maA"/>
                 <constraint firstAttribute="trailing" secondItem="0hC-Jw-YAP" secondAttribute="trailing" id="LSX-g6-yog"/>
