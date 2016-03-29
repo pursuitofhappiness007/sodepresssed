@@ -22,20 +22,6 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hC-Jw-YAP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="340.5"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbd-vr-FYV">
-                            <rect key="frame" x="0.0" y="0.0" width="750" height="340.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="Cbd-vr-FYV" firstAttribute="height" secondItem="0hC-Jw-YAP" secondAttribute="height" id="7IZ-Do-N9U"/>
-                        <constraint firstItem="Cbd-vr-FYV" firstAttribute="leading" secondItem="0hC-Jw-YAP" secondAttribute="leading" id="K21-Ez-PUe"/>
-                        <constraint firstAttribute="bottom" secondItem="Cbd-vr-FYV" secondAttribute="bottom" id="ZB5-4y-Bsg"/>
-                        <constraint firstItem="Cbd-vr-FYV" firstAttribute="top" secondItem="0hC-Jw-YAP" secondAttribute="top" id="eQ8-H2-Uyr"/>
-                        <constraint firstItem="Cbd-vr-FYV" firstAttribute="width" secondItem="0hC-Jw-YAP" secondAttribute="width" multiplier="2" id="kOj-0o-nW5"/>
-                        <constraint firstAttribute="trailing" secondItem="Cbd-vr-FYV" secondAttribute="trailing" id="qb8-BN-vH2"/>
-                    </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-Vl-njK" userLabel="SeparatorView">
                     <rect key="frame" x="0.0" y="340" width="375" height="9.5"/>

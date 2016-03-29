@@ -146,8 +146,9 @@
     cell.specific = good[@"specifications"];
     cell.goodimg = good[@"thumbnailImg"];
     cell.detailBtn.tag = indexPath.row;
-    cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
+    cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
+    
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
     switch (array.count) {
         case 0:

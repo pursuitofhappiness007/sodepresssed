@@ -48,10 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"账单详情";
-    UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+  self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(goBack)];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"more" highImageName:@"" target:self action:nil];
     self.selectedButton = self.firstbt;
     self.selectedButton.selected = YES;

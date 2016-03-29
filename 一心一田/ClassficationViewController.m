@@ -278,13 +278,15 @@
         GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         NSDictionary *dict=goodslist[indexPath.row];
         NSLog(@"dict==%@",dict);
-        
+        cell.detailBtn.tag = indexPath.row;
+        [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
         cell.goodsid=[dict stringForKey:@"id"];
         cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
         cell.price=[dict stringForKey:@"price"];
         cell.goodimg=[dict stringForKey:@"thumbnailImg"];
         cell.goodname=[dict stringForKey:@"name"];
         cell.specific=[dict stringForKey:@"specifications"];
+        
         cell.counthasbeensaled=[NSString stringWithFormat:@"本市场今日已销售%@件",[dict stringForKey:@"dailySales"]];
         cell.shortcomment=[dict stringForKey:@"commentary"];
         NSArray *array=[dict arrayForKey:@"goodsRangePrice"];
@@ -367,6 +369,14 @@
     }
 }
 
+- (void)goToDetailVC:(UIButton *)sender{
+    NSDictionary *good = goodslist[sender.tag];
+    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
+    detailVC.goodsid = good[@"goodsId"];
+    detailVC.supplierid = good[@"supplierId"];
+    detailVC.marketid = good[@"marketId"];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 -(void)minusBtnClicked:(UIButton *)sender{
     GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
     int i=[cell.countlab.text intValue];

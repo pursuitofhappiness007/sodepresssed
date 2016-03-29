@@ -176,7 +176,11 @@
 }
 
 - (void)setUpScrollerView{
+    if (noticeArr.count == 0) {
+        self.noticeLb.text = @"暂无公告!";
+    }else{
     self.noticeLb.text = [noticeArr.firstObject stringForKey:@"title"];
+    }
     NSMutableArray *arry = [NSMutableArray array];
     for (int i = 0; i<navigationArr.count; i++) {
         NSDictionary *pollImg = navigationArr[i];

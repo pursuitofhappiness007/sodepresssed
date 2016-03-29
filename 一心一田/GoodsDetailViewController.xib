@@ -175,13 +175,6 @@
                         <constraint firstItem="MmH-nL-d1J" firstAttribute="leading" secondItem="dZh-Ql-yMe" secondAttribute="trailing" constant="3" id="yX9-CR-rlu"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="产品介绍" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="inE-J3-cvU">
-                    <rect key="frame" x="15" y="276" width="345" height="293.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ipp-XD-Wi1">
                     <rect key="frame" x="0.0" y="64" width="375" height="175"/>
                     <subviews>
@@ -264,7 +257,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本市场现已销售0件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-tK-aSK">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本市场现已销售0件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-tK-aSK">
                             <rect key="frame" x="251" y="144" width="104" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
@@ -429,6 +422,13 @@
                         <constraint firstItem="moc-DS-WX1" firstAttribute="centerY" secondItem="Ipp-XD-Wi1" secondAttribute="centerY" multiplier="0.95" id="yW4-Su-Gze"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="产品介绍" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="inE-J3-cvU">
+                    <rect key="frame" x="15" y="276" width="345" height="293.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

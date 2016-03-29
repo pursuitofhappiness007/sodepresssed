@@ -33,7 +33,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *range4;
 @property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 @property (assign, nonatomic)BOOL  isFavour;
-@property (weak, nonatomic) IBOutlet UITextView *textArea;
+@property (weak, nonatomic) IBOutlet UILabel *textArea;
+
 @property (weak, nonatomic) IBOutlet UILabel *saleNumber;
 @property (weak, nonatomic) IBOutlet UILabel *pricelab;
 
@@ -96,6 +97,7 @@
       NSLog(@"商品详情 参数=%@,%@",paras,responseObj);
          if([responseObj int32ForKey:@"result"]==0){
       goodsdetail=[[responseObj dictionaryForKey:@"data"] dictionaryForKey:@"goods_detail"];
+             self.textArea.text = [goodsdetail stringForKey:@"detail"];
       self.isFavour = [[responseObj dictionaryForKey:@"data"] int32ForKey:@"is_favour"];
              [self setlocalcontent];
          }
@@ -279,7 +281,11 @@
     sender.selected = YES;
     if (sender.tag == 1) {
         self.redlineleadingconstant.constant = 0;
+        if ([goodsdetail stringForKey:@"detail"]) {
+            self.textArea.text = [goodsdetail stringForKey:@"detail"];
+        }else{
         self.textArea.text = @"产品介绍";
+        }
     }else if(sender.tag == 2){
      self.redlineleadingconstant.constant = self.productInstuctionBt.frame.size.width + 30;
         self.textArea.text = @"供应商信息";

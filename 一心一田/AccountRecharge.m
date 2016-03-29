@@ -14,6 +14,7 @@
     MBProgressHUD *hud1;
 }
 @property (weak, nonatomic) IBOutlet UITextField *amountTF;
+@property (weak, nonatomic) IBOutlet UIButton *rechargeBtn;
 
 @end
 
@@ -29,15 +30,15 @@
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
     }
-
+    [self.amountTF addTarget:self action:@selector(onEditing) forControlEvents:UIControlEventEditingChanged];
    self.navigationItem.title = @"账户充值";
-   UIButton  *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [backBtn setImage:[UIImage imageNamed:@"backpretty"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(goBackClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
+   self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(goBackClick)];    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
  
+}
+#pragma mark - textField
+- (void)onEditing{
+    self.rechargeBtn.backgroundColor = [UIColor colorWithRed:0.34 green:0.62 blue:0.9 alpha:1];
 }
 //支付成功
 -(void)paysucceedoption{

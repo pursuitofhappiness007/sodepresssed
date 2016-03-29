@@ -11,6 +11,7 @@
 @interface EditNickNameViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nametf;
 - (IBAction)saveBtnClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @end
 
@@ -18,10 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
     self.navigationController.navigationBarHidden=NO;
     [self setnavtitle];
-    
+    [self.nametf addTarget:self action:@selector(onEditing) forControlEvents:UIControlEventEditingChanged];
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     _nametf.text=_stringtobechanged;
 }
@@ -123,6 +124,10 @@
     } failure:^(NSError *error) {
         NSLog(@"昵称修改失败%@",error);
     } controler:self];
+}
+#pragma mark - texfield
+- (void)onEditing{
+self.saveBtn.backgroundColor = [UIColor colorWithRed:0.34 green:0.62 blue:0.9 alpha:1];
 }
 - (IBAction)textFieldDIdEndOnExist:(UITextField *)sender {
     

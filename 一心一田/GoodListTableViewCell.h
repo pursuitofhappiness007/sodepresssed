@@ -44,6 +44,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *price4lab;
 @property (weak, nonatomic) IBOutlet UILabel *countlab;
 @property (weak, nonatomic) IBOutlet UILabel *pricelab;
+@property (weak, nonatomic) IBOutlet UIButton *detailBtn;
 
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 @end
