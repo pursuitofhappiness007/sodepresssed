@@ -41,7 +41,7 @@
 @implementation ShopcarViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-    self.view.backgroundColor=[UIColor colorWithRed:249.0/255 green:249.0/255 blue:249.0/255 alpha:1.0];
+    _shopcartableview.backgroundColor=[UIColor groupTableViewBackgroundColor];
     self.tabBarController.tabBar.hidden=NO;
     [LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
 }
@@ -354,6 +354,15 @@
         return MAIN_HEIGHT*0.37;
     else
     return  MAIN_HEIGHT*0.19;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 5;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *v=[[UIView alloc]initWithFrame:CGRectMake(0, 0, MAIN_WIDTH, 5)];
+    v.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    return v;
 }
 
 -(void)addBtnClicked:(UIButton *)sender{

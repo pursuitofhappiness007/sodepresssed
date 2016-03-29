@@ -8,48 +8,53 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
-                <outlet property="searchbar" destination="2Ix-9U-r3M" id="ach-Gh-OGP"/>
+                <outlet property="searchTextField" destination="aJE-QI-Lpf" id="V2c-pL-Hoo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.75" contentMode="scaleToFill" id="GcZ-UE-cpg">
+        <view alpha="0.5" contentMode="scaleToFill" id="GcZ-UE-cpg">
             <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVX-Bx-XfH">
-                    <rect key="frame" x="275" y="7" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVX-Bx-XfH">
+                    <rect key="frame" x="275" y="8" width="30" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="取消">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="cancelBtnClicked:" destination="-1" eventType="touchUpInside" id="yIF-tF-OO6"/>
                     </connections>
                 </button>
-                <searchBar contentMode="redraw" placeholder="搜索您喜欢的商品" backgroundImage="clearcolor" translatesAutoresizingMaskIntoConstraints="NO" id="2Ix-9U-r3M">
-                    <rect key="frame" x="0.0" y="0.0" width="250.5" height="44"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="搜索您喜欢的商品" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-QI-Lpf">
+                    <rect key="frame" x="0.0" y="7" width="250.5" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="pSn-5Z-LBk"/>
+                        <constraint firstAttribute="height" constant="30" id="OSE-U4-WMf"/>
                     </constraints>
-                    <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="Rjv-j1-klz"/>
+                        <outlet property="delegate" destination="-1" id="J8C-tN-yLA"/>
                     </connections>
-                </searchBar>
+                </textField>
             </subviews>
-            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="2Ix-9U-r3M" firstAttribute="width" secondItem="GcZ-UE-cpg" secondAttribute="width" multiplier="0.8" id="2pX-CM-VU5"/>
-                <constraint firstItem="2Ix-9U-r3M" firstAttribute="leading" secondItem="GcZ-UE-cpg" secondAttribute="leading" id="BHb-q4-97h"/>
-                <constraint firstAttribute="bottom" secondItem="2Ix-9U-r3M" secondAttribute="bottom" id="GKU-HT-6bT"/>
-                <constraint firstItem="2Ix-9U-r3M" firstAttribute="top" secondItem="GcZ-UE-cpg" secondAttribute="top" id="Jg2-sw-Lvu"/>
+                <constraint firstItem="aJE-QI-Lpf" firstAttribute="centerY" secondItem="GcZ-UE-cpg" secondAttribute="centerY" id="VIG-QD-eqc"/>
                 <constraint firstAttribute="trailing" secondItem="mVX-Bx-XfH" secondAttribute="trailing" constant="8" id="k44-4r-gqM"/>
+                <constraint firstItem="aJE-QI-Lpf" firstAttribute="leading" secondItem="GcZ-UE-cpg" secondAttribute="leading" id="qeh-9k-fce"/>
                 <constraint firstItem="mVX-Bx-XfH" firstAttribute="centerY" secondItem="GcZ-UE-cpg" secondAttribute="centerY" id="uuN-iV-1Co"/>
+                <constraint firstItem="aJE-QI-Lpf" firstAttribute="width" secondItem="GcZ-UE-cpg" secondAttribute="width" multiplier="0.8" id="xZs-Wo-cOb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="358" y="227"/>
         </view>
     </objects>
-    <resources>
-        <image name="clearcolor" width="375" height="45"/>
-    </resources>
 </document>

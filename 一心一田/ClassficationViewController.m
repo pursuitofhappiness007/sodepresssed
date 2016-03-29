@@ -13,6 +13,7 @@
 #import "SearchResultsViewController.h"
 #import "ShopcarViewController.h"
 #import "OrderConformationViewController.h"
+#import "SubtitleTableViewCell.h"
 @interface ClassficationViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIGestureRecognizerDelegate>{
     NSMutableArray *goodslist;
     NSMutableArray *goodstitles;
@@ -25,7 +26,7 @@
     NSString *sorttype;
     NSString *sortfield;
     int previouscount;
-    UITableViewCell *basedcell;
+    SubtitleTableViewCell *basedcell;
     int totalpage;
     UIView *redline;
     UIView *firstmenu;
@@ -46,6 +47,9 @@
 - (IBAction)PayBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *summoneylab;
 @property (strong, nonatomic) IBOutlet UITableView *firstclassmenutableview;
+//一级菜单按钮
+@property (weak, nonatomic) IBOutlet UIButton *showMenuBtn;
+
 //点击了底部购物车小图标
 - (IBAction)carIconClicked:(id)sender;
 
@@ -155,6 +159,7 @@
     subclassfication=[NSMutableArray array];
     sorttype=nil;
     sortfield=nil;
+    _showMenuBtn.selected=NO;
     
     
 }
@@ -185,6 +190,7 @@
             }
             [_fenleitableview beginUpdates];
             [_fenleitableview insertRowsAtIndexPaths:indexs withRowAnimation:UITableViewRowAnimationAutomatic];
+            
             [_fenleitableview endUpdates];
 
 
@@ -237,29 +243,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //二级标题
     if(tableView.tag==11){
-        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"titile"];
-        if(!cell)
-            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"titile"];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
-        cell.textLabel.text=[subclassfication[indexPath.row] stringForKey:@"name"];
-       cell.textLabel.textAlignment=NSTextAlignmentCenter;
-        cell.textLabel.font=[UIFont systemFontOfSize:12.0];
-        cell.textLabel.textColor=[UIColor blackColor];
-        UIView *line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, cell.width, 1.5)];
-        line.backgroundColor=[UIColor groupTableViewBackgroundColor];
+        SubtitleTableViewCell *cell=[SubtitleTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         
-        [cell addSubview:line];
+        cell.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
+        cell.text=[subclassfication[indexPath.row] stringForKey:@"name"];
+
         if(indexPath.row==0){
            [cell addSubview:redline];
-            cell.textLabel.textColor=[UIColor redColor];
+            cell.color=[UIColor redColor];
             cell.backgroundColor=[UIColor whiteColor];
-        }
-        if(indexPath.row==subclassfication.count-1){
-            UIView *line=[[UIView alloc]initWithFrame:CGRectMake(0, cell.height-1.5, cell.width, 1.5)];
-            line.backgroundColor=[UIColor groupTableViewBackgroundColor];
-            
-            [cell addSubview:line];
         }
         return cell;
     }
@@ -473,21 +465,19 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //二级标题
     if(tableView.tag==11){
-        UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+        SubtitleTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
         [cell addSubview:redline];
         //如果点击的不是第一个，将第一个手动设定为为选中状态
         if(indexPath.row){
-          UITableViewCell *cell0=[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+          SubtitleTableViewCell *cell0=[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             cell0.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
-            cell0.textLabel.textColor=[UIColor blackColor];
+            cell0.color=[UIColor colorWithRed:19.0/255 green:19.0/255 blue:19.0/255 alpha:1.0];
         }
         cell.backgroundColor=[UIColor whiteColor];
         [goodslist removeAllObjects];
         pagenum=1;
-        basedcell.textLabel.textColor=[UIColor blackColor];
-        cell.textLabel.textColor=[UIColor redColor];
+        cell.color=[UIColor redColor];
         [cell addSubview:redline];
-        basedcell=cell;
         subpid=[subclassfication[indexPath.row] stringForKey:@"id"];
            [self getdatafromweb:pagenum mainpids:mainpid subpids:subpid goodsname:goodsname sorttype:sorttype sortfield:sortfield];
        
@@ -512,8 +502,9 @@
 }
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView.tag==11){
-        UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+        SubtitleTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
          cell.backgroundColor=[UIColor colorWithRed:244.0/255 green:244.0/255 blue:244.0/255 alpha:1.0];
+        cell.color=[UIColor colorWithRed:19.0/255 green:19.0/255 blue:19.0/255 alpha:1.0];
     }
     if(tableView.tag==99){
         GoodListTableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
@@ -575,26 +566,34 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 //弹出一级菜单
-- (IBAction)showMenuBtnClicked:(id)sender {
-    _menuArrow.image=[UIImage imageNamed:@"clickarrow"];
-    firstmenu=[[[NSBundle mainBundle]loadNibNamed:@"popfirstclassficationmenu" owner:self options:nil]firstObject];
-     firstmenu.frame=CGRectMake(0, 64, MAIN_WIDTH, MAIN_HEIGHT-64);
-    _heightconstraint.active=NO;
-    NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:_firstclassmenutableview
-                                                                        attribute:NSLayoutAttributeHeight
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:nil
-                                                                        attribute:NSLayoutAttributeNotAnAttribute
-                                                                       multiplier:1.0
-                                                                         constant:MAIN_HEIGHT*0.058*[mainclassfication count]];
+- (IBAction)showMenuBtnClicked:(UIButton *)sender {
+    if (!sender.selected) {
+        _menuArrow.image=[UIImage imageNamed:@"defaultarrow"];
+        firstmenu=[[[NSBundle mainBundle]loadNibNamed:@"popfirstclassficationmenu" owner:self options:nil]firstObject];
+        firstmenu.frame=CGRectMake(0, 64, MAIN_WIDTH, MAIN_HEIGHT-64);
+        _heightconstraint.active=NO;
+        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:_firstclassmenutableview
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:nil
+                                                                            attribute:NSLayoutAttributeNotAnAttribute
+                                                                           multiplier:1.0
+                                                                             constant:MAIN_HEIGHT*0.058*[mainclassfication count]];
+        
+        [firstmenu addConstraint:heightConstraint];
+        [self.view addSubview:firstmenu];
+        _showMenuBtn.selected=YES;
+    }
+    else{
+        [self singletapofmask:nil];
+        _showMenuBtn.selected=NO;
+    }
    
-    [firstmenu addConstraint:heightConstraint];
-    [self.view addSubview:firstmenu];
     
     
 }
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-   if(touch.view.tag==99)
+   if(touch.view.tag==99||touch.view.tag==66)
        return NO;
     else
         return YES;
@@ -607,7 +606,7 @@
                          firstmenu.alpha = 0;
                      }completion:^(BOOL finished){
                          [firstmenu removeFromSuperview];
-                         _menuArrow.image=[UIImage imageNamed:@"defaultarrow"];
+                         _menuArrow.image=[UIImage imageNamed:@"clickarrow"];
                      }];}
 - (IBAction)PayBtnClicked:(id)sender {
     OrderConformationViewController *vc=[[OrderConformationViewController alloc]init];

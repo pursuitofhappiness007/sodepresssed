@@ -31,6 +31,19 @@
                         <outlet property="delegate" destination="-1" id="yCY-sO-RYF"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JbZ-st-xOa">
+                    <rect key="frame" x="93" y="64" width="1" height="554"/>
+                    <color key="backgroundColor" red="0.81176470588235294" green="0.81176470588235294" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="SAx-lm-X84"/>
+                        <constraint firstAttribute="height" constant="1" id="woM-tw-f15"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="woM-tw-f15"/>
+                        </mask>
+                    </variation>
+                </view>
                 <tableView clipsSubviews="YES" tag="22" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CkX-iO-Fqg" userLabel="fenleitableview">
                     <rect key="frame" x="94" y="64" width="281" height="554"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,12 +149,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="CkX-iO-Fqg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="6Lx-DX-wS8"/>
+                <constraint firstItem="JbZ-st-xOa" firstAttribute="bottom" secondItem="jV7-dL-EX6" secondAttribute="bottom" id="7Py-o8-kys"/>
+                <constraint firstItem="JbZ-st-xOa" firstAttribute="trailing" secondItem="jV7-dL-EX6" secondAttribute="trailing" id="BOw-2C-mTx"/>
                 <constraint firstAttribute="trailing" secondItem="CkX-iO-Fqg" secondAttribute="trailing" id="Bw9-gG-bG7"/>
                 <constraint firstItem="CkX-iO-Fqg" firstAttribute="leading" secondItem="jV7-dL-EX6" secondAttribute="trailing" id="FpT-H6-Y6e"/>
                 <constraint firstAttribute="trailing" secondItem="2IU-a7-XDE" secondAttribute="trailing" id="IWX-cU-AT8"/>
                 <constraint firstItem="jV7-dL-EX6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jsx-sm-6t3"/>
                 <constraint firstItem="jV7-dL-EX6" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.25" id="NDh-aE-V3c"/>
                 <constraint firstItem="2IU-a7-XDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QbS-39-uRu"/>
+                <constraint firstItem="JbZ-st-xOa" firstAttribute="top" secondItem="jV7-dL-EX6" secondAttribute="top" id="VgS-3k-MEW"/>
                 <constraint firstItem="CkX-iO-Fqg" firstAttribute="top" secondItem="jV7-dL-EX6" secondAttribute="top" id="aya-Z5-21J"/>
                 <constraint firstAttribute="bottom" secondItem="CkX-iO-Fqg" secondAttribute="bottom" constant="49" id="d1b-FN-qNO"/>
                 <constraint firstItem="jV7-dL-EX6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="eqo-mr-WTt"/>
