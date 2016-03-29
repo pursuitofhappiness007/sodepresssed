@@ -11,6 +11,7 @@
 		CE596B0D1CA131F100B3F82E /* newProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE596B0B1CA131F100B3F82E /* newProductViewController.xib */; };
 		CE84F9C61CAAA8D9004FF107 /* CommitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84F9C41CAAA8D9004FF107 /* CommitPayViewController.m */; };
 		CE84F9C71CAAA8D9004FF107 /* CommitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE84F9C51CAAA8D9004FF107 /* CommitPayViewController.xib */; };
+		CE84F9CD1CAAC2FA004FF107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE84F9CC1CAAC2FA004FF107 /* Assets.xcassets */; };
 		CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */; };
 		CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */; };
 		CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */; };
@@ -174,6 +175,7 @@
 		CE84F9C31CAAA8D9004FF107 /* CommitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitPayViewController.h; sourceTree = "<group>"; };
 		CE84F9C41CAAA8D9004FF107 /* CommitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitPayViewController.m; sourceTree = "<group>"; };
 		CE84F9C51CAAA8D9004FF107 /* CommitPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommitPayViewController.xib; sourceTree = "<group>"; };
+		CE84F9CC1CAAC2FA004FF107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEECE1D51C9AD173009D11D8 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterViewController.xib; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE84F9CC1CAAC2FA004FF107 /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1132,6 +1135,7 @@
 				FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */,
 				FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */,
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
+				CE84F9CD1CAAC2FA004FF107 /* Assets.xcassets in Resources */,
 				CEECE1E41C9AD17D009D11D8 /* HomeTableViewCell.xib in Resources */,
 				FE89EFC71CAA900E00C898CB /* SubtitleTableViewCell.xib in Resources */,
 				FEDC9FCF1C9839980002FB2F /* popfirstclassficationmenu.xib in Resources */,
