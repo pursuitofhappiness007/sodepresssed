@@ -184,7 +184,11 @@
 }
 
 - (void)setUpScrollerView{
+    if (noticeArr.count == 0) {
+        self.noticeLb.text = @"暂无公告!";
+    }else{
     self.noticeLb.text = [noticeArr.firstObject stringForKey:@"title"];
+    }
     NSMutableArray *arry = [NSMutableArray array];
     for (int i = 0; i<navigationArr.count; i++) {
         NSDictionary *pollImg = navigationArr[i];
@@ -437,7 +441,7 @@
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return MAIN_HEIGHT*0.43;
+    return MAIN_HEIGHT*0.57;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -17,7 +17,6 @@
 @property (nonatomic,strong)UIButton *selectedButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) NSMutableArray *collectionListArr;
-@property (weak, nonatomic) IBOutlet UIButton *addToShopCarBt;
 @property (weak, nonatomic) IBOutlet UIButton *cancelCollectBt;
 
 @end
@@ -63,6 +62,7 @@
         NSMutableArray *arr = [[responseObj dictionaryForKey:@"data"] mutableArrayValueForKey:@"favour"] ;
             self.collectionListArr = [arr mutableCopy] ;
             [self.firstbt setTitle:[NSString stringWithFormat:@"全部商品(%ld)",self.collectionListArr.count] forState:UIControlStateNormal];
+            
             if (!self.collectionListArr.count) {
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
                 hud.mode = MBProgressHUDModeText;
@@ -70,7 +70,6 @@
                 hud.margin = 10.f;
                 hud.removeFromSuperViewOnHide = YES;
                 [hud hide:YES afterDelay:1.2];
-               // self.noticeLab.hidden = NO;
             }
              [self.tableview reloadData];
             NSLog(@"获取数据成功");
@@ -109,23 +108,37 @@
             cell.goodimage = [NSString stringWithFormat:@"http://static.exinetian.com%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]];
             NSLog(@"%@",[[dic dictionaryForKey:@"goods"]stringForKey:@"thumbnailImg"]);
             //cell.goodimage = @"http://static.exinetian.com/b2v/goods/image/source/2016328/1459159512201771.jpg";
-            cell.actionBt.tag = indexPath.row;
-            [cell.actionBt addTarget:self action:@selector(function:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;
             [cell.detailBtn addTarget:self action:@selector(goToDetailVC:) forControlEvents:UIControlEventTouchUpInside];
             NSArray *array=[[dic dictionaryForKey:@"goods"] arrayForKey:@"goodsRangePrices"];
             switch (array.count) {
                 case 0:
                 {
-                   
+                    cell.range1lab.hidden = YES;
+                    cell.range2lab.hidden = YES;
+                    cell.range3lab.hidden = YES;
+                    cell.range4lab.hidden = YES;
+                    cell.price1lab.hidden = YES;
+                    cell.price2lab.hidden = YES;
+                    cell.price3lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
                     cell.pricelab.hidden = NO;
+
                     cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [[dic dictionaryForKey:@"goods"] stringForKey:@"price"]];
                 }
                     break;
                 case 1:
                 {
+                    cell.range2lab.hidden = YES;
+                    cell.range3lab.hidden = YES;
+                    cell.range4lab.hidden = YES;
+                    cell.price2lab.hidden = YES;
+                    cell.price3lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    cell.pricelab.hidden = YES;
                     cell.range1lab.hidden=NO;
                     cell.price1lab.hidden=NO;
+
                     cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
                     cell.price1lab.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
                     
@@ -133,10 +146,16 @@
                     break;
                 case 2:
                 {
+                    cell.range3lab.hidden = YES;
+                    cell.range4lab.hidden = YES;
+                    cell.price3lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    cell.pricelab.hidden = YES;
                     cell.range1lab.hidden=NO;
                     cell.price1lab.hidden=NO;
                     cell.range2lab.hidden=NO;
                     cell.price2lab.hidden=NO;
+
                     cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
                     cell.price1lab.text=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
                     cell.range2lab.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
@@ -145,6 +164,9 @@
                     break;
                 case 3:
                 {
+                    cell.range4lab.hidden = YES;
+                    cell.price4lab.hidden = YES;
+                    cell.pricelab.hidden = YES;
                     cell.range1lab.hidden=NO;
                     cell.price1lab.hidden=NO;
                     cell.range2lab.hidden=NO;
@@ -161,6 +183,7 @@
                     break;
                 case 4:
                 {
+                    cell.pricelab.hidden = YES;
                     cell.range1lab.hidden=NO;
                     cell.price1lab.hidden=NO;
                     cell.range2lab.hidden=NO;
@@ -168,8 +191,7 @@
                     cell.range3lab.hidden=NO;
                     cell.price3lab.hidden=NO;
                     cell.range4lab.hidden=NO;
-                    cell.price4lab.hidden=NO;
-                    cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                    cell.price4lab.hidden=NO;                    cell.range1lab.text=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
                     cell.range2lab.text=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
                     cell.range3lab.text=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];
                     cell.range4lab.text=[NSString stringWithFormat:@"%@-%@",[array[3] stringForKey:@"minNum"],[array[3] stringForKey:@"maxNum"]];
@@ -211,15 +233,12 @@
     return MAIN_HEIGHT*0.25;
 }
 
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//       [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    NSDictionary *good = [_collectionListArr[indexPath.row] dictionaryForKey:@"goods"];
-//    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
-//    detailVC.goodsid = good[@"goodsId"];
-//    detailVC.supplierid = good[@"supplierId"];
-//    detailVC.marketid = good[@"marketId"];
-//    [self.navigationController pushViewController:detailVC animated:YES];
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+       [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    self.coverView.hidden = NO;
+    self.bottomView.hidden = NO;
+    self.cancelCollectBt.tag =indexPath.row;
+}
 
 - (void)goToDetailVC:(UIButton *)sender{
     NSDictionary *good = [_collectionListArr[sender.tag] dictionaryForKey:@"goods"];
@@ -229,15 +248,6 @@
     detailVC.marketid = good[@"marketId"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
-
-- (void)function:(UIButton *)sender{
-    self.coverView.hidden = NO;
-    self.bottomView.hidden = NO;
-    self.addToShopCarBt.tag = sender.tag;
-    self.cancelCollectBt.tag = sender.tag;
-}
-
 //全部商品和降价宝贝按钮的点击
 - (IBAction)buttonClicked:(UIButton *)sender {
     self.selectedButton.selected = NO;
@@ -253,11 +263,11 @@
     self.bottomView.hidden = YES;
     self.coverView.hidden = YES;
 }
-- (IBAction)addToShoppingCar:(UIButton *)sender {
-    NSLog(@"加入购物车");
-    self.bottomView.hidden = YES;
-    self.coverView.hidden = YES;
-    NSLog(@"%@",_collectionListArr[self.addToShopCarBt.tag]);
+//- (IBAction)addToShoppingCar:(UIButton *)sender {
+//    NSLog(@"加入购物车");
+//    self.bottomView.hidden = YES;
+//    self.coverView.hidden = YES;
+//    NSLog(@"%@",_collectionListArr[self.addToShopCarBt.tag]);
 //    if ([LocalAndOnlineFileTool singlegoodcount:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"]] == 0) {
 //          [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:[_collectionListArr[self.addToShopCarBt.tag]  stringForKey:@"id"] withcount:1 tabbar:self.tabBarController];
 //    }
@@ -267,7 +277,7 @@
 //    hud.margin = 10.f;
 //    hud.removeFromSuperViewOnHide = YES;
 //    [hud hide:YES afterDelay:1.2];
-}
+//}
 
 //取消收藏按钮
 - (IBAction)cancelCollection:(id)sender {

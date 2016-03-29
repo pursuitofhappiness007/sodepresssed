@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UILabel *countlab;
 @property (weak, nonatomic) IBOutlet UIButton *goodspicBtn;
-@property (weak, nonatomic) IBOutlet UILabel *pricelab;
 
 
 @property (weak,nonatomic) NSString *image;

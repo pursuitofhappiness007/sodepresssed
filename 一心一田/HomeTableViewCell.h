@@ -45,8 +45,8 @@
 //详情按钮
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
 //当天销售
-@property (weak, nonatomic) IBOutlet UILabel *pricelab;
 @property (nonatomic,copy)NSString *dailysales;
+@property (weak, nonatomic) IBOutlet UILabel *pricelab;
 
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 @end

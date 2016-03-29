@@ -217,7 +217,6 @@
     cell.goodsid=[dict stringForKey:@"id"];
     cell.image=[dict stringForKey:@"thumbnailImg"];
     cell.name=[dict stringForKey:@"name"];
-    cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [dict stringForKey:@"price"]];
     int kcount=[LocalAndOnlineFileTool singlegoodcount:cell.goodsid];
     cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",kcount];
     

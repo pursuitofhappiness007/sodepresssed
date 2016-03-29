@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditNickNameViewController">
             <connections>
                 <outlet property="nametf" destination="rCz-7r-atv" id="PJL-WX-etF"/>
+                <outlet property="saveBtn" destination="AOI-bo-FRL" id="MkY-XE-GRN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOI-bo-FRL">
-                    <rect key="frame" x="19" y="209" width="337.5" height="30"/>
-                    <color key="backgroundColor" red="0.22745098039215686" green="0.51764705882352935" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="19" y="202" width="337.5" height="44"/>
+                    <color key="backgroundColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="qds-4T-dev"/>
+                    </constraints>
                     <state key="normal" title="保存">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -42,7 +46,7 @@
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.22745098039215686" green="0.51764705882352935" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="1"/>

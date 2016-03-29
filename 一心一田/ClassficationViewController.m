@@ -272,25 +272,42 @@
         GoodListTableViewCell *cell=[GoodListTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
         NSDictionary *dict=goodslist[indexPath.row];
         NSLog(@"dict==%@",dict);
-        
+        cell.detailBtn.tag = indexPath.row;
+        [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
         cell.goodsid=[dict stringForKey:@"id"];
         cell.count=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
         cell.price=[dict stringForKey:@"price"];
         cell.goodimg=[dict stringForKey:@"thumbnailImg"];
         cell.goodname=[dict stringForKey:@"name"];
         cell.specific=[dict stringForKey:@"specifications"];
+        
         cell.counthasbeensaled=[NSString stringWithFormat:@"本市场今日已销售%@件",[dict stringForKey:@"dailySales"]];
         cell.shortcomment=[dict stringForKey:@"commentary"];
         NSArray *array=[dict arrayForKey:@"goodsRangePrice"];
         switch (array.count) {
             case 0:
             {
+                cell.range1lab.hidden = YES;
+                cell.range2lab.hidden = YES;
+                cell.range3lab.hidden = YES;
+                cell.range4lab.hidden = YES;
+                cell.price1lab.hidden = YES;
+                cell.price2lab.hidden = YES;
+                cell.price3lab.hidden = YES;
+                cell.price4lab.hidden = YES;
                 cell.pricelab.hidden = NO;
                 cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [dict stringForKey:@"price"]];
             }
                 break;
             case 1:
             {
+                cell.range2lab.hidden = YES;
+                cell.range3lab.hidden = YES;
+                cell.range4lab.hidden = YES;
+                cell.price2lab.hidden = YES;
+                cell.price3lab.hidden = YES;
+                cell.price4lab.hidden = YES;
+                cell.pricelab.hidden = YES;
                 cell.range1lab.hidden=NO;
                 cell.price1lab.hidden=NO;
                 cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
@@ -300,11 +317,15 @@
                 break;
             case 2:
             {
+                cell.range3lab.hidden = YES;
+                cell.range4lab.hidden = YES;
+                cell.price3lab.hidden = YES;
+                cell.price4lab.hidden = YES;
+                cell.pricelab.hidden = YES;
                 cell.range1lab.hidden=NO;
                 cell.price1lab.hidden=NO;
                 cell.range2lab.hidden=NO;
-                cell.price2lab.hidden=NO;
-                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+                cell.price2lab.hidden=NO;                cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
                 cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
                 cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
                 cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
@@ -312,12 +333,16 @@
                 break;
             case 3:
             {
+                cell.range4lab.hidden = YES;
+                cell.price4lab.hidden = YES;
+                cell.pricelab.hidden = YES;
                 cell.range1lab.hidden=NO;
                 cell.price1lab.hidden=NO;
                 cell.range2lab.hidden=NO;
                 cell.price2lab.hidden=NO;
                 cell.range3lab.hidden=NO;
                 cell.price3lab.hidden=NO;
+
                 cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
                 cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
                 cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
@@ -328,6 +353,7 @@
                 break;
             case 4:
             {
+                cell.pricelab.hidden = YES;
                 cell.range1lab.hidden=NO;
                 cell.price1lab.hidden=NO;
                 cell.range2lab.hidden=NO;
@@ -361,6 +387,14 @@
     }
 }
 
+- (void)goToDetailVC:(UIButton *)sender{
+    NSDictionary *good = goodslist[sender.tag];
+    GoodsDetailViewController *detailVC = [[GoodsDetailViewController alloc]init];
+    detailVC.goodsid = good[@"goodsId"];
+    detailVC.supplierid = good[@"supplierId"];
+    detailVC.marketid = good[@"marketId"];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 -(void)minusBtnClicked:(UIButton *)sender{
     GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
     int i=[cell.countlab.text intValue];
