@@ -153,14 +153,30 @@
     switch (array.count) {
         case 0:
         {
-             cell.pricelab.hidden = NO;
+            cell.range1lab.hidden = YES;
+            cell.range2lab.hidden = YES;
+            cell.range3lab.hidden = YES;
+            cell.range4lab.hidden = YES;
+            cell.price1lab.hidden = YES;
+            cell.price2lab.hidden = YES;
+            cell.price3lab.hidden = YES;
+            cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = NO;
              cell.pricelab.text = [NSString stringWithFormat:@"¥%@", [good stringForKey:@"price"]];
         }
             break;
         case 1:
         {
+            cell.range2lab.hidden = YES;
+            cell.range3lab.hidden = YES;
+            cell.range4lab.hidden = YES;
+            cell.price2lab.hidden = YES;
+            cell.price3lab.hidden = YES;
+            cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
+
             cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
             cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
             
@@ -168,6 +184,11 @@
             break;
         case 2:
         {
+            cell.range3lab.hidden = YES;
+            cell.range4lab.hidden = YES;
+            cell.price3lab.hidden = YES;
+            cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range2lab.hidden=NO;
@@ -180,13 +201,15 @@
             break;
         case 3:
         {
+            cell.range4lab.hidden = YES;
+            cell.price4lab.hidden = YES;
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range2lab.hidden=NO;
             cell.price2lab.hidden=NO;
             cell.range3lab.hidden=NO;
-            cell.price3lab.hidden=NO;
-            cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
+            cell.price3lab.hidden=NO;            cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
             cell.price1=[NSString stringWithFormat:@"¥%@",[array[0] stringForKey:@"price"]];
             cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
             cell.price2=[NSString stringWithFormat:@"¥%@",[array[1] stringForKey:@"price"]];
@@ -196,6 +219,7 @@
             break;
         case 4:
         {
+            cell.pricelab.hidden = YES;
             cell.range1lab.hidden=NO;
             cell.price1lab.hidden=NO;
             cell.range2lab.hidden=NO;
@@ -204,6 +228,7 @@
             cell.price3lab.hidden=NO;
             cell.range4lab.hidden=NO;
             cell.price4lab.hidden=NO;
+
             cell.range1=[NSString stringWithFormat:@"%@-%@",[array[0] stringForKey:@"minNum"],[array[0] stringForKey:@"maxNum"]];
             cell.range2=[NSString stringWithFormat:@"%@-%@",[array[1] stringForKey:@"minNum"],[array[1] stringForKey:@"maxNum"]];
             cell.range3=[NSString stringWithFormat:@"%@-%@",[array[2] stringForKey:@"minNum"],[array[2] stringForKey:@"maxNum"]];

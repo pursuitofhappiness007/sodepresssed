@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4W9-Hp-xSs" userLabel="phone">
-                    <rect key="frame" x="12" y="10.5" width="20" height="22"/>
+                    <rect key="frame" x="12" y="10" width="20" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="23" id="gOu-TG-1H1"/>
                         <constraint firstAttribute="height" constant="17" id="yBc-OR-ZFr"/>
@@ -35,8 +35,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjJ-HI-7Wx" userLabel="search">
-                    <rect key="frame" x="349" y="10.5" width="14" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjJ-HI-7Wx" userLabel="search">
+                    <rect key="frame" x="343" y="10.5" width="20" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="GY3-lI-A02"/>
                         <constraint firstAttribute="height" constant="15" id="m3H-qX-gpp"/>
@@ -77,6 +77,6 @@
     </objects>
     <resources>
         <image name="earphones-microphone" width="20" height="20"/>
-        <image name="search" width="14" height="14"/>
+        <image name="search" width="20" height="20"/>
     </resources>
 </document>

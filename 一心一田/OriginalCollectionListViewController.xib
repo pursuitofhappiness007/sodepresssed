@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OriginalCollectionListViewController">
             <connections>
-                <outlet property="addToShopCarBt" destination="qTo-NV-hck" id="5fh-sT-LM9"/>
                 <outlet property="bottomView" destination="8Ce-2W-ph3" id="ECI-bw-PBs"/>
                 <outlet property="cancelCollectBt" destination="iy6-RC-uym" id="IGf-gd-cLg"/>
                 <outlet property="coverView" destination="icF-jY-2EC" id="h9F-sq-Ur8"/>
@@ -109,6 +108,42 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ce-2W-ph3" userLabel="弹出视图">
                     <rect key="frame" x="0.0" y="551" width="375" height="115.5"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdI-2N-1d1">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancelCollection" translatesAutoresizingMaskIntoConstraints="NO" id="Owi-l8-1YG">
+                                    <rect key="frame" x="172" y="4" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Owi-l8-1YG" secondAttribute="height" multiplier="1:1" id="xDg-HW-xu5"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取消收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-be-rAx">
+                                    <rect key="frame" x="163" y="39" width="48" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy6-RC-uym">
+                                    <rect key="frame" x="163" y="0.0" width="48" height="65.5"/>
+                                    <connections>
+                                        <action selector="cancelCollection:" destination="-1" eventType="touchUpInside" id="5R8-uG-0CR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95789583012524382" green="0.95789583012524382" blue="0.95789583012524382" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="yeD-be-rAx" firstAttribute="trailing" secondItem="iy6-RC-uym" secondAttribute="trailing" id="1Jl-xW-fkH"/>
+                                <constraint firstItem="Owi-l8-1YG" firstAttribute="width" secondItem="XdI-2N-1d1" secondAttribute="width" multiplier="0.08" id="7fX-Uj-Tfm"/>
+                                <constraint firstItem="yeD-be-rAx" firstAttribute="leading" secondItem="iy6-RC-uym" secondAttribute="leading" id="E6h-DH-ocK"/>
+                                <constraint firstItem="iy6-RC-uym" firstAttribute="top" secondItem="XdI-2N-1d1" secondAttribute="top" id="HOP-9b-zWX"/>
+                                <constraint firstItem="yeD-be-rAx" firstAttribute="top" secondItem="Owi-l8-1YG" secondAttribute="bottom" constant="5" id="aRi-db-lFF"/>
+                                <constraint firstItem="Owi-l8-1YG" firstAttribute="centerX" secondItem="XdI-2N-1d1" secondAttribute="centerX" id="c5x-fh-N6u"/>
+                                <constraint firstItem="Owi-l8-1YG" firstAttribute="centerY" secondItem="XdI-2N-1d1" secondAttribute="centerY" multiplier="0.6" id="rpQ-1E-cjr"/>
+                                <constraint firstItem="Owi-l8-1YG" firstAttribute="centerX" secondItem="yeD-be-rAx" secondAttribute="centerX" id="vAj-rF-48a"/>
+                                <constraint firstItem="Owi-l8-1YG" firstAttribute="centerX" secondItem="iy6-RC-uym" secondAttribute="centerX" id="wUu-JS-faL"/>
+                                <constraint firstAttribute="bottom" secondItem="iy6-RC-uym" secondAttribute="bottom" id="ywU-tb-29x"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXU-HV-Smc">
                             <rect key="frame" x="0.0" y="65" width="375" height="50"/>
                             <state key="normal" title="取消">
@@ -118,66 +153,6 @@
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="qil-x3-9K3"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdI-2N-1d1">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancelCollection" translatesAutoresizingMaskIntoConstraints="NO" id="Owi-l8-1YG">
-                                    <rect key="frame" x="219" y="4" width="30" height="30"/>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addtoshop" translatesAutoresizingMaskIntoConstraints="NO" id="TqA-H6-d4u">
-                                    <rect key="frame" x="135" y="4" width="30" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="TqA-H6-d4u" secondAttribute="height" multiplier="1:1" id="0af-PN-qZY"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加入购物车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3Y-QR-s3x">
-                                    <rect key="frame" x="120" y="41" width="60" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取消收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-be-rAx">
-                                    <rect key="frame" x="210" y="41" width="48" height="14.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-NV-hck">
-                                    <rect key="frame" x="120" y="0.0" width="60" height="65.5"/>
-                                    <connections>
-                                        <action selector="addToShoppingCar:" destination="-1" eventType="touchUpInside" id="UPV-wN-eu3"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy6-RC-uym">
-                                    <rect key="frame" x="210" y="0.0" width="48" height="65.5"/>
-                                    <connections>
-                                        <action selector="cancelCollection:" destination="-1" eventType="touchUpInside" id="5R8-uG-0CR"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.95789583012524382" green="0.95789583012524382" blue="0.95789583012524382" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstItem="yeD-be-rAx" firstAttribute="centerX" secondItem="XdI-2N-1d1" secondAttribute="centerX" multiplier="1.25" id="048-Hl-JAg"/>
-                                <constraint firstAttribute="bottom" secondItem="iy6-RC-uym" secondAttribute="bottom" id="16h-43-aRk"/>
-                                <constraint firstItem="yeD-be-rAx" firstAttribute="top" secondItem="c3Y-QR-s3x" secondAttribute="top" id="19k-Ce-ehw"/>
-                                <constraint firstItem="qTo-NV-hck" firstAttribute="top" secondItem="XdI-2N-1d1" secondAttribute="top" id="2sw-vu-qRG"/>
-                                <constraint firstItem="yeD-be-rAx" firstAttribute="width" secondItem="iy6-RC-uym" secondAttribute="width" id="7Dt-U2-sr5"/>
-                                <constraint firstItem="TqA-H6-d4u" firstAttribute="centerX" secondItem="XdI-2N-1d1" secondAttribute="centerX" multiplier="0.8" id="ADS-6k-VqP"/>
-                                <constraint firstItem="c3Y-QR-s3x" firstAttribute="centerX" secondItem="qTo-NV-hck" secondAttribute="centerX" id="Bvv-rc-xW6"/>
-                                <constraint firstItem="c3Y-QR-s3x" firstAttribute="centerX" secondItem="XdI-2N-1d1" secondAttribute="centerX" multiplier="0.8" id="DZU-qS-SWL"/>
-                                <constraint firstItem="Owi-l8-1YG" firstAttribute="top" secondItem="TqA-H6-d4u" secondAttribute="top" id="Eqb-CQ-lxU"/>
-                                <constraint firstItem="yeD-be-rAx" firstAttribute="centerX" secondItem="iy6-RC-uym" secondAttribute="centerX" id="Hex-ev-vh3"/>
-                                <constraint firstItem="Owi-l8-1YG" firstAttribute="centerX" secondItem="XdI-2N-1d1" secondAttribute="centerX" multiplier="1.25" id="L4x-gU-42k"/>
-                                <constraint firstItem="iy6-RC-uym" firstAttribute="top" secondItem="XdI-2N-1d1" secondAttribute="top" id="aDR-Wq-HCG"/>
-                                <constraint firstItem="c3Y-QR-s3x" firstAttribute="width" secondItem="qTo-NV-hck" secondAttribute="width" id="gNX-qo-93C"/>
-                                <constraint firstItem="c3Y-QR-s3x" firstAttribute="centerY" secondItem="XdI-2N-1d1" secondAttribute="centerY" multiplier="1.466" id="gVx-UZ-1Dv"/>
-                                <constraint firstItem="TqA-H6-d4u" firstAttribute="width" secondItem="XdI-2N-1d1" secondAttribute="width" multiplier="0.08" id="iyd-sL-l9o"/>
-                                <constraint firstItem="TqA-H6-d4u" firstAttribute="centerY" secondItem="XdI-2N-1d1" secondAttribute="centerY" multiplier="0.6" id="m39-SN-cp5"/>
-                                <constraint firstAttribute="bottom" secondItem="qTo-NV-hck" secondAttribute="bottom" id="oa3-AZ-bUg"/>
-                                <constraint firstItem="Owi-l8-1YG" firstAttribute="width" secondItem="TqA-H6-d4u" secondAttribute="width" id="pCv-qn-3Nq"/>
-                                <constraint firstItem="Owi-l8-1YG" firstAttribute="height" secondItem="TqA-H6-d4u" secondAttribute="height" id="y2a-Ln-eYt"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -220,7 +195,6 @@
         </view>
     </objects>
     <resources>
-        <image name="addtoshop" width="30" height="28"/>
         <image name="cancelCollection" width="30" height="28"/>
     </resources>
 </document>

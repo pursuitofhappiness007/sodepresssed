@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CE596B0C1CA131F100B3F82E /* newProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE596B0A1CA131F100B3F82E /* newProductViewController.m */; };
 		CE596B0D1CA131F100B3F82E /* newProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE596B0B1CA131F100B3F82E /* newProductViewController.xib */; };
+		CE84F9C61CAAA8D9004FF107 /* CommitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84F9C41CAAA8D9004FF107 /* CommitPayViewController.m */; };
+		CE84F9C71CAAA8D9004FF107 /* CommitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE84F9C51CAAA8D9004FF107 /* CommitPayViewController.xib */; };
 		CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */; };
 		CEECE1D91C9AD173009D11D8 /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */; };
 		CEECE1E31C9AD17D009D11D8 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECE1DB1C9AD17D009D11D8 /* HomeTableViewCell.m */; };
@@ -167,6 +169,9 @@
 		CE596B091CA131F100B3F82E /* newProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newProductViewController.h; sourceTree = "<group>"; };
 		CE596B0A1CA131F100B3F82E /* newProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newProductViewController.m; sourceTree = "<group>"; };
 		CE596B0B1CA131F100B3F82E /* newProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newProductViewController.xib; sourceTree = "<group>"; };
+		CE84F9C31CAAA8D9004FF107 /* CommitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitPayViewController.h; sourceTree = "<group>"; };
+		CE84F9C41CAAA8D9004FF107 /* CommitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitPayViewController.m; sourceTree = "<group>"; };
+		CE84F9C51CAAA8D9004FF107 /* CommitPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommitPayViewController.xib; sourceTree = "<group>"; };
 		CEECE1D51C9AD173009D11D8 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CEECE1D61C9AD173009D11D8 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CEECE1D71C9AD173009D11D8 /* PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterViewController.xib; sourceTree = "<group>"; };
@@ -444,6 +449,16 @@
 			name = "新品";
 			sourceTree = "<group>";
 		};
+		CE84F9C21CAAA7BE004FF107 /* 余额支付确认界面 */ = {
+			isa = PBXGroup;
+			children = (
+				CE84F9C31CAAA8D9004FF107 /* CommitPayViewController.h */,
+				CE84F9C41CAAA8D9004FF107 /* CommitPayViewController.m */,
+				CE84F9C51CAAA8D9004FF107 /* CommitPayViewController.xib */,
+			);
+			name = "余额支付确认界面";
+			sourceTree = "<group>";
+		};
 		CEADD1681C91706F00E13421 /* 账户充值 */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +579,7 @@
 		FE6DC0421C8D5B0900E93578 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE84F9C21CAAA7BE004FF107 /* 余额支付确认界面 */,
 				FE89EFB91CAA40C100C898CB /* 余额支付确认界面 */,
 				CE596B051CA1308200B3F82E /* 新品 */,
 				FEDC9FBB1C97AEE40002FB2F /* 修改昵称和电话 */,
@@ -850,9 +866,6 @@
 		FE89EFB91CAA40C100C898CB /* 余额支付确认界面 */ = {
 			isa = PBXGroup;
 			children = (
-				FE89EFBA1CAA40EA00C898CB /* CommitPayViewController.h */,
-				FE89EFBB1CAA40EA00C898CB /* CommitPayViewController.m */,
-				FE89EFBC1CAA40EA00C898CB /* CommitPayViewController.xib */,
 			);
 			name = "余额支付确认界面";
 			sourceTree = "<group>";
@@ -921,7 +934,6 @@
 				FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */,
 				FE906D1F1CA0F6B90099D786 /* oneBtn.xib */,
 				FE906D211CA0F6C30099D786 /* twoBtn.xib */,
-				FE89EFBF1CAA606B00C898CB /* headerfortableview.xib */,
 			);
 			name = "订单详情";
 			sourceTree = "<group>";
@@ -1098,7 +1110,7 @@
 				FE06ABBC1C9BFAF30072F2BB /* pricechooser.xib in Resources */,
 				FEDC9FCD1C97FA660002FB2F /* titileForSearchVC.xib in Resources */,
 				FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */,
-				FE89EFBE1CAA40EA00C898CB /* CommitPayViewController.xib in Resources */,
+				CE84F9C71CAAA8D9004FF107 /* CommitPayViewController.xib in Resources */,
 				CEECE1F31C9AD18F009D11D8 /* OriginalCollectionListViewController.xib in Resources */,
 				FE1897221CA3A7D300310488 /* 2.png in Resources */,
 				FE9915781C9AE9F900425055 /* sectiontitle.xib in Resources */,
@@ -1120,7 +1132,6 @@
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
 				FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */,
 				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
-				FE89EFC01CAA606B00C898CB /* headerfortableview.xib in Resources */,
 				FEDFA0DC1C9128F10010E5E3 /* SingleGoodOrderConfirmnationViewController.xib in Resources */,
 				FE1897291CA3B29700310488 /* Default-568h.png in Resources */,
 				FEDFA0D61C9127B90010E5E3 /* SearchViewController.xib in Resources */,
@@ -1202,7 +1213,7 @@
 				CEECE2041C9AD1AD009D11D8 /* AcountDetailTableViewCell.m in Sources */,
 				FE7DBF241C8D6873003536BC /* AFURLSessionManager.m in Sources */,
 				FE7DBF551C8D6899003536BC /* UIImageView+WebCache.m in Sources */,
-				FE89EFBD1CAA40EA00C898CB /* CommitPayViewController.m in Sources */,
+				CE84F9C61CAAA8D9004FF107 /* CommitPayViewController.m in Sources */,
 				FE7DBF531C8D6899003536BC /* UIImage+WebP.m in Sources */,
 				FE7DBF491C8D6899003536BC /* SDImageCache.m in Sources */,
 				CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */,
