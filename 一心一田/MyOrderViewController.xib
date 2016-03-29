@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="allBtn" destination="UWw-Xn-JkN" id="td2-7Z-wXC"/>
                 <outlet property="blueline" destination="a2w-jr-XGY" id="i7f-Te-zIM"/>
+                <outlet property="emptyNoticelab" destination="qHk-7t-KMG" id="1Pu-zC-Y6t"/>
                 <outlet property="myordertableview" destination="oHu-oA-R93" id="bXZ-aQ-ddf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -160,7 +161,7 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="oHu-oA-R93">
                     <rect key="frame" x="0.0" y="119" width="375" height="499"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="509" id="2JY-63-3gI"/>
                     </constraints>
@@ -174,6 +175,12 @@
                         <outlet property="delegate" destination="-1" id="Djk-Ya-YSG"/>
                     </connections>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无此类订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHk-7t-KMG">
+                    <rect key="frame" x="142.5" y="324.5" width="90" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -188,6 +195,8 @@
                 <constraint firstItem="uAo-4O-9J2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iT2-ZR-EJF"/>
                 <constraint firstAttribute="trailing" secondItem="uAo-4O-9J2" secondAttribute="trailing" id="ne6-im-Ofq"/>
                 <constraint firstItem="nAm-Rp-p2b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tQT-hh-aKE"/>
+                <constraint firstItem="qHk-7t-KMG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yRA-1w-LgG"/>
+                <constraint firstItem="qHk-7t-KMG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yxs-nR-elD"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="-60.5" y="146.5"/>

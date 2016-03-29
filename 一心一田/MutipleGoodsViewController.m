@@ -46,10 +46,13 @@
 //点击了去支付
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
 - (IBAction)payBtnClicked:(id)sender;
+//tableviewheader订单编号lab
+@property (weak, nonatomic) IBOutlet UILabel *ordercodelabinheader;
 
 @end
 
 @implementation MutipleGoodsViewController
+
 
 -(void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden=YES;
@@ -60,7 +63,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+       // Do any additional setup after loading the view from its nib.
     if([WXApi isWXAppInstalled]){
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(paysucceedoption) name:@"paysucceed" object:nil];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(payfailedoption) name:@"payfailed" object:nil];
@@ -75,6 +78,8 @@
 -(void)initparas{
     orderinfo=[NSDictionary dictionary];
     wxpaydict=[NSDictionary dictionary];
+    self.automaticallyAdjustsScrollViewInsets=NO;
+    _orderdetailtableview.backgroundColor=[UIColor whiteColor];
 }
 
 -(void)getdatafromweb{
@@ -173,16 +178,19 @@
     _addresslab.text=[dict stringForKey:@"address"];
     _phonelab.text=[dict stringForKey:@"consigneeTel1"];
     _ordercodelab.text=[dict stringForKey:@"orderCode"];
-    
-   
-    
-    
-}
+ }
 
 -(void)backBtnClicked{
+    //直接pop一个，不跳
     if(_backtoprevious==1){
         [self.navigationController popViewControllerAnimated:YES];
     }
+    //跳2个
+    else if (_backtoprevious==2){
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-4] animated:YES];
+       
+    }
+    //默认是跳1个
     else{
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-3] animated:YES];
     }
@@ -235,8 +243,19 @@
     //自动收货时间
     _automaticalreceivetimelab.text=[NSString stringWithFormat:@"自动收货时间:%@",[dict stringForKey:@"buyerReceiveTime"]];
     return view;
-    
-    
+ 
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return MAIN_HEIGHT*0.037;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *v=[[[NSBundle mainBundle]loadNibNamed:@"headerfortableview" owner:self options:nil]firstObject];
+    v.frame=CGRectMake(0, 0, MAIN_WIDTH,MAIN_HEIGHT*0.037);
+    NSDictionary *dict=[orderinfo dictionaryForKey:@"orderHeader"];
+    _ordercodelabinheader.text=[NSString stringWithFormat:@"订单编号:%@",[dict stringForKey:@"orderCode"]];
+    return v;
 }
 
 

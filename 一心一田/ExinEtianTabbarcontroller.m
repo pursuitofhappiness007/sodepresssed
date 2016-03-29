@@ -14,7 +14,11 @@
 #import "ShopcarViewController.h"
 #import "PersonalCenterViewController.h"
 #import "LoginViewController.h"
-@interface ExinEtianTabbarcontroller ()
+@interface ExinEtianTabbarcontroller ()<UITabBarControllerDelegate>{
+    UINavigationController *nav1;
+    UINavigationController *nav2;
+    UINavigationController *nav3;
+}
 
 @end
 
@@ -34,9 +38,16 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginbindvc) name:@"login" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(logoutbindvc) name:@"logout" object:nil];
+    self.delegate=self;
     [self inittabbar];
 }
 
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+   
+    UINavigationController *nav=(UINavigationController *)viewController;
+    [nav popToRootViewControllerAnimated:YES];
+
+}
 -(void)inittabbar{
     
     //登录过
@@ -84,9 +95,9 @@
     HomeViewController *vc1=[[HomeViewController alloc]init];
     ShopcarViewController *vc2=[[ShopcarViewController alloc]init];
     PersonalCenterViewController *vc3=[[PersonalCenterViewController alloc]init];
-    UINavigationController *nav1=[[UINavigationController alloc]initWithRootViewController:vc1];
-    UINavigationController *nav2=[[UINavigationController alloc]initWithRootViewController:vc2];
-    UINavigationController *nav3=[[UINavigationController alloc]initWithRootViewController:vc3];
+    nav1=[[UINavigationController alloc]initWithRootViewController:vc1];
+    nav2=[[UINavigationController alloc]initWithRootViewController:vc2];
+    nav3=[[UINavigationController alloc]initWithRootViewController:vc3];
     
     
     NSMutableArray *array=[NSMutableArray arrayWithArray:self.viewControllers];
@@ -112,15 +123,15 @@
     LoginViewController *vc0=[[LoginViewController alloc]init];
     LoginViewController *vc1=[[LoginViewController alloc]init];
     LoginViewController *vc2=[[LoginViewController alloc]init];
-    UINavigationController *nav0=[[UINavigationController alloc]initWithRootViewController:vc0];
-    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc1];
-    UINavigationController *nav2=[[UINavigationController alloc]initWithRootViewController:vc2];
+   nav1=[[UINavigationController alloc]initWithRootViewController:vc0];
+ nav2=[[UINavigationController alloc]initWithRootViewController:vc1];
+ nav3=[[UINavigationController alloc]initWithRootViewController:vc2];
     
     
     NSMutableArray *array=[NSMutableArray arrayWithArray:self.viewControllers];
-    [array replaceObjectAtIndex:0 withObject:nav0];
-    [array replaceObjectAtIndex:1 withObject:nav];
-    [array replaceObjectAtIndex:2 withObject:nav2];
+    [array replaceObjectAtIndex:0 withObject:nav1];
+    [array replaceObjectAtIndex:1 withObject:nav2];
+    [array replaceObjectAtIndex:2 withObject:nav3];
     [self setViewControllers:array animated:NO];
     UITabBarItem *item0=[self.tabBar.items objectAtIndex:0];
     UITabBarItem *item1=[self.tabBar.items objectAtIndex:1];

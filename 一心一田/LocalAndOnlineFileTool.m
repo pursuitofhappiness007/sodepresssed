@@ -48,14 +48,14 @@
             [onlineids addObject:[dict stringForKey:@"id"]];
             if(![localids containsObject:[dict stringForKey:@"id"]]){
                 [localids addObject:[dict stringForKey:@"id"]];
-                [local addObject:@[[dict stringForKey:@"id"],@"0",[dict stringForKey:@"price"],dict]];
+                [local addObject:@[[dict stringForKey:@"id"],@"0",[dict stringForKey:@"price"],[DictionaryToJsonStr dictToJsonStr:dict]]];
             }
             
         }
         //再将本地的拿到线上遍历一遍，找不到就删除
         int currentIndex=0;
         for (NSString *str in localids) {
-            if(![onlineids containsObject:str])
+            if(![onlineids containsObject:str]&&currentIndex<local.count)
                 [local removeObjectAtIndex:currentIndex];
             currentIndex++;
         }

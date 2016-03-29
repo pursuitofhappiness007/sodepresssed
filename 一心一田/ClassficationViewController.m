@@ -270,6 +270,8 @@
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"maintitile"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.textLabel.text=[mainclassfication[indexPath.row]stringForKey:@"name"];
+        cell.textLabel.textColor=[UIColor colorWithRed:208.0/255 green:87.0/255 blue:40.0/255 alpha:1.0];
+        cell.textLabel.font=[UIFont systemFontOfSize:12.0*(MAIN_WIDTH/375)];
         return cell;
         
     }
@@ -608,7 +610,7 @@
         return YES;
 }
 - (IBAction)singletapofmask:(id)sender {
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:0.4
                           delay:0
                         options: UIViewAnimationCurveLinear
                      animations:^{

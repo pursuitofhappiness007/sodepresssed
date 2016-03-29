@@ -34,9 +34,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
 @property (weak, nonatomic) IBOutlet UIImageView *usericon;
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundimage;
 - (IBAction)changeIconClicked:(id)sender;
-@property (weak, nonatomic) IBOutlet UIView *shadowoficon;
 @property (strong ,nonatomic)NSDictionary *userInfo;
 @end
 
@@ -44,18 +42,16 @@
 -(void)viewWillAppear:(BOOL)animated{
    self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
-     [self getPersonInfo];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(namechangedrefresh) name:@"namechanged" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshbadgenum) name:@"refreshbadgenum" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateicon) name:@"iconchanged" object:nil];
    
-//  [self setpersoninfo];
-    [self getPersonInfo];
+   [self setpersoninfo];
+
     
 }
 
@@ -71,9 +67,9 @@
         NSLog(@"get_member_by_token=%@",responseObj);
         if([responseObj int32ForKey:@"result"]==0){
 
-            NSDictionary *info = [responseObj dictionaryForKey:@"data"];//responseObj[@"data"];
+            NSDictionary *info = [responseObj dictionaryForKey:@"data"];
             self.userInfo = info;
-            self.namelab.text = [info stringForKey:@"name"];//info[@"name"];
+            self.namelab.text = [info stringForKey:@"name"];
             _usericon.layer.cornerRadius=_usericon.width/2.0;
             _usericon.clipsToBounds=YES;
             _usericon.layer.masksToBounds =YES;
@@ -88,33 +84,21 @@
         }
     } failure:^(NSError *error) {
            }controler:self];
-
-        //返回的json中无此字段
-        //    _phone1lab.text=;
-        //    _phone2lab.text=;
-        //    _phone3lab.text=;
-    
     }
 
 
 -(void)setpersoninfo{
-    _namelab.text=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"name"];
+    NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"];
+    _namelab.text=[dict stringForKey:@"name"];
     _usericon.layer.cornerRadius=_usericon.width/2.0;
     _usericon.clipsToBounds=YES;
     _usericon.layer.masksToBounds =YES;
     _usericon.layer.borderWidth=3.0;
-    [_usericon sd_setImageWithURL:[NSURL URLWithString:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
-    
-    _shadowoficon.layer.shadowOffset = CGSizeMake(0, 0);
-    _shadowoficon.layer.shadowOpacity = 0.6;
-    _shadowoficon.layer.shadowRadius =_usericon.width/2.0;
-    _shadowoficon.layer.shadowColor = [UIColor blackColor].CGColor;
-    _shadowoficon.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:_shadowoficon.bounds cornerRadius:_usericon.width/2.0] CGPath];
-    [_backgroundimage sd_setImageWithURL:[NSURL URLWithString:[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"headPath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+    [_usericon sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
 }
 
 -(void)namechangedrefresh{
-   _namelab.text=[[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"] stringForKey:@"name"];
+    [self setpersoninfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -209,11 +193,11 @@
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"图片上船Success: %@", responseObject);
         NSDictionary *tokenfile=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"];
-        tokenfile[@"member_info"][@"headPath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
+        tokenfile[@"member_info"][@"imagePath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:tokenfile filepath:@"tokenfile.txt"];
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
         paras[@"token"]=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"][@"token"];
-        paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"headPath":[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]]}];
+        paras[@"memberModify"]=[DictionaryToJsonStr dictToJsonStr:@{@"imagePath":[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]]}];
         
       [HttpTool post:@"modify_personal_property" params:paras success:^(id responseObj) {
           NSLog(@"上传地址后的json＝%@",responseObj);
@@ -231,7 +215,6 @@
           }
           else{
               _usericon.image=usericonimg;
-              _backgroundimage.image=usericonimg;
               MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
               [self.navigationController.view addSubview:HUD];
               HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];

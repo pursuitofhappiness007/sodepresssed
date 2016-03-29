@@ -19,7 +19,7 @@
     id value = [self objectForKey:key];
     if (value == nil || value == [NSNull null])
     {
-        return nil;
+        return @"";
     }
     if ([value isKindOfClass:[NSString class]]) {
         return (NSString*)value;

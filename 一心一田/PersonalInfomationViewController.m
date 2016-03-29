@@ -31,8 +31,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(personinfochangedupdate) name:@"tokenfilechanged" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInfo) name:@"personinfochanged" object:nil];
     self.navigationItem.title=@"个人资料";
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self setlocalcontent];
@@ -57,8 +55,8 @@
     _personalIcon.layer.masksToBounds =YES;
     NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"];
     [_personalIcon sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
-    _usernamelab.text=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"name"];;
-    NSArray *temp= [dict arrayForKey:@"phones"];
+    _usernamelab.text=[dict stringForKey:@"name"];
+    NSArray *temp=[NSArray arrayWithArray:[dict arrayForKey:@"phones"]];
     for (NSString *str in temp) {
         NSMutableString *string=[str mutableCopy];
         [phonesArray addObject:string];
@@ -98,7 +96,7 @@
     }
    
     
-    
+    NSLog(@"最后的phonearray=%@",phonesArray);
    
     
     
@@ -243,7 +241,7 @@
         
         
         NSDictionary *tokenfile=[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"];
-        tokenfile[@"member_info"][@"headPath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
+        tokenfile[@"member_info"][@"imagePath"]=[NSString stringWithFormat:@"http://static.exinetian.com/%@",responseObject[@"url"]];
         [[SaveFileAndWriteFileToSandBox singletonInstance]savefiletosandbox:tokenfile filepath:@"tokenfile.txt"];
         
         NSMutableDictionary *paras=[NSMutableDictionary dictionary];
@@ -265,6 +263,7 @@
                 [hud hide:YES afterDelay:1.2];
             }
             else{
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"iconchanged" object:nil];
                 _personalIcon.image=usericonimg;
                 MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
                 [self.navigationController.view addSubview:HUD];
@@ -274,7 +273,6 @@
                 
                 [HUD show:YES];
                 [HUD hide:YES afterDelay:1.5];
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"iconchanged" object:nil];
             }
         } failure:^(NSError *error) {
             NSLog(@"头像上传失败%@",error);

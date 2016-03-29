@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -49,21 +49,28 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXq-1K-Qu4">
                     <rect key="frame" x="15" y="18" width="52" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfT-4A-9YW">
-                    <rect key="frame" x="15" y="40.5" width="52" height="16"/>
+                    <rect key="frame" x="15" y="40" width="52" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动收货时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPo-KM-c7S">
                     <rect key="frame" x="15" y="61" width="78" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCl-VR-Xnd" userLabel="line">
+                    <rect key="frame" x="0.0" y="81" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="m4E-i0-PZM"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -71,9 +78,12 @@
                 <constraint firstItem="oXq-1K-Qu4" firstAttribute="centerY" secondItem="uUg-dz-evC" secondAttribute="centerY" multiplier="0.64" id="BPU-x1-2tQ"/>
                 <constraint firstItem="oXq-1K-Qu4" firstAttribute="leading" secondItem="uUg-dz-evC" secondAttribute="leading" constant="15" id="NQ3-E9-f6G"/>
                 <constraint firstItem="cdH-oA-dML" firstAttribute="height" secondItem="uUg-dz-evC" secondAttribute="height" multiplier="0.14" id="STU-fd-Bfj"/>
+                <constraint firstAttribute="bottom" secondItem="yCl-VR-Xnd" secondAttribute="bottom" id="Yxu-ic-m8b"/>
                 <constraint firstItem="cdH-oA-dML" firstAttribute="leading" secondItem="uUg-dz-evC" secondAttribute="leading" id="bJE-hb-Lj5"/>
                 <constraint firstItem="DfT-4A-9YW" firstAttribute="centerY" secondItem="uUg-dz-evC" secondAttribute="centerY" multiplier="1.18" id="dY7-pP-nF2"/>
+                <constraint firstAttribute="trailing" secondItem="yCl-VR-Xnd" secondAttribute="trailing" id="dpP-N9-vLz"/>
                 <constraint firstItem="LPo-KM-c7S" firstAttribute="centerY" secondItem="uUg-dz-evC" secondAttribute="centerY" multiplier="1.68" id="eYO-D6-ZlO"/>
+                <constraint firstItem="yCl-VR-Xnd" firstAttribute="leading" secondItem="uUg-dz-evC" secondAttribute="leading" id="k1T-Hn-b9n"/>
                 <constraint firstItem="cdH-oA-dML" firstAttribute="top" secondItem="uUg-dz-evC" secondAttribute="top" id="kKh-lw-QpO"/>
                 <constraint firstItem="DfT-4A-9YW" firstAttribute="leading" secondItem="oXq-1K-Qu4" secondAttribute="leading" id="oTW-AG-D7c"/>
                 <constraint firstItem="LPo-KM-c7S" firstAttribute="leading" secondItem="oXq-1K-Qu4" secondAttribute="leading" id="wei-aH-ua5"/>
