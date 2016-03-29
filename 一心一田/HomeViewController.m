@@ -27,6 +27,8 @@
     int previouscount;
     int totalpage;
     int pagenum;
+    UIView *v;
+    CGFloat lastYoffsetofscrollview;
 }
 - (IBAction)phoneBtnClicked:(id)sender;
 - (IBAction)searchBtnClicked:(id)sender;
@@ -46,8 +48,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dynamictitlelab;
 @property (strong, nonatomic) UIActivityIndicatorView *activit;
-//searchbar
-@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+//textfield
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+
+//自定义navbartitle
+@property (weak, nonatomic) IBOutlet UILabel *navtitlelab;
+//搜索图标
+@property (weak, nonatomic) IBOutlet UIButton *searchIcon;
 
 @end
 
@@ -61,7 +68,7 @@
 -(void)viewWillAppear:(BOOL)animated{
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
-    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor grayColor]];    
+    [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor grayColor]];
 }
 
 - (void)viewDidLoad {
@@ -86,8 +93,9 @@
 }
 -(void)customernavbar{
     
-    UIView *v=[[[NSBundle mainBundle]loadNibNamed:@"NavBarForHome" owner:self options:nil] firstObject];
-    v.frame=CGRectMake(0, StatusBarH, MAIN_WIDTH, 44);
+   v=[[[NSBundle mainBundle]loadNibNamed:@"NavBarForHome" owner:self options:nil] firstObject];
+    v.frame=CGRectMake(0, 0, MAIN_WIDTH,64);
+   
     [self.view addSubview:v];
     [self.view bringSubviewToFront:v];
 }
@@ -392,6 +400,31 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
+    
+    if (scrollView.contentOffset.y>0)
+        [UIView animateWithDuration:.5 animations:^{
+            v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.5];
+            _navtitlelab.textColor=[UIColor grayColor];
+        }];
+    
+    
+    else{
+        
+        [UIView animateWithDuration:.5 animations:^{
+            v.backgroundColor=[UIColor colorWithRed:209.0/255 green:209.0/255 blue:209.0/255 alpha:.5];
+            
+            _navtitlelab.textColor=[UIColor whiteColor];
+        }];
+        
+    }
+    
+    
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    NSLog(@"停止滑动了");
+    
+    lastYoffsetofscrollview=scrollView.contentOffset.y;
 }
 
 //1.加载头部
@@ -445,7 +478,7 @@
 
 
 - (IBAction)phoneBtnClicked:(id)sender {
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",@"400123123"]];
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",@"400-1000-368"]];
     
     if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
         [[UIApplication sharedApplication] openURL:phoneUrl];
@@ -469,12 +502,14 @@
    searchview=[[[NSBundle mainBundle]loadNibNamed:@"NavBarSearchForHome" owner:self options:nil]firstObject];
     searchview.frame=CGRectMake(MAIN_WIDTH, StatusBarH, MAIN_WIDTH*0.83, 44);
     [self.view addSubview:searchview];
+    _navtitlelab.hidden=YES;
+    _searchIcon.hidden=YES;
 
     [UIView animateWithDuration:.4 animations:^{
         searchview.x=MAIN_WIDTH*0.16;
         
     } completion:^(BOOL finished) {
-        [_searchbar becomeFirstResponder];
+        [_searchTextField becomeFirstResponder];
         
     }];
     
@@ -483,20 +518,24 @@
 
 
 - (IBAction)cancelBtnClicked:(id)sender {
+    
     [UIView animateWithDuration:.4 animations:^{
         searchview.x=MAIN_WIDTH;
         
     } completion:^(BOOL finished) {
         [searchview removeFromSuperview];
+        _navtitlelab.hidden=NO;
+        _searchIcon.hidden=NO;
+
     }];
 }
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    SearchResultsViewController *vc=[[SearchResultsViewController alloc]init];
-    vc.keywords=searchBar.text;
-    [self.navigationController pushViewController:vc animated:YES];
-    
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    SearchResultsViewController *vc=[[SearchResultsViewController alloc]init];
+    vc.keywords=textField.text;
+    [self.navigationController pushViewController:vc animated:YES];
+    return YES;
 }
 
 - (IBAction)shucaishuiguoBtnClicked:(id)sender {

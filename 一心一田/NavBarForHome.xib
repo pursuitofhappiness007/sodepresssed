@@ -3,16 +3,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="navtitlelab" destination="50w-Fk-ocq" id="kPr-bZ-f1R"/>
+                <outlet property="searchIcon" destination="CjJ-HI-7Wx" id="YmD-QD-ZOO"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.75" contentMode="scaleToFill" id="PLy-g3-t9U">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <view contentMode="scaleToFill" id="PLy-g3-t9U">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4W9-Hp-xSs" userLabel="phone">
-                    <rect key="frame" x="12" y="10" width="20" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4W9-Hp-xSs" userLabel="phone">
+                    <rect key="frame" x="12" y="30" width="20" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="23" id="gOu-TG-1H1"/>
                         <constraint firstAttribute="height" constant="17" id="yBc-OR-ZFr"/>
@@ -30,13 +36,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一心一田" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50w-Fk-ocq">
-                    <rect key="frame" x="157" y="13" width="60" height="18"/>
+                    <rect key="frame" x="157" y="32.5" width="60" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjJ-HI-7Wx" userLabel="search">
-                    <rect key="frame" x="343" y="10.5" width="20" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjJ-HI-7Wx" userLabel="search">
+                    <rect key="frame" x="349" y="30" width="14" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="GY3-lI-A02"/>
                         <constraint firstAttribute="height" constant="15" id="m3H-qX-gpp"/>
@@ -54,10 +60,10 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="0.5" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="50w-Fk-ocq" firstAttribute="centerY" secondItem="PLy-g3-t9U" secondAttribute="centerY" id="499-8V-yYD"/>
-                <constraint firstItem="4W9-Hp-xSs" firstAttribute="centerY" secondItem="PLy-g3-t9U" secondAttribute="centerY" id="Dbi-cO-JQB"/>
+                <constraint firstItem="4W9-Hp-xSs" firstAttribute="centerY" secondItem="PLy-g3-t9U" secondAttribute="centerY" multiplier="1.28" id="Dbi-cO-JQB"/>
                 <constraint firstItem="4W9-Hp-xSs" firstAttribute="leading" secondItem="PLy-g3-t9U" secondAttribute="leading" constant="12" id="NqC-Li-hD3"/>
                 <constraint firstItem="50w-Fk-ocq" firstAttribute="centerX" secondItem="PLy-g3-t9U" secondAttribute="centerX" id="PfC-3V-6nE"/>
                 <constraint firstAttribute="trailing" secondItem="CjJ-HI-7Wx" secondAttribute="trailing" constant="12" id="Q7A-aC-XuK"/>

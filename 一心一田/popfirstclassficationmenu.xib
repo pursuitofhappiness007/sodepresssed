@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgV-pY-I96" userLabel="mask">
+                <view tag="66" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgV-pY-I96" userLabel="mask">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                     <color key="backgroundColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="0.26961043074324326" colorSpace="calibratedRGB"/>
                     <gestureRecognizers/>
