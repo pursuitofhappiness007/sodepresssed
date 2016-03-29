@@ -260,13 +260,14 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeTableViewCell *cell=[HomeTableViewCell cellWithTableView:tableView cellwithIndexPath:indexPath];
     NSDictionary *good = tablelist[indexPath.row];
-    NSLog(@"%@",good);
     cell.goodsid=[good stringForKey:@"id"];
     cell.goodname = [good stringForKey:@"name"];
-    cell.shortcomment =  [good stringForKey:@"commentary"];
+    //短评commentary
+   cell.shortcomment =[good stringForKey:@"commentary"];
     cell.detailBtn.tag = indexPath.row;
     [cell.detailBtn addTarget:self action:@selector(goToDetailVC:)  forControlEvents:UIControlEventTouchUpInside];
-    cell.specific = [good stringForKey:@"specification"];
+    //规格
+    cell.specific = [good stringForKey:@"specifications"];
     cell.goodimg = [good stringForKey:@"thumbnailImg"];
     cell.dailysales=[NSString stringWithFormat:@"本市场今日已售%@件",[good stringForKey:@"dailySales"]];
     NSArray *array=[good arrayForKey:@"goodsRangePrices"];
@@ -437,7 +438,7 @@
 }
 //2.每行的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MAIN_HEIGHT*0.2;
+    return MAIN_HEIGHT*0.236;
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -93,8 +93,22 @@
 }
 
 -(void)setbottombar{
+    int kindcount=[LocalAndOnlineFileTool refreshkindnum:self.tabBarController];
+    if(kindcount==0){
+        _numofgoodskindlab.backgroundColor=[UIColor lightGrayColor];
+        _summoneylab.textColor=[UIColor lightGrayColor];
+        _payBtn.backgroundColor=[UIColor lightGrayColor];
+        _payBtn.enabled=NO;
+    }
+    else{
+        _numofgoodskindlab.backgroundColor=[UIColor redColor];
+        _summoneylab.textColor=[UIColor redColor];
+        _payBtn.backgroundColor=[UIColor redColor];
+        _payBtn.enabled=YES;
+
+    }
     //设置种类
-    _numofgoodskindlab.text=[NSString stringWithFormat:@"%d种商品",[LocalAndOnlineFileTool refreshkindnum:self.tabBarController]];
+    _numofgoodskindlab.text=[NSString stringWithFormat:@"%d种商品",kindcount];
     //设置商品数量
     [_payBtn setTitle:[NSString stringWithFormat:@"去支付(%d)",[LocalAndOnlineFileTool refreshcoungnum]] forState:UIControlStateNormal];
     //设置参考价格

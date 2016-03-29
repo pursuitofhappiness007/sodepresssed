@@ -23,6 +23,7 @@
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=YES;
     [[UITextField appearance] setTintColor:[UIColor colorWithRed:34.0/255 green:127.0/255 blue:223.0/255 alpha:1.0]];
+     [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor colorWithRed:34.0/255 green:127.0/255 blue:223.0/255 alpha:1.0]];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -92,40 +93,6 @@
 
     [self loginBtnClicked:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"tokenfilechanged" object:nil];
-}
-
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    //用户名
-    if(textField.tag==88){
-        if([textField.text isEqualToString:@"输入账号"])
-            textField.text=nil;
-        if (_pwdtextfield.text.length==0) {
-            _pwdtextfield.text=@"输入密码";
-            _pwdtextfield.secureTextEntry=NO;
-        }
-    }
-    //密码
-    else{
-        if([textField.text isEqualToString:@"输入密码"])
-            textField.text=nil;
-        _pwdtextfield.secureTextEntry=YES;
-        if (_accounttextfield.text.length==0) {
-            _accounttextfield.text=@"输入账号";
-        }
-    }
-    
-    return YES;
-}
-
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    
-    if([string isEqualToString:@"\n"]) {
-        [textField resignFirstResponder];
-        return NO;
-    }
-    
-    return YES;
-
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
