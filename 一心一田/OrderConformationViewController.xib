@@ -252,25 +252,33 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWu-zF-lVm">
-                            <rect key="frame" x="113" y="7" width="49.5" height="19.5"/>
+                            <rect key="frame" x="113.5" y="8" width="49.5" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="aligntobottom" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBT-gE-gwq">
-                            <rect key="frame" x="105" y="11" width="7.5" height="15.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <rect key="frame" x="105" y="11" width="8.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="aligntobottom" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="jWu-zF-lVm" firstAttribute="bottom" secondItem="xBT-gE-gwq" secondAttribute="bottom" id="Nbe-xg-E04"/>
                         <constraint firstItem="hTV-GO-SJr" firstAttribute="leading" secondItem="yKT-ku-XOt" secondAttribute="leading" constant="30" id="Qg4-qB-c7d"/>
                         <constraint firstItem="xBT-gE-gwq" firstAttribute="centerY" secondItem="yKT-ku-XOt" secondAttribute="centerY" id="RsU-h2-WZf"/>
                         <constraint firstItem="hTV-GO-SJr" firstAttribute="centerY" secondItem="yKT-ku-XOt" secondAttribute="centerY" id="SDe-AF-RO7"/>
                         <constraint firstItem="jWu-zF-lVm" firstAttribute="leading" secondItem="xBT-gE-gwq" secondAttribute="trailing" id="TYM-aK-Ocg"/>
                         <constraint firstItem="jWu-zF-lVm" firstAttribute="bottom" secondItem="xBT-gE-gwq" secondAttribute="bottom" id="bsQ-fB-SK3"/>
+                        <constraint firstItem="jWu-zF-lVm" firstAttribute="centerY" secondItem="yKT-ku-XOt" secondAttribute="centerY" multiplier="0.95" id="hL2-ox-QF1"/>
                         <constraint firstItem="xBT-gE-gwq" firstAttribute="leading" secondItem="hTV-GO-SJr" secondAttribute="trailing" constant="15" id="jPu-5A-A0w"/>
                         <constraint firstItem="hTV-GO-SJr" firstAttribute="centerY" secondItem="yKT-ku-XOt" secondAttribute="centerY" id="m86-bJ-o97"/>
                         <constraint firstItem="jWu-zF-lVm" firstAttribute="centerY" secondItem="yKT-ku-XOt" secondAttribute="centerY" id="sy9-dv-YZf"/>
@@ -279,6 +287,8 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="m86-bJ-o97"/>
+                            <exclude reference="Nbe-xg-E04"/>
+                            <exclude reference="bsQ-fB-SK3"/>
                             <exclude reference="sy9-dv-YZf"/>
                             <exclude reference="wma-fu-9Ve"/>
                         </mask>

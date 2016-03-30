@@ -77,6 +77,7 @@
 -(void)refreshgoodnum:(NSNotification *)anote{
     if (needrefresh) {
         [self initparas];
+        return;
     }
     
     NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
