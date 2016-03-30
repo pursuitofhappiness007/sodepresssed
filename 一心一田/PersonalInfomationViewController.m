@@ -35,6 +35,12 @@
     self.navigationItem.title=@"个人资料";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(personinfochangedupdate) name:@"namechanged" object:nil];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshlocalcontent) name:@"namechanged" object:nil];
+    [self initparas];
+    [self setlocalcontent];
+}
+
+-(void)refreshlocalcontent{
     [self setlocalcontent];
 }
 
@@ -59,10 +65,14 @@
     [_personalIcon sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
     _usernamelab.text=[dict stringForKey:@"name"];
     NSArray *temp=[NSArray arrayWithArray:[dict arrayForKey:@"phones"]];
+    
     for (NSString *str in temp) {
+        NSLog(@"电话为%@",str);
         NSMutableString *string=[str mutableCopy];
+        
         [phonesArray addObject:string];
     }
+    NSLog(@"最后的phonearray=%@",phonesArray);
     switch (phonesArray.count) {
         case 0:
         {

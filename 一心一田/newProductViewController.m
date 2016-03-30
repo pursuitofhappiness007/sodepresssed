@@ -10,6 +10,7 @@
 #import "HomeTableViewCell.h"
 #import "GoodsDetailViewController.h"
 #import "OrderConformationViewController.h"
+#import "CountChooserViewController.h"
 @interface newProductViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     int pagenum;
@@ -254,8 +255,20 @@
     cell.minusBtn.tag=indexPath.row;
     [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.handinputcoungBtn.tag=indexPath.row;
+    [cell.handinputcoungBtn addTarget:self action:@selector(popCountChooer:) forControlEvents:UIControlEventTouchUpInside];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(void)popCountChooer:(UIButton *)sender{
+    HomeTableViewCell *cell=[_tabelView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    CountChooserViewController *vc=[[CountChooserViewController alloc]init];
+    vc.cell=cell;
+    vc.type=homecell;
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self.tabBarController presentViewController:vc animated:YES completion:nil];
+    
 }
 
 -(void)setbottombar{

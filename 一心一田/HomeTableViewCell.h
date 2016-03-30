@@ -48,6 +48,8 @@
 //当天销售
 @property (nonatomic,copy)NSString *dailysales;
 @property (weak, nonatomic) IBOutlet UILabel *pricelab;
+//手动输入数量按钮
+@property (weak, nonatomic) IBOutlet UIButton *handinputcoungBtn;
 
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 @end

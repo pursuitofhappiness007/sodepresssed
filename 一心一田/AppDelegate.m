@@ -29,6 +29,7 @@
     [[UITabBar appearance] setTranslucent:YES];
     
     [[UITabBar appearance]setBackgroundImage:[UIImage new]];
+   
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
 

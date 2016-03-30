@@ -48,7 +48,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVh-Ig-6JV">
-                            <rect key="frame" x="270" y="10" width="75" height="29"/>
+                            <rect key="frame" x="280" y="10" width="75" height="29"/>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="98" id="VbY-6F-3l5"/>
@@ -114,7 +114,7 @@
                         <constraint firstItem="a6P-HN-l2l" firstAttribute="centerY" secondItem="zVt-Wj-s2M" secondAttribute="centerY" id="2WI-eQ-xWs"/>
                         <constraint firstItem="udk-7Q-qsk" firstAttribute="centerY" secondItem="zVt-Wj-s2M" secondAttribute="centerY" id="4gB-pc-uaK"/>
                         <constraint firstAttribute="trailing" secondItem="SqG-tr-YMb" secondAttribute="trailing" id="8Bs-6C-vCv"/>
-                        <constraint firstAttribute="trailing" secondItem="hVh-Ig-6JV" secondAttribute="trailing" constant="30" id="8Nk-xP-QoF"/>
+                        <constraint firstAttribute="trailing" secondItem="hVh-Ig-6JV" secondAttribute="trailing" constant="20" id="8Nk-xP-QoF"/>
                         <constraint firstItem="hVh-Ig-6JV" firstAttribute="top" secondItem="Cyp-iG-Aj1" secondAttribute="top" id="DQs-t3-cEx"/>
                         <constraint firstItem="SqG-tr-YMb" firstAttribute="top" secondItem="zVt-Wj-s2M" secondAttribute="top" id="IiW-Zv-NNk"/>
                         <constraint firstItem="a6P-HN-l2l" firstAttribute="bottom" secondItem="Cyp-iG-Aj1" secondAttribute="bottom" id="Ik6-Wc-hT2"/>

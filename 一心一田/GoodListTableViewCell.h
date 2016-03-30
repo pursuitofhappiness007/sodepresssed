@@ -45,6 +45,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *countlab;
 @property (weak, nonatomic) IBOutlet UILabel *pricelab;
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
+//手动输入数量
+@property (weak, nonatomic) IBOutlet UIButton *handinputcoungBtn;
 
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 @end

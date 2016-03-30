@@ -160,6 +160,9 @@
                         <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWS-F3-l4j">
+                        <rect key="frame" x="231" y="108.5" width="29.5" height="22.5"/>
+                    </button>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXh-7y-B8S">
                         <rect key="frame" x="93" y="68" width="47" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -182,8 +185,10 @@
                     <constraint firstItem="mEG-cn-zNN" firstAttribute="trailing" secondItem="0a3-9p-0HY" secondAttribute="trailing" id="AVd-iS-zJh"/>
                     <constraint firstItem="Q16-er-QK6" firstAttribute="bottom" secondItem="3Th-oW-87k" secondAttribute="bottom" id="Ajv-VV-ggo"/>
                     <constraint firstItem="Y71-Fl-3Ni" firstAttribute="top" secondItem="Mb8-UQ-CbU" secondAttribute="top" id="BMB-vO-NdQ"/>
+                    <constraint firstItem="Q16-er-QK6" firstAttribute="leading" secondItem="KWS-F3-l4j" secondAttribute="leading" id="CXy-Hf-GfU"/>
                     <constraint firstItem="J4Y-nd-fdt" firstAttribute="leading" secondItem="Q16-er-QK6" secondAttribute="trailing" id="DUo-Ry-Ekh"/>
                     <constraint firstItem="kwv-2y-GQF" firstAttribute="top" secondItem="3Th-oW-87k" secondAttribute="top" id="DZp-jd-sOi"/>
+                    <constraint firstItem="Q16-er-QK6" firstAttribute="top" secondItem="KWS-F3-l4j" secondAttribute="top" id="ESb-Ce-E9b"/>
                     <constraint firstItem="lsl-St-diJ" firstAttribute="leading" secondItem="nJ2-sT-1cd" secondAttribute="leading" id="FK7-Aw-o1h"/>
                     <constraint firstItem="Q16-er-QK6" firstAttribute="leading" secondItem="kwv-2y-GQF" secondAttribute="trailing" id="GJF-EQ-FxL"/>
                     <constraint firstItem="KXh-7y-B8S" firstAttribute="leading" secondItem="lsl-St-diJ" secondAttribute="leading" id="GJi-vQ-h30"/>
@@ -191,6 +196,7 @@
                     <constraint firstItem="3Th-oW-87k" firstAttribute="top" secondItem="J4Y-nd-fdt" secondAttribute="top" id="HzY-zQ-Ggs"/>
                     <constraint firstItem="E2v-Eo-dc2" firstAttribute="centerY" secondItem="fmt-mD-Txj" secondAttribute="centerY" multiplier="0.59" id="KB1-7F-QiG"/>
                     <constraint firstItem="nJ2-sT-1cd" firstAttribute="top" secondItem="mBM-Hm-3Hh" secondAttribute="top" id="KUx-ck-9N2"/>
+                    <constraint firstItem="Q16-er-QK6" firstAttribute="bottom" secondItem="KWS-F3-l4j" secondAttribute="bottom" id="Kns-Mg-RWE"/>
                     <constraint firstItem="E2v-Eo-dc2" firstAttribute="top" secondItem="nJ2-sT-1cd" secondAttribute="bottom" constant="5" id="L4L-sX-MWm"/>
                     <constraint firstItem="Q16-er-QK6" firstAttribute="top" secondItem="3Th-oW-87k" secondAttribute="top" id="MNh-Oj-2lW"/>
                     <constraint firstItem="Y71-Fl-3Ni" firstAttribute="trailing" secondItem="fwT-Bg-Aeu" secondAttribute="trailing" id="MdS-uc-4J2"/>
@@ -244,6 +250,7 @@
                 <outlet property="detailBtn" destination="yRd-qZ-HWD" id="Gk2-jg-nNI"/>
                 <outlet property="goodnamelab" destination="nJ2-sT-1cd" id="ogw-YF-cMQ"/>
                 <outlet property="goodsimageview" destination="mBM-Hm-3Hh" id="MGW-Mq-Ajl"/>
+                <outlet property="handinputcoungBtn" destination="KWS-F3-l4j" id="uWM-fs-4OQ"/>
                 <outlet property="minusBtn" destination="kwv-2y-GQF" id="PzW-3h-zAB"/>
                 <outlet property="price1lab" destination="Ivd-W7-g38" id="nTv-Lb-Xv6"/>
                 <outlet property="price2lab" destination="0a3-9p-0HY" id="tVq-WZ-vva"/>

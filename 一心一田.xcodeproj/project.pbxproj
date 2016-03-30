@@ -105,6 +105,7 @@
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
 		FE89EFC61CAA900E00C898CB /* SubtitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE89EFC41CAA900E00C898CB /* SubtitleTableViewCell.m */; };
 		FE89EFC71CAA900E00C898CB /* SubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFC51CAA900E00C898CB /* SubtitleTableViewCell.xib */; };
+		FE89EFC91CAAC40300C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFC81CAAC40300C898CB /* Assets.xcassets */; };
 		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
 		FE906D1E1CA0F6A80099D786 /* zeroBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */; };
 		FE906D201CA0F6B90099D786 /* oneBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1F1CA0F6B90099D786 /* oneBtn.xib */; };
@@ -126,6 +127,10 @@
 		FEB20D9E1C929C860018A11C /* filterwindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20D9D1C929C860018A11C /* filterwindow.xib */; };
 		FEB20DA41C929F670018A11C /* footerforsection.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA11C929F670018A11C /* footerforsection.xib */; };
 		FEB20DA51C929F670018A11C /* onebtninfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB20DA21C929F670018A11C /* onebtninfooter.xib */; };
+		FECA29AB1CAB6FE00063C7E1 /* CountChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA29A91CAB6FE00063C7E1 /* CountChooserViewController.m */; };
+		FECA29AC1CAB6FE00063C7E1 /* CountChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECA29AA1CAB6FE00063C7E1 /* CountChooserViewController.xib */; };
+		FECA29AF1CAB93EF0063C7E1 /* headerfortableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECA29AE1CAB93EF0063C7E1 /* headerfortableview.xib */; };
+		FECA29B21CABE8640063C7E1 /* Mylabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA29B11CABE8640063C7E1 /* Mylabel.m */; };
 		FECF1A8F1C9FEDCD00A7A580 /* NewFuturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */; };
 		FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */; };
 		FECF1A921C9FF7BB00A7A580 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A911C9FF7BB00A7A580 /* 4.png */; };
@@ -338,6 +343,7 @@
 		FE89EFC31CAA900E00C898CB /* SubtitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtitleTableViewCell.h; sourceTree = "<group>"; };
 		FE89EFC41CAA900E00C898CB /* SubtitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtitleTableViewCell.m; sourceTree = "<group>"; };
 		FE89EFC51CAA900E00C898CB /* SubtitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtitleTableViewCell.xib; sourceTree = "<group>"; };
+		FE89EFC81CAAC40300C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE906D1B1CA0F4220099D786 /* commonfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commonfooter.xib; sourceTree = "<group>"; };
 		FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zeroBtn.xib; sourceTree = "<group>"; };
 		FE906D1F1CA0F6B90099D786 /* oneBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneBtn.xib; sourceTree = "<group>"; };
@@ -368,6 +374,12 @@
 		FEB20D9D1C929C860018A11C /* filterwindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filterwindow.xib; sourceTree = "<group>"; };
 		FEB20DA11C929F670018A11C /* footerforsection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = footerforsection.xib; sourceTree = "<group>"; };
 		FEB20DA21C929F670018A11C /* onebtninfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onebtninfooter.xib; sourceTree = "<group>"; };
+		FECA29A81CAB6FE00063C7E1 /* CountChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountChooserViewController.h; sourceTree = "<group>"; };
+		FECA29A91CAB6FE00063C7E1 /* CountChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountChooserViewController.m; sourceTree = "<group>"; };
+		FECA29AA1CAB6FE00063C7E1 /* CountChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountChooserViewController.xib; sourceTree = "<group>"; };
+		FECA29AE1CAB93EF0063C7E1 /* headerfortableview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerfortableview.xib; sourceTree = "<group>"; };
+		FECA29B01CABE8640063C7E1 /* Mylabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mylabel.h; sourceTree = "<group>"; };
+		FECA29B11CABE8640063C7E1 /* Mylabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mylabel.m; sourceTree = "<group>"; };
 		FECF1A8C1C9FEDCD00A7A580 /* NewFuturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFuturesViewController.h; sourceTree = "<group>"; };
 		FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFuturesViewController.m; sourceTree = "<group>"; };
 		FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFuturesViewController.xib; sourceTree = "<group>"; };
@@ -579,6 +591,7 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FE89EFC81CAAC40300C898CB /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -607,6 +620,7 @@
 				FE545B031C8FCB760081DB28 /* 密码修改 */,
 				FE7DBF651C8D695B003536BC /* 登录 */,
 				FE906D2D1CA1304B0099D786 /* 常购 */,
+				FECA29AD1CAB70880063C7E1 /* 数量选择 */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -614,6 +628,8 @@
 		FE6DC0441C8D5B2B00E93578 /* Extensios */ = {
 			isa = PBXGroup;
 			children = (
+				FECA29B01CABE8640063C7E1 /* Mylabel.h */,
+				FECA29B11CABE8640063C7E1 /* Mylabel.m */,
 			);
 			name = Extensios;
 			sourceTree = "<group>";
@@ -919,6 +935,16 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
+		FECA29AD1CAB70880063C7E1 /* 数量选择 */ = {
+			isa = PBXGroup;
+			children = (
+				FECA29A81CAB6FE00063C7E1 /* CountChooserViewController.h */,
+				FECA29A91CAB6FE00063C7E1 /* CountChooserViewController.m */,
+				FECA29AA1CAB6FE00063C7E1 /* CountChooserViewController.xib */,
+			);
+			name = "数量选择";
+			sourceTree = "<group>";
+		};
 		FEDC9FBB1C97AEE40002FB2F /* 修改昵称和电话 */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +958,7 @@
 		FEDFA0AD1C911C1F0010E5E3 /* 订单详情 */ = {
 			isa = PBXGroup;
 			children = (
+				FECA29AE1CAB93EF0063C7E1 /* headerfortableview.xib */,
 				FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */,
 				FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */,
 				FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */,
@@ -1163,11 +1190,13 @@
 				FE906D221CA0F6C30099D786 /* twoBtn.xib in Resources */,
 				FEDFA0C21C91242C0010E5E3 /* ShoppingCarTableViewCell.xib in Resources */,
 				FE906D2F1CA13A780099D786 /* threeBtninfoot.xib in Resources */,
+				FECA29AC1CAB6FE00063C7E1 /* CountChooserViewController.xib in Resources */,
 				FEDFA0C01C91242C0010E5E3 /* ShopcarViewController.xib in Resources */,
 				CEECE1E61C9AD17D009D11D8 /* HomeViewController.xib in Resources */,
 				FECF1A921C9FF7BB00A7A580 /* 4.png in Resources */,
 				CEECE1F11C9AD18F009D11D8 /* CollectionListTableViewCell.xib in Resources */,
 				FEDFA0E11C9129180010E5E3 /* OrderConformationViewController.xib in Resources */,
+				FECA29AF1CAB93EF0063C7E1 /* headerfortableview.xib in Resources */,
 				FEDFA0E61C9129640010E5E3 /* SearchResultsViewController.xib in Resources */,
 				FEDFA1071C914C600010E5E3 /* MyOrderViewController.xib in Resources */,
 				FE2E110F1C9A924000916CAD /* popaddresschooser.xib in Resources */,
@@ -1205,6 +1234,7 @@
 				FE7DBF4A1C8D6899003536BC /* SDWebImageCompat.m in Sources */,
 				FE7734B91C8D8D6C00397142 /* WXPayTool.m in Sources */,
 				FE7DBF851C8D6AC2003536BC /* FMResultSet.m in Sources */,
+				FECA29B21CABE8640063C7E1 /* Mylabel.m in Sources */,
 				CE596B0C1CA131F100B3F82E /* newProductViewController.m in Sources */,
 				FE7DBF611C8D68D5003536BC /* NSDictionary+SafeAccess.m in Sources */,
 				FE7DBF1F1C8D6873003536BC /* AFNetworkReachabilityManager.m in Sources */,
@@ -1225,6 +1255,7 @@
 				FE7DBF731C8D6983003536BC /* reSetPwdViewController.m in Sources */,
 				FE7DBF211C8D6873003536BC /* AFURLConnectionOperation.m in Sources */,
 				CEECE2041C9AD1AD009D11D8 /* AcountDetailTableViewCell.m in Sources */,
+				FECA29AB1CAB6FE00063C7E1 /* CountChooserViewController.m in Sources */,
 				FE7DBF241C8D6873003536BC /* AFURLSessionManager.m in Sources */,
 				FE7DBF551C8D6899003536BC /* UIImageView+WebCache.m in Sources */,
 				CE84F9C61CAAA8D9004FF107 /* CommitPayViewController.m in Sources */,

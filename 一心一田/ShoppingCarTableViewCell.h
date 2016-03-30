@@ -30,6 +30,9 @@
 //当前数量
 @property (weak,nonatomic) NSString *currentcount;
 @property (weak, nonatomic) IBOutlet UIButton *singleBtn;
+//手动输入数量
+@property (weak, nonatomic) IBOutlet UIButton *handinputcoungBtn;
+
 + (instancetype)cellWithTableView:(UITableView *)tableview cellwithIndexPath:(NSIndexPath *)indexpath;
 
 @end
