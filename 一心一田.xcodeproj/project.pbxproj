@@ -144,8 +144,6 @@
 		FEDC9FCF1C9839980002FB2F /* popfirstclassficationmenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDC9FCE1C9839980002FB2F /* popfirstclassficationmenu.xib */; };
 		FEDFA0B11C911C7F0010E5E3 /* MutipleGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */; };
 		FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */; };
-		FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */; };
-		FEDFA0B71C9122B00010E5E3 /* OrderllistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0B51C9122B00010E5E3 /* OrderllistTableViewCell.xib */; };
 		FEDFA0BF1C91242C0010E5E3 /* ShopcarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0BA1C91242C0010E5E3 /* ShopcarViewController.m */; };
 		FEDFA0C01C91242C0010E5E3 /* ShopcarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEDFA0BB1C91242C0010E5E3 /* ShopcarViewController.xib */; };
 		FEDFA0C11C91242C0010E5E3 /* ShoppingCarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDFA0BD1C91242C0010E5E3 /* ShoppingCarTableViewCell.m */; };
@@ -398,9 +396,6 @@
 		FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutipleGoodsViewController.h; sourceTree = "<group>"; };
 		FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutipleGoodsViewController.m; sourceTree = "<group>"; };
 		FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MutipleGoodsViewController.xib; sourceTree = "<group>"; };
-		FEDFA0B31C9122B00010E5E3 /* OrderllistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderllistTableViewCell.h; sourceTree = "<group>"; };
-		FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderllistTableViewCell.m; sourceTree = "<group>"; };
-		FEDFA0B51C9122B00010E5E3 /* OrderllistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderllistTableViewCell.xib; sourceTree = "<group>"; };
 		FEDFA0B91C91242C0010E5E3 /* ShopcarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopcarViewController.h; sourceTree = "<group>"; };
 		FEDFA0BA1C91242C0010E5E3 /* ShopcarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopcarViewController.m; sourceTree = "<group>"; };
 		FEDFA0BB1C91242C0010E5E3 /* ShopcarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopcarViewController.xib; sourceTree = "<group>"; };
@@ -962,9 +957,6 @@
 				FEDFA0AE1C911C7F0010E5E3 /* MutipleGoodsViewController.h */,
 				FEDFA0AF1C911C7F0010E5E3 /* MutipleGoodsViewController.m */,
 				FEDFA0B01C911C7F0010E5E3 /* MutipleGoodsViewController.xib */,
-				FEDFA0B31C9122B00010E5E3 /* OrderllistTableViewCell.h */,
-				FEDFA0B41C9122B00010E5E3 /* OrderllistTableViewCell.m */,
-				FEDFA0B51C9122B00010E5E3 /* OrderllistTableViewCell.xib */,
 				FE906D1B1CA0F4220099D786 /* commonfooter.xib */,
 				FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */,
 				FE906D1F1CA0F6B90099D786 /* oneBtn.xib */,
@@ -1158,7 +1150,6 @@
 				FECF1A961C9FF85E00A7A580 /* 3.png in Resources */,
 				FE18972A1CA3B29700310488 /* Default-568h@2x.png in Resources */,
 				FEDC9FCA1C97C4710002FB2F /* GoodListTableViewCell.xib in Resources */,
-				FEDFA0B71C9122B00010E5E3 /* OrderllistTableViewCell.xib in Resources */,
 				FEDFA0B21C911C7F0010E5E3 /* MutipleGoodsViewController.xib in Resources */,
 				FEDC9FC51C97B0DC0002FB2F /* EditNickNameViewController.xib in Resources */,
 				FE7DBF8B1C8D6B51003536BC /* chooseprovince.xib in Resources */,
@@ -1293,7 +1284,6 @@
 				CEECE1F71C9AD19F009D11D8 /* AccountRecharge.m in Sources */,
 				FE7DBF1D1C8D6873003536BC /* AFHTTPRequestOperationManager.m in Sources */,
 				FEDC9FC91C97C4710002FB2F /* GoodListTableViewCell.m in Sources */,
-				FEDFA0B61C9122B00010E5E3 /* OrderllistTableViewCell.m in Sources */,
 				FE6DC07C1C8D612B00E93578 /* HttpTool.m in Sources */,
 				FEDFA1041C914C600010E5E3 /* MyOrderTableViewCell.m in Sources */,
 				FEDFA0C91C91266E0010E5E3 /* ClassficationViewController.m in Sources */,
