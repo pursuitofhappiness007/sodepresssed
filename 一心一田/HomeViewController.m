@@ -57,6 +57,7 @@
 //搜索图标
 @property (weak, nonatomic) IBOutlet UIButton *searchIcon;
 @property (weak, nonatomic) IBOutlet UIButton *phoneBtn;
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 
 @end
 
@@ -418,10 +419,12 @@
      [UIView animateWithDuration:.5 animations:^{
 //            v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.5];
        
-                       v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.8];
+                     //  v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.8];
          [_phoneBtn setImage:[UIImage imageNamed:@"电话2"] forState:UIControlStateNormal];
          [_searchIcon setImage:[UIImage imageNamed:@"搜索2"] forState:UIControlStateNormal];
             _navtitlelab.textColor=[UIColor colorWithRed:21/255.0 green:21/255.0 blue:21/255.0 alpha:1];
+         [_cancelBtn setTitleColor:[UIColor colorWithRed:21/255.0 green:21/255.0 blue:21/255.0 alpha:1] forState:UIControlStateNormal];
+         [v setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"导航栏"]]];
         }];
     
     
@@ -432,6 +435,7 @@
             [_phoneBtn setImage:[UIImage imageNamed:@"earphones-microphone"] forState:UIControlStateNormal];
             [_searchIcon setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
             _navtitlelab.textColor=[UIColor whiteColor];
+             [_cancelBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         }];
         
     }
@@ -455,7 +459,7 @@
 }
 //2.每行的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MAIN_HEIGHT*0.236 + 5;
+    return MAIN_HEIGHT*0.25;
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

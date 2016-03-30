@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="cancelBtn" destination="mVX-Bx-XfH" id="q4y-mH-iBY"/>
                 <outlet property="searchTextField" destination="aJE-QI-Lpf" id="V2c-pL-Hoo"/>
             </connections>
         </placeholder>

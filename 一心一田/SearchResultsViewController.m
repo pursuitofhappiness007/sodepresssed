@@ -294,7 +294,7 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   return MAIN_HEIGHT*0.21;
+   return MAIN_HEIGHT*0.24;
 }
 
 - (IBAction)backBtnClicked:(id)sender {

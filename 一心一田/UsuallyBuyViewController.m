@@ -38,7 +38,7 @@
     
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum:) name:@"addorminusClick" object:nil];
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self initparas];
     [self getdataformweb:1];
     [self setbottombar];
