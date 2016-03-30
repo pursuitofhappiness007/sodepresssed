@@ -47,11 +47,11 @@
 }
 
 -(void)setPrice:(NSString *)price{
-    _pricelab.text=price;
+    //_pricelab.text=price;
 }
 
 -(void)setCount:(NSString *)count{
-    _countlab.text=count;
+    //_countlab.text=count;
 }
 
 -(void)setToatalmoney:(NSString *)toatalmoney{
