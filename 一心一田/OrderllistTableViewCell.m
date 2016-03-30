@@ -11,9 +11,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *goodsimage;
 
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
-@property (weak, nonatomic) IBOutlet UILabel *pricelab;
+
 @property (weak, nonatomic) IBOutlet UILabel *totalmoneylab;
-@property (weak, nonatomic) IBOutlet UILabel *countlab;
+//yi
 
 @end
 @implementation OrderllistTableViewCell
