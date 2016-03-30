@@ -26,6 +26,18 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtv-GC-PNC" userLabel="mengceng">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWO-Qi-A1g">
+                            <rect key="frame" x="334" y="99.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="3gI-c6-8yh"/>
+                                <constraint firstAttribute="width" constant="15" id="KzD-Dw-GiK"/>
+                            </constraints>
+                            <connections>
+                                <action selector="seePersonInfoClicked:" destination="-1" eventType="touchUpInside" id="v91-hT-5Rl"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.41176470588235292" green="0.66666666666666663" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="吟唱的幸福" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kss-eK-6fo">
@@ -44,7 +56,7 @@
                         <action selector="seePersonInfoClicked:" destination="-1" eventType="touchUpInside" id="As8-29-4eI"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="whiteforward" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-E3-XXI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteforward" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-E3-XXI">
                     <rect key="frame" x="338" y="101" width="7" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="7" id="7Rg-yZ-gCA"/>
@@ -870,6 +882,7 @@
                 <constraint firstItem="wtv-GC-PNC" firstAttribute="trailing" secondItem="X0V-Xn-kZR" secondAttribute="trailing" id="U1f-ui-KYM"/>
                 <constraint firstItem="fdr-7G-Jhs" firstAttribute="height" secondItem="qM0-ix-6f5" secondAttribute="height" id="UWx-N0-chH"/>
                 <constraint firstAttribute="trailing" secondItem="Nsj-vw-xBw" secondAttribute="trailing" id="Ueo-BZ-GB1"/>
+                <constraint firstItem="J8t-E3-XXI" firstAttribute="centerX" secondItem="CWO-Qi-A1g" secondAttribute="centerX" id="Uku-bQ-iKT"/>
                 <constraint firstItem="eLn-01-iQN" firstAttribute="top" secondItem="y9J-oc-4Ss" secondAttribute="bottom" id="VB8-vr-LLA"/>
                 <constraint firstItem="14N-Pt-m9C" firstAttribute="top" secondItem="wtv-GC-PNC" secondAttribute="bottom" id="Vtd-A7-ft0"/>
                 <constraint firstItem="qM4-mb-hZW" firstAttribute="leading" secondItem="Qfi-Dy-K6E" secondAttribute="leading" id="Wsk-Fa-8dM"/>
@@ -927,6 +940,7 @@
                 <constraint firstItem="RAy-FY-GAY" firstAttribute="height" secondItem="fdr-7G-Jhs" secondAttribute="height" id="uqs-mJ-X1M"/>
                 <constraint firstItem="H6C-Lb-vdT" firstAttribute="leading" secondItem="prK-F0-8hh" secondAttribute="leading" id="wKP-Ta-Gsz"/>
                 <constraint firstItem="evU-GH-jqH" firstAttribute="leading" secondItem="XUy-rn-w01" secondAttribute="leading" id="yZO-nC-bua"/>
+                <constraint firstItem="J8t-E3-XXI" firstAttribute="centerY" secondItem="CWO-Qi-A1g" secondAttribute="centerY" id="ybP-Qb-w17"/>
                 <constraint firstItem="J8t-E3-XXI" firstAttribute="centerY" secondItem="Qfi-Dy-K6E" secondAttribute="centerY" id="ykx-5w-uvq"/>
                 <constraint firstItem="eLn-01-iQN" firstAttribute="leading" secondItem="prK-F0-8hh" secondAttribute="leading" id="zHE-8D-MFq"/>
             </constraints>
@@ -971,7 +985,7 @@
                     <exclude reference="t2V-NX-jFF"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="235.5" y="-7.5"/>
+            <point key="canvasLocation" x="274.5" y="-28.5"/>
         </view>
     </objects>
     <resources>

@@ -74,8 +74,8 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥8654" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyp-iG-Aj1">
-                            <rect key="frame" x="190" y="8" width="41.5" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <rect key="frame" x="190" y="6" width="47" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -159,8 +159,8 @@
         </view>
     </objects>
     <resources>
-        <image name="check" width="20" height="20"/>
+        <image name="check" width="13" height="13"/>
         <image name="choose" width="12" height="12"/>
-        <image name="uncheck" width="20" height="20"/>
+        <image name="uncheck" width="14" height="14"/>
     </resources>
 </document>

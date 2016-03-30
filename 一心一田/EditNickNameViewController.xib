@@ -70,6 +70,7 @@
                 <constraint firstItem="rCz-7r-atv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tnQ-eM-3xO"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="211.5" y="230.5"/>
         </view>
     </objects>
 </document>

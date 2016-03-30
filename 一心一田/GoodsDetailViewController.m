@@ -72,7 +72,9 @@
     [super viewDidLoad];
  self.navigationItem.title = @"商品详情";
    self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
-      [self getdatafromweb];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+  @{NSForegroundColorAttributeName:[UIColor colorWithRed:88/255.0 green:88/255.0 blue:88/255.0 alpha:1]}];
+        [self getdatafromweb];
 }
 
 - (void)backBtnClicked{

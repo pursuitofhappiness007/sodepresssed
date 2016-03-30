@@ -49,6 +49,7 @@
     self.coverView.hidden = YES;
     self.bottomView.hidden = YES;
     [self getData];
+    [self.tableview  setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableview.tableFooterView = [UIView new];
     // Do any additional setup after loading the view from its nib.
 }

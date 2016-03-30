@@ -49,7 +49,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"账单详情";
   self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(goBack)];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"more" highImageName:@"" target:self action:nil];
     self.selectedButton = self.firstbt;
     self.selectedButton.selected = YES;
     self.tableView.tableFooterView = [UIView new];
@@ -126,9 +125,20 @@
  
     
 }
+
+#pragma mark - tableviewdelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view= [UIView new];
+    return view;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
+}
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

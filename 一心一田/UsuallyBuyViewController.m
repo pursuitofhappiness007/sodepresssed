@@ -85,7 +85,7 @@
 }
 -(void)getdataformweb:(int)pageno{
     NSMutableDictionary *paras=[NSMutableDictionary dictionary];
-    paras[@"token"]=paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
+    paras[@"token"]=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] stringForKey:@"token"];
     paras[@"page_size"]=@10;
     paras[@"page_no"]=[NSString stringWithFormat:@"%d",pageno];
     [HttpTool post:@"query_always_buy_goods" params:paras success:^(id responseObj) {
@@ -265,7 +265,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MAIN_HEIGHT*0.2;
+    return  MAIN_HEIGHT*0.236 + 5;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

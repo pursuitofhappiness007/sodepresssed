@@ -55,6 +55,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *navtitlelab;
 //搜索图标
 @property (weak, nonatomic) IBOutlet UIButton *searchIcon;
+@property (weak, nonatomic) IBOutlet UIButton *phoneBtn;
 
 @end
 
@@ -195,7 +196,7 @@
         NSURL *image =  [pollImg stringForKey:@"adCode"];
         [arry addObject:image];
     }
-    SDCycleScrollView *scrollView =[[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height*0.58*0.55)];
+    SDCycleScrollView *scrollView =[[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, [UIApplication sharedApplication].keyWindow.bounds.size.width, [UIApplication sharedApplication].keyWindow.bounds.size.height*0.58*0.53)];
     [self.scrollview addSubview:scrollView];
     scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     scrollView.delegate = self;
@@ -403,9 +404,13 @@
     [self.view endEditing:YES];
     
     if (scrollView.contentOffset.y>0)
-        [UIView animateWithDuration:.5 animations:^{
-            v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.5];
-            _navtitlelab.textColor=[UIColor grayColor];
+     [UIView animateWithDuration:.5 animations:^{
+//            v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.5];
+       
+                       v.backgroundColor=[UIColor colorWithRed:248.0/255 green:248.0/255 blue:248.0/255 alpha:.8];
+         [_phoneBtn setImage:[UIImage imageNamed:@"电话2"] forState:UIControlStateNormal];
+         [_searchIcon setImage:[UIImage imageNamed:@"搜索2"] forState:UIControlStateNormal];
+            _navtitlelab.textColor=[UIColor colorWithRed:21/255.0 green:21/255.0 blue:21/255.0 alpha:1];
         }];
     
     
@@ -413,7 +418,8 @@
         
         [UIView animateWithDuration:.5 animations:^{
             v.backgroundColor=[UIColor colorWithRed:209.0/255 green:209.0/255 blue:209.0/255 alpha:.5];
-            
+            [_phoneBtn setImage:[UIImage imageNamed:@"earphones-microphone"] forState:UIControlStateNormal];
+            [_searchIcon setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
             _navtitlelab.textColor=[UIColor whiteColor];
         }];
         
@@ -438,7 +444,7 @@
 }
 //2.每行的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MAIN_HEIGHT*0.236;
+    return MAIN_HEIGHT*0.236 + 5;
 }
 //3.header的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -536,6 +542,16 @@
     SearchResultsViewController *vc=[[SearchResultsViewController alloc]init];
     vc.keywords=textField.text;
     [self.navigationController pushViewController:vc animated:YES];
+    [UIView animateWithDuration:.4 animations:^{
+        searchview.x=MAIN_WIDTH;
+        
+    } completion:^(BOOL finished) {
+        [searchview removeFromSuperview];
+        _navtitlelab.hidden=NO;
+        _searchIcon.hidden=NO;
+        
+    }];
+
     return YES;
 }
 

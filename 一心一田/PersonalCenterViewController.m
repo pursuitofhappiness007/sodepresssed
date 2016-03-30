@@ -50,11 +50,14 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(namechangedrefresh) name:@"namechanged" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateicon) name:@"iconchanged" object:nil];
    
-   [self setpersoninfo];
+  [self setpersoninfo];
+  //  [self getPersonInfo];
 
     
 }
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 -(void)updateicon{
     [self setpersoninfo];
 }
@@ -90,6 +93,8 @@
 -(void)setpersoninfo{
     NSDictionary *dict=[[[SaveFileAndWriteFileToSandBox singletonInstance]getfilefromsandbox:@"tokenfile.txt"] dictionaryForKey:@"member_info"];
     _namelab.text=[dict stringForKey:@"name"];
+    self.amount.text = [NSString stringWithFormat:@"¥%@",[dict stringForKey:@"acBal"]];
+    self.creditAmount.text = [NSString stringWithFormat:@"¥%@",[dict stringForKey:@"amount"]];
     _usericon.layer.cornerRadius=_usericon.width/2.0;
     _usericon.clipsToBounds=YES;
     _usericon.layer.masksToBounds =YES;

@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="navtitlelab" destination="50w-Fk-ocq" id="kPr-bZ-f1R"/>
+                <outlet property="phoneBtn" destination="4W9-Hp-xSs" id="xCY-AR-sxs"/>
                 <outlet property="searchIcon" destination="CjJ-HI-7Wx" id="YmD-QD-ZOO"/>
             </connections>
         </placeholder>
@@ -36,13 +37,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一心一田" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50w-Fk-ocq">
-                    <rect key="frame" x="157" y="32.5" width="60" height="18"/>
+                    <rect key="frame" x="157" y="32" width="60" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjJ-HI-7Wx" userLabel="search">
-                    <rect key="frame" x="349" y="30" width="14" height="22"/>
+                    <rect key="frame" x="343" y="30" width="20" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="GY3-lI-A02"/>
                         <constraint firstAttribute="height" constant="15" id="m3H-qX-gpp"/>
@@ -78,7 +79,7 @@
                     <exclude reference="kS0-GK-VqX"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="283.5" y="3"/>
+            <point key="canvasLocation" x="441.5" y="1"/>
         </view>
     </objects>
     <resources>

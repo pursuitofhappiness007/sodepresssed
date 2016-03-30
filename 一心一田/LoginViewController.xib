@@ -45,7 +45,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="90" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-jn-aWH" userLabel="inputpassword">
-                    <rect key="frame" x="95" y="333.5" width="205" height="30"/>
+                    <rect key="frame" x="95" y="334" width="205" height="30"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.1333333333" green="0.49803921569999998" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -100,12 +100,6 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DuL-uN-NMh">
-                    <rect key="frame" x="144" y="52" width="86" height="161.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="DuL-uN-NMh" secondAttribute="height" multiplier="71:133" id="G5Q-dd-a38"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-wO-Lf0">
                     <rect key="frame" x="75" y="291" width="14" height="18"/>
                 </imageView>
@@ -132,6 +126,12 @@
                         <action selector="loginBtnClicked:" destination="-1" eventType="touchUpInside" id="w1e-HV-a4O"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DuL-uN-NMh">
+                    <rect key="frame" x="144" y="86" width="86" height="161.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="DuL-uN-NMh" secondAttribute="height" multiplier="71:133" id="G5Q-dd-a38"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,7 +151,7 @@
                 <constraint firstItem="9x4-qp-DsK" firstAttribute="bottom" secondItem="Ofu-wO-Lf0" secondAttribute="bottom" constant="5" id="NYv-Wy-Xtb"/>
                 <constraint firstItem="tJr-k7-vga" firstAttribute="top" secondItem="gLS-Kd-bEJ" secondAttribute="bottom" constant="5" id="OXs-WO-7bc"/>
                 <constraint firstItem="pu4-C4-eDp" firstAttribute="leading" secondItem="Ofu-wO-Lf0" secondAttribute="trailing" constant="6" id="WOl-J0-kMN"/>
-                <constraint firstItem="DuL-uN-NMh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.4" id="Wqg-K3-gWK"/>
+                <constraint firstItem="DuL-uN-NMh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.5" id="Wqg-K3-gWK"/>
                 <constraint firstItem="9x4-qp-DsK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.94" id="XzQ-kE-0SD"/>
                 <constraint firstItem="hwe-mm-zkZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YS6-Dg-aGi"/>
                 <constraint firstItem="9x4-qp-DsK" firstAttribute="leading" secondItem="Ofu-wO-Lf0" secondAttribute="leading" id="Yd9-HN-99f"/>

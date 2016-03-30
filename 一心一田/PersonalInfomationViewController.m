@@ -31,7 +31,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    phonesArray = [NSMutableArray array];
     self.navigationItem.title=@"个人资料";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(personinfochangedupdate) name:@"namechanged" object:nil];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"backpretty" highImageName:@"" target:self action:@selector(backBtnClicked)];
     [self setlocalcontent];
 }
@@ -94,15 +96,7 @@
         default:
             break;
     }
-   
-    
     NSLog(@"最后的phonearray=%@",phonesArray);
-   
-    
-    
-
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

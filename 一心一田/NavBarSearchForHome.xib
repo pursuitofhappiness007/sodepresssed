@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVX-Bx-XfH">
-                    <rect key="frame" x="275" y="8" width="30" height="28"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVX-Bx-XfH">
+                    <rect key="frame" x="275" y="8.5" width="30" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="取消">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,7 +54,7 @@
                 <constraint firstItem="aJE-QI-Lpf" firstAttribute="width" secondItem="GcZ-UE-cpg" secondAttribute="width" multiplier="0.8" id="xZs-Wo-cOb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="358" y="227"/>
+            <point key="canvasLocation" x="518.5" y="234"/>
         </view>
     </objects>
 </document>
