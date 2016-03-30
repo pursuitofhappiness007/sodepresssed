@@ -10,7 +10,7 @@
 #import "ShoppingCarTableViewCell.h"
 //#import "GoodsDetailViewController.h"
 #import "OrderConformationViewController.h"
-
+#import "CountChooserViewController.h"
 @interface ShopcarViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray *tabledata;
     int previouscount;
@@ -62,10 +62,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum:) name:@"addorminusClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(donotrefresh) name:@"donotrefresh" object:nil];
+    
     needrefresh=YES;
     [self initparas];
     [self setnavbar];
     [self setbottombar];
+}
+
+-(void)donotrefresh{
+    needrefresh=NO;
 }
 
 -(void)refreshgoodnum:(NSNotification *)anote{
@@ -76,8 +82,31 @@
     NSArray *idsneedtorefresh=[[anote userInfo] arrayForKey:@"id"];
     for (int i=0; i<[_shopcartableview numberOfSections]; i++) {
         ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
-        if([idsneedtorefresh containsObject:cell.goodsid])
-            cell.countlab.text=[NSString stringWithFormat:@"%d",[LocalAndOnlineFileTool singlegoodcount:cell.goodsid]];
+        if([idsneedtorefresh containsObject:cell.goodsid]){
+            int kcount=[LocalAndOnlineFileTool singlegoodcount:cell.goodsid];
+            if (kcount==0){
+                cell.singleBtn.hidden=NO;
+                [tabledata removeObjectAtIndex:i];
+                [_shopcartableview beginUpdates];
+                [_shopcartableview deleteSections:[NSIndexSet indexSetWithIndex:i] withRowAnimation:UITableViewRowAnimationAutomatic];
+                
+                [_shopcartableview endUpdates];
+                NSInteger sectionCount = [tabledata count];
+                NSIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, sectionCount)];
+                [_shopcartableview reloadSections:indexes withRowAnimation:UITableViewRowAnimationNone];
+                if(tabledata.count==0){
+                    rightBtn.hidden=YES;
+                    _emptynoticelab.hidden=NO;
+                    [_shopcartableview setEditing:NO];
+                    _optionBar.hidden=YES;
+                    _chooseallBtn.selected=NO;
+                }
+                return;
+            }
+            cell.currentcount=[NSString stringWithFormat:@"%d",kcount];
+              cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",kcount];
+            cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.2f", cell.singleprice*kcount];
+        }
     }
     [self setbottombar];
 }
@@ -233,10 +262,21 @@
     [cell.singleBtn addTarget:self action:@selector(singleBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.handinputcoungBtn.tag=indexPath.section;
+    [cell.handinputcoungBtn addTarget:self action:@selector(popCountChooer:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
-
+-(void)popCountChooer:(UIButton *)sender{
+    ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
+    if(cell.singleBtn.selected)return;
+    CountChooserViewController *vc=[[CountChooserViewController alloc]init];
+    vc.cell=cell;
+    vc.type=shopcarcell;
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self.tabBarController presentViewController:vc animated:YES completion:nil];
+    
+}
 
 -(void)goodspicBtnClicked:(UIButton *)sender{
 //    GoodsDetailViewController *vc=[[GoodsDetailViewController alloc]init];
@@ -313,7 +353,6 @@
 }
 
 -(void)minusBtnClicked:(UIButton *)sender{
-    NSLog(@"点了见好 cell=%d",sender.tag);
     needrefresh=NO;
     ShoppingCarTableViewCell *cell=[_shopcartableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:sender.tag]];
     if(cell.singleBtn.selected)return;
@@ -321,6 +360,9 @@
     int i=[cell.countlab.text intValue];
     if(i>0){
         cell.currentcount=[NSString stringWithFormat:@"%d",i-1];
+        cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",i-1];
+        
+        cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.2f", cell.singleprice*(i-1)];
         if(i==1){
             cell.singleBtn.hidden=NO;
             [tabledata removeObjectAtIndex:sender.tag];
@@ -370,6 +412,9 @@
     if(cell.singleBtn.selected)return;
     int i=[cell.countlab.text intValue];
     cell.currentcount=[NSString stringWithFormat:@"%d",i+1];
+    cell.thecountchoosed=[NSString stringWithFormat:@"已选%d件商品",i+1];
+    
+    cell.shouldpaid=[NSString stringWithFormat:@"应付:¥%.2f", cell.singleprice*(i+1)];
     [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i+1 tabbar:self.tabBarController];
     [self setbottombar];
 }

@@ -95,6 +95,8 @@
     _usericon.layer.masksToBounds =YES;
     _usericon.layer.borderWidth=3.0;
     [_usericon sd_setImageWithURL:[NSURL URLWithString:[dict stringForKey:@"imagePath"]] placeholderImage:[UIImage imageNamed:@"defualt"]];
+    self.amount.text = [NSString stringWithFormat:@"¥%@",[dict stringForKey:@"acBal"]];
+    self.creditAmount.text = [NSString stringWithFormat:@"¥%@",[dict stringForKey:@"amount"]];
 }
 
 -(void)namechangedrefresh{

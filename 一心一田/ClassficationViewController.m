@@ -14,6 +14,7 @@
 #import "ShopcarViewController.h"
 #import "OrderConformationViewController.h"
 #import "SubtitleTableViewCell.h"
+#import "CountChooserViewController.h"
 @interface ClassficationViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIGestureRecognizerDelegate>{
     NSMutableArray *goodslist;
     NSMutableArray *goodstitles;
@@ -401,10 +402,22 @@
         cell.addBtn.tag=indexPath.row;
         [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.handinputcoungBtn.tag=indexPath.row;
+        [cell.handinputcoungBtn addTarget:self action:@selector(popCountChooer:) forControlEvents:UIControlEventTouchUpInside];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
         
     }
+}
+
+-(void)popCountChooer:(UIButton *)sender{
+    GoodListTableViewCell *cell=[_fenleitableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    CountChooserViewController *vc=[[CountChooserViewController alloc]init];
+    vc.cell=cell;
+    vc.type=goodslistcell;
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self.tabBarController presentViewController:vc animated:YES completion:nil];
+    
 }
 
 - (void)goToDetailVC:(UIButton *)sender{

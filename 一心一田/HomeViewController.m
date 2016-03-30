@@ -18,6 +18,7 @@
 #import "UsuallyBuyViewController.h"
 #import  "UsuallyBuyViewController.h"
 #import "SearchViewController.h"
+#import "CountChooserViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *tablelist;
@@ -69,6 +70,7 @@
   self.navigationController.navigationBarHidden=YES;
     self.tabBarController.tabBar.hidden=NO;
     [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor grayColor]];
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewDidLoad {
@@ -77,7 +79,6 @@
     NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshgoodnum:) name:@"addorminusClick" object:nil];
     [self customernavbar];
-    [self setNeedsStatusBarAppearanceUpdate];
     [self initdata];
     [self getdatafromserver];
     [self getTableListDataFromSever:1];
@@ -99,9 +100,7 @@
     [self.view addSubview:v];
     [self.view bringSubviewToFront:v];
 }
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
+
 
 -(void)initdata{
    tablelist = [NSMutableArray array];
@@ -368,13 +367,25 @@
    
     cell.addBtn.tag=indexPath.row;
     cell.minusBtn.tag=indexPath.row;
+    
     [cell.minusBtn addTarget:self action:@selector(minusBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell.addBtn addTarget:self action:@selector(addBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.handinputcoungBtn.tag=indexPath.row;
+    [cell.handinputcoungBtn addTarget:self action:@selector(popCountChooer:) forControlEvents:UIControlEventTouchUpInside];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+-(void)popCountChooer:(UIButton *)sender{
+    HomeTableViewCell *cell=[_tableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    CountChooserViewController *vc=[[CountChooserViewController alloc]init];
+    vc.type=homecell;
+    vc.cell=cell;
+    
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self.tabBarController presentViewController:vc animated:YES completion:nil];
 
+}
 
 - (void)goToDetailVC:(UIButton *)send{
     NSDictionary *good = tablelist[send.tag];
@@ -471,7 +482,6 @@
     int i=[cell.countlab.text intValue];
     if(i>0){
         if(i==1)
-            [cell.minusBtn setTitleColor:[UIColor colorWithRed:163.0/255 green:163.0/255  blue:163.0/255  alpha:1.0] forState:UIControlStateNormal];
         cell.count=[NSString stringWithFormat:@"%d",i-1];
         [LocalAndOnlineFileTool addOrMinusBtnClickedToRefreshlocal:cell.goodsid withcount:i-1 tabbar:self.tabBarController];
     }

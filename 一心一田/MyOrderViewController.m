@@ -193,7 +193,7 @@
     int i=[dict int32ForKey:@"businessStatus"];
    
     //只有一个按钮的情况
-    if(i==2||i==6||i==8||i<0){
+    if(i==2||i==8||i<0){
         view=[[[NSBundle mainBundle]loadNibNamed:@"onebtninfooter" owner:self options:nil]firstObject];
         _acctuallypaidlab.text=[NSString stringWithFormat:@"实付款金额:¥%.2f",[dict doubleForKey:@"paymentAmount"]];
         
@@ -224,7 +224,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"sectiontitle" owner:self options:nil]firstObject];
-    view.frame=CGRectMake(0, 0, MAIN_WIDTH, 40);
+    view.frame=CGRectMake(0, 0, MAIN_WIDTH, 25);
     NSDictionary *dict=[orderlist[section] dictionaryForKey:@"orderHeader"];
     _ordercodelab.text=[NSString stringWithFormat:@"订单编号:%@",[dict stringForKey:@"orderCode"]];
    

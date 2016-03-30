@@ -100,7 +100,6 @@
             <connections>
                 <outlet property="goodsimage" destination="rcx-MR-AqJ" id="2Sm-QF-GbI"/>
                 <outlet property="goodsnamelab" destination="kNk-m2-g5a" id="9Yj-l5-fdl"/>
-                <outlet property="shortcommentlab" destination="OJb-8g-4Hi" id="o75-f0-hfy"/>
             </connections>
             <point key="canvasLocation" x="310.5" y="145.5"/>
         </tableViewCell>

@@ -1,29 +1,26 @@
-登录后的{
-    result=0,
-    data={
-        token=e7c297c497c1eedac80343d515973797,
-        member_info={
-            amount=100000,
-            login_name=test3,
-            acBal=-0.35,
-            id=1003,
-            phones=[
-                    13588888888,
-                    13566666666,
-                    13168168168
-                    ],
-            marketplaceId=1,
-            imagePath=<null>,
-            name=rrr,
-            goodsType={
-                pid=0,
-                status=0,
-                pids=1,
-                id=1,
-                level=1,
-                icon=http://static.exinetian.com/b2v/goods/image/source/2016328/1459161105564472.png,
-                name=干货调料
-            }
+{
+    "token": "59c099117dc961c649405e5ae9559ce2",
+    "member_info": {
+        "amount": 8000,
+        "login_name": "test1",
+        "acBal": -1.43,
+        "id": 1001,
+        "phones": [
+                   "13625625412",
+                   "13625625412",
+                   "13625625412"
+                   ],
+        "marketplaceId": 1,
+        "imagePath": "http://static.exinetian.com//b2v/member_profile/image/source/2016330/1459303217460754.jpg",
+        "name": "阿鲁",
+        "goodsType": {
+            "pid": 0,
+            "status": 0,
+            "pids": "4",
+            "id": 4,
+            "level": 1,
+            "icon": "http://static.exinetian.com/b2v/goods/image/source/2016328/1459161105615635.png",
+            "name": "生鲜水产"
         }
     }
 }
