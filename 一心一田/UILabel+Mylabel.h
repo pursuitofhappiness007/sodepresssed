@@ -1,5 +1,5 @@
 //
-//  Mylabel.h
+//  UILabel+Mylabel.h
 //  一心一田
 //
 //  Created by xipin on 16/3/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Mylabel : UILabel
-
+@interface UILabel (Mylabel)
+@property (nonatomic) IBInspectable BOOL aligntobottom;
 @end

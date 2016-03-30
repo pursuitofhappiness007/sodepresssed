@@ -105,7 +105,6 @@
 		FE7DBF921C8D6BFE003536BC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7DBF911C8D6BFE003536BC /* libsqlite3.0.tbd */; };
 		FE89EFC61CAA900E00C898CB /* SubtitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE89EFC41CAA900E00C898CB /* SubtitleTableViewCell.m */; };
 		FE89EFC71CAA900E00C898CB /* SubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFC51CAA900E00C898CB /* SubtitleTableViewCell.xib */; };
-		FE89EFC91CAAC40300C898CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE89EFC81CAAC40300C898CB /* Assets.xcassets */; };
 		FE906D1C1CA0F4220099D786 /* commonfooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1B1CA0F4220099D786 /* commonfooter.xib */; };
 		FE906D1E1CA0F6A80099D786 /* zeroBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */; };
 		FE906D201CA0F6B90099D786 /* oneBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE906D1F1CA0F6B90099D786 /* oneBtn.xib */; };
@@ -130,7 +129,8 @@
 		FECA29AB1CAB6FE00063C7E1 /* CountChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA29A91CAB6FE00063C7E1 /* CountChooserViewController.m */; };
 		FECA29AC1CAB6FE00063C7E1 /* CountChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECA29AA1CAB6FE00063C7E1 /* CountChooserViewController.xib */; };
 		FECA29AF1CAB93EF0063C7E1 /* headerfortableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECA29AE1CAB93EF0063C7E1 /* headerfortableview.xib */; };
-		FECA29B21CABE8640063C7E1 /* Mylabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA29B11CABE8640063C7E1 /* Mylabel.m */; };
+		FECA29B41CABE9280063C7E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECA29B31CABE9280063C7E1 /* Assets.xcassets */; };
+		FECA29B71CABEA220063C7E1 /* UILabel+Mylabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FECA29B61CABEA220063C7E1 /* UILabel+Mylabel.m */; };
 		FECF1A8F1C9FEDCD00A7A580 /* NewFuturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */; };
 		FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */; };
 		FECF1A921C9FF7BB00A7A580 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = FECF1A911C9FF7BB00A7A580 /* 4.png */; };
@@ -343,7 +343,6 @@
 		FE89EFC31CAA900E00C898CB /* SubtitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtitleTableViewCell.h; sourceTree = "<group>"; };
 		FE89EFC41CAA900E00C898CB /* SubtitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtitleTableViewCell.m; sourceTree = "<group>"; };
 		FE89EFC51CAA900E00C898CB /* SubtitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtitleTableViewCell.xib; sourceTree = "<group>"; };
-		FE89EFC81CAAC40300C898CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE906D1B1CA0F4220099D786 /* commonfooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commonfooter.xib; sourceTree = "<group>"; };
 		FE906D1D1CA0F6A80099D786 /* zeroBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zeroBtn.xib; sourceTree = "<group>"; };
 		FE906D1F1CA0F6B90099D786 /* oneBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneBtn.xib; sourceTree = "<group>"; };
@@ -378,8 +377,9 @@
 		FECA29A91CAB6FE00063C7E1 /* CountChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountChooserViewController.m; sourceTree = "<group>"; };
 		FECA29AA1CAB6FE00063C7E1 /* CountChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountChooserViewController.xib; sourceTree = "<group>"; };
 		FECA29AE1CAB93EF0063C7E1 /* headerfortableview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerfortableview.xib; sourceTree = "<group>"; };
-		FECA29B01CABE8640063C7E1 /* Mylabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mylabel.h; sourceTree = "<group>"; };
-		FECA29B11CABE8640063C7E1 /* Mylabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mylabel.m; sourceTree = "<group>"; };
+		FECA29B31CABE9280063C7E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FECA29B51CABEA220063C7E1 /* UILabel+Mylabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Mylabel.h"; sourceTree = "<group>"; };
+		FECA29B61CABEA220063C7E1 /* UILabel+Mylabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Mylabel.m"; sourceTree = "<group>"; };
 		FECF1A8C1C9FEDCD00A7A580 /* NewFuturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFuturesViewController.h; sourceTree = "<group>"; };
 		FECF1A8D1C9FEDCD00A7A580 /* NewFuturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFuturesViewController.m; sourceTree = "<group>"; };
 		FECF1A8E1C9FEDCD00A7A580 /* NewFuturesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFuturesViewController.xib; sourceTree = "<group>"; };
@@ -591,7 +591,7 @@
 		FE6DC02B1C8D597200E93578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE89EFC81CAAC40300C898CB /* Assets.xcassets */,
+				FECA29B31CABE9280063C7E1 /* Assets.xcassets */,
 				FE6DC02C1C8D597200E93578 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -628,8 +628,6 @@
 		FE6DC0441C8D5B2B00E93578 /* Extensios */ = {
 			isa = PBXGroup;
 			children = (
-				FECA29B01CABE8640063C7E1 /* Mylabel.h */,
-				FECA29B11CABE8640063C7E1 /* Mylabel.m */,
 			);
 			name = Extensios;
 			sourceTree = "<group>";
@@ -646,6 +644,8 @@
 				FE7DBF5D1C8D68D5003536BC /* UIView+Extension.m */,
 				FE7DBF5E1C8D68D5003536BC /* UIView+xibcong.h */,
 				FE7DBF5F1C8D68D5003536BC /* UIView+xibcong.m */,
+				FECA29B51CABEA220063C7E1 /* UILabel+Mylabel.h */,
+				FECA29B61CABEA220063C7E1 /* UILabel+Mylabel.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -1169,6 +1169,7 @@
 				FEDFA1051C914C600010E5E3 /* MyOrderTableViewCell.xib in Resources */,
 				FEB20D9C1C929A830018A11C /* titileaftersearch.xib in Resources */,
 				CEECE2051C9AD1AD009D11D8 /* AcountDetailTableViewCell.xib in Resources */,
+				FECA29B41CABE9280063C7E1 /* Assets.xcassets in Resources */,
 				FEDFA0CA1C91266E0010E5E3 /* ClassficationViewController.xib in Resources */,
 				FECF1A901C9FEDCD00A7A580 /* NewFuturesViewController.xib in Resources */,
 				CEECE1E91C9AD17D009D11D8 /* tableviewheader.xib in Resources */,
@@ -1234,7 +1235,6 @@
 				FE7DBF4A1C8D6899003536BC /* SDWebImageCompat.m in Sources */,
 				FE7734B91C8D8D6C00397142 /* WXPayTool.m in Sources */,
 				FE7DBF851C8D6AC2003536BC /* FMResultSet.m in Sources */,
-				FECA29B21CABE8640063C7E1 /* Mylabel.m in Sources */,
 				CE596B0C1CA131F100B3F82E /* newProductViewController.m in Sources */,
 				FE7DBF611C8D68D5003536BC /* NSDictionary+SafeAccess.m in Sources */,
 				FE7DBF1F1C8D6873003536BC /* AFNetworkReachabilityManager.m in Sources */,
@@ -1260,6 +1260,7 @@
 				FE7DBF551C8D6899003536BC /* UIImageView+WebCache.m in Sources */,
 				CE84F9C61CAAA8D9004FF107 /* CommitPayViewController.m in Sources */,
 				FE7DBF531C8D6899003536BC /* UIImage+WebP.m in Sources */,
+				FECA29B71CABEA220063C7E1 /* UILabel+Mylabel.m in Sources */,
 				FE7DBF491C8D6899003536BC /* SDImageCache.m in Sources */,
 				CEECE1D81C9AD173009D11D8 /* PersonalCenterViewController.m in Sources */,
 				FE9B6A281C9AD44D007B6683 /* UIView+SDExtension.m in Sources */,

@@ -23,7 +23,7 @@
 #import "DictionaryToJsonStr.h"
 #import "UIView+xibcong.h"
 #import "LocalAndOnlineFileTool.h"
-
+#import "UILabel+Mylabel.h"
 #define MAIN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define MAIN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define StatusBarH 20
