@@ -13,7 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalmoneylab;
-//yi
+//已售多少件
+@property (weak, nonatomic) IBOutlet UILabel *hasbeensaled;
+//规格乘以单价
+@property (weak, nonatomic) IBOutlet UILabel *specificandpricelab;
 
 @end
 @implementation OrderllistTableViewCell
